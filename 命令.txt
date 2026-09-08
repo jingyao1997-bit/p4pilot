@@ -1,0 +1,84 @@
+============================================================
+P4Pilot 实验记录
+Step 01 - 开发环境基线
+Time: 2026-09-08 14:47:21 +0800
+============================================================
+
+############################
+# macOS
+############################
+ProductName:		macOS
+ProductVersion:		26.5.1
+BuildVersion:		25F80
+
+Darwin iMac.local 25.5.0 Darwin Kernel Version 25.5.0: Mon Apr 27 20:31:18 PDT 2026; root:xnu-12377.121.6~2/RELEASE_X86_64 x86_64
+
+############################
+# Git
+############################
+git version 2.49.0
+
+############################
+# ADB
+############################
+/Users/luojingyao/platform-tools/adb
+Android Debug Bridge version 1.0.41
+Version 34.0.5-10900879
+Installed as /Users/luojingyao/platform-tools/adb
+Running on Darwin 25.5.0 (x86_64)
+
+############################
+# Fastboot
+############################
+/Users/luojingyao/platform-tools/fastboot
+fastboot version 34.0.5-10900879
+Installed as /Users/luojingyao/platform-tools/fastboot
+
+############################
+# Python
+############################
+/usr/local/bin/python3
+Python 3.12.3
+
+############################
+# Java
+############################
+/usr/local/bin/java
+openjdk version "17.0.18" 2026-01-20
+OpenJDK Runtime Environment Homebrew (build 17.0.18+0)
+OpenJDK 64-Bit Server VM Homebrew (build 17.0.18+0, mixed mode, sharing)
+
+############################
+# ADB Devices
+############################
+List of devices attached
+9A181FFBA00072         device 20-6 product:coral model:Pixel_4_XL device:coral transport_id:3
+
+
+############################
+# Pixel 4 XL 基本信息
+############################
+coral
+Pixel 4 XL
+msmnile
+coral
+arm64-v8a
+_a
+c2f2-0.5-8906123
+13
+
+############################
+# Bootloader / Root
+############################
+0
+orange
+unlocked
+uid=0(root) gid=0(root) groups=0(root) context=u:r:magisk:s0
+
+############################
+# USB
+############################
+
+============================================================
+Step 01 完成
+============================================================
