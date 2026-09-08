@@ -1100,3 +1100,65 @@ build-error: 0 (30 days)
 ============================================================
 Step 10 完成
 ============================================================
+
+============================================================
+P4Pilot Step 11 - 创建 Gradle Wrapper
+Time: 2026-09-08 15:59:55 +0800
+============================================================
+
+>>> Gradle:
+/usr/local/bin/gradle
+
+------------------------------------------------------------
+Gradle 9.7.1
+------------------------------------------------------------
+
+Build time:    2026-08-19 14:16:09 UTC
+Revision:      92f0512e7f06d84621afba191f75e265363890cf
+
+Kotlin:        2.4.0
+Groovy:        4.0.32
+Ant:           Apache Ant(TM) version 1.10.17 compiled on April 6 2026
+Launcher JVM:  26.0.2.1 (Homebrew 26.0.2.1)
+Daemon JVM:    /usr/local/Cellar/openjdk/26.0.2.1/libexec/openjdk.jdk/Contents/Home (no Daemon JVM specified, using current Java home)
+OS:            Mac OS X 26.5.1 x86_64
+
+
+>>> Java:
+openjdk version "17.0.18" 2026-01-20
+OpenJDK Runtime Environment Homebrew (build 17.0.18+0)
+OpenJDK 64-Bit Server VM Homebrew (build 17.0.18+0, mixed mode, sharing)
+
+>>> 创建 Wrapper:
+Starting a Gradle Daemon (subsequent builds will be faster)
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Directory '/Users/luojingyao/p4pilot' does not contain a Gradle build.
+
+A Gradle build's root directory should contain one of the possible settings files: settings.gradle, settings.gradle.kts, settings.gradle.dcl. It may also contain one of the possible build files: build.gradle, build.gradle.kts, build.gradle.dcl.
+
+To create a new Gradle build in this directory run 'gradle init'
+
+For more information about the 'init' task, please refer to https://docs.gradle.org/9.7.1/userguide/build_init_plugin.html in the Gradle documentation.
+
+For more details on creating a Gradle build, please refer to https://docs.gradle.org/9.7.1/userguide/tutorial_using_tasks.html in the Gradle documentation.
+
+* Try:
+> Run gradle init to create a new Gradle build in this directory.
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 2s
+
+>>> Wrapper 文件:
+zsh: unknown file attribute:  
+
+>>> Wrapper 版本:
+zsh: no such file or directory: ./gradlew
+
+============================================================
+Step 11 完成
+============================================================
