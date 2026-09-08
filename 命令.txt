@@ -439,3 +439,64 @@ List of devices attached
 ============================================================
 Step 04 完成
 ============================================================
+
+============================================================
+P4Pilot Step 04 - GitHub 同步检查
+Time: 2026-09-08 15:18:26 +0800
+============================================================
+
+>>> git status
+位于分支 main
+您的分支领先 'origin/main' 共 1 个提交。
+  （使用 "git push" 来发布您的本地提交）
+
+无文件要提交，干净的工作区
+
+>>> recent commits
+eeb9e31 Step 04: configure Android SDK 33
+d78448d Step 03: install Android command line tools
+29b35b8 Step 02: check Android build environment
+f6bcf45 Step 01: macOS development environment baseline
+781a0c9 Add Step 01 development environment baseline
+
+>>> 命令.txt tail
+drwxr-xr-x  13 luojingyao  admin       416  9月  8 15:17 templates
+-rw-r--r--   1 luojingyao  admin     10547  9月  8 15:17 uiautomator.jar
+
+>>> adb
+Android Debug Bridge version 1.0.41
+Version 37.0.1-15733141
+Installed as /usr/local/share/android-commandlinetools/platform-tools/adb
+Running on Darwin 25.5.0 (x86_64)
+
+>>> Pixel
+List of devices attached
+9A181FFBA00072         device 20-6 product:coral model:Pixel_4_XL device:coral transport_id:3
+
+33
+13
+
+============================================================
+Step 04 完成
+============================================================
+
+============================================================
+P4Pilot Step 04 - GitHub 同步检查
+Time: 2026-09-08 15:18:26 +0800
+============================================================
+
+>>> git status
+位于分支 main
+您的分支领先 'origin/main' 共 1 个提交。
+  （使用 "git push" 来发布您的本地提交）
+
+无文件要提交，干净的工作区
+
+>>> recent commits
+eeb9e31 Step 04: configure Android SDK 33
+d78448d Step 03: install Android command line tools
+29b35b8 Step 02: check Android build environment
+f6bcf45 Step 01: macOS development environment baseline
+781a0c9 Add Step 01 development environment baseline
+
+>>> 命令.txt tail
