@@ -3223,3 +3223,123 @@ drwxrws--x   2 u0_a256 u0_a256_cache  3452 2026-09-08 10:29 code_cache
 
 ============================================================
 P4Pilot Step 37 完成
+
+============================================================
+P4Pilot Step 38 - Camera2枚举与能力验证
+============================================================
+
+>>> 当前Git状态:
+ M app/src/main/AndroidManifest.xml
+ M app/src/main/java/com/p4pilot/MainActivity.java
+
+>>> 开始Debug构建:
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preDebugBuild UP-TO-DATE
+> Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
+> Task :app:javaPreCompileDebug UP-TO-DATE
+> Task :app:checkDebugAarMetadata UP-TO-DATE
+> Task :app:processDebugNavigationResources UP-TO-DATE
+> Task :app:compileDebugNavigationResources UP-TO-DATE
+> Task :app:generateDebugResValues UP-TO-DATE
+> Task :app:mapDebugSourceSetPaths UP-TO-DATE
+> Task :app:generateDebugResources UP-TO-DATE
+> Task :app:mergeDebugResources UP-TO-DATE
+> Task :app:packageDebugResources UP-TO-DATE
+> Task :app:parseDebugLocalResources UP-TO-DATE
+> Task :app:createDebugCompatibleScreenManifests UP-TO-DATE
+> Task :app:extractDeepLinksDebug UP-TO-DATE
+> Task :app:processDebugMainManifest
+> Task :app:processDebugManifest
+> Task :app:mergeDebugShaders UP-TO-DATE
+> Task :app:compileDebugShaders NO-SOURCE
+> Task :app:generateDebugAssets UP-TO-DATE
+> Task :app:mergeDebugAssets UP-TO-DATE
+> Task :app:compressDebugAssets UP-TO-DATE
+> Task :app:processDebugJavaRes NO-SOURCE
+> Task :app:mergeDebugJavaResource UP-TO-DATE
+> Task :app:checkDebugDuplicateClasses UP-TO-DATE
+> Task :app:desugarDebugFileDependencies UP-TO-DATE
+> Task :app:mergeExtDexDebug UP-TO-DATE
+> Task :app:mergeLibDexDebug UP-TO-DATE
+> Task :app:mergeDebugJniLibFolders UP-TO-DATE
+> Task :app:mergeDebugNativeLibs NO-SOURCE
+> Task :app:stripDebugDebugSymbols NO-SOURCE
+> Task :app:validateSigningDebug UP-TO-DATE
+> Task :app:writeDebugAppMetadata UP-TO-DATE
+> Task :app:writeDebugSigningConfigVersions UP-TO-DATE
+> Task :app:processDebugManifestForPackage
+> Task :app:processDebugResources
+
+> Task :app:compileDebugJavaWithJavac FAILED
+
+[Incubating] Problems report is available at: file:///Users/luojingyao/p4pilot/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.13/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+29 actionable tasks: 5 executed, 24 up-to-date
+
+>>> APK安装:
+Performing Streamed Install
+Success
+
+>>> 启动P4Pilot:
+  bash arg: -p
+  bash arg: com.p4pilot
+  bash arg: 1
+Events injected: 1
+## Network stats: elapsed time=56ms (0ms mobile, 0ms wifi, 56ms not connected)
+
+>>> P4Pilot进程:
+26688
+
+>>> Camera Service:
+Number of camera devices: 3
+Number of normal camera devices: 2
+    Device 0 maps to "0"
+    Device 1 maps to "1"
+    Facing: Back
+    Orientation: 90
+      android.request.availableCapabilities (c000c): byte[8]
+      android.request.availableCapabilities (c000c): byte[7]
+      android.request.availableCapabilities (c000c): byte[6]
+    Facing: Front
+    Orientation: 270
+      android.request.availableCapabilities (c000c): byte[7]
+    Facing: Front
+    Orientation: 270
+      android.request.availableCapabilities (c000c): byte[5]
+      android.request.availableCapabilities (c000c): byte[4]
+      android.request.availableCapabilities (c000c): byte[4]
+
+>>> P4Pilot日志:
+09-08 10:36:07.850  2585  2585 D ImsResolver: maybeAddedImsService, packageName: com.p4pilot
+09-08 10:36:07.851  1734  3400 I ActivityManager: Force stopping com.p4pilot appid=10256 user=0: from pid 26670
+09-08 10:36:07.866  2585  2585 D CarrierSvcBindHelper: onHandleForceStop: [com.p4pilot]
+09-08 10:36:07.934  1734  1974 E VerityUtils: Failed to measure fs-verity, errno 1: /data/app/~~ARJfiI6FGwVePAjzIZz8vA==/com.p4pilot-g7dM9detz_8Xtn82lVUM5Q==/base.apk
+09-08 10:36:07.969  1410  1410 I adbd    : adbd service requested 'shell,v2,TERM=xterm-256color,raw:monkey -p com.p4pilot 1'
+09-08 10:36:08.094 26677 26677 D nativeloader: InitDefaultPublicLibraries for_preload=1: libandroid.so:libaaudio.so:libamidi.so:libbinder_ndk.so:libc.so:libcamera2ndk.so:libdl.so:libEGL.so:libGLESv1_CM.so:libGLESv2.so:libGLESv3.so:libicu.so:libicui18n.so:libicuuc.so:libjnigraphics.so:liblog.so:libmediandk.so:libm.so:libnativehelper.so:libnativewindow.so:libOpenMAXAL.so:libOpenSLES.so:libRS.so:libstdc++.so:libsync.so:libvulkan.so:libwebviewchromium_plat_support.so:libz.so
+09-08 10:36:08.136 26677 26677 W Monkey  : args: [-p, com.p4pilot, 1]
+09-08 10:36:08.136 26677 26677 W Monkey  :  arg: "com.p4pilot"
+09-08 10:36:08.136 26677 26677 W Monkey  : data="com.p4pilot"
+09-08 10:36:08.154  1734  2468 I ActivityTaskManager: START u0 {act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10200000 cmp=com.p4pilot/.MainActivity} from uid 2000
+09-08 10:36:08.186  1734  3182 D CoreBackPreview: Window{35293ca u0 Splash Screen com.p4pilot}: Setting back callback OnBackInvokedCallbackInfo{mCallback=android.window.IOnBackInvokedCallback$Stub$Proxy@c06c3ed, mPriority=0}
+09-08 10:36:08.200  1734  1874 I ActivityManager: Start proc 26688:com.p4pilot/u0a256 for next-top-activity {com.p4pilot/com.p4pilot.MainActivity}
+09-08 10:36:08.209 26688 26688 I com.p4pilot: Late-enabling -Xcheck:jni
+09-08 10:36:08.237 26688 26688 I com.p4pilot: Using generational CollectorTypeCC GC.
+09-08 10:36:08.297 26688 26688 D nativeloader: Configuring clns-4 for other apk /data/app/~~ARJfiI6FGwVePAjzIZz8vA==/com.p4pilot-g7dM9detz_8Xtn82lVUM5Q==/base.apk. target_sdk_version=33, uses_libraries=, library_path=/data/app/~~ARJfiI6FGwVePAjzIZz8vA==/com.p4pilot-g7dM9detz_8Xtn82lVUM5Q==/lib/arm64, permitted_path=/data:/mnt/expand:/data/user/0/com.p4pilot
+09-08 10:36:08.310 26688 26688 V GraphicsEnvironment: ANGLE Developer option for 'com.p4pilot' set to: 'default'
+09-08 10:36:08.310 26688 26688 V GraphicsEnvironment: ANGLE GameManagerService for com.p4pilot: false
+09-08 10:36:08.365  1734  4300 D CoreBackPreview: Window{e496736 u0 com.p4pilot/com.p4pilot.MainActivity}: Setting back callback OnBackInvokedCallbackInfo{mCallback=android.window.IOnBackInvokedCallback$Stub$Proxy@dffda10, mPriority=0}
+09-08 10:36:08.454  1734  1853 I ActivityTaskManager: Displayed com.p4pilot/.MainActivity: +296ms
+09-08 10:36:08.463  7146  7146 I GoogleInputMethodService: GoogleInputMethodService.onStartInput():1532 onStartInput(EditorInfo{EditorInfo{packageName=com.p4pilot, inputType=0, inputTypeString=NULL, enableLearning=false, autoCorrection=false, autoComplete=false, imeOptions=0, privateImeOptions=null, actionName=UNSPECIFIED, actionLabel=null, initialSelStart=-1, initialSelEnd=-1, initialCapsMode=0, label=null, fieldId=-1, fieldName=null, extras=null, hintText=null, hintLocales=[]}}, false)
+09-08 10:36:08.833  1734  4277 D CoreBackPreview: Window{35293ca u0 Splash Screen com.p4pilot EXITING}: Setting back callback null
+09-08 10:36:08.833  1734  4300 W InputManager-JNI: Input channel object '35293ca Splash Screen com.p4pilot (client)' was disposed without first being removed with the input manager!
+09-08 10:36:10.392  1410  1410 I adbd    : adbd service requested 'shell,v2,TERM=xterm-256color,raw:pidof com.p4pilot'
+09-08 10:36:10.507  1410  1410 I adbd    : adbd service requested 'shell,v2,TERM=xterm-256color,raw:dumpsys media.camera'
+
+============================================================
+P4Pilot Step 38 完成
+============================================================
