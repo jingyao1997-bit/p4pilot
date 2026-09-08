@@ -5262,3 +5262,320 @@ P4Pilot Step 49 completed at 2026年 9月 8日 星期二 23时46分09秒 CST
 ============================================================
 P4Pilot Step 49 TEST FINISHED
 ============================================================
+
+>>> 22. Git Commit
+[main dab6f2a] test: validate YUV to JPEG conversion and performance
+ 2 files changed, 953 insertions(+), 8 deletions(-)
+
+>>> 23. FORCE PUSH
+
+>>> 24. REMOTE VERIFY
+LOCAL : dab6f2a334cd4fd51ad6403d2a8db7081058230e
+REMOTE: dab6f2a334cd4fd51ad6403d2a8db7081058230e
+P4Pilot FORCE PUSH VERIFIED: LOCAL == ORIGIN/MAIN
+
+============================================================
+P4Pilot Step 49 完成
+============================================================
+
+============================================================
+P4Pilot Step 50 - 清理重复 yuv420ToBitmap 并恢复编译
+============================================================
+2026年 9月 8日 星期二 23时47分18秒 CST
+
+>>> 1. 当前 Git 状态
+ M "\345\221\275\344\273\244.txt"
+dab6f2a test: validate YUV to JPEG conversion and performance
+
+>>> 2. 备份 MainActivity.java
+BACKUP OK
+
+>>> 3. 检查 yuv420ToBitmap 定义数量
+BEFORE_COUNT=3
+
+>>> 4. 清理重复方法
+FOUND_DEFINITIONS = 3
+KEEP_FIRST_RANGE = 25863 28915
+CLEANUP DONE
+
+>>> 5. 再次检查定义数量
+AFTER_COUNT=1
+P4Pilot Step50 duplicate cleanup: OK
+
+>>> 6. 编译 Debug APK
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preDebugBuild UP-TO-DATE
+> Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
+> Task :app:javaPreCompileDebug UP-TO-DATE
+> Task :app:checkDebugAarMetadata UP-TO-DATE
+> Task :app:processDebugNavigationResources UP-TO-DATE
+> Task :app:compileDebugNavigationResources UP-TO-DATE
+> Task :app:generateDebugResValues UP-TO-DATE
+> Task :app:mapDebugSourceSetPaths UP-TO-DATE
+> Task :app:generateDebugResources UP-TO-DATE
+> Task :app:mergeDebugResources UP-TO-DATE
+> Task :app:packageDebugResources UP-TO-DATE
+> Task :app:parseDebugLocalResources UP-TO-DATE
+> Task :app:createDebugCompatibleScreenManifests UP-TO-DATE
+> Task :app:extractDeepLinksDebug UP-TO-DATE
+> Task :app:processDebugMainManifest UP-TO-DATE
+> Task :app:processDebugManifest UP-TO-DATE
+> Task :app:processDebugManifestForPackage UP-TO-DATE
+> Task :app:processDebugResources UP-TO-DATE
+
+> Task :app:compileDebugJavaWithJavac
+注: /Users/luojingyao/p4pilot/app/src/main/java/com/p4pilot/MainActivity.java使用或覆盖了已过时的 API。
+注: 有关详细信息, 请使用 -Xlint:deprecation 重新编译。
+
+> Task :app:mergeDebugShaders UP-TO-DATE
+> Task :app:compileDebugShaders NO-SOURCE
+> Task :app:generateDebugAssets UP-TO-DATE
+> Task :app:mergeDebugAssets UP-TO-DATE
+> Task :app:compressDebugAssets UP-TO-DATE
+> Task :app:processDebugJavaRes NO-SOURCE
+> Task :app:mergeDebugJavaResource UP-TO-DATE
+> Task :app:checkDebugDuplicateClasses UP-TO-DATE
+> Task :app:desugarDebugFileDependencies UP-TO-DATE
+> Task :app:mergeExtDexDebug UP-TO-DATE
+> Task :app:mergeLibDexDebug UP-TO-DATE
+> Task :app:dexBuilderDebug
+> Task :app:mergeDebugJniLibFolders UP-TO-DATE
+> Task :app:mergeDebugNativeLibs NO-SOURCE
+> Task :app:stripDebugDebugSymbols NO-SOURCE
+> Task :app:validateSigningDebug UP-TO-DATE
+> Task :app:writeDebugAppMetadata UP-TO-DATE
+> Task :app:writeDebugSigningConfigVersions UP-TO-DATE
+> Task :app:mergeProjectDexDebug
+> Task :app:packageDebug
+> Task :app:createDebugApkListingFileRedirect
+> Task :app:assembleDebug
+
+[Incubating] Problems report is available at: file:///Users/luojingyao/p4pilot/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.13/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 1s
+33 actionable tasks: 5 executed, 28 up-to-date
+
+>>> 7. APK 信息
+-rw-r--r--  1 luojingyao  staff    17K  9月  8 23:47 app/build/outputs/apk/debug/app-debug.apk
+d38a99c20ea940b331a42318aaa5654730c91b83eba09c03e5cff2571f3d7d44  app/build/outputs/apk/debug/app-debug.apk
+
+>>> 8. 安装 APK
+Performing Streamed Install
+Success
+
+>>> 9. 强制停止旧 P4Pilot
+
+>>> 10. 清理旧测试 JPEG
+zsh: no matches found: /sdcard/Android/data/com.p4pilot/files/P4Pilot/step41/*
+
+>>> 11. 清理 Logcat
+
+>>> 12. 启动 P4Pilot
+  bash arg: -p
+  bash arg: com.p4pilot
+  bash arg: 1
+args: [-p, com.p4pilot, 1]
+ arg: "-p"
+ arg: "com.p4pilot"
+ arg: "1"
+data="com.p4pilot"
+Events injected: 1
+## Network stats: elapsed time=48ms (0ms mobile, 0ms wifi, 48ms not connected)
+
+>>> 13. 等待 Camera2 + YUV
+
+>>> 14. P4Pilot 进程
+17366
+
+>>> 15. Step50 P4Pilot 日志
+09-08 16:47:23.478 W/ImageReader_JNI( 1734): Unable to acquire a buffer item, very likely client tried to acquire more than maxImages buffers
+09-08 16:47:23.647 W/ImageReader_JNI( 1734): Unable to acquire a buffer item, very likely client tried to acquire more than maxImages buffers
+09-08 16:47:23.801 I/CameraDeviceClient( 1330): CameraDeviceClient 0: Opened
+09-08 16:47:23.807 D/GCH_CameraDeviceHwlImpl( 1076): CreateCameraDeviceSessionHwl CAMERA_LAUNCH 1
+09-08 16:47:23.808 I/GCH_CameraDeviceSession( 1076): Initialize: measure buffer allocation time: 0 
+09-08 16:47:23.810 W/GCH_CameraDeviceSession( 1076): InitializeZoomRatioMapper: Failed to get the zoom ratio range: No such file or directory(-2)
+09-08 16:47:23.810 I/GCH_CameraDeviceSession( 1076): Create: Created a device session for camera 0 with 2 physical cameras: 3 4 
+09-08 16:47:23.839 I/GCH_CameraDeviceSession( 1076): NotifyThrottling: temperature type: -1, severity: 0, value: 0.000000
+09-08 16:47:23.839 I/GCH_CameraDeviceSession( 1076): NotifyThrottling: temperature type: 3, severity: 0, value: 36.956001
+09-08 16:47:23.839 I/GCH_CameraDeviceSession( 1076): NotifyThrottling: temperature type: 4, severity: 0, value: 29.798002
+09-08 16:47:23.884 D/GCH_CameraDeviceSessionHwlImpl( 1076): SetStreamingPowerHintOn CAMERA_STREAMING
+09-08 16:47:23.923 I/CamX    ( 1076): [CONFIG][CORE   ] camxpipeline.cpp:1489 CreateNodes() Topology::GoogleDualFovPhotoOffline_0 Node::GoogleDualFovPhotoOffline_JPEG_Aggregator_0 Type 6 numInputPorts 2 numOutputPorts 1
+09-08 16:47:23.923 I/CamX    ( 1076): [CONFIG][CORE   ] camxpipeline.cpp:1489 CreateNodes() Topology::GoogleDualFovPhotoOffline_0 Node::GoogleDualFovPhotoOffline_JPEG_Encoder_0 Type 65537 numInputPorts 1 numOutputPorts 1
+09-08 16:47:23.923 I/CamX    ( 1076): [CONFIG][CORE   ] camxpipeline.cpp:1489 CreateNodes() Topology::GoogleDualFovPhotoOffline_0 Node::GoogleDualFovPhotoOffline_JPEG_Encoder_1 Type 65537 numInputPorts 1 numOutputPorts 1
+09-08 16:47:23.923 I/CamX    ( 1076): [CONFIG][CORE   ] camxpipeline.cpp:1595 CreateNodes() Topology: Pipeline[GoogleDualFovPhotoOffline_0] Link: Node::GoogleDualFovPhotoOffline_JPEG_Encoder_0(outPort 1) --> (inPort 0) Node::GoogleDualFovPhotoOffline_JPEG_Aggregator_0 using format 3
+09-08 16:47:23.923 I/CamX    ( 1076): [CONFIG][CORE   ] camxpipeline.cpp:1595 CreateNodes() Topology: Pipeline[GoogleDualFovPhotoOffline_0] Link: Node::GoogleDualFovPhotoOffline_JPEG_Encoder_1(outPort 1) --> (inPort 1) Node::GoogleDualFovPhotoOffline_JPEG_Aggregator_0 using format 3
+09-08 16:47:23.923 I/CamX    ( 1076): [CONFIG][CORE   ] camxpipeline.cpp:1595 CreateNodes() Topology: Pipeline[GoogleDualFovPhotoOffline_0] Link: Node::GoogleDualFovPhotoOffline_IPE_1(outPort 9) --> (inPort 0) Node::GoogleDualFovPhotoOffline_JPEG_Encoder_0 using format 3
+09-08 16:47:23.923 I/CamX    ( 1076): [CONFIG][CORE   ] camxpipeline.cpp:1595 CreateNodes() Topology: Pipeline[GoogleDualFovPhotoOffline_0] Link: Node::GoogleDualFovPhotoOffline_IPE_1(outPort 8) --> (inPort 0) Node::GoogleDualFovPhotoOffline_JPEG_Encoder_1 using format 3
+09-08 16:47:23.925 I/GCH_CameraDeviceSessionHwlImpl( 1076): CreateChiSessions Creating the realtime session
+09-08 16:47:24.003 I/GCH_CameraDeviceSessionHwlImpl( 1076): CreateChiSessions Creating offline session #0
+09-08 16:47:24.015 I/GCH_CameraDeviceSession( 1076): RegisterStreamsIntoCacheManagerLocked: [sbc] Registered stream 0 into SBC manager.
+09-08 16:47:24.117 I/GCH_CameraDeviceSession( 1076): ProcessCaptureRequest: [sbc] Stream 0 1st req arrived, notify SBC Manager.
+09-08 16:47:24.424 I/GCH_AidlCameraDeviceSession( 1076): ProcessCaptureResult: First frame done
+09-08 16:47:24.426 I/System.out(17366): P4Pilot Step49 FIRST_FRAME
+09-08 16:47:24.426 I/System.out(17366): P4Pilot Step49 FRAME_START
+09-08 16:47:24.426 I/System.out(17366): P4Pilot Step49 width=1280 height=720 format=35
+09-08 16:47:24.426 I/System.out(17366): P4Pilot Step49 plane[0] rowStride=1280 pixelStride=1 remaining=921600 limit=921600
+09-08 16:47:24.426 I/System.out(17366): P4Pilot Step49 plane[1] rowStride=1280 pixelStride=2 remaining=460799 limit=460799
+09-08 16:47:24.426 I/System.out(17366): P4Pilot Step49 plane[2] rowStride=1280 pixelStride=2 remaining=460799 limit=460799
+09-08 16:47:24.426 I/System.out(17366): P4Pilot Step49 CONTENT_TEST_BEGIN
+09-08 16:47:24.529 I/System.out(17366): P4Pilot Step49 BITMAP_OK width=1280 height=720
+09-08 16:47:24.558 I/System.out(17366): P4Pilot Step49 JPEG_DECODE_OK
+09-08 16:47:24.558 I/System.out(17366): P4Pilot Step49 JPEG_PATH=/storage/emulated/0/Android/data/com.p4pilot/files/P4Pilot/step41/step49_test.jpg
+09-08 16:47:24.559 I/System.out(17366): P4Pilot Step49 CONTENT_TEST_END
+09-08 16:47:24.559 I/System.out(17366): P4Pilot Step49 CONTENT_TEST_BEGIN
+09-08 16:47:24.603 I/System.out(17366): P4Pilot Step49 BITMAP_OK width=1280 height=720
+09-08 16:47:24.623 I/System.out(17366): P4Pilot Step49 JPEG_DECODE_OK
+09-08 16:47:24.623 I/System.out(17366): P4Pilot Step49 JPEG_PATH=/storage/emulated/0/Android/data/com.p4pilot/files/P4Pilot/step41/step49_test.jpg
+09-08 16:47:24.624 I/System.out(17366): P4Pilot Step49 CONTENT_TEST_END
+09-08 16:47:24.624 I/System.out(17366): P4Pilot Step49 CONTENT_TEST_BEGIN
+09-08 16:47:24.667 I/System.out(17366): P4Pilot Step49 BITMAP_OK width=1280 height=720
+09-08 16:47:24.687 I/System.out(17366): P4Pilot Step49 JPEG_DECODE_OK
+09-08 16:47:24.687 I/System.out(17366): P4Pilot Step49 JPEG_PATH=/storage/emulated/0/Android/data/com.p4pilot/files/P4Pilot/step41/step49_test.jpg
+09-08 16:47:24.688 I/System.out(17366): P4Pilot Step49 CONTENT_TEST_END
+09-08 16:47:24.930 I/System.out(17366): P4Pilot Step49 FRAME=10 elapsedMs=503 fps=17.89
+09-08 16:47:25.594 I/System.out(17366): P4Pilot Step49 FRAME=30 elapsedMs=1168 fps=24.83
+09-08 16:47:26.596 I/System.out(17366): P4Pilot Step49 FRAME=60 elapsedMs=2170 fps=27.19
+09-08 16:47:27.927 I/System.out(17366): P4Pilot Step49 FRAME=100 elapsedMs=3501 fps=28.28
+
+>>> 16. Camera 当前状态
+    Device 1 maps to "1"
+Active Camera Clients:
+[
+(Camera ID: 0, Cost: 50, PID: 17366, Score: 0, State: 2User Id: 0, Client Package Name: com.p4pilot, Conflicting Client Devices: {1, 2, 3, 4, 5, 6, 7, })
+]
+Allowed user IDs: 0
+
+== Camera service events log (most recent at top): ==
+  09-08 16:47:23 : CONNECT device 0 client for package com.p4pilot (PID 17366)
+  09-08 16:47:22 : DISCONNECT device 0 client for package com.p4pilot (PID 0)
+  09-08 16:47:22 : DIED client(s) with PID 1330, reason: (Binder died unexpectedly)
+  09-08 16:46:00 : CONNECT device 0 client for package com.p4pilot (PID 17169)
+  09-08 16:45:23 : DISCONNECT device 0 client for package com.p4pilot (PID 0)
+  09-08 16:43:15 : CONNECT device 0 client for package com.p4pilot (PID 17001)
+  09-08 16:43:14 : DISCONNECT device 0 client for package com.p4pilot (PID 0)
+  09-08 16:43:13 : DIED client(s) with PID 1330, reason: (Binder died unexpectedly)
+  09-08 16:40:01 : CONNECT device 0 client for package com.p4pilot (PID 16572)
+  09-08 10:59:37 : DISCONNECT device 0 client for package com.p4pilot (PID 0)
+  09-08 10:57:54 : CONNECT device 0 client for package com.p4pilot (PID 30247)
+  09-08 10:57:53 : DISCONNECT device 0 client for package com.p4pilot (PID 0)
+  09-08 10:57:53 : DIED client(s) with PID 1330, reason: (Binder died unexpectedly)
+  09-08 10:56:28 : CONNECT device 0 client for package com.p4pilot (PID 30073)
+  09-08 10:56:27 : DISCONNECT device 0 client for package com.p4pilot (PID 0)
+  09-08 10:56:27 : DIED client(s) with PID 1330, reason: (Binder died unexpectedly)
+  09-08 10:51:34 : CONNECT device 0 client for package com.p4pilot (PID 29529)
+  09-08 10:51:33 : DISCONNECT device 0 client for package com.p4pilot (PID 0)
+  09-08 10:51:33 : DIED client(s) with PID 1330, reason: (Binder died unexpectedly)
+  09-08 10:50:05 : CONNECT device 0 client for package com.p4pilot (PID 29260)
+  09-08 10:50:05 : DISCONNECT device 0 client for package com.p4pilot (PID 29260)
+  09-08 10:50:03 : CONNECT device 0 client for package com.p4pilot (PID 29260)
+  09-08 10:50:03 : DISCONNECT device 0 client for package com.p4pilot (PID 29260)
+  09-08 10:50:03 : EVICT device 0 client held by package com.p4pilot (PID 29260, score 0, state 2)
+ - Evicted by device 0 client for package com.p4pilot (PID 29260, score 0, state 2)
+  09-08 10:50:03 : CONNECT device 0 client for package com.p4pilot (PID 29260)
+  09-08 10:50:02 : DISCONNECT device 0 client for package com.p4pilot (PID 0)
+  09-08 10:50:02 : DIED client(s) with PID 1330, reason: (Binder died unexpectedly)
+  09-08 10:48:05 : CONNECT device 0 client for package com.p4pilot (PID 28974)
+  09-08 10:48:03 : DISCONNECT device 0 client for package com.p4pilot (PID 0)
+  09-08 10:48:03 : DIED client(s) with PID 1330, reason: (Binder died unexpectedly)
+  09-08 10:44:24 : CONNECT device 0 client for package com.p4pilot (PID 28626)
+  09-08 10:44:23 : DISCONNECT device 0 client for package com.p4pilot (PID 0)
+  09-08 10:44:23 : DIED client(s) with PID 1330, reason: (Binder died unexpectedly)
+  09-08 10:43:04 : CONNECT device 0 client for package com.p4pilot (PID 28312)
+  09-08 10:43:04 : DISCONNECT device 0 client for package com.p4pilot (PID 28312)
+  09-08 10:43:03 : CONNECT device 0 client for package com.p4pilot (PID 28312)
+  09-08 10:43:03 : DISCONNECT device 0 client for package com.p4pilot (PID 0)
+  09-08 10:43:02 : DIED client(s) with PID 1330, reason: (Binder died unexpectedly)
+  09-08 10:42:03 : CONNECT device 0 client for package com.p4pilot (PID 27830)
+  09-08 10:42:03 : DISCONNECT device 0 client for package com.p4pilot (PID 27830)
+  09-08 10:41:37 : CONNECT device 0 client for package com.p4pilot (PID 27830)
+  09-08 10:41:37 : DISCONNECT device 0 client for package com.p4pilot (PID 27830)
+  09-08 10:41:37 : CONNECT device 0 client for package com.p4pilot (PID 27830)
+  09-08 10:41:36 : DISCONNECT device 0 client for package com.p4pilot (PID 27830)
+  09-08 10:41:32 : CONNECT device 0 client for package com.p4pilot (PID 27830)
+  09-08 10:41:32 : DISCONNECT device 0 client for package com.p4pilot (PID 27830)
+  09-08 10:41:24 : CONNECT device 0 client for package com.p4pilot (PID 27830)
+  09-08 10:41:24 : DISCONNECT device 0 client for package com.p4pilot (PID 27830)
+  09-08 10:41:23 : CONNECT device 0 client for package com.p4pilot (PID 27830)
+  09-08 10:41:23 : DISCONNECT device 0 client for package com.p4pilot (PID 27830)
+  09-08 10:41:23 : EVICT device 0 client held by package com.p4pilot (PID 27830, score 0, state 2)
+ - Evicted by device 0 client for package com.p4pilot (PID 27830, score 0, state 2)
+  09-08 10:41:23 : CONNECT device 0 client for package com.p4pilot (PID 27830)
+  09-08 10:41:22 : DISCONNECT device 0 client for package com.p4pilot (PID 0)
+  09-08 10:41:21 : DIED client(s) with PID 1330, reason: (Binder died unexpectedly)
+  09-08 10:40:08 : CONNECT device 0 client for package com.p4pilot (PID 27206)
+  09-08 10:40:08 : DISCONNECT device 0 client for package com.p4pilot (PID 27206)
+  09-08 10:39:56 : CONNECT device 0 client for package com.p4pilot (PID 27206)
+  09-08 10:39:56 : DISCONNECT device 0 client for package com.p4pilot (PID 27206)
+  09-08 10:39:53 : CONNECT device 0 client for package com.p4pilot (PID 27206)
+  09-08 10:39:53 : DISCONNECT device 0 client for package com.p4pilot (PID 27206)
+  09-08 10:39:45 : CONNECT device 0 client for package com.p4pilot (PID 27206)
+  09-08 10:39:45 : DISCONNECT device 0 client for package com.p4pilot (PID 27206)
+  09-08 10:39:39 : CONNECT device 0 client for package com.p4pilot (PID 27206)
+  09-08 10:39:39 : DISCONNECT device 0 client for package com.p4pilot (PID 27206)
+  09-08 10:39:38 : CONNECT device 0 client for package com.p4pilot (PID 27206)
+  09-08 10:39:38 : DISCONNECT device 0 client for package com.p4pilot (PID 27206)
+  09-08 10:39:35 : CONNECT device 0 client for package com.p4pilot (PID 27206)
+  09-08 10:39:35 : DISCONNECT device 0 client for package com.p4pilot (PID 27206)
+  09-08 10:38:34 : CONNECT device 0 client for package com.p4pilot (PID 27206)
+  09-07 22:22:09 : DISCONNECT device 2 client for package client.pid<1393> (PID 1393)
+  09-07 22:22:05 : CONNECT device 2 client for package client.pid<1393> (PID 1393)
+  09-07 22:22:05 : DISCONNECT device 2 client for package client.pid<1393> (PID 1393)
+  09-07 22:22:01 : CONNECT device 2 client for package client.pid<1393> (PID 1393)
+  09-07 20:33:55 : DISCONNECT device 2 client for package client.pid<1393> (PID 1393)
+  09-07 20:33:52 : CONNECT device 2 client for package client.pid<1393> (PID 1393)
+  09-07 20:33:52 : DISCONNECT device 2 client for package client.pid<1393> (PID 1393)
+  09-07 20:33:49 : CONNECT device 2 client for package client.pid<1393> (PID 1393)
+  09-07 20:33:47 : DISCONNECT device 2 client for package client.pid<1393> (PID 1393)
+  09-07 20:33:42 : CONNECT device 2 client for package client.pid<1393> (PID 1393)
+  09-07 20:33:13 : DISCONNECT device 2 client for package client.pid<1393> (PID 1393)
+  09-07 20:33:11 : CONNECT device 2 client for package client.pid<1393> (PID 1393)
+--
+  09-08 16:47:31 : Device 0 is open. Client instance dump:
+    Client priority score: 0 state: 2
+    Client PID: 17366
+    Client package: com.p4pilot
+  CameraDeviceClient[0] (0xb400007b9a99e9a0) dump:
+    Current client UID 10256
+    State:
+      Request ID counter: 1
+      No input stream configured.
+      Current output stream/surface IDs:
+        Stream 0 Surface 0
+    Latest received frame:
+      Dumping camera metadata array: 121 / 121 entries, 10288 / 10288 bytes of extra data.
+        Version: 1, Flags: 00000000
+        android.colorCorrection.mode (00000): byte[1]
+          [FAST ]
+
+>>> 17. JPEG 输出目录
+total 162K
+drwxrwx--x 2 u0_a256 sdcard_rw 3.3K 2026-09-08 16:43 .
+drwxrwx--x 3 u0_a256 sdcard_rw 3.3K 2026-09-08 10:57 ..
+-rw-rw---- 1 u0_a256 sdcard_rw 154K 2026-09-08 16:47 step49_test.jpg
+
+>>> 18. JPEG 数量
+JPEG_COUNT=1
+
+>>> 19. 崩溃 / ANR
+
+>>> 20. Git 状态
+ M app/src/main/java/com/p4pilot/MainActivity.java
+ M "\345\221\275\344\273\244.txt"
+?? app/src/main/java/com/p4pilot/MainActivity.java.step50.bak
+
+>>> 21. Git diff summary
+ app/src/main/java/com/p4pilot/MainActivity.java | 228 ------------------
+ "\345\221\275\344\273\244.txt"                  | 308 ++++++++++++++++++++++++
+ 2 files changed, 308 insertions(+), 228 deletions(-)
+
+>>> 22. 写入 Step50 完整结果
+
+============================================================
+P4Pilot Step 50 TEST FINISHED
+============================================================
