@@ -139,65 +139,9 @@ public class MainActivity extends Activity {
 
                         try {
 
-                            /*
-                             * Step53:
-                             * ImageReader callback must remain lightweight.
-                             *
-                             * We acquire the newest frame, copy the YUV planes
-                             * into independent byte arrays, and CLOSE the Image
-                             * before doing any expensive conversion.
-                             */
-
                             image = imageReader.acquireLatestImage();
 
                             if (image == null) {
-                                return;
-                            }
-
-                            final int w = image.getWidth();
-                            final int h = image.getHeight();
-
-                            Image.Plane[] planes = image.getPlanes();
-
-                            if (planes.length != 3) {
-                                System.err.println(
-                                        "P4Pilot Step53 INVALID_PLANES=" +
-                                        planes.length
-                                );
-                                return;
-                            }
-
-                            final byte[] yData;
-                            final byte[] uData;
-                            final byte[] vData;
-
-                            try {
-
-                                ByteBuffer yBuffer =
-                                        planes[0].getBuffer().duplicate();
-
-                                ByteBuffer uBuffer =
-                                        planes[1].getBuffer().duplicate();
-
-                                ByteBuffer vBuffer =
-                                        planes[2].getBuffer().duplicate();
-
-                                yData = new byte[yBuffer.remaining()];
-                                uData = new byte[uBuffer.remaining()];
-                                vData = new byte[vBuffer.remaining()];
-
-                                yBuffer.get(yData);
-                                uBuffer.get(uData);
-                                vBuffer.get(vData);
-
-                            } catch (Exception copyException) {
-
-                                System.err.println(
-                                        "P4Pilot Step53 YUV_COPY_ERROR"
-                                );
-
-                                copyException.printStackTrace();
-
                                 return;
                             }
 
@@ -207,24 +151,32 @@ public class MainActivity extends Activity {
                                     System.currentTimeMillis();
 
                             if (firstFrameTime == 0) {
-
                                 firstFrameTime = now;
 
                                 System.out.println(
-                                        "P4Pilot Step53 FIRST_FRAME"
+                                        "P4Pilot Step49 FIRST_FRAME"
+                                );
+                            }
+
+                            int w = image.getWidth();
+                            int h = image.getHeight();
+
+                            Image.Plane[] planes =
+                                    image.getPlanes();
+
+                            if (frameCount == 1) {
+
+                                System.out.println(
+                                        "P4Pilot Step49 FRAME_START"
                                 );
 
                                 System.out.println(
-                                        "P4Pilot Step53 FRAME_START"
-                                );
-
-                                System.out.println(
-                                        "P4Pilot Step53 width=" +
+                                        "P4Pilot Step49 width=" +
                                         w +
                                         " height=" +
                                         h +
                                         " format=" +
-                                        ImageFormat.YUV_420_888
+                                        image.getFormat()
                                 );
 
                                 for (int i = 0;
@@ -238,7 +190,7 @@ public class MainActivity extends Activity {
                                             plane.getBuffer();
 
                                     System.out.println(
-                                            "P4Pilot Step53 plane[" +
+                                            "P4Pilot Step49 plane[" +
                                             i +
                                             "] rowStride=" +
                                             plane.getRowStride() +
@@ -252,79 +204,21 @@ public class MainActivity extends Activity {
                                 }
                             }
 
-                            /*
-                             * CRITICAL:
-                             * Image is no longer used after this point.
-                             * finally{} below releases the Camera2 buffer.
-                             */
+                            if (frameCount == 1) {
 
-                            final long frameTimestamp =
-                                    now;
-
-                            final int currentFrame =
-                                    frameCount;
-
-                            final int yRowStride =
-                                    planes[0].getRowStride();
-
-                            final int yPixelStride =
-                                    planes[0].getPixelStride();
-
-                            final int uRowStride =
-                                    planes[1].getRowStride();
-
-                            final int uPixelStride =
-                                    planes[1].getPixelStride();
-
-                            final int vRowStride =
-                                    planes[2].getRowStride();
-
-                            final int vPixelStride =
-                                    planes[2].getPixelStride();
-
-                            handler.post(() -> {
-
-                                long processStart =
-                                        System.currentTimeMillis();
+                                System.out.println(
+                                        "P4Pilot Step49 CONTENT_TEST_BEGIN"
+                                );
 
                                 try {
 
-                                    /*
-                                     * Step53 processing is deliberately
-                                     * performed outside ImageReader callback.
-                                     */
-
                                     android.graphics.Bitmap bitmap =
-                                            yuv420ToBitmapFromCopiedPlanes(
-                                                    w,
-                                                    h,
-                                                    yData,
-                                                    uData,
-                                                    vData,
-                                                    yRowStride,
-                                                    yPixelStride,
-                                                    uRowStride,
-                                                    uPixelStride,
-                                                    vRowStride,
-                                                    vPixelStride
-                                            );
+                                            yuv420ToBitmap(image);
 
-                                    if (bitmap == null) {
-
-                                        System.err.println(
-                                                "P4Pilot Step53 BITMAP_NULL frame=" +
-                                                currentFrame
-                                        );
-
-                                        return;
-                                    }
-
-                                    savedCount++;
-
-                                    if (currentFrame == 1) {
+                                    if (bitmap != null) {
 
                                         System.out.println(
-                                                "P4Pilot Step53 BITMAP_OK width=" +
+                                                "P4Pilot Step49 BITMAP_OK width=" +
                                                 bitmap.getWidth() +
                                                 " height=" +
                                                 bitmap.getHeight()
@@ -333,17 +227,14 @@ public class MainActivity extends Activity {
                                         File testFile =
                                                 new File(
                                                         outputDir,
-                                                        "step53_test.jpg"
+                                                        "step49_test.jpg"
                                                 );
 
                                         FileOutputStream fos =
-                                                new FileOutputStream(
-                                                        testFile
-                                                );
+                                                new FileOutputStream(testFile);
 
                                         bitmap.compress(
-                                                android.graphics.Bitmap
-                                                        .CompressFormat.JPEG,
+                                                android.graphics.Bitmap.CompressFormat.JPEG,
                                                 90,
                                                 fos
                                         );
@@ -354,18 +245,17 @@ public class MainActivity extends Activity {
                                         android.graphics.Bitmap decoded =
                                                 android.graphics.BitmapFactory
                                                         .decodeFile(
-                                                                testFile
-                                                                        .getAbsolutePath()
+                                                                testFile.getAbsolutePath()
                                                         );
 
                                         if (decoded != null) {
 
                                             System.out.println(
-                                                    "P4Pilot Step53 JPEG_DECODE_OK"
+                                                    "P4Pilot Step49 JPEG_DECODE_OK"
                                             );
 
                                             System.out.println(
-                                                    "P4Pilot Step53 JPEG_PATH=" +
+                                                    "P4Pilot Step49 JPEG_PATH=" +
                                                     testFile.getAbsolutePath()
                                             );
 
@@ -373,102 +263,281 @@ public class MainActivity extends Activity {
 
                                         } else {
 
-                                            System.err.println(
-                                                    "P4Pilot Step53 JPEG_DECODE_FAIL"
+                                            System.out.println(
+                                                    "P4Pilot Step49 JPEG_DECODE_FAIL"
                                             );
                                         }
-                                    }
 
-                                    long processElapsed =
-                                            System.currentTimeMillis() -
-                                            processStart;
+                                        bitmap.recycle();
 
-                                    System.out.println(
-                                            "P4Pilot Step53 PROCESSED frame=" +
-                                            currentFrame +
-                                            " processMs=" +
-                                            processElapsed +
-                                            " totalMs=" +
-                                            (System.currentTimeMillis() -
-                                             frameTimestamp)
-                                    );
-
-                                    if (currentFrame == 10 ||
-                                        currentFrame == 30 ||
-                                        currentFrame == 60 ||
-                                        currentFrame == 100) {
-
-                                        long elapsed =
-                                                System.currentTimeMillis() -
-                                                firstFrameTime;
-
-                                        double fps =
-                                                elapsed > 0
-                                                ? (currentFrame - 1) *
-                                                  1000.0 /
-                                                  elapsed
-                                                : 0;
+                                    } else {
 
                                         System.out.println(
-                                                "P4Pilot Step53 FRAME=" +
-                                                currentFrame +
-                                                " elapsedMs=" +
-                                                elapsed +
-                                                " fps=" +
-                                                String.format(
-                                                        "%.2f",
-                                                        fps
-                                                )
+                                                "P4Pilot Step49 BITMAP_NULL"
                                         );
                                     }
 
-                                    final int displayedFrame =
-                                            currentFrame;
-
-                                    runOnUiThread(() ->
-                                            tv.setText(
-                                                    "P4Pilot Step 53\n\n" +
-                                                    "Camera: BACK\n" +
-                                                    "Format: YUV_420_888\n" +
-                                                    "Resolution: " +
-                                                    w + " x " + h + "\n" +
-                                                    "Captured: " +
-                                                    frameCount + "\n" +
-                                                    "Processed: " +
-                                                    savedCount + "\n" +
-                                                    "Current frame: " +
-                                                    displayedFrame + "\n\n" +
-                                                    "Status: BACKGROUND PROCESSING"
-                                            )
-                                    );
-
-                                    bitmap.recycle();
-
-                                } catch (Exception processingException) {
+                                } catch (Exception e) {
 
                                     System.err.println(
-                                            "P4Pilot Step53 PROCESS_ERROR frame=" +
-                                            currentFrame
+                                            "P4Pilot Step49 CONTENT_TEST_ERROR"
                                     );
 
-                                    processingException.printStackTrace();
+                                    e.printStackTrace();
                                 }
-                            });
+
+                                System.out.println(
+                                        "P4Pilot Step49 CONTENT_TEST_END"
+                                );
+                            }
+
+                            if (frameCount == 1) {
+
+                                System.out.println(
+                                        "P4Pilot Step49 CONTENT_TEST_BEGIN"
+                                );
+
+                                try {
+
+                                    android.graphics.Bitmap bitmap =
+                                            yuv420ToBitmap(image);
+
+                                    if (bitmap != null) {
+
+                                        System.out.println(
+                                                "P4Pilot Step49 BITMAP_OK width=" +
+                                                bitmap.getWidth() +
+                                                " height=" +
+                                                bitmap.getHeight()
+                                        );
+
+                                        File testFile =
+                                                new File(
+                                                        outputDir,
+                                                        "step49_test.jpg"
+                                                );
+
+                                        FileOutputStream fos =
+                                                new FileOutputStream(testFile);
+
+                                        bitmap.compress(
+                                                android.graphics.Bitmap.CompressFormat.JPEG,
+                                                90,
+                                                fos
+                                        );
+
+                                        fos.flush();
+                                        fos.close();
+
+                                        android.graphics.Bitmap decoded =
+                                                android.graphics.BitmapFactory
+                                                        .decodeFile(
+                                                                testFile.getAbsolutePath()
+                                                        );
+
+                                        if (decoded != null) {
+
+                                            System.out.println(
+                                                    "P4Pilot Step49 JPEG_DECODE_OK"
+                                            );
+
+                                            System.out.println(
+                                                    "P4Pilot Step49 JPEG_PATH=" +
+                                                    testFile.getAbsolutePath()
+                                            );
+
+                                            decoded.recycle();
+
+                                        } else {
+
+                                            System.out.println(
+                                                    "P4Pilot Step49 JPEG_DECODE_FAIL"
+                                            );
+                                        }
+
+                                        bitmap.recycle();
+
+                                    } else {
+
+                                        System.out.println(
+                                                "P4Pilot Step49 BITMAP_NULL"
+                                        );
+                                    }
+
+                                } catch (Exception e) {
+
+                                    System.err.println(
+                                            "P4Pilot Step49 CONTENT_TEST_ERROR"
+                                    );
+
+                                    e.printStackTrace();
+                                }
+
+                                System.out.println(
+                                        "P4Pilot Step49 CONTENT_TEST_END"
+                                );
+                            }
+
+                            if (frameCount == 1) {
+
+                                System.out.println(
+                                        "P4Pilot Step49 CONTENT_TEST_BEGIN"
+                                );
+
+                                try {
+
+                                    android.graphics.Bitmap bitmap =
+                                            yuv420ToBitmap(image);
+
+                                    if (bitmap != null) {
+
+                                        System.out.println(
+                                                "P4Pilot Step49 BITMAP_OK width=" +
+                                                bitmap.getWidth() +
+                                                " height=" +
+                                                bitmap.getHeight()
+                                        );
+
+                                        File testFile =
+                                                new File(
+                                                        outputDir,
+                                                        "step49_test.jpg"
+                                                );
+
+                                        FileOutputStream fos =
+                                                new FileOutputStream(testFile);
+
+                                        bitmap.compress(
+                                                android.graphics.Bitmap.CompressFormat.JPEG,
+                                                90,
+                                                fos
+                                        );
+
+                                        fos.flush();
+                                        fos.close();
+
+                                        android.graphics.Bitmap decoded =
+                                                android.graphics.BitmapFactory
+                                                        .decodeFile(
+                                                                testFile.getAbsolutePath()
+                                                        );
+
+                                        if (decoded != null) {
+
+                                            System.out.println(
+                                                    "P4Pilot Step49 JPEG_DECODE_OK"
+                                            );
+
+                                            System.out.println(
+                                                    "P4Pilot Step49 JPEG_PATH=" +
+                                                    testFile.getAbsolutePath()
+                                            );
+
+                                            decoded.recycle();
+
+                                        } else {
+
+                                            System.out.println(
+                                                    "P4Pilot Step49 JPEG_DECODE_FAIL"
+                                            );
+                                        }
+
+                                        bitmap.recycle();
+
+                                    } else {
+
+                                        System.out.println(
+                                                "P4Pilot Step49 BITMAP_NULL"
+                                        );
+                                    }
+
+                                } catch (Exception e) {
+
+                                    System.err.println(
+                                            "P4Pilot Step49 CONTENT_TEST_ERROR"
+                                    );
+
+                                    e.printStackTrace();
+                                }
+
+                                System.out.println(
+                                        "P4Pilot Step49 CONTENT_TEST_END"
+                                );
+                            }
+
+                            if (frameCount == 10 ||
+                                frameCount == 30 ||
+                                frameCount == 60 ||
+                                frameCount == 100) {
+
+                                long elapsed =
+                                        now - firstFrameTime;
+
+                                double fps =
+                                        elapsed > 0
+                                        ? (frameCount - 1) *
+                                          1000.0 /
+                                          elapsed
+                                        : 0;
+
+                                System.out.println(
+                                        "P4Pilot Step49 FRAME=" +
+                                        frameCount +
+                                        " elapsedMs=" +
+                                        elapsed +
+                                        " fps=" +
+                                        String.format(
+                                                "%.2f",
+                                                fps
+                                        )
+                                );
+                            }
+
+                            long elapsed =
+                                    now - firstFrameTime;
+
+                            double fps =
+                                    elapsed > 0
+                                    ? (frameCount - 1) *
+                                      1000.0 /
+                                      elapsed
+                                    : 0;
+
+                            runOnUiThread(() ->
+                                    tv.setText(
+                                            "P4Pilot Step 49\n\n" +
+                                            "Camera: BACK\n" +
+                                            "Format: YUV_420_888\n" +
+                                            "Resolution: " +
+                                            w + " x " + h + "\n" +
+                                            "Frames: " +
+                                            frameCount + "\n" +
+                                            String.format(
+                                                    "FPS: %.2f\n",
+                                                    fps
+                                            ) +
+                                            "YUV planes: " +
+                                            planes.length +
+                                            "\n\n" +
+                                            "Status: YUV STREAMING"
+                                    )
+                            );
 
                         } catch (Exception e) {
 
                             System.err.println(
-                                    "P4Pilot Step53 FRAME_ERROR"
+                                    "P4Pilot Step49 FRAME_ERROR"
                             );
 
                             e.printStackTrace();
 
-                        } finally {
+                            runOnUiThread(() ->
+                                    tv.setText(
+                                            "Step48 ERROR:\n" +
+                                            e.toString()
+                                    ));
 
-                            /*
-                             * Camera2 buffer is ALWAYS released here.
-                             * No background task owns the Image object.
-                             */
+                        } finally {
 
                             if (image != null) {
                                 image.close();
@@ -479,7 +548,7 @@ public class MainActivity extends Activity {
                     handler
             );
 
-manager.openCamera(
+            manager.openCamera(
                     cameraId,
                     new CameraDevice.StateCallback() {
 
@@ -596,146 +665,7 @@ manager.openCamera(
         }
     }
 
-    
-    private android.graphics.Bitmap yuv420ToBitmapFromCopiedPlanes(
-            int width,
-            int height,
-            byte[] yData,
-            byte[] uData,
-            byte[] vData,
-            int yRowStride,
-            int yPixelStride,
-            int uRowStride,
-            int uPixelStride,
-            int vRowStride,
-            int vPixelStride) {
-
-        byte[] nv21 =
-                new byte[
-                        width * height +
-                        (width * height) / 2
-                ];
-
-        int outputIndex = 0;
-
-        for (int row = 0; row < height; row++) {
-
-            int rowOffset =
-                    row * yRowStride;
-
-            for (int col = 0; col < width; col++) {
-
-                int index =
-                        rowOffset +
-                        col * yPixelStride;
-
-                if (index < 0 || index >= yData.length) {
-                    throw new IllegalArgumentException(
-                            "Y index out of range: " + index +
-                            " / " + yData.length
-                    );
-                }
-
-                nv21[outputIndex++] =
-                        yData[index];
-            }
-        }
-
-        int chromaHeight =
-                height / 2;
-
-        int chromaWidth =
-                width / 2;
-
-        for (int row = 0;
-             row < chromaHeight;
-             row++) {
-
-            int uRowOffset =
-                    row * uRowStride;
-
-            int vRowOffset =
-                    row * vRowStride;
-
-            for (int col = 0;
-                 col < chromaWidth;
-                 col++) {
-
-                int uIndex =
-                        uRowOffset +
-                        col * uPixelStride;
-
-                int vIndex =
-                        vRowOffset +
-                        col * vPixelStride;
-
-                if (uIndex < 0 ||
-                    uIndex >= uData.length ||
-                    vIndex < 0 ||
-                    vIndex >= vData.length) {
-
-                    throw new IllegalArgumentException(
-                            "UV index out of range: U=" +
-                            uIndex +
-                            "/" +
-                            uData.length +
-                            " V=" +
-                            vIndex +
-                            "/" +
-                            vData.length
-                    );
-                }
-
-                nv21[outputIndex++] =
-                        vData[vIndex];
-
-                nv21[outputIndex++] =
-                        uData[uIndex];
-            }
-        }
-
-        android.graphics.YuvImage yuv =
-                new android.graphics.YuvImage(
-                        nv21,
-                        ImageFormat.NV21,
-                        width,
-                        height,
-                        null
-                );
-
-        java.io.ByteArrayOutputStream out =
-                new java.io.ByteArrayOutputStream(
-                        width * height / 2
-                );
-
-        boolean ok =
-                yuv.compressToJpeg(
-                        new android.graphics.Rect(
-                                0,
-                                0,
-                                width,
-                                height
-                        ),
-                        90,
-                        out
-                );
-
-        if (!ok) {
-            return null;
-        }
-
-        byte[] jpeg =
-                out.toByteArray();
-
-        return android.graphics.BitmapFactory
-                .decodeByteArray(
-                        jpeg,
-                        0,
-                        jpeg.length
-                );
-    }
-
-private android.graphics.Bitmap yuv420ToBitmap(Image image) {
+    private android.graphics.Bitmap yuv420ToBitmap(Image image) {
 
         int width = image.getWidth();
         int height = image.getHeight();
