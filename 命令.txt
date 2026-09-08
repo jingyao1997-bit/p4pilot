@@ -564,3 +564,108 @@ Pixel 4 XL
 ============================================================
 Step 05 检查完成
 ============================================================
+
+============================================================
+P4Pilot Step 06 - 工程结构与 Android 原生运行链检查
+Time: 2026-09-08 15:28:20 +0800
+============================================================
+
+############################
+# 1. Git
+############################
+main
+2b28e25 docs: record Step 05 Android build chain check
+9e26ac1 Step 04: sync experiment log
+eeb9e31 Step 04: configure Android SDK 33
+
+############################
+# 2. P4Pilot 工程结构
+############################
+./.git/COMMIT_EDITMSG
+./.git/config
+./.git/description
+./.git/FETCH_HEAD
+./.git/HEAD
+./.git/index
+./.git/packed-refs
+./camera.txt
+./location.txt
+./sensor.txt
+./命令.txt
+
+############################
+# 3. Android SDK
+############################
+ANDROID_SDK_ROOT=/usr/local/share/android-commandlinetools
+ANDROID_HOME=/usr/local/share/android-commandlinetools
+-rw-r--r--  1 luojingyao  admin    26M  9月  8 15:17 /usr/local/share/android-commandlinetools/platforms/android-33/android.jar
+-rwxr-xr-x  1 luojingyao  admin   9.8M  9月  8 15:17 /usr/local/share/android-commandlinetools/build-tools/34.0.0/aapt2
+-rwxr-xr-x  1 luojingyao  admin   2.9K  9月  8 15:17 /usr/local/share/android-commandlinetools/build-tools/34.0.0/apksigner
+
+############################
+# 4. AAPT2
+############################
+Android Asset Packaging Tool (aapt) 2.19-10229193
+
+############################
+# 5. APK Signer
+############################
+0.9
+
+############################
+# 6. Pixel ADB
+############################
+List of devices attached
+9A181FFBA00072         device 20-6 product:coral model:Pixel_4_XL device:coral transport_id:3
+
+
+############################
+# 7. Pixel Android
+############################
+Pixel 4 XL
+coral
+13
+33
+arm64-v8a
+
+############################
+# 8. Pixel 可用存储
+############################
+Filesystem       Size Used Avail Use% Mounted on
+/dev/block/dm-37  50G  11G   39G  23% /data/user/0
+
+############################
+# 9. 已安装第三方 APK
+############################
+package:com.google.android.apps.translate
+package:com.topjohnwu.magisk
+package:com.google.android.apps.tachyon
+package:com.lerist.fakelocation
+package:bin.mt.plus
+package:moe.shizuku.privileged.api
+package:com.google.android.keep
+package:com.antutu.benchmark.full.lite
+package:com.google.android.safetycore
+package:io.github.vvb2060.ims
+package:com.antutu.ABenchMark
+package:com.google.android.contactkeys
+package:com.google.android.apps.googlevoice
+package:com.google.android.verifier
+package:com.google.android.apps.docs.editors.docs
+package:dev.bluehouse.enablevolte
+package:im.angry.easyeuicc
+package:com.google.android.apps.magazines
+package:com.google.android.apps.walletnfcrel
+package:com.google.android.apps.chromecast.app
+package:com.google.android.apps.podcasts
+package:com.google.android.apps.subscriptions.red
+
+############################
+# 10. Root
+############################
+uid=0(root) gid=0(root) groups=0(root) context=u:r:magisk:s0
+Enforcing
+
+============================================================
+Step 06 检查完成
+============================================================
