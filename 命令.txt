@@ -1054,3 +1054,49 @@ arm64-v8a
 ============================================================
 Step 09 完成
 ============================================================
+
+============================================================
+P4Pilot Step 10 - Gradle 版本确认
+Time: 2026-09-08 15:58:15 +0800
+============================================================
+which gradle:
+/usr/local/bin/gradle
+
+gradle --version:
+
+------------------------------------------------------------
+Gradle 9.7.1
+------------------------------------------------------------
+
+Build time:    2026-08-19 14:16:09 UTC
+Revision:      92f0512e7f06d84621afba191f75e265363890cf
+
+Kotlin:        2.4.0
+Groovy:        4.0.32
+Ant:           Apache Ant(TM) version 1.10.17 compiled on April 6 2026
+Launcher JVM:  26.0.2.1 (Homebrew 26.0.2.1)
+Daemon JVM:    /usr/local/Cellar/openjdk/26.0.2.1/libexec/openjdk.jdk/Contents/Home (no Daemon JVM specified, using current Java home)
+OS:            Mac OS X 26.5.1 x86_64
+
+
+brew info gradle:
+==> gradle: stable 9.7.1 (bottled)
+Open-source build automation tool based on the Groovy and Kotlin DSL
+https://www.gradle.org/
+Aliases: gradle@9
+Installed (on request)
+From: https://github.com/Homebrew/homebrew-core/blob/HEAD/Formula/g/gradle.rb
+License: Apache-2.0
+==> Installed Versions
+gradle 9.7.1 (11,584 files, 208.3MB) [Linked]
+==> Dependencies
+Required (2): gradle-completion, openjdk
+Recursive Runtime (31): all installed ✔
+==> Analytics
+install: 26,847 (30 days), 74,736 (90 days), 307,777 (365 days)
+install-on-request: 26,513 (30 days), 73,741 (90 days), 304,396 (365 days)
+build-error: 0 (30 days)
+
+============================================================
+Step 10 完成
+============================================================
