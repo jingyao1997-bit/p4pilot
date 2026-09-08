@@ -43,14 +43,24 @@ public class MainActivity extends Activity {
         tv.setText("P4Pilot Step 40\n正在初始化...");
         setContentView(tv);
 
+        File externalDir = getExternalFilesDir(null);
+
         outputDir = new File(
-                Environment.getExternalStorageDirectory(),
-                "P4Pilot/step40"
+                externalDir,
+                "P4Pilot/step41"
         );
 
         if (!outputDir.exists()) {
-            outputDir.mkdirs();
+            boolean created = outputDir.mkdirs();
+            System.out.println(
+                    "P4Pilot outputDir mkdirs=" + created
+            );
         }
+
+        System.out.println(
+                "P4Pilot outputDir=" +
+                outputDir.getAbsolutePath()
+        );
 
         if (checkSelfPermission(Manifest.permission.CAMERA)
                 != PackageManager.PERMISSION_GRANTED) {
@@ -333,33 +343,110 @@ public class MainActivity extends Activity {
 
         try {
 
+            int width = image.getWidth();
+            int height = image.getHeight();
+
+            Image.Plane[] planes = image.getPlanes();
+
             /*
-             * Pixel 4 XL Camera2 输出的是 YUV_420_888。
+             * YUV_420_888:
              *
-             * 这里使用 Android Image -> JPEG 的方式，
-             * 利用 YUV_420_888 的三个 Plane 数据构造 JPEG。
+             * Plane 0 = Y
+             * Plane 1 = U
+             * Plane 2 = V
              *
-             * 为了 Step 40 稳定性验证，先使用 Y 平面
-             * 生成一个可验证的灰度 JPEG。
+             * Pixel 4 XL 的 Camera HAL 可能具有 padding，
+             * 因此不能简单地把 Plane Buffer 直接当作连续 NV21。
+             *
+             * 这里根据 rowStride / pixelStride 正确读取。
              */
 
-            Image.Plane yPlane =
-                    image.getPlanes()[0];
+            byte[] nv21 = new byte[
+                    width * height +
+                    (width * height / 2)
+            ];
 
-            ByteBuffer buffer =
-                    yPlane.getBuffer();
+            int offset = 0;
 
-            byte[] yData =
-                    new byte[buffer.remaining()];
+            // -------------------------------------------------
+            // Y plane
+            // -------------------------------------------------
 
-            buffer.get(yData);
+            Image.Plane yPlane = planes[0];
+
+            ByteBuffer yBuffer = yPlane.getBuffer();
+
+            int yRowStride = yPlane.getRowStride();
+            int yPixelStride = yPlane.getPixelStride();
+
+            for (int row = 0; row < height; row++) {
+
+                int rowStart =
+                        row * yRowStride;
+
+                for (int col = 0; col < width; col++) {
+
+                    int index =
+                            rowStart +
+                            col * yPixelStride;
+
+                    nv21[offset++] =
+                            yBuffer.get(index);
+                }
+            }
+
+            // -------------------------------------------------
+            // VU planes -> NV21
+            // -------------------------------------------------
+
+            Image.Plane uPlane = planes[1];
+            Image.Plane vPlane = planes[2];
+
+            ByteBuffer uBuffer = uPlane.getBuffer();
+            ByteBuffer vBuffer = vPlane.getBuffer();
+
+            int uRowStride = uPlane.getRowStride();
+            int uPixelStride = uPlane.getPixelStride();
+
+            int vRowStride = vPlane.getRowStride();
+            int vPixelStride = vPlane.getPixelStride();
+
+            int chromaWidth = width / 2;
+            int chromaHeight = height / 2;
+
+            for (int row = 0; row < chromaHeight; row++) {
+
+                int uRowStart =
+                        row * uRowStride;
+
+                int vRowStart =
+                        row * vRowStride;
+
+                for (int col = 0; col < chromaWidth; col++) {
+
+                    int uIndex =
+                            uRowStart +
+                            col * uPixelStride;
+
+                    int vIndex =
+                            vRowStart +
+                            col * vPixelStride;
+
+                    // NV21 = V U V U V U ...
+                    nv21[offset++] =
+                            vBuffer.get(vIndex);
+
+                    nv21[offset++] =
+                            uBuffer.get(uIndex);
+                }
+            }
 
             android.graphics.YuvImage yuv =
                     new android.graphics.YuvImage(
-                            yData,
+                            nv21,
                             ImageFormat.NV21,
-                            image.getWidth(),
-                            image.getHeight(),
+                            width,
+                            height,
                             null
                     );
 
@@ -375,28 +462,47 @@ public class MainActivity extends Activity {
             FileOutputStream fos =
                     new FileOutputStream(file);
 
-            yuv.compressToJpeg(
-                    new android.graphics.Rect(
-                            0,
-                            0,
-                            image.getWidth(),
-                            image.getHeight()
-                    ),
-                    90,
-                    fos
-            );
+            boolean compressed =
+                    yuv.compressToJpeg(
+                            new android.graphics.Rect(
+                                    0,
+                                    0,
+                                    width,
+                                    height
+                            ),
+                            90,
+                            fos
+                    );
 
             fos.flush();
             fos.close();
 
-            savedCount++;
+            if (compressed && file.exists()) {
 
-            System.out.println(
-                    "P4Pilot JPEG saved: " +
-                    file.getAbsolutePath()
-            );
+                long size = file.length();
+
+                savedCount++;
+
+                System.out.println(
+                        "P4Pilot JPEG saved: " +
+                        file.getAbsolutePath() +
+                        " size=" +
+                        size
+                );
+
+            } else {
+
+                System.out.println(
+                        "P4Pilot JPEG compression FAILED"
+                );
+            }
 
         } catch (Exception e) {
+
+            System.err.println(
+                    "P4Pilot JPEG ERROR: " +
+                    e
+            );
 
             e.printStackTrace();
         }
