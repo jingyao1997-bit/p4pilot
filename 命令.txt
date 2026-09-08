@@ -3187,3 +3187,39 @@ package:/data/app/~~Ypiy-b-GEDHjd9YNS1wkNA==/com.p4pilot-QL5H0-iofviI-eK7gsiMzw=
 
 ============================================================
 P4Pilot Step 36 完成
+
+P4Pilot Step 37 - Activity启动与进程验证
+============================================================
+
+>>> APK路径:
+package:/data/app/~~Ypiy-b-GEDHjd9YNS1wkNA==/com.p4pilot-QL5H0-iofviI-eK7gsiMzw==/base.apk
+
+>>> 启动P4Pilot:
+  bash arg: -p
+  bash arg: com.p4pilot
+  bash arg: 1
+Events injected: 1
+## Network stats: elapsed time=11ms (0ms mobile, 0ms wifi, 11ms not connected)
+
+>>> 当前前台Activity:
+  mFocusedApp=ActivityRecord{1f18ac6 u0 com.p4pilot/.MainActivity} t239}
+
+>>> P4Pilot进程:
+26494
+
+>>> P4Pilot进程详细信息:
+u0_a256      26494  1056 14508044 120236 0                  0 S com.p4pilot
+
+>>> 应用运行状态:
+    versionCode=1 minSdk=26 targetSdk=33
+    versionName=0.1.0
+
+>>> Root下读取P4Pilot目录:
+total 45
+drwx------   4 u0_a256 u0_a256        3452 2026-09-08 10:29 .
+drwxrwx--x 299 system  system        53248 2026-09-08 10:29 ..
+drwxrws--x   2 u0_a256 u0_a256_cache  3452 2026-09-08 10:29 cache
+drwxrws--x   2 u0_a256 u0_a256_cache  3452 2026-09-08 10:29 code_cache
+
+============================================================
+P4Pilot Step 37 完成
