@@ -348,6 +348,91 @@ public class MainActivity extends Activity {
 
             Image.Plane[] planes = image.getPlanes();
 
+            // =================================================
+            // Step 43: inspect actual Pixel 4 XL YUV layout
+            // =================================================
+
+            if (frameCount == 1) {
+
+                System.out.println(
+                        "P4Pilot Step43 YUV layout:"
+                );
+
+                System.out.println(
+                        "P4Pilot Step43 image width=" +
+                        width +
+                        " height=" +
+                        height
+                );
+
+                for (int i = 0; i < planes.length; i++) {
+
+                    Image.Plane plane = planes[i];
+
+                    ByteBuffer buffer = plane.getBuffer();
+
+                    System.out.println(
+                            "P4Pilot Step43 plane[" + i + "]" +
+                            " rowStride=" +
+                            plane.getRowStride() +
+                            " pixelStride=" +
+                            plane.getPixelStride() +
+                            " remaining=" +
+                            buffer.remaining() +
+                            " position=" +
+                            buffer.position() +
+                            " limit=" +
+                            buffer.limit()
+                    );
+                }
+
+                int yMaxIndex =
+                        (height - 1) * planes[0].getRowStride() +
+                        (width - 1) * planes[0].getPixelStride();
+
+                int chromaWidth = width / 2;
+                int chromaHeight = height / 2;
+
+                int uMaxIndex =
+                        (chromaHeight - 1) *
+                        planes[1].getRowStride() +
+                        (chromaWidth - 1) *
+                        planes[1].getPixelStride();
+
+                int vMaxIndex =
+                        (chromaHeight - 1) *
+                        planes[2].getRowStride() +
+                        (chromaWidth - 1) *
+                        planes[2].getPixelStride();
+
+                System.out.println(
+                        "P4Pilot Step43 Y maxIndex=" +
+                        yMaxIndex +
+                        " bufferLimit=" +
+                        planes[0].getBuffer().limit() +
+                        " safe=" +
+                        (yMaxIndex < planes[0].getBuffer().limit())
+                );
+
+                System.out.println(
+                        "P4Pilot Step43 U maxIndex=" +
+                        uMaxIndex +
+                        " bufferLimit=" +
+                        planes[1].getBuffer().limit() +
+                        " safe=" +
+                        (uMaxIndex < planes[1].getBuffer().limit())
+                );
+
+                System.out.println(
+                        "P4Pilot Step43 V maxIndex=" +
+                        vMaxIndex +
+                        " bufferLimit=" +
+                        planes[2].getBuffer().limit() +
+                        " safe=" +
+                        (vMaxIndex < planes[2].getBuffer().limit())
+                );
+            }
+
             /*
              * YUV_420_888:
              *
