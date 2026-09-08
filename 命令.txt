@@ -779,3 +779,220 @@ drwxr-xr-x  27 luojingyao  admin  864  9月  8 15:17 /usr/local/share/android-co
 ============================================================
 Step 07 检查完成
 ============================================================
+
+============================================================
+P4Pilot Step 08 - 安装 Gradle 并准备 Wrapper
+Time: 2026-09-08 15:31:44 +0800
+============================================================
+
+############################
+# 1. Homebrew 安装 Gradle
+############################
+==> Downloading Homebrew API data
+✔︎ JSON API packages.tahoe.jws.json
+Warning: You are using macOS on Intel x86_64.
+We do not provide support for this platform (as-of September 2026, announced August 2025).
+
+Apple have dropped Intel x86_64 support in macOS Golden Gate (27).
+GitHub Actions are dropping macOS Intel x86_64 runners in 2027.
+Homebrew is a non-profit project run entirely by volunteers, not employees.
+If the biggest companies in the world cannot support macOS Intel x86_64
+any longer, sadly neither can we.
+
+You will have better luck with MacPorts which still supports macOS Intel x86_64:
+  https://www.macports.org
+Warning: The following taps are not trusted:
+  openhue/cli
+  rfidresearchgroup/proxmark3
+  xdevplatform/tap
+  yakitrak/yakitrak
+
+Homebrew is currently ignoring formulae, casks and commands from these taps because tap trust is required.
+
+Prefer trusting only the specific formulae, casks or commands you need.
+Trust installed formulae from these taps with:
+  brew trust --formula openhue/cli/openhue-cli
+  brew trust --formula rfidresearchgroup/proxmark3/arm-none-eabi-gcc
+  brew trust --formula yakitrak/yakitrak/obsidian-cli
+Trust installed casks from these taps with:
+  brew trust --cask xdevplatform/tap/xurl
+Trust other specific commands with:
+  brew trust --command <user>/<tap>/<command>
+Whole-tap trust is broader and includes all current and future formulae,
+casks and commands from the listed taps. Trust whole taps with:
+  brew trust openhue/cli rfidresearchgroup/proxmark3 xdevplatform/tap yakitrak/yakitrak
+Untap them with:
+  brew untap openhue/cli rfidresearchgroup/proxmark3 xdevplatform/tap yakitrak/yakitrak
+To disable trust checks:
+  export HOMEBREW_NO_REQUIRE_TAP_TRUST=1
+This is not recommended and will be removed in a later release.
+For more information, see:
+  https://docs.brew.sh/Tap-Trust
+==> Downloading bottle manifests
+✔︎ Bottle Manifest gradle (9.7.1)
+==> Would install 1 formula:
+gradle
+==> Would install 1 dependency for gradle:
+gradle-completion
+==> Would upgrade 3 dependencies for gradle:
+harfbuzz
+little-cms2
+openjdk
+Warning: Bottle missing, falling back to the default domain...
+==> Downloading https://ghcr.io/v2/homebrew/core/gradle/manifests/9.7.1
+Warning: Bottle missing, falling back to the default domain...
+==> Downloading https://ghcr.io/v2/homebrew/core/gradle-completion/manifests/9.7.1
+Warning: Bottle missing, falling back to the default domain...
+==> Downloading https://ghcr.io/v2/homebrew/core/harfbuzz/manifests/14.4.0
+Warning: Waiting for another Homebrew process to finish downloading /Users/luojingyao/Library/Caches/Homebrew/downloads/e185e11476da231184eea03904e2812662860a9489915fb586fc1d86ccfd1856--little-cms2.rb.incomplete...
+
+============================================================
+P4Pilot Step 08 - 安装 Gradle 并准备 Wrapper
+Time: 2026-09-08 15:36:56 +0800
+============================================================
+
+############################
+# 1. Homebrew 安装 Gradle
+############################
+Warning: You are using macOS on Intel x86_64.
+We do not provide support for this platform (as-of September 2026, announced August 2025).
+
+Apple have dropped Intel x86_64 support in macOS Golden Gate (27).
+GitHub Actions are dropping macOS Intel x86_64 runners in 2027.
+Homebrew is a non-profit project run entirely by volunteers, not employees.
+If the biggest companies in the world cannot support macOS Intel x86_64
+any longer, sadly neither can we.
+
+You will have better luck with MacPorts which still supports macOS Intel x86_64:
+  https://www.macports.org
+Warning: The following taps are not trusted:
+  openhue/cli
+  rfidresearchgroup/proxmark3
+  xdevplatform/tap
+  yakitrak/yakitrak
+
+Homebrew is currently ignoring formulae, casks and commands from these taps because tap trust is required.
+
+Prefer trusting only the specific formulae, casks or commands you need.
+Trust installed formulae from these taps with:
+  brew trust --formula openhue/cli/openhue-cli
+  brew trust --formula rfidresearchgroup/proxmark3/arm-none-eabi-gcc
+  brew trust --formula yakitrak/yakitrak/obsidian-cli
+Trust installed casks from these taps with:
+  brew trust --cask xdevplatform/tap/xurl
+Trust other specific commands with:
+  brew trust --command <user>/<tap>/<command>
+Whole-tap trust is broader and includes all current and future formulae,
+casks and commands from the listed taps. Trust whole taps with:
+  brew trust openhue/cli rfidresearchgroup/proxmark3 xdevplatform/tap yakitrak/yakitrak
+Untap them with:
+  brew untap openhue/cli rfidresearchgroup/proxmark3 xdevplatform/tap yakitrak/yakitrak
+To disable trust checks:
+  export HOMEBREW_NO_REQUIRE_TAP_TRUST=1
+This is not recommended and will be removed in a later release.
+For more information, see:
+  https://docs.brew.sh/Tap-Trust
+==> Would install 1 formula:
+gradle
+==> Would install 1 dependency for gradle:
+gradle-completion
+==> Would upgrade 3 dependencies for gradle:
+harfbuzz
+little-cms2
+openjdk
+Warning: Bottle missing, falling back to the default domain...
+==> Downloading https://ghcr.io/v2/homebrew/core/gradle/manifests/9.7.1
+Already downloaded: /Users/luojingyao/Library/Caches/Homebrew/downloads/301ad37c00a64a43f807bf73b347741621a8968ba9b51efcf34e7083fa1dd459--gradle-9.7.1.bottle_manifest.json
+Warning: Bottle missing, falling back to the default domain...
+==> Downloading https://ghcr.io/v2/homebrew/core/gradle-completion/manifests/9.7.1
+Already downloaded: /Users/luojingyao/Library/Caches/Homebrew/downloads/d19af029248f232de05c2a2a625d6f4f5f39a434b1dd6c0487b5780e88f6a1db--gradle-completion-9.7.1.bottle_manifest.json
+Warning: Bottle missing, falling back to the default domain...
+==> Downloading https://ghcr.io/v2/homebrew/core/harfbuzz/manifests/14.4.0
+Already downloaded: /Users/luojingyao/Library/Caches/Homebrew/downloads/9e8c3014f1d5b10ece80ba07228757fd4e93d77c260b0eb4d82240adb201e3c3--harfbuzz-14.4.0.bottle_manifest.json
+==> Fetching downloads for: gradle
+✔︎ Bottle gradle-completion (9.7.1)
+✔︎ Bottle harfbuzz (14.4.0)
+✔︎ API Source little-cms2.rb
+✔︎ Bottle Manifest openjdk (26.0.2.1)
+Warning: Bottle missing, falling back to the default domain...
+==> Downloading https://ghcr.io/v2/homebrew/core/openjdk/manifests/26.0.2.1
+✔︎ Bottle openjdk (26.0.2.1)
+✔︎ Bottle gradle (9.7.1)
+✔︎ Formula little-cms2 (2.19.1)
+==> Installing dependencies for gradle: gradle-completion, harfbuzz and openjdk
+==> Installing gradle dependency: gradle-completion
+==> Pouring gradle-completion-9.7.1.all.bottle.tar.gz
+🍺  /usr/local/Cellar/gradle-completion/9.7.1: 7 files, 82.4KB
+==> Upgrading gradle dependency: harfbuzz
+Warning: Bottle missing, falling back to the default domain...
+==> Downloading https://ghcr.io/v2/homebrew/core/gradle-completion/manifests/9.7.1
+Already downloaded: /Users/luojingyao/Library/Caches/Homebrew/downloads/d19af029248f232de05c2a2a625d6f4f5f39a434b1dd6c0487b5780e88f6a1db--gradle-completion-9.7.1.bottle_manifest.json
+==> Pouring harfbuzz-14.4.0.sonoma.bottle.tar.gz
+🍺  /usr/local/Cellar/harfbuzz/14.4.0: 96 files, 13.7MB
+==> Upgrading gradle dependency: openjdk
+Warning: Bottle missing, falling back to the default domain...
+==> Downloading https://ghcr.io/v2/homebrew/core/harfbuzz/manifests/14.4.0
+Already downloaded: /Users/luojingyao/Library/Caches/Homebrew/downloads/9e8c3014f1d5b10ece80ba07228757fd4e93d77c260b0eb4d82240adb201e3c3--harfbuzz-14.4.0.bottle_manifest.json
+==> Pouring openjdk-26.0.2.1.sonoma.bottle.tar.gz
+Warning: Bottle missing, falling back to the default domain...
+==> Downloading https://ghcr.io/v2/homebrew/core/openjdk/manifests/26.0.2.1
+Already downloaded: /Users/luojingyao/Library/Caches/Homebrew/downloads/704df15be17631da591bc53b524abce682588ac91e07baffe2738dda1fd30ea1--openjdk-26.0.2.1.bottle_manifest.json
+🍺  /usr/local/Cellar/openjdk/26.0.2.1: 549 files, 398.8MB
+==> Installing gradle
+==> Pouring gradle--9.7.1.all.bottle.tar.gz
+🍺  /usr/local/Cellar/gradle/9.7.1: 11,584 files, 208.3MB
+==> Cleanup
+Removing: /Users/luojingyao/Library/Caches/Homebrew/gradle_bottle_manifest--9.7.1... (0B)
+Disable this behaviour by setting `HOMEBREW_NO_INSTALL_CLEANUP=1`.
+Hide these hints with `HOMEBREW_NO_ENV_HINTS=1` (see `man brew`).
+
+############################
+# 2. Gradle 版本
+############################
+/usr/local/bin/gradle
+
+Welcome to Gradle 9.7.1!
+
+Here are the highlights of this release:
+ - Isolated Projects graduates to incubating
+ - Broader Configuration Cache compatibility
+ - Resilient Sync helps you fix broken builds
+ - More source locations in problem reports
+
+For more details see https://docs.gradle.org/9.7.1/release-notes.html
+
+
+------------------------------------------------------------
+Gradle 9.7.1
+------------------------------------------------------------
+
+Build time:    2026-08-19 14:16:09 UTC
+Revision:      92f0512e7f06d84621afba191f75e265363890cf
+
+Kotlin:        2.4.0
+Groovy:        4.0.32
+Ant:           Apache Ant(TM) version 1.10.17 compiled on April 6 2026
+Launcher JVM:  26.0.2.1 (Homebrew 26.0.2.1)
+Daemon JVM:    /usr/local/Cellar/openjdk/26.0.2.1/libexec/openjdk.jdk/Contents/Home (no Daemon JVM specified, using current Java home)
+OS:            Mac OS X 26.5.1 x86_64
+
+
+############################
+# 3. Java 环境
+############################
+openjdk version "17.0.18" 2026-01-20
+OpenJDK Runtime Environment Homebrew (build 17.0.18+0)
+OpenJDK 64-Bit Server VM Homebrew (build 17.0.18+0, mixed mode, sharing)
+JAVA_HOME=
+
+############################
+# 4. Android SDK
+############################
+ANDROID_SDK_ROOT=/usr/local/share/android-commandlinetools
+-rw-r--r--  1 luojingyao  admin    26M  9月  8 15:17 /usr/local/share/android-commandlinetools/platforms/android-33/android.jar
+-rwxr-xr-x  1 luojingyao  admin   9.8M  9月  8 15:17 /usr/local/share/android-commandlinetools/build-tools/34.0.0/aapt2
+-rwxr-xr-x  1 luojingyao  admin   2.9K  9月  8 15:17 /usr/local/share/android-commandlinetools/build-tools/34.0.0/apksigner
+
+============================================================
+Step 08 环境准备完成
+============================================================
