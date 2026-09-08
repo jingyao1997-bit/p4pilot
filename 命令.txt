@@ -25195,3 +25195,263 @@ Step55-MEM-1 INSPECTION=COMPLETE
 ============================================================
 Step55-MEM-1 result sync
 ============================================================
+[main 3be9fc1] test: inspect Step55 memory backlog
+ 1 file changed, 263 insertions(+)
+To https://github.com/jingyao1997-bit/p4pilot.git
+   fe8f06e..3be9fc1  main -> main
+来自 https://github.com/jingyao1997-bit/p4pilot
+ * branch            main       -> FETCH_HEAD
+LOCAL       : 3be9fc19c269de365248b6c3ac1e2fd647611568
+origin/main : 3be9fc19c269de365248b6c3ac1e2fd647611568
+REAL REMOTE : 3be9fc19c269de365248b6c3ac1e2fd647611568
+RESULT_SYNC=PASS
+Step55-MEM-1 COMPLETE
+
+============================================================
+P4Pilot Step55-MEM-2
+Goal: inspect processing post/drop/finally structure
+DATE=2026-09-09 01:04:51
+============================================================
+
+>>> HEAD
+3be9fc19c269de365248b6c3ac1e2fd647611568
+
+>>> MainActivity lines 350-570
+   350	                                    planes[2].getPixelStride();
+   351	
+   352	                            /*
+   353	                             * Step54:
+   354	                             * The Image has already been closed.
+   355	                             * Processing now happens exclusively on the
+   356	                             * dedicated processing HandlerThread.
+   357	                             */
+   358	                            if (!processingHandler.post(() -> {
+   359	
+   360	                                long processStart =
+   361	                                        System.currentTimeMillis();
+   362	
+   363	                                try {
+   364	
+   365	                                    /*
+   366	                                     * Step53 processing is deliberately
+   367	                                     * performed outside ImageReader callback.
+   368	                                     */
+   369	
+   370	                                    android.graphics.Bitmap bitmap =
+   371	                                            yuv420ToBitmapFromCopiedPlanes(
+   372	                                                    w,
+   373	                                                    h,
+   374	                                                    yData,
+   375	                                                    uData,
+   376	                                                    vData,
+   377	                                                    yRowStride,
+   378	                                                    yPixelStride,
+   379	                                                    uRowStride,
+   380	                                                    uPixelStride,
+   381	                                                    vRowStride,
+   382	                                                    vPixelStride
+   383	                                            );
+   384	
+   385	                                    if (bitmap == null) {
+   386	
+   387	                                        System.err.println(
+   388	                                                "P4Pilot Step54 BITMAP_NULL frame=" +
+   389	                                                currentFrame
+   390	                                        );
+   391	
+   392	                                        return;
+   393	                                    }
+   394	
+   395	                                    processedCount++;
+   396	                                    savedCount++;
+   397	
+   398	                                    if (currentFrame == 1) {
+   399	
+   400	                                        System.out.println(
+   401	                                                "P4Pilot Step54 BITMAP_OK width=" +
+   402	                                                bitmap.getWidth() +
+   403	                                                " height=" +
+   404	                                                bitmap.getHeight()
+   405	                                        );
+   406	
+   407	                                        File testFile =
+   408	                                                new File(
+   409	                                                        outputDir,
+   410	                                                        "step53_test.jpg"
+   411	                                                );
+   412	
+   413	                                        FileOutputStream fos =
+   414	                                                new FileOutputStream(
+   415	                                                        testFile
+   416	                                                );
+   417	
+   418	                                        bitmap.compress(
+   419	                                                android.graphics.Bitmap
+   420	                                                        .CompressFormat.JPEG,
+   421	                                                90,
+   422	                                                fos
+   423	                                        );
+   424	
+   425	                                        fos.flush();
+   426	                                        fos.close();
+   427	
+   428	                                        android.graphics.Bitmap decoded =
+   429	                                                android.graphics.BitmapFactory
+   430	                                                        .decodeFile(
+   431	                                                                testFile
+   432	                                                                        .getAbsolutePath()
+   433	                                                        );
+   434	
+   435	                                        if (decoded != null) {
+   436	
+   437	                                            System.out.println(
+   438	                                                    "P4Pilot Step54 JPEG_DECODE_OK"
+   439	                                            );
+   440	
+   441	                                            System.out.println(
+   442	                                                    "P4Pilot Step54 JPEG_PATH=" +
+   443	                                                    testFile.getAbsolutePath()
+   444	                                            );
+   445	
+   446	                                            decoded.recycle();
+   447	
+   448	                                        } else {
+   449	
+   450	                                            System.err.println(
+   451	                                                    "P4Pilot Step54 JPEG_DECODE_FAIL"
+   452	                                            );
+   453	                                        }
+   454	                                    }
+   455	
+   456	                                    long processElapsed =
+   457	                                            System.currentTimeMillis() -
+   458	                                            processStart;
+   459	
+   460	                                    System.out.println(
+   461	                                            "P4Pilot Step54 PROCESSED frame=" +
+   462	                                            currentFrame +
+   463	                                            " processMs=" +
+   464	                                            processElapsed +
+   465	                                            " totalMs=" +
+   466	                                            (System.currentTimeMillis() -
+   467	                                             frameTimestamp)
+   468	                                    );
+   469	
+   470	                                    if (currentFrame == 10 ||
+   471	                                        currentFrame == 30 ||
+   472	                                        currentFrame == 60 ||
+   473	                                        currentFrame == 100) {
+   474	
+   475	                                        long elapsed =
+   476	                                                System.currentTimeMillis() -
+   477	                                                firstFrameTime;
+   478	
+   479	                                        double fps =
+   480	                                                elapsed > 0
+   481	                                                ? (currentFrame - 1) *
+   482	                                                  1000.0 /
+   483	                                                  elapsed
+   484	                                                : 0;
+   485	
+   486	                                        System.out.println(
+   487	                                                "P4Pilot Step54 FRAME=" +
+   488	                                                currentFrame +
+   489	                                                " elapsedMs=" +
+   490	                                                elapsed +
+   491	                                                " fps=" +
+   492	                                                String.format(
+   493	                                                        "%.2f",
+   494	                                                        fps
+   495	                                                )
+   496	                                        );
+   497	                                    }
+   498	
+   499	                                    final int displayedFrame =
+   500	                                            currentFrame;
+   501	
+   502	                                    runOnUiThread(() ->
+   503	                                            tv.setText(
+   504	                                                    "P4Pilot Step 54\n\n" +
+   505	                                                    "Camera: BACK\n" +
+   506	                                                    "Format: YUV_420_888\n" +
+   507	                                                    "Resolution: " +
+   508	                                                    w + " x " + h + "\n" +
+   509	                                                    "Captured: " +
+   510	                                                    frameCount + "\n" +
+   511	                                                    "Processed: " +
+   512	                                                    processedCount + "\n" +
+   513	                                                    "Current frame: " +
+   514	                                                    displayedFrame + "\n\n" +
+   515	                                                    "Status: BACKGROUND PROCESSING"
+   516	                                            )
+   517	                                    );
+   518	
+   519	                                    bitmap.recycle();
+   520	
+   521	                                } catch (Exception processingException) {
+   522	
+   523	                                    System.err.println(
+   524	                                            "P4Pilot Step54 PROCESS_ERROR frame=" +
+   525	                                            currentFrame
+   526	                                    );
+   527	
+   528	                                    processingException.printStackTrace();
+   529	                                }
+   530	                            })) {
+   531	                                droppedCount++;
+   532	
+   533	                                System.out.println(
+   534	                                        "P4Pilot Step54 DROPPED frame=" +
+   535	                                        currentFrame +
+   536	                                        " reason=PROCESS_QUEUE_REJECTED"
+   537	                                );
+   538	                            }
+   539	
+   540	                        } catch (Exception e) {
+   541	
+   542	                            System.err.println(
+   543	                                    "P4Pilot Step54 FRAME_ERROR"
+   544	                            );
+   545	
+   546	                            e.printStackTrace();
+   547	
+   548	                        } finally {
+   549	
+   550	                            /*
+   551	                             * Camera2 buffer is ALWAYS released here.
+   552	                             * No background task owns the Image object.
+   553	                             */
+   554	
+   555	                            if (image != null) {
+   556	                                image.close();
+   557	                            }
+   558	                        }
+   559	
+   560	                    },
+   561	                    cameraHandler
+   562	            );
+   563	
+   564	manager.openCamera(
+   565	                    cameraId,
+   566	                    new CameraDevice.StateCallback() {
+   567	
+   568	                        @Override
+   569	                        public void onOpened(
+   570	                                CameraDevice cameraDevice) {
+
+>>> Relevant queue/drop markers
+54:    private volatile int processedCount = 0;
+55:    private volatile int droppedCount = 0;
+325:                             * finally{} below releases the Camera2 buffer.
+358:                            if (!processingHandler.post(() -> {
+395:                                    processedCount++;
+512:                                                    processedCount + "\n" +
+524:                                            "P4Pilot Step54 PROCESS_ERROR frame=" +
+531:                                droppedCount++;
+548:                        } finally {
+
+Step55-MEM-2 INSPECTION=COMPLETE
+
+============================================================
+Step55-MEM-2 result sync
+============================================================
