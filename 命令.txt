@@ -500,3 +500,67 @@ f6bcf45 Step 01: macOS development environment baseline
 781a0c9 Add Step 01 development environment baseline
 
 >>> 命令.txt tail
+============================================================
+P4Pilot Step 05 - Android 编译链完整性检查
+Time: 2026-09-08 15:25:40 +0800
+============================================================
+
+[1] SDK ROOT
+ANDROID_SDK_ROOT=/usr/local/share/android-commandlinetools
+ANDROID_HOME=/usr/local/share/android-commandlinetools
+
+[2] Android Platform
+drwxr-xr-x  15 luojingyao  admin  480  9月  8 15:17 /usr/local/share/android-commandlinetools/platforms/android-33
+
+[3] Build Tools
+drwxr-xr-x  27 luojingyao  admin  864  9月  8 15:17 /usr/local/share/android-commandlinetools/build-tools/34.0.0
+
+[4] aapt2
+Android Asset Packaging Tool (aapt) 2.19-10229193
+
+[5] adb
+/usr/local/share/android-commandlinetools/platform-tools/adb
+Android Debug Bridge version 1.0.41
+Version 37.0.1-15733141
+Installed as /usr/local/share/android-commandlinetools/platform-tools/adb
+Running on Darwin 25.5.0 (x86_64)
+
+[6] fastboot
+/usr/local/share/android-commandlinetools/platform-tools/fastboot
+fastboot version 37.0.1-15733141
+Installed as /usr/local/share/android-commandlinetools/platform-tools/fastboot
+
+[7] sdkmanager
+/usr/local/share/android-commandlinetools/cmdline-tools/latest/bin/sdkmanager
+WARNING: The SDK Manager CLI tool (sdkmanager) is deprecated. Use Android CLI instead.
+The 'android' binary can also be found in the cmdline-tools directory, and 'android sdk' is the replacement for 'sdkmanager'.
+To learn more about the Android CLI and how to use it, see the documentation (https://d.android.com/tools/agents/android-cli)
+
+22.0
+
+
+[8] Java
+/usr/local/bin/java
+openjdk version "17.0.18" 2026-01-20
+OpenJDK Runtime Environment Homebrew (build 17.0.18+0)
+OpenJDK 64-Bit Server VM Homebrew (build 17.0.18+0, mixed mode, sharing)
+
+[9] Pixel 4 XL ADB
+List of devices attached
+9A181FFBA00072         device 20-6 product:coral model:Pixel_4_XL device:coral transport_id:3
+
+
+[10] Pixel Root
+uid=2000(shell) gid=2000(shell) groups=2000(shell),1004(input),1007(log),1011(adb),1015(sdcard_rw),1028(sdcard_r),1078(ext_data_rw),1079(ext_obb_rw),3001(net_bt_admin),3002(net_bt),3003(inet),3006(net_bw_stats),3009(readproc),3011(uhid),3012(readtracefs) context=u:r:shell:s0
+
+[11] Pixel Android
+13
+33
+
+[12] Pixel Device
+coral
+Pixel 4 XL
+
+============================================================
+Step 05 检查完成
+============================================================
