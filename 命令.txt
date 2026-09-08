@@ -3092,3 +3092,34 @@ app/build/outputs/apk/debug/app-debug.apk
 
 ============================================================
 P4Pilot Step 35 完成
+
+P4Pilot Step 36 - Pixel 4 XL APK安装验证
+============================================================
+
+>>> ADB设备:
+List of devices attached
+9A181FFBA00072         device 20-6 product:coral model:Pixel_4_XL device:coral transport_id:3
+
+
+>>> Pixel 4 XL基本信息:
+Pixel 4 XL
+coral
+13
+33
+
+>>> Root状态:
+uid=0(root) gid=0(root) groups=0(root) context=u:r:magisk:s0
+
+>>> 安装P4Pilot:
+Performing Streamed Install
+Success
+
+>>> 查询P4Pilot:
+package:/data/app/~~fscpo7eaXvPiFDfOV3MjAw==/com.p4pilot-5O29D5SVzqFHEqK-J4ZaIA==/base.apk
+
+>>> APK信息:
+    versionCode=1 minSdk=26 targetSdk=33
+    versionName=0.1.0
+
+============================================================
+P4Pilot Step 36 完成
