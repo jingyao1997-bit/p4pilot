@@ -1239,31 +1239,6 @@ private android.graphics.Bitmap yuv420ToBitmap(Image image) {
 
     @Override
     protected void onDestroy() {
-
-        super.onDestroy();
-
-        try {
-
-            if (session != null) {
-                session.close();
-                session = null;
-            }
-
-            if (camera != null) {
-                camera.close();
-                camera = null;
-            }
-
-            if (reader != null) {
-                reader.close();
-                reader = null;
-            }
-
-        } catch (Exception ignored) {
-        }
-    }
-    @Override
-    protected void onDestroy() {
         super.onDestroy();
 
         System.out.println(

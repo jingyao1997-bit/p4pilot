@@ -7578,3 +7578,663 @@ Saving session...
 ...copying shared history...
 ...saving history...truncating history files...
 ...completed.
+
+============================================================
+P4Pilot Step55-R3B
+DATE=2026-09-09 00:35:43
+REPO=/Users/luojingyao/p4pilot
+============================================================
+
+>>> Git state before test
+HEAD=1c9a3d17e439e9f5fb03267370534e4c185fe0aa
+
+>>> Verify Step54 thread architecture
+CAMERA_THREAD_COUNT=1
+PROCESSING_THREAD_COUNT=1
+ACQUIRE_LATEST_COUNT=2
+IMAGE_CLOSE_COUNT=1
+PROCESSING_POST_COUNT=1
+THREAD_ARCHITECTURE=PASS
+
+>>> Current output directory references
+60:    private File outputDir;
+74:        outputDir = new File(
+76:                "P4Pilot/step41"
+79:        if (!outputDir.exists()) {
+80:            boolean created = outputDir.mkdirs();
+82:                    "P4Pilot outputDir mkdirs=" + created
+87:                "P4Pilot outputDir=" +
+88:                outputDir.getAbsolutePath()
+409:                                                        outputDir,
+1184:                            outputDir,
+
+>>> Build APK
+> Task :app:clean
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preDebugBuild UP-TO-DATE
+> Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
+> Task :app:javaPreCompileDebug
+> Task :app:checkDebugAarMetadata
+> Task :app:processDebugNavigationResources
+> Task :app:compileDebugNavigationResources
+> Task :app:generateDebugResValues
+> Task :app:mapDebugSourceSetPaths
+> Task :app:generateDebugResources
+> Task :app:packageDebugResources
+> Task :app:createDebugCompatibleScreenManifests
+> Task :app:mergeDebugResources
+> Task :app:extractDeepLinksDebug
+> Task :app:parseDebugLocalResources
+> Task :app:processDebugMainManifest
+> Task :app:processDebugManifest
+> Task :app:mergeDebugShaders
+> Task :app:compileDebugShaders NO-SOURCE
+> Task :app:generateDebugAssets UP-TO-DATE
+> Task :app:mergeDebugAssets
+> Task :app:compressDebugAssets
+> Task :app:processDebugJavaRes NO-SOURCE
+> Task :app:processDebugManifestForPackage
+> Task :app:checkDebugDuplicateClasses
+> Task :app:desugarDebugFileDependencies
+> Task :app:mergeDebugJavaResource
+> Task :app:mergeExtDexDebug
+> Task :app:mergeDebugJniLibFolders
+> Task :app:mergeDebugNativeLibs NO-SOURCE
+> Task :app:stripDebugDebugSymbols NO-SOURCE
+> Task :app:mergeLibDexDebug
+> Task :app:validateSigningDebug
+> Task :app:writeDebugAppMetadata
+> Task :app:writeDebugSigningConfigVersions
+> Task :app:processDebugResources
+
+> Task :app:compileDebugJavaWithJavac FAILED
+/Users/luojingyao/p4pilot/app/src/main/java/com/p4pilot/MainActivity.java:1266: 错误: 已在类 MainActivity中定义了方法 onDestroy()
+    protected void onDestroy() {
+                   ^
+注: /Users/luojingyao/p4pilot/app/src/main/java/com/p4pilot/MainActivity.java使用或覆盖了已过时的 API。
+注: 有关详细信息, 请使用 -Xlint:deprecation 重新编译。
+1 个错误
+
+[Incubating] Problems report is available at: file:///Users/luojingyao/p4pilot/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':app:compileDebugJavaWithJavac'.
+> Compilation failed; see the compiler output below.
+  /Users/luojingyao/p4pilot/app/src/main/java/com/p4pilot/MainActivity.java:1266: 错误: 已在类 MainActivity中定义了方法 onDestroy()
+      protected void onDestroy() {
+                     ^
+  注: /Users/luojingyao/p4pilot/app/src/main/java/com/p4pilot/MainActivity.java使用或覆盖了已过时的 API。
+  注: 有关详细信息, 请使用 -Xlint:deprecation 重新编译。
+  1 个错误
+
+* Try:
+> Check your code and dependencies to fix the compilation error(s)
+> Run with --scan to get full insights.
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.13/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD FAILED in 3s
+30 actionable tasks: 30 executed
+============================================================
+P4Pilot Step55-RECOVERY-1A
+PWD=/Users/luojingyao/p4pilot
+============================================================
+
+>>> Git repository
+/Users/luojingyao/p4pilot
+
+>>> Git remote
+origin	https://github.com/jingyao1997-bit/p4pilot.git (fetch)
+origin	https://github.com/jingyao1997-bit/p4pilot.git (push)
+
+>>> Current branch
+* main 1c9a3d1 [origin/main] test: validate 60 second Camera2 stability
+
+>>> Current HEAD
+1c9a3d17e439e9f5fb03267370534e4c185fe0aa
+
+>>> Recent commits
+1c9a3d1 (HEAD -> main, origin/main, origin/HEAD) test: validate 60 second Camera2 stability
+05bee64 fix: move Camera2 processing to background threads
+5faab5d fix: decouple ImageReader buffers from frame processing
+c42bd9b test: establish ImageReader buffer baseline
+a7c35ab test: validate continuous Camera2 stability
+4451d17 fix: remove duplicate YUV conversion methods
+dab6f2a test: validate YUV to JPEG conversion and performance
+1e6afbd test: validate continuous Camera2 YUV frame stream
+bc26bc9 test: finalize JPEG decoding validation
+fb551bd test: finalize JPEG decoding validation
+16be167 test: validate JPEG image decoding
+6c302f5 test: verify final JPEG output on Pixel 4 XL
+7e7e84e test: validate YUV buffer boundaries
+beaceb9 test: inspect Camera2 YUV plane layout
+c21f616 test: verify Step 41 JPEG output
+48f5b71 fix: use app storage and correct YUV conversion
+a0ddc4a feat: validate Camera2 YUV frame JPEG output
+67aa2d1 feat: implement Camera2 frame capture test
+fca713a feat: implement Camera2 frame capture test
+d1dc6fd feat: add Camera2 capability test
+
+>>> Android project files
+MAIN_ACTIVITY=FOUND
+GRADLEW=FOUND
+COMMAND_TXT=FOUND
+
+>>> Step54 commit check
+STEP54_COMMIT=FOUND
+05bee64 fix: move Camera2 processing to background threads
+
+>>> Working tree
+ M "\345\221\275\344\273\244.txt"
+
+>>> 命令.txt latest
+
+>>> Git state before test
+HEAD=1c9a3d17e439e9f5fb03267370534e4c185fe0aa
+
+>>> Verify Step54 thread architecture
+CAMERA_THREAD_COUNT=1
+PROCESSING_THREAD_COUNT=1
+ACQUIRE_LATEST_COUNT=2
+IMAGE_CLOSE_COUNT=1
+PROCESSING_POST_COUNT=1
+THREAD_ARCHITECTURE=PASS
+
+>>> Current output directory references
+60:    private File outputDir;
+74:        outputDir = new File(
+76:                "P4Pilot/step41"
+79:        if (!outputDir.exists()) {
+80:            boolean created = outputDir.mkdirs();
+82:                    "P4Pilot outputDir mkdirs=" + created
+87:                "P4Pilot outputDir=" +
+88:                outputDir.getAbsolutePath()
+409:                                                        outputDir,
+1184:                            outputDir,
+
+>>> Build APK
+> Task :app:clean
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preDebugBuild UP-TO-DATE
+> Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
+> Task :app:javaPreCompileDebug
+> Task :app:checkDebugAarMetadata
+> Task :app:processDebugNavigationResources
+> Task :app:compileDebugNavigationResources
+> Task :app:generateDebugResValues
+> Task :app:mapDebugSourceSetPaths
+> Task :app:generateDebugResources
+> Task :app:packageDebugResources
+> Task :app:createDebugCompatibleScreenManifests
+> Task :app:mergeDebugResources
+> Task :app:extractDeepLinksDebug
+> Task :app:parseDebugLocalResources
+> Task :app:processDebugMainManifest
+> Task :app:processDebugManifest
+> Task :app:mergeDebugShaders
+> Task :app:compileDebugShaders NO-SOURCE
+> Task :app:generateDebugAssets UP-TO-DATE
+> Task :app:mergeDebugAssets
+> Task :app:compressDebugAssets
+> Task :app:processDebugJavaRes NO-SOURCE
+> Task :app:processDebugManifestForPackage
+> Task :app:checkDebugDuplicateClasses
+> Task :app:desugarDebugFileDependencies
+> Task :app:mergeDebugJavaResource
+> Task :app:mergeExtDexDebug
+> Task :app:mergeDebugJniLibFolders
+> Task :app:mergeDebugNativeLibs NO-SOURCE
+> Task :app:stripDebugDebugSymbols NO-SOURCE
+> Task :app:mergeLibDexDebug
+> Task :app:validateSigningDebug
+> Task :app:writeDebugAppMetadata
+> Task :app:writeDebugSigningConfigVersions
+> Task :app:processDebugResources
+
+> Task :app:compileDebugJavaWithJavac FAILED
+/Users/luojingyao/p4pilot/app/src/main/java/com/p4pilot/MainActivity.java:1266: 错误: 已在类 MainActivity中定义了方法 onDestroy()
+    protected void onDestroy() {
+                   ^
+注: /Users/luojingyao/p4pilot/app/src/main/java/com/p4pilot/MainActivity.java使用或覆盖了已过时的 API。
+注: 有关详细信息, 请使用 -Xlint:deprecation 重新编译。
+1 个错误
+
+[Incubating] Problems report is available at: file:///Users/luojingyao/p4pilot/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':app:compileDebugJavaWithJavac'.
+> Compilation failed; see the compiler output below.
+  /Users/luojingyao/p4pilot/app/src/main/java/com/p4pilot/MainActivity.java:1266: 错误: 已在类 MainActivity中定义了方法 onDestroy()
+      protected void onDestroy() {
+                     ^
+  注: /Users/luojingyao/p4pilot/app/src/main/java/com/p4pilot/MainActivity.java使用或覆盖了已过时的 API。
+  注: 有关详细信息, 请使用 -Xlint:deprecation 重新编译。
+  1 个错误
+
+* Try:
+> Check your code and dependencies to fix the compilation error(s)
+> Run with --scan to get full insights.
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.13/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD FAILED in 3s
+30 actionable tasks: 30 executed
+============================================================
+P4Pilot Step55-RECOVERY-1A
+PWD=/Users/luojingyao/p4pilot
+============================================================
+
+>>> Git repository
+/Users/luojingyao/p4pilot
+
+>>> Git remote
+origin	https://github.com/jingyao1997-bit/p4pilot.git (fetch)
+origin	https://github.com/jingyao1997-bit/p4pilot.git (push)
+
+>>> Current branch
+* main 1c9a3d1 [origin/main] test: validate 60 second Camera2 stability
+
+>>> Current HEAD
+1c9a3d17e439e9f5fb03267370534e4c185fe0aa
+
+>>> Recent commits
+1c9a3d1 (HEAD -> main, origin/main, origin/HEAD) test: validate 60 second Camera2 stability
+05bee64 fix: move Camera2 processing to background threads
+5faab5d fix: decouple ImageReader buffers from frame processing
+c42bd9b test: establish ImageReader buffer baseline
+a7c35ab test: validate continuous Camera2 stability
+4451d17 fix: remove duplicate YUV conversion methods
+dab6f2a test: validate YUV to JPEG conversion and performance
+1e6afbd test: validate continuous Camera2 YUV frame stream
+bc26bc9 test: finalize JPEG decoding validation
+fb551bd test: finalize JPEG decoding validation
+16be167 test: validate JPEG image decoding
+6c302f5 test: verify final JPEG output on Pixel 4 XL
+7e7e84e test: validate YUV buffer boundaries
+beaceb9 test: inspect Camera2 YUV plane layout
+c21f616 test: verify Step 41 JPEG output
+48f5b71 fix: use app storage and correct YUV conversion
+a0ddc4a feat: validate Camera2 YUV frame JPEG output
+67aa2d1 feat: implement Camera2 frame capture test
+fca713a feat: implement Camera2 frame capture test
+d1dc6fd feat: add Camera2 capability test
+
+>>> Android project files
+MAIN_ACTIVITY=FOUND
+GRADLEW=FOUND
+COMMAND_TXT=FOUND
+
+>>> Step54 commit check
+STEP54_COMMIT=FOUND
+05bee64 fix: move Camera2 processing to background threads
+
+>>> Working tree
+ M "\345\221\275\344\273\244.txt"
+
+>>> 命令.txt latest
+
+RECOVERY_CHECK_COMPLETE
+
+============================================================
+P4Pilot Step55-FIX-1
+Goal: inspect duplicate onDestroy methods
+============================================================
+
+>>> onDestroy definitions
+1241:    protected void onDestroy() {
+1266:    protected void onDestroy() {
+
+>>> Total onDestroy count
+ONDESTROY_COUNT=2
+
+>>> Context around every onDestroy
+
+------------------------------------------------------------
+onDestroy around line 1241
+------------------------------------------------------------
+  1216	                        "P4Pilot JPEG saved: " +
+  1217	                        file.getAbsolutePath() +
+  1218	                        " size=" +
+  1219	                        size
+  1220	                );
+  1221	
+  1222	            } else {
+  1223	
+  1224	                System.out.println(
+  1225	                        "P4Pilot JPEG compression FAILED"
+  1226	                );
+  1227	            }
+  1228	
+  1229	        } catch (Exception e) {
+  1230	
+  1231	            System.err.println(
+  1232	                    "P4Pilot JPEG ERROR: " +
+  1233	                    e
+  1234	            );
+  1235	
+  1236	            e.printStackTrace();
+  1237	        }
+  1238	    }
+  1239	
+  1240	    @Override
+  1241	    protected void onDestroy() {
+  1242	
+  1243	        super.onDestroy();
+  1244	
+  1245	        try {
+  1246	
+  1247	            if (session != null) {
+  1248	                session.close();
+  1249	                session = null;
+  1250	            }
+  1251	
+  1252	            if (camera != null) {
+  1253	                camera.close();
+  1254	                camera = null;
+  1255	            }
+  1256	
+  1257	            if (reader != null) {
+  1258	                reader.close();
+  1259	                reader = null;
+  1260	            }
+  1261	
+  1262	        } catch (Exception ignored) {
+  1263	        }
+  1264	    }
+  1265	    @Override
+  1266	    protected void onDestroy() {
+  1267	        super.onDestroy();
+  1268	
+  1269	        System.out.println(
+  1270	                "P4Pilot Step54 onDestroy"
+  1271	        );
+  1272	
+  1273	        try {
+  1274	            if (session != null) {
+  1275	                session.close();
+  1276	                session = null;
+  1277	            }
+  1278	        } catch (Exception ignored) {
+  1279	        }
+  1280	
+  1281	        try {
+  1282	            if (camera != null) {
+  1283	                camera.close();
+  1284	                camera = null;
+  1285	            }
+  1286	        } catch (Exception ignored) {
+  1287	        }
+  1288	
+  1289	        try {
+  1290	            if (reader != null) {
+  1291	                reader.close();
+
+------------------------------------------------------------
+onDestroy around line 1266
+------------------------------------------------------------
+  1241	    protected void onDestroy() {
+  1242	
+  1243	        super.onDestroy();
+  1244	
+  1245	        try {
+  1246	
+  1247	            if (session != null) {
+  1248	                session.close();
+  1249	                session = null;
+  1250	            }
+  1251	
+  1252	            if (camera != null) {
+  1253	                camera.close();
+  1254	                camera = null;
+  1255	            }
+  1256	
+  1257	            if (reader != null) {
+  1258	                reader.close();
+  1259	                reader = null;
+  1260	            }
+  1261	
+  1262	        } catch (Exception ignored) {
+  1263	        }
+  1264	    }
+  1265	    @Override
+  1266	    protected void onDestroy() {
+  1267	        super.onDestroy();
+  1268	
+  1269	        System.out.println(
+  1270	                "P4Pilot Step54 onDestroy"
+  1271	        );
+  1272	
+  1273	        try {
+  1274	            if (session != null) {
+  1275	                session.close();
+  1276	                session = null;
+  1277	            }
+  1278	        } catch (Exception ignored) {
+  1279	        }
+  1280	
+  1281	        try {
+  1282	            if (camera != null) {
+  1283	                camera.close();
+  1284	                camera = null;
+  1285	            }
+  1286	        } catch (Exception ignored) {
+  1287	        }
+  1288	
+  1289	        try {
+  1290	            if (reader != null) {
+  1291	                reader.close();
+  1292	                reader = null;
+  1293	            }
+  1294	        } catch (Exception ignored) {
+  1295	        }
+  1296	
+  1297	        try {
+  1298	            if (cameraThread != null) {
+  1299	                cameraThread.quitSafely();
+  1300	                cameraThread = null;
+  1301	                cameraHandler = null;
+  1302	            }
+  1303	        } catch (Exception ignored) {
+  1304	        }
+  1305	
+  1306	        try {
+  1307	            if (processingThread != null) {
+  1308	                processingThread.quitSafely();
+  1309	                processingThread = null;
+  1310	                processingHandler = null;
+  1311	            }
+  1312	        } catch (Exception ignored) {
+  1313	        }
+  1314	    }
+  1315	
+  1316	}
+
+>>> Thread shutdown references
+34:     * cameraThread:
+37:     * processingThread:
+40:     * ImageReader Image objects NEVER leave cameraThread.
+45:    private HandlerThread cameraThread;
+46:    private Handler cameraHandler;
+48:    private HandlerThread processingThread;
+49:    private Handler processingHandler;
+94:        cameraThread = new HandlerThread(
+98:        cameraThread.start();
+99:        cameraHandler = new Handler(
+100:                cameraThread.getLooper()
+103:        processingThread = new HandlerThread(
+107:        processingThread.start();
+108:        processingHandler = new Handler(
+109:                processingThread.getLooper()
+114:                cameraThread.getName()
+119:                processingThread.getName()
+358:                            if (!processingHandler.post(() -> {
+561:                    cameraHandler
+606:                                                                    cameraHandler
+626:                                        cameraHandler
+667:                    cameraHandler
+1243:        super.onDestroy();
+1267:        super.onDestroy();
+1298:            if (cameraThread != null) {
+1299:                cameraThread.quitSafely();
+1300:                cameraThread = null;
+1301:                cameraHandler = null;
+1307:            if (processingThread != null) {
+1308:                processingThread.quitSafely();
+1309:                processingThread = null;
+1310:                processingHandler = null;
+
+Step55-FIX-1 COMPLETE
+
+============================================================
+P4Pilot Step55-FIX-2
+Goal: remove legacy duplicate onDestroy()
+============================================================
+
+>>> Before
+BEFORE_ONDESTROY_COUNT=2
+LEGACY_BLOCK_MATCH_COUNT=1
+LEGACY_ONDESTROY_REMOVED=YES
+
+>>> After
+AFTER_ONDESTROY_COUNT=1
+SUPER_ONDESTROY_COUNT=1
+CAMERA_QUIT_COUNT=1
+PROCESSING_QUIT_COUNT=1
+
+>>> Remaining onDestroy
+  1236	            e.printStackTrace();
+  1237	        }
+  1238	    }
+  1239	
+  1240	    @Override
+  1241	    protected void onDestroy() {
+  1242	        super.onDestroy();
+  1243	
+  1244	        System.out.println(
+  1245	                "P4Pilot Step54 onDestroy"
+  1246	        );
+  1247	
+  1248	        try {
+  1249	            if (session != null) {
+  1250	                session.close();
+  1251	                session = null;
+  1252	            }
+  1253	        } catch (Exception ignored) {
+  1254	        }
+  1255	
+  1256	        try {
+  1257	            if (camera != null) {
+  1258	                camera.close();
+  1259	                camera = null;
+  1260	            }
+  1261	        } catch (Exception ignored) {
+  1262	        }
+  1263	
+  1264	        try {
+  1265	            if (reader != null) {
+  1266	                reader.close();
+  1267	                reader = null;
+  1268	            }
+  1269	        } catch (Exception ignored) {
+  1270	        }
+  1271	
+  1272	        try {
+  1273	            if (cameraThread != null) {
+  1274	                cameraThread.quitSafely();
+  1275	                cameraThread = null;
+  1276	                cameraHandler = null;
+  1277	            }
+  1278	        } catch (Exception ignored) {
+  1279	        }
+  1280	
+  1281	        try {
+  1282	            if (processingThread != null) {
+  1283	                processingThread.quitSafely();
+  1284	                processingThread = null;
+  1285	                processingHandler = null;
+  1286	            }
+  1287	        } catch (Exception ignored) {
+  1288	        }
+  1289	    }
+  1290	
+  1291	}
+
+>>> Build
+> Task :app:clean
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preDebugBuild UP-TO-DATE
+> Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
+> Task :app:javaPreCompileDebug
+> Task :app:checkDebugAarMetadata
+> Task :app:processDebugNavigationResources
+> Task :app:compileDebugNavigationResources
+> Task :app:generateDebugResValues
+> Task :app:mapDebugSourceSetPaths
+> Task :app:generateDebugResources
+> Task :app:packageDebugResources
+> Task :app:mergeDebugResources
+> Task :app:createDebugCompatibleScreenManifests
+> Task :app:extractDeepLinksDebug
+> Task :app:parseDebugLocalResources
+> Task :app:processDebugMainManifest
+> Task :app:processDebugManifest
+> Task :app:mergeDebugShaders
+> Task :app:compileDebugShaders NO-SOURCE
+> Task :app:generateDebugAssets UP-TO-DATE
+> Task :app:mergeDebugAssets
+> Task :app:compressDebugAssets
+> Task :app:processDebugJavaRes NO-SOURCE
+> Task :app:checkDebugDuplicateClasses
+> Task :app:desugarDebugFileDependencies
+> Task :app:mergeDebugJavaResource
+> Task :app:mergeExtDexDebug
+> Task :app:mergeDebugJniLibFolders
+> Task :app:mergeDebugNativeLibs NO-SOURCE
+> Task :app:mergeLibDexDebug
+> Task :app:stripDebugDebugSymbols NO-SOURCE
+> Task :app:validateSigningDebug
+> Task :app:writeDebugAppMetadata
+> Task :app:writeDebugSigningConfigVersions
+> Task :app:processDebugManifestForPackage
+> Task :app:processDebugResources
+
+> Task :app:compileDebugJavaWithJavac
+注: /Users/luojingyao/p4pilot/app/src/main/java/com/p4pilot/MainActivity.java使用或覆盖了已过时的 API。
+注: 有关详细信息, 请使用 -Xlint:deprecation 重新编译。
+
+> Task :app:dexBuilderDebug
+> Task :app:mergeProjectDexDebug
+> Task :app:packageDebug
+> Task :app:createDebugApkListingFileRedirect
+> Task :app:assembleDebug
+
+[Incubating] Problems report is available at: file:///Users/luojingyao/p4pilot/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.13/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 3s
+34 actionable tasks: 34 executed
+
+BUILD_CHECK=PASS
+
+Step55-FIX-2 TEST_STATUS=PASS
+
+============================================================
+Step55-FIX-2 Git commit / push
+============================================================
