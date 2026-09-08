@@ -3461,3 +3461,150 @@ Active Camera Clients:
 ============================================================
 P4Pilot Step 39 完成
 ============================================================
+
+============================================================
+P4Pilot Step 39 - Camera2实际取帧验证
+============================================================
+
+>>> Pixel Camera权限:
+    pkgFlags=[ ]
+    requested permissions:
+      android.permission.CAMERA
+    User 0: ceDataInode=48456 installed=true hidden=false suspended=false distractionFlags=0 stopped=false notLaunched=false enabled=0 instant=false virtual=false
+      installReason=0
+      firstInstallTime=2026-09-08 10:29:01
+      uninstallReason=0
+      overlay paths:
+--
+        /product/overlay/NavigationBarModeGestural/NavigationBarModeGesturalOverlay.apk
+      runtime permissions:
+        android.permission.CAMERA: granted=true, flags=[ USER_SET]
+
+Queries:
+  system apps queryable: false
+  queries via forceQueryable:
+  queries via package name:
+
+>>> Debug构建:
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preDebugBuild UP-TO-DATE
+> Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
+> Task :app:javaPreCompileDebug UP-TO-DATE
+> Task :app:checkDebugAarMetadata UP-TO-DATE
+> Task :app:processDebugNavigationResources UP-TO-DATE
+> Task :app:compileDebugNavigationResources UP-TO-DATE
+> Task :app:generateDebugResValues UP-TO-DATE
+> Task :app:mapDebugSourceSetPaths UP-TO-DATE
+> Task :app:generateDebugResources UP-TO-DATE
+> Task :app:mergeDebugResources UP-TO-DATE
+> Task :app:packageDebugResources UP-TO-DATE
+> Task :app:parseDebugLocalResources UP-TO-DATE
+> Task :app:createDebugCompatibleScreenManifests UP-TO-DATE
+> Task :app:extractDeepLinksDebug UP-TO-DATE
+> Task :app:processDebugMainManifest UP-TO-DATE
+> Task :app:processDebugManifest UP-TO-DATE
+> Task :app:processDebugManifestForPackage UP-TO-DATE
+> Task :app:processDebugResources UP-TO-DATE
+> Task :app:compileDebugJavaWithJavac UP-TO-DATE
+> Task :app:mergeDebugShaders UP-TO-DATE
+> Task :app:compileDebugShaders NO-SOURCE
+> Task :app:generateDebugAssets UP-TO-DATE
+> Task :app:mergeDebugAssets UP-TO-DATE
+> Task :app:compressDebugAssets UP-TO-DATE
+> Task :app:processDebugJavaRes NO-SOURCE
+> Task :app:mergeDebugJavaResource UP-TO-DATE
+> Task :app:checkDebugDuplicateClasses UP-TO-DATE
+> Task :app:desugarDebugFileDependencies UP-TO-DATE
+> Task :app:mergeExtDexDebug UP-TO-DATE
+> Task :app:mergeLibDexDebug UP-TO-DATE
+> Task :app:dexBuilderDebug UP-TO-DATE
+> Task :app:mergeProjectDexDebug UP-TO-DATE
+> Task :app:mergeDebugJniLibFolders UP-TO-DATE
+> Task :app:mergeDebugNativeLibs NO-SOURCE
+> Task :app:stripDebugDebugSymbols NO-SOURCE
+> Task :app:validateSigningDebug UP-TO-DATE
+> Task :app:writeDebugAppMetadata UP-TO-DATE
+> Task :app:writeDebugSigningConfigVersions UP-TO-DATE
+> Task :app:packageDebug UP-TO-DATE
+> Task :app:createDebugApkListingFileRedirect UP-TO-DATE
+> Task :app:assembleDebug UP-TO-DATE
+
+[Incubating] Problems report is available at: file:///Users/luojingyao/p4pilot/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.13/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 976ms
+33 actionable tasks: 33 up-to-date
+
+>>> 安装APK:
+Performing Streamed Install
+Success
+
+>>> 清除旧进程:
+
+>>> 启动P4Pilot:
+  bash arg: -p
+  bash arg: com.p4pilot
+  bash arg: 1
+Events injected: 1
+## Network stats: elapsed time=54ms (0ms mobile, 0ms wifi, 54ms not connected)
+
+>>> P4Pilot进程:
+27206
+
+>>> Camera状态:
+Active Camera Clients:
+  09-08 10:38:34 : CONNECT device 0 client for package com.p4pilot (PID 27206)
+  09-07 22:22:09 : DISCONNECT device 2 client for package client.pid<1393> (PID 1393)
+  09-07 22:22:05 : CONNECT device 2 client for package client.pid<1393> (PID 1393)
+  09-07 22:22:05 : DISCONNECT device 2 client for package client.pid<1393> (PID 1393)
+  09-07 22:22:01 : CONNECT device 2 client for package client.pid<1393> (PID 1393)
+  09-07 20:33:55 : DISCONNECT device 2 client for package client.pid<1393> (PID 1393)
+  09-07 20:33:52 : CONNECT device 2 client for package client.pid<1393> (PID 1393)
+  09-07 20:33:52 : DISCONNECT device 2 client for package client.pid<1393> (PID 1393)
+  09-07 20:33:49 : CONNECT device 2 client for package client.pid<1393> (PID 1393)
+  09-07 20:33:47 : DISCONNECT device 2 client for package client.pid<1393> (PID 1393)
+  09-07 20:33:42 : CONNECT device 2 client for package client.pid<1393> (PID 1393)
+  09-07 20:33:13 : DISCONNECT device 2 client for package client.pid<1393> (PID 1393)
+  09-07 20:33:11 : CONNECT device 2 client for package client.pid<1393> (PID 1393)
+  09-07 20:32:56 : DISCONNECT device 2 client for package client.pid<1393> (PID 1393)
+  09-07 20:32:53 : CONNECT device 2 client for package client.pid<1393> (PID 1393)
+  09-07 20:32:49 : DISCONNECT device 1 client for package com.android.settings (PID 2589)
+  09-07 20:32:48 : DISCONNECT device 2 client for package client.pid<1393> (PID 1393)
+  09-07 20:32:07 : CONNECT device 2 client for package client.pid<1393> (PID 1393)
+  09-07 20:32:06 : CONNECT device 1 client for package com.android.settings (PID 2589)
+
+>>> P4Pilot Camera日志:
+09-08 10:38:39.558  1076  1076 W SoloThreadMana: type=1400 audit(0.0:9489): avc: denied { search } for name="camera" dev="dm-37" ino=312 scontext=u:r:hal_camera_default:s0 tcontext=u:object_r:camera_vendor_data_file:s0 tclass=dir permissive=0
+09-08 10:38:39.591  1076  1076 W SoloThreadMana: type=1400 audit(0.0:9490): avc: denied { search } for name="camera" dev="dm-37" ino=312 scontext=u:r:hal_camera_default:s0 tcontext=u:object_r:camera_vendor_data_file:s0 tclass=dir permissive=0
+09-08 10:38:39.621  1076  1076 W SoloThreadMana: type=1400 audit(0.0:9491): avc: denied { search } for name="camera" dev="dm-37" ino=312 scontext=u:r:hal_camera_default:s0 tcontext=u:object_r:camera_vendor_data_file:s0 tclass=dir permissive=0
+09-08 10:38:39.655  1076  1076 W SoloThreadMana: type=1400 audit(0.0:9492): avc: denied { search } for name="camera" dev="dm-37" ino=312 scontext=u:r:hal_camera_default:s0 tcontext=u:object_r:camera_vendor_data_file:s0 tclass=dir permissive=0
+09-08 10:38:39.688  1076  1076 W SoloThreadMana: type=1400 audit(0.0:9493): avc: denied { search } for name="camera" dev="dm-37" ino=312 scontext=u:r:hal_camera_default:s0 tcontext=u:object_r:camera_vendor_data_file:s0 tclass=dir permissive=0
+09-08 10:38:40.460  1734  3142 E AppSearchIcing: document-validator.cc:82: Schema type config 'android$apps-db/builtin:MobileApplication-com.google.android.GoogleCamera' not found Error while validating document (android$apps-db/apps, com.google.android.GoogleCamera)
+09-08 10:38:40.460  1734  3142 W AppSearchIcing: status-util.h:31: Error: 5, Message: Schema type config 'android$apps-db/builtin:MobileApplication-com.google.android.GoogleCamera' not found
+09-08 10:38:40.460  1734  3142 E AppSearchIcing: document-validator.cc:82: Schema type config 'android$apps-db/builtin:MobileApplication-com.p4pilot' not found Error while validating document (android$apps-db/apps, com.p4pilot)
+09-08 10:38:40.460  1734  3142 W AppSearchIcing: status-util.h:31: Error: 5, Message: Schema type config 'android$apps-db/builtin:MobileApplication-com.p4pilot' not found
+09-08 10:38:40.463  1734  3148 E AppSearchAppIndxrHlp: Ran into error while indexing apps: [FAILURE(6)]: Schema type config 'android$apps-db/builtin:MobileApplication-com.p4pilot' not found
+09-08 10:38:40.463  1734  3148 E AppSearchAppIndxrHlp: Ran into error while indexing apps: [FAILURE(6)]: Schema type config 'android$apps-db/builtin:MobileApplication-com.google.android.GoogleCamera' not found
+09-08 10:38:40.588  1076  1076 W SoloThreadMana: type=1400 audit(0.0:9520): avc: denied { search } for name="camera" dev="dm-37" ino=312 scontext=u:r:hal_camera_default:s0 tcontext=u:object_r:camera_vendor_data_file:s0 tclass=dir permissive=0
+09-08 10:38:40.621  1076  1076 W SoloThreadMana: type=1400 audit(0.0:9521): avc: denied { search } for name="camera" dev="dm-37" ino=312 scontext=u:r:hal_camera_default:s0 tcontext=u:object_r:camera_vendor_data_file:s0 tclass=dir permissive=0
+09-08 10:38:40.655  1076  1076 W SoloThreadMana: type=1400 audit(0.0:9522): avc: denied { search } for name="camera" dev="dm-37" ino=312 scontext=u:r:hal_camera_default:s0 tcontext=u:object_r:camera_vendor_data_file:s0 tclass=dir permissive=0
+09-08 10:38:40.688  1076  1076 W SoloThreadMana: type=1400 audit(0.0:9523): avc: denied { search } for name="camera" dev="dm-37" ino=312 scontext=u:r:hal_camera_default:s0 tcontext=u:object_r:camera_vendor_data_file:s0 tclass=dir permissive=0
+09-08 10:38:40.721  1076  1076 W SoloThreadMana: type=1400 audit(0.0:9524): avc: denied { search } for name="camera" dev="dm-37" ino=312 scontext=u:r:hal_camera_default:s0 tcontext=u:object_r:camera_vendor_data_file:s0 tclass=dir permissive=0
+09-08 10:38:41.595  1076  1076 W SoloThreadMana: type=1400 audit(0.0:9550): avc: denied { search } for name="camera" dev="dm-37" ino=312 scontext=u:r:hal_camera_default:s0 tcontext=u:object_r:camera_vendor_data_file:s0 tclass=dir permissive=0
+09-08 10:38:41.621  1076  1076 W SoloThreadMana: type=1400 audit(0.0:9551): avc: denied { search } for name="camera" dev="dm-37" ino=312 scontext=u:r:hal_camera_default:s0 tcontext=u:object_r:camera_vendor_data_file:s0 tclass=dir permissive=0
+09-08 10:38:41.655  1076  1076 W SoloThreadMana: type=1400 audit(0.0:9552): avc: denied { search } for name="camera" dev="dm-37" ino=312 scontext=u:r:hal_camera_default:s0 tcontext=u:object_r:camera_vendor_data_file:s0 tclass=dir permissive=0
+09-08 10:38:41.688  1076  1076 W SoloThreadMana: type=1400 audit(0.0:9553): avc: denied { search } for name="camera" dev="dm-37" ino=312 scontext=u:r:hal_camera_default:s0 tcontext=u:object_r:camera_vendor_data_file:s0 tclass=dir permissive=0
+09-08 10:38:41.725  1076  1076 W SoloThreadMana: type=1400 audit(0.0:9554): avc: denied { search } for name="camera" dev="dm-37" ino=312 scontext=u:r:hal_camera_default:s0 tcontext=u:object_r:camera_vendor_data_file:s0 tclass=dir permissive=0
+09-08 10:38:42.132  1410  1410 I adbd    : adbd service requested 'shell,v2,TERM=xterm-256color,raw:pidof com.p4pilot'
+09-08 10:38:42.250  1410  1410 I adbd    : adbd service requested 'shell,v2,TERM=xterm-256color,raw:dumpsys media.camera'
+
+>>> ANR / Crash检查:
+
+============================================================
+P4Pilot Step 39 完成
+============================================================
