@@ -221,3 +221,141 @@ Pixel 4 XL
 ============================================================
 Step 02 完成
 ============================================================
+
+============================================================
+P4Pilot Step 03 - 安装 Android SDK Command Line Tools
+Time: 2026-09-08 15:13:52 +0800
+============================================================
+
+>>> brew 安装 Android Command Line Tools
+==> Downloading Homebrew API data
+✔︎ JSON API packages.tahoe.jws.json
+==> Would install 1 cask:
+android-commandlinetools
+Warning: You are using macOS on Intel x86_64.
+We do not provide support for this platform (as-of September 2026, announced August 2025).
+
+Apple have dropped Intel x86_64 support in macOS Golden Gate (27).
+GitHub Actions are dropping macOS Intel x86_64 runners in 2027.
+Homebrew is a non-profit project run entirely by volunteers, not employees.
+If the biggest companies in the world cannot support macOS Intel x86_64
+any longer, sadly neither can we.
+
+You will have better luck with MacPorts which still supports macOS Intel x86_64:
+  https://www.macports.org
+Warning: The following taps are not trusted:
+  openhue/cli
+  rfidresearchgroup/proxmark3
+  xdevplatform/tap
+  yakitrak/yakitrak
+
+Homebrew is currently ignoring formulae, casks and commands from these taps because tap trust is required.
+
+Prefer trusting only the specific formulae, casks or commands you need.
+Trust installed formulae from these taps with:
+  brew trust --formula openhue/cli/openhue-cli
+  brew trust --formula rfidresearchgroup/proxmark3/arm-none-eabi-gcc
+  brew trust --formula yakitrak/yakitrak/obsidian-cli
+Trust installed casks from these taps with:
+  brew trust --cask xdevplatform/tap/xurl
+Trust other specific commands with:
+  brew trust --command <user>/<tap>/<command>
+Whole-tap trust is broader and includes all current and future formulae,
+casks and commands from the listed taps. Trust whole taps with:
+  brew trust openhue/cli rfidresearchgroup/proxmark3 xdevplatform/tap yakitrak/yakitrak
+Untap them with:
+  brew untap openhue/cli rfidresearchgroup/proxmark3 xdevplatform/tap yakitrak/yakitrak
+To disable trust checks:
+  export HOMEBREW_NO_REQUIRE_TAP_TRUST=1
+This is not recommended and will be removed in a later release.
+For more information, see:
+  https://docs.brew.sh/Tap-Trust
+==> Fetching downloads for: android-commandlinetools
+✔︎ Cask android-commandlinetools (15859902)
+==> Installing Cask android-commandlinetools
+==> Moving Generic Artifact 'cmdline-tools' to '/usr/local/share/android-commandlinetools/cmdline-tools/latest'
+==> Linking Binary 'apkanalyzer' to '/usr/local/bin/apkanalyzer'
+==> Linking Binary 'avdmanager' to '/usr/local/bin/avdmanager'
+==> Linking Binary 'd8' to '/usr/local/bin/d8'
+==> Linking Binary 'lint' to '/usr/local/bin/lint'
+==> Linking Binary 'profgen' to '/usr/local/bin/profgen'
+==> Linking Binary 'resourceshrinker' to '/usr/local/bin/resourceshrinker'
+==> Linking Binary 'retrace' to '/usr/local/bin/retrace'
+==> Linking Binary 'screenshot2' to '/usr/local/bin/screenshot2'
+==> Linking Binary 'sdkmanager' to '/usr/local/bin/sdkmanager'
+==> Linking Binary 'android' to '/usr/local/bin/android'
+==> Linking Binary 'r8' to '/usr/local/bin/r8'
+🍺  android-commandlinetools was successfully installed!
+==> Caveats
+==> android-commandlinetools
+Default Android SDK root is /usr/local/share/android-commandlinetools
+
+android-commandlinetools requires Java. You can install the latest version with:
+  brew install --cask temurin
+
+>>> 查找 Android Command Line Tools
+Usage: brew --prefix [--unbrewed] [--installed] [formula ...]
+
+Display Homebrew's install path. Default:
+
+  - macOS ARM: /opt/homebrew
+  - macOS Intel: /usr/local
+  - Linux: /home/linuxbrew/.linuxbrew
+
+If formula is provided, display the location where formula is or would be
+installed.
+
+      --unbrewed                   List files in Homebrew's prefix not installed
+                                   by Homebrew.
+      --installed                  Outputs nothing and returns a failing status
+                                   code if formula is not installed.
+  -d, --debug                      Display any debugging information.
+  -q, --quiet                      Make some output more quiet.
+  -v, --verbose                    Make some output more verbose.
+  -h, --help                       Show this message.
+Error: invalid option: --cask
+
+>>> android-commandlinetools 路径
+Usage: brew --prefix [--unbrewed] [--installed] [formula ...]
+
+Display Homebrew's install path. Default:
+
+  - macOS ARM: /opt/homebrew
+  - macOS Intel: /usr/local
+  - Linux: /home/linuxbrew/.linuxbrew
+
+If formula is provided, display the location where formula is or would be
+installed.
+
+      --unbrewed                   List files in Homebrew's prefix not installed
+                                   by Homebrew.
+      --installed                  Outputs nothing and returns a failing status
+                                   code if formula is not installed.
+  -d, --debug                      Display any debugging information.
+  -q, --quiet                      Make some output more quiet.
+  -v, --verbose                    Make some output more verbose.
+  -h, --help                       Show this message.
+Error: invalid option: --cask
+
+>>> android-commandlinetools 内容
+Usage: brew --prefix [--unbrewed] [--installed] [formula ...]
+
+Display Homebrew's install path. Default:
+
+  - macOS ARM: /opt/homebrew
+  - macOS Intel: /usr/local
+  - Linux: /home/linuxbrew/.linuxbrew
+
+If formula is provided, display the location where formula is or would be
+installed.
+
+      --unbrewed                   List files in Homebrew's prefix not installed
+                                   by Homebrew.
+      --installed                  Outputs nothing and returns a failing status
+                                   code if formula is not installed.
+  -d, --debug                      Display any debugging information.
+  -q, --quiet                      Make some output more quiet.
+  -v, --verbose                    Make some output more verbose.
+  -h, --help                       Show this message.
+Error: invalid option: --cask
+ls: : No such file or directory
