@@ -24050,3 +24050,844 @@ Step55-CRASH-1 TEST_STATUS=NO_CRASH_REPRODUCED
 Step55-CRASH-1 result sync
 TEST_STATUS=UNKNOWN
 ============================================================
+[main aa9a2ab] test: capture Step55 crash diagnostics
+ 1 file changed, 869 insertions(+)
+To https://github.com/jingyao1997-bit/p4pilot.git
+   04f12ee..aa9a2ab  main -> main
+来自 https://github.com/jingyao1997-bit/p4pilot
+ * branch            main       -> FETCH_HEAD
+LOCAL       : aa9a2ab72ad940f02a9951eea35ce1aedf94a05c
+origin/main : aa9a2ab72ad940f02a9951eea35ce1aedf94a05c
+REAL REMOTE : aa9a2ab72ad940f02a9951eea35ce1aedf94a05c
+RESULT_SYNC=PASS
+Step55-CRASH-1 COMPLETE
+
+============================================================
+P4Pilot Step55-CRASH-2
+Goal: capture real P4Pilot crash with reliable status
+DATE=2026-09-09 00:57:00
+============================================================
+
+>>> HEAD
+aa9a2ab72ad940f02a9951eea35ce1aedf94a05c
+
+>>> Build
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preDebugBuild UP-TO-DATE
+> Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
+> Task :app:javaPreCompileDebug UP-TO-DATE
+> Task :app:checkDebugAarMetadata UP-TO-DATE
+> Task :app:processDebugNavigationResources UP-TO-DATE
+> Task :app:compileDebugNavigationResources UP-TO-DATE
+> Task :app:generateDebugResValues UP-TO-DATE
+> Task :app:mapDebugSourceSetPaths UP-TO-DATE
+> Task :app:generateDebugResources UP-TO-DATE
+> Task :app:mergeDebugResources UP-TO-DATE
+> Task :app:packageDebugResources UP-TO-DATE
+> Task :app:parseDebugLocalResources UP-TO-DATE
+> Task :app:createDebugCompatibleScreenManifests UP-TO-DATE
+> Task :app:extractDeepLinksDebug UP-TO-DATE
+> Task :app:processDebugMainManifest UP-TO-DATE
+> Task :app:processDebugManifest UP-TO-DATE
+> Task :app:processDebugManifestForPackage UP-TO-DATE
+> Task :app:processDebugResources UP-TO-DATE
+> Task :app:compileDebugJavaWithJavac UP-TO-DATE
+> Task :app:mergeDebugShaders UP-TO-DATE
+> Task :app:compileDebugShaders NO-SOURCE
+> Task :app:generateDebugAssets UP-TO-DATE
+> Task :app:mergeDebugAssets UP-TO-DATE
+> Task :app:compressDebugAssets UP-TO-DATE
+> Task :app:processDebugJavaRes NO-SOURCE
+> Task :app:mergeDebugJavaResource UP-TO-DATE
+> Task :app:checkDebugDuplicateClasses UP-TO-DATE
+> Task :app:desugarDebugFileDependencies UP-TO-DATE
+> Task :app:mergeExtDexDebug UP-TO-DATE
+> Task :app:mergeLibDexDebug UP-TO-DATE
+> Task :app:dexBuilderDebug UP-TO-DATE
+> Task :app:mergeProjectDexDebug UP-TO-DATE
+> Task :app:mergeDebugJniLibFolders UP-TO-DATE
+> Task :app:mergeDebugNativeLibs NO-SOURCE
+> Task :app:stripDebugDebugSymbols NO-SOURCE
+> Task :app:validateSigningDebug UP-TO-DATE
+> Task :app:writeDebugAppMetadata UP-TO-DATE
+> Task :app:writeDebugSigningConfigVersions UP-TO-DATE
+> Task :app:packageDebug UP-TO-DATE
+> Task :app:createDebugApkListingFileRedirect UP-TO-DATE
+> Task :app:assembleDebug UP-TO-DATE
+
+[Incubating] Problems report is available at: file:///Users/luojingyao/p4pilot/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.13/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 1s
+33 actionable tasks: 33 up-to-date
+BUILD=PASS
+
+>>> Install
+Performing Streamed Install
+Success
+INSTALL=PASS
+
+>>> Launch
+  bash arg: -p
+  bash arg: com.p4pilot
+  bash arg: -c
+  bash arg: android.intent.category.LAUNCHER
+  bash arg: 1
+args: [-p, com.p4pilot, -c, android.intent.category.LAUNCHER, 1]
+ arg: "-p"
+ arg: "com.p4pilot"
+ arg: "-c"
+ arg: "android.intent.category.LAUNCHER"
+ arg: "1"
+data="com.p4pilot"
+data="android.intent.category.LAUNCHER"
+Events injected: 1
+## Network stats: elapsed time=119ms (0ms mobile, 0ms wifi, 119ms not connected)
+INITIAL_PID=21834
+
+>>> Monitor process up to 45 seconds
+CHECKPOINT_SEC=3 PID=21834
+CHECKPOINT_SEC=6 PID=21834
+CHECKPOINT_SEC=9 PID=21834
+CHECKPOINT_SEC=12 PID=21834
+CHECKPOINT_SEC=15 PID=21834
+CHECKPOINT_SEC=18 PID=21834
+CHECKPOINT_SEC=21 PID=21834
+CHECKPOINT_SEC=24 PID=21834
+CHECKPOINT_SEC=27 PID=21834
+CHECKPOINT_SEC=30 PID=21834
+CHECKPOINT_SEC=33 PID=21834
+CHECKPOINT_SEC=36 PID=21834
+CHECKPOINT_SEC=39 PID=21834
+CHECKPOINT_SEC=42 PID=21834
+CHECKPOINT_SEC=45 PID=21834
+
+============================================================
+P4PILOT FATAL STACK
+============================================================
+
+============================================================
+P4PILOT ERROR CONTEXT
+============================================================
+09-08 17:57:32.937 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=774 processMs=26 totalMs=26
+09-08 17:57:32.968 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=775 processMs=27 totalMs=27
+09-08 17:57:33.003 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=776 processMs=27 totalMs=27
+09-08 17:57:33.041 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=777 processMs=26 totalMs=27
+09-08 17:57:33.069 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=778 processMs=26 totalMs=27
+09-08 17:57:33.105 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=779 processMs=27 totalMs=27
+09-08 17:57:33.138 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=780 processMs=26 totalMs=27
+09-08 17:57:33.170 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=781 processMs=27 totalMs=27
+09-08 17:57:33.206 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=782 processMs=27 totalMs=27
+09-08 17:57:33.240 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=783 processMs=26 totalMs=26
+09-08 17:57:33.269 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=784 processMs=27 totalMs=27
+09-08 17:57:33.302 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=785 processMs=26 totalMs=26
+09-08 17:57:33.339 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=786 processMs=26 totalMs=26
+09-08 17:57:33.365  1410  1410 I adbd    : adbd service requested 'shell,v2,TERM=xterm-256color,raw:pidof com.p4pilot'
+09-08 17:57:33.371 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=787 processMs=26 totalMs=27
+09-08 17:57:33.406 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=788 processMs=26 totalMs=27
+09-08 17:57:33.440 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=789 processMs=26 totalMs=27
+09-08 17:57:33.468 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=790 processMs=26 totalMs=26
+09-08 17:57:33.501 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=791 processMs=26 totalMs=26
+09-08 17:57:33.541 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=792 processMs=26 totalMs=26
+09-08 17:57:33.571 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=793 processMs=26 totalMs=26
+09-08 17:57:33.600 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=794 processMs=26 totalMs=26
+09-08 17:57:33.638 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=795 processMs=27 totalMs=27
+09-08 17:57:33.670 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=796 processMs=28 totalMs=28
+09-08 17:57:33.705 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=797 processMs=27 totalMs=28
+09-08 17:57:33.738 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=798 processMs=26 totalMs=26
+09-08 17:57:33.768 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=799 processMs=26 totalMs=26
+09-08 17:57:33.801 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=800 processMs=25 totalMs=26
+09-08 17:57:33.838 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=801 processMs=27 totalMs=27
+09-08 17:57:33.873 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=802 processMs=28 totalMs=29
+09-08 17:57:33.904 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=803 processMs=27 totalMs=27
+09-08 17:57:33.936 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=804 processMs=28 totalMs=28
+09-08 17:57:33.973 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=805 processMs=28 totalMs=28
+09-08 17:57:34.000 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=806 processMs=24 totalMs=24
+09-08 17:57:34.032 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=807 processMs=24 totalMs=25
+09-08 17:57:34.067 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=808 processMs=24 totalMs=24
+09-08 17:57:34.102 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=809 processMs=24 totalMs=25
+09-08 17:57:34.133 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=810 processMs=24 totalMs=24
+09-08 17:57:34.167 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=811 processMs=24 totalMs=25
+09-08 17:57:34.202 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=812 processMs=26 totalMs=26
+09-08 17:57:34.232 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=813 processMs=24 totalMs=24
+09-08 17:57:34.271 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=814 processMs=26 totalMs=26
+09-08 17:57:34.305 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=815 processMs=24 totalMs=25
+09-08 17:57:34.333 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=816 processMs=25 totalMs=25
+09-08 17:57:34.369 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=817 processMs=28 totalMs=28
+09-08 17:57:34.403 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=818 processMs=24 totalMs=24
+09-08 17:57:34.433 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=819 processMs=24 totalMs=25
+09-08 17:57:34.467 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=820 processMs=24 totalMs=25
+09-08 17:57:34.505 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=821 processMs=26 totalMs=26
+09-08 17:57:34.532 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=822 processMs=25 totalMs=25
+09-08 17:57:34.566 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=823 processMs=25 totalMs=26
+09-08 17:57:34.601 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=824 processMs=25 totalMs=25
+09-08 17:57:34.635 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=825 processMs=25 totalMs=25
+09-08 17:57:34.668 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=826 processMs=26 totalMs=27
+09-08 17:57:34.703 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=827 processMs=25 totalMs=25
+09-08 17:57:34.734 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=828 processMs=26 totalMs=26
+09-08 17:57:34.768 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=829 processMs=26 totalMs=26
+09-08 17:57:34.803 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=830 processMs=25 totalMs=26
+09-08 17:57:34.833 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=831 processMs=25 totalMs=25
+09-08 17:57:34.866 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=832 processMs=25 totalMs=26
+09-08 17:57:34.901 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=833 processMs=26 totalMs=26
+09-08 17:57:34.932 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=834 processMs=25 totalMs=25
+09-08 17:57:34.970 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=835 processMs=26 totalMs=26
+09-08 17:57:35.002 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=836 processMs=25 totalMs=26
+09-08 17:57:35.032 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=837 processMs=26 totalMs=26
+09-08 17:57:35.071 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=838 processMs=27 totalMs=27
+09-08 17:57:35.101 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=839 processMs=26 totalMs=26
+09-08 17:57:35.132 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=840 processMs=25 totalMs=26
+09-08 17:57:35.170 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=841 processMs=28 totalMs=28
+09-08 17:57:35.205 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=842 processMs=27 totalMs=27
+09-08 17:57:35.238 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=843 processMs=30 totalMs=30
+09-08 17:57:35.270 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=844 processMs=29 totalMs=29
+09-08 17:57:35.303 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=845 processMs=26 totalMs=27
+09-08 17:57:35.335 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=846 processMs=25 totalMs=25
+09-08 17:57:35.367 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=847 processMs=25 totalMs=26
+09-08 17:57:35.403 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=848 processMs=26 totalMs=26
+09-08 17:57:35.434 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=849 processMs=25 totalMs=26
+09-08 17:57:35.466 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=850 processMs=26 totalMs=27
+09-08 17:57:35.503 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=851 processMs=25 totalMs=25
+09-08 17:57:35.532 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=852 processMs=26 totalMs=26
+09-08 17:57:35.566 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=853 processMs=25 totalMs=26
+09-08 17:57:35.603 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=854 processMs=25 totalMs=26
+09-08 17:57:35.635 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=855 processMs=25 totalMs=25
+09-08 17:57:35.667 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=856 processMs=25 totalMs=26
+09-08 17:57:35.707 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=857 processMs=27 totalMs=28
+09-08 17:57:35.733 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=858 processMs=25 totalMs=25
+09-08 17:57:35.767 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=859 processMs=25 totalMs=25
+09-08 17:57:35.803 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=860 processMs=26 totalMs=26
+09-08 17:57:35.833 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=861 processMs=25 totalMs=26
+09-08 17:57:35.868 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=862 processMs=26 totalMs=26
+09-08 17:57:35.904 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=863 processMs=24 totalMs=25
+09-08 17:57:35.931 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=864 processMs=25 totalMs=25
+09-08 17:57:35.966 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=865 processMs=25 totalMs=25
+09-08 17:57:36.002 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=866 processMs=26 totalMs=26
+09-08 17:57:36.036 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=867 processMs=28 totalMs=29
+09-08 17:57:36.076 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=868 processMs=30 totalMs=31
+09-08 17:57:36.103 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=869 processMs=26 totalMs=27
+09-08 17:57:36.134 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=870 processMs=26 totalMs=26
+09-08 17:57:36.170 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=871 processMs=26 totalMs=26
+09-08 17:57:36.199 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=872 processMs=26 totalMs=26
+09-08 17:57:36.233 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=873 processMs=26 totalMs=27
+09-08 17:57:36.268 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=874 processMs=25 totalMs=25
+09-08 17:57:36.299 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=875 processMs=26 totalMs=26
+09-08 17:57:36.333 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=876 processMs=26 totalMs=26
+09-08 17:57:36.370 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=877 processMs=25 totalMs=25
+09-08 17:57:36.398 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=878 processMs=25 totalMs=25
+09-08 17:57:36.436 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=879 processMs=25 totalMs=25
+09-08 17:57:36.470 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=880 processMs=26 totalMs=26
+09-08 17:57:36.498 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=881 processMs=25 totalMs=25
+09-08 17:57:36.532 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=882 processMs=25 totalMs=25
+09-08 17:57:36.564  1410  1410 I adbd    : adbd service requested 'shell,v2,TERM=xterm-256color,raw:pidof com.p4pilot'
+09-08 17:57:36.566 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=883 processMs=25 totalMs=25
+09-08 17:57:36.599 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=884 processMs=24 totalMs=25
+09-08 17:57:36.633 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=885 processMs=26 totalMs=26
+09-08 17:57:36.669 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=886 processMs=25 totalMs=25
+09-08 17:57:36.697 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=887 processMs=24 totalMs=24
+09-08 17:57:36.732 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=888 processMs=25 totalMs=25
+09-08 17:57:36.767 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=889 processMs=24 totalMs=25
+09-08 17:57:36.800 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=890 processMs=24 totalMs=24
+09-08 17:57:36.831 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=891 processMs=24 totalMs=25
+09-08 17:57:36.867 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=892 processMs=26 totalMs=26
+09-08 17:57:36.899 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=893 processMs=24 totalMs=24
+09-08 17:57:36.930 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=894 processMs=24 totalMs=24
+09-08 17:57:36.963 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=895 processMs=24 totalMs=24
+09-08 17:57:37.003 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=896 processMs=24 totalMs=24
+09-08 17:57:37.031 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=897 processMs=25 totalMs=25
+09-08 17:57:37.071 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=898 processMs=24 totalMs=24
+09-08 17:57:37.100 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=899 processMs=24 totalMs=24
+09-08 17:57:37.133 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=900 processMs=25 totalMs=25
+09-08 17:57:37.165 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=901 processMs=24 totalMs=25
+09-08 17:57:37.201 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=902 processMs=24 totalMs=25
+09-08 17:57:37.235 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=903 processMs=24 totalMs=24
+09-08 17:57:37.265 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=904 processMs=25 totalMs=26
+09-08 17:57:37.298 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=905 processMs=25 totalMs=25
+09-08 17:57:37.341 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=906 processMs=25 totalMs=26
+09-08 17:57:37.366 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=907 processMs=24 totalMs=27
+09-08 17:57:37.399 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=908 processMs=25 totalMs=25
+09-08 17:57:37.435 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=909 processMs=27 totalMs=28
+09-08 17:57:37.469 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=910 processMs=25 totalMs=25
+09-08 17:57:37.498 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=911 processMs=25 totalMs=25
+09-08 17:57:37.534 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=912 processMs=25 totalMs=25
+09-08 17:57:37.564 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=913 processMs=24 totalMs=25
+09-08 17:57:37.598 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=914 processMs=25 totalMs=25
+09-08 17:57:37.635 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=915 processMs=25 totalMs=25
+09-08 17:57:37.668 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=916 processMs=26 totalMs=26
+09-08 17:57:37.697 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=917 processMs=25 totalMs=25
+09-08 17:57:37.732 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=918 processMs=25 totalMs=26
+09-08 17:57:37.771 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=919 processMs=28 totalMs=29
+09-08 17:57:37.803 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=920 processMs=25 totalMs=26
+09-08 17:57:37.832 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=921 processMs=27 totalMs=27
+09-08 17:57:37.868 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=922 processMs=25 totalMs=26
+09-08 17:57:37.899 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=923 processMs=25 totalMs=25
+09-08 17:57:37.931 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=924 processMs=26 totalMs=26
+09-08 17:57:37.970 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=925 processMs=25 totalMs=26
+09-08 17:57:37.997 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=926 processMs=25 totalMs=25
+09-08 17:57:38.032 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=927 processMs=25 totalMs=26
+09-08 17:57:38.067 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=928 processMs=26 totalMs=26
+09-08 17:57:38.100 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=929 processMs=24 totalMs=25
+09-08 17:57:38.132 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=930 processMs=24 totalMs=25
+09-08 17:57:38.164 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=931 processMs=25 totalMs=25
+09-08 17:57:38.200 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=932 processMs=24 totalMs=24
+09-08 17:57:38.232 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=933 processMs=25 totalMs=26
+09-08 17:57:38.267 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=934 processMs=25 totalMs=25
+09-08 17:57:38.297 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=935 processMs=25 totalMs=26
+09-08 17:57:38.330 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=936 processMs=25 totalMs=25
+09-08 17:57:38.367 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=937 processMs=25 totalMs=25
+09-08 17:57:38.398 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=938 processMs=24 totalMs=24
+09-08 17:57:38.440 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=939 processMs=26 totalMs=26
+09-08 17:57:38.466 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=940 processMs=26 totalMs=26
+09-08 17:57:38.498 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=941 processMs=25 totalMs=26
+09-08 17:57:38.533 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=942 processMs=25 totalMs=25
+09-08 17:57:38.566 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=943 processMs=26 totalMs=26
+09-08 17:57:38.599 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=944 processMs=27 totalMs=27
+09-08 17:57:38.637 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=945 processMs=28 totalMs=28
+09-08 17:57:38.668 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=946 processMs=28 totalMs=28
+09-08 17:57:38.703 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=947 processMs=27 totalMs=27
+09-08 17:57:38.738 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=948 processMs=28 totalMs=28
+09-08 17:57:38.766 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=949 processMs=26 totalMs=27
+09-08 17:57:38.800 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=950 processMs=29 totalMs=29
+09-08 17:57:38.838 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=951 processMs=27 totalMs=28
+09-08 17:57:38.867 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=952 processMs=25 totalMs=25
+09-08 17:57:38.900 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=953 processMs=25 totalMs=26
+09-08 17:57:38.934 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=954 processMs=25 totalMs=25
+09-08 17:57:38.971 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=955 processMs=24 totalMs=24
+09-08 17:57:38.999 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=956 processMs=26 totalMs=26
+09-08 17:57:39.033 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=957 processMs=25 totalMs=25
+09-08 17:57:39.069 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=958 processMs=24 totalMs=24
+09-08 17:57:39.097 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=959 processMs=25 totalMs=25
+09-08 17:57:39.131 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=960 processMs=24 totalMs=24
+09-08 17:57:39.168 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=961 processMs=24 totalMs=25
+09-08 17:57:39.197 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=962 processMs=24 totalMs=25
+09-08 17:57:39.232 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=963 processMs=25 totalMs=26
+09-08 17:57:39.266 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=964 processMs=25 totalMs=25
+09-08 17:57:39.300 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=965 processMs=25 totalMs=25
+09-08 17:57:39.331 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=966 processMs=25 totalMs=25
+09-08 17:57:39.369 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=967 processMs=25 totalMs=26
+09-08 17:57:39.406 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=968 processMs=26 totalMs=26
+09-08 17:57:39.433 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=969 processMs=25 totalMs=25
+09-08 17:57:39.464 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=970 processMs=25 totalMs=25
+09-08 17:57:39.501 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=971 processMs=26 totalMs=26
+09-08 17:57:39.532 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=972 processMs=26 totalMs=26
+09-08 17:57:39.566 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=973 processMs=26 totalMs=26
+09-08 17:57:39.597 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=974 processMs=25 totalMs=25
+09-08 17:57:39.634 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=975 processMs=26 totalMs=27
+09-08 17:57:39.664 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=976 processMs=25 totalMs=25
+09-08 17:57:39.701 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=977 processMs=25 totalMs=26
+09-08 17:57:39.733 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=978 processMs=25 totalMs=25
+09-08 17:57:39.748  1410  1410 I adbd    : adbd service requested 'shell,v2,TERM=xterm-256color,raw:pidof com.p4pilot'
+09-08 17:57:39.764 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=979 processMs=25 totalMs=26
+09-08 17:57:39.800 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=980 processMs=25 totalMs=26
+09-08 17:57:39.833 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=981 processMs=26 totalMs=27
+09-08 17:57:39.865 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=982 processMs=26 totalMs=26
+09-08 17:57:39.901 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=983 processMs=25 totalMs=25
+09-08 17:57:39.932 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=984 processMs=25 totalMs=25
+09-08 17:57:39.966 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=985 processMs=25 totalMs=26
+09-08 17:57:40.002 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=986 processMs=26 totalMs=26
+09-08 17:57:40.036 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=987 processMs=29 totalMs=30
+09-08 17:57:40.074 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=988 processMs=33 totalMs=33
+09-08 17:57:40.101 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=989 processMs=26 totalMs=28
+09-08 17:57:40.132 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=990 processMs=26 totalMs=27
+09-08 17:57:40.170 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=991 processMs=27 totalMs=27
+09-08 17:57:40.202 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=992 processMs=26 totalMs=27
+09-08 17:57:40.231 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=993 processMs=26 totalMs=27
+09-08 17:57:40.269 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=994 processMs=26 totalMs=26
+09-08 17:57:40.300 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=995 processMs=28 totalMs=28
+09-08 17:57:40.335 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=996 processMs=26 totalMs=26
+09-08 17:57:40.374 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=997 processMs=30 totalMs=30
+09-08 17:57:40.407 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=998 processMs=29 totalMs=29
+09-08 17:57:40.437 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=999 processMs=29 totalMs=30
+09-08 17:57:40.472 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1000 processMs=30 totalMs=30
+09-08 17:57:40.501 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1001 processMs=26 totalMs=26
+09-08 17:57:40.532 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1002 processMs=27 totalMs=27
+09-08 17:57:40.569 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1003 processMs=26 totalMs=26
+09-08 17:57:40.598 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1004 processMs=26 totalMs=26
+09-08 17:57:40.631 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1005 processMs=25 totalMs=26
+09-08 17:57:40.668 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1006 processMs=24 totalMs=25
+09-08 17:57:40.697 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1007 processMs=25 totalMs=25
+09-08 17:57:40.730 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1008 processMs=25 totalMs=25
+09-08 17:57:40.770 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1009 processMs=26 totalMs=27
+09-08 17:57:40.800 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1010 processMs=27 totalMs=27
+09-08 17:57:40.832 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1011 processMs=27 totalMs=27
+09-08 17:57:40.866 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1012 processMs=25 totalMs=26
+09-08 17:57:40.897 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1013 processMs=25 totalMs=26
+09-08 17:57:40.933 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1014 processMs=26 totalMs=26
+09-08 17:57:40.963 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1015 processMs=25 totalMs=25
+09-08 17:57:40.997 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1016 processMs=25 totalMs=25
+09-08 17:57:41.033 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1017 processMs=25 totalMs=25
+09-08 17:57:41.064 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1018 processMs=25 totalMs=25
+09-08 17:57:41.098 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1019 processMs=27 totalMs=27
+09-08 17:57:41.135 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1020 processMs=26 totalMs=26
+09-08 17:57:41.165 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1021 processMs=27 totalMs=27
+09-08 17:57:41.199 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1022 processMs=25 totalMs=26
+09-08 17:57:41.231 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1023 processMs=25 totalMs=25
+09-08 17:57:41.265 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1024 processMs=25 totalMs=25
+09-08 17:57:41.297 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1025 processMs=25 totalMs=25
+09-08 17:57:41.332 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1026 processMs=26 totalMs=27
+09-08 17:57:41.365 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1027 processMs=26 totalMs=26
+09-08 17:57:41.397 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1028 processMs=25 totalMs=25
+09-08 17:57:41.432 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1029 processMs=25 totalMs=25
+09-08 17:57:41.463 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1030 processMs=24 totalMs=25
+09-08 17:57:41.498 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1031 processMs=26 totalMs=26
+09-08 17:57:41.537 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1032 processMs=24 totalMs=25
+09-08 17:57:41.566 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1033 processMs=26 totalMs=26
+09-08 17:57:41.598 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1034 processMs=25 totalMs=26
+09-08 17:57:41.634 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1035 processMs=25 totalMs=25
+09-08 17:57:41.665 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1036 processMs=25 totalMs=26
+09-08 17:57:41.699 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1037 processMs=25 totalMs=25
+09-08 17:57:41.731 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1038 processMs=26 totalMs=26
+09-08 17:57:41.769 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1039 processMs=25 totalMs=26
+09-08 17:57:41.807 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1040 processMs=27 totalMs=27
+09-08 17:57:41.835 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1041 processMs=28 totalMs=30
+09-08 17:57:41.864 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1042 processMs=25 totalMs=25
+09-08 17:57:41.900 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1043 processMs=25 totalMs=26
+09-08 17:57:41.931 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1044 processMs=25 totalMs=25
+09-08 17:57:41.964 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1045 processMs=25 totalMs=25
+09-08 17:57:42.006 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1046 processMs=25 totalMs=25
+09-08 17:57:42.032 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1047 processMs=25 totalMs=25
+09-08 17:57:42.064 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1048 processMs=25 totalMs=25
+09-08 17:57:42.102 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1049 processMs=25 totalMs=25
+09-08 17:57:42.136 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1050 processMs=26 totalMs=26
+09-08 17:57:42.164 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1051 processMs=25 totalMs=25
+09-08 17:57:42.197 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1052 processMs=24 totalMs=25
+09-08 17:57:42.235 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1053 processMs=25 totalMs=25
+09-08 17:57:42.262 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1054 processMs=24 totalMs=25
+09-08 17:57:42.297 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1055 processMs=26 totalMs=26
+09-08 17:57:42.335 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1056 processMs=25 totalMs=25
+09-08 17:57:42.363 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1057 processMs=25 totalMs=25
+09-08 17:57:42.397 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1058 processMs=24 totalMs=24
+09-08 17:57:42.430 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1059 processMs=24 totalMs=24
+09-08 17:57:42.467 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1060 processMs=26 totalMs=26
+09-08 17:57:42.498 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1061 processMs=25 totalMs=26
+09-08 17:57:42.531 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1062 processMs=26 totalMs=27
+09-08 17:57:42.572 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1063 processMs=27 totalMs=27
+09-08 17:57:42.601 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1064 processMs=28 totalMs=29
+09-08 17:57:42.634 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1065 processMs=28 totalMs=28
+09-08 17:57:42.666 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1066 processMs=24 totalMs=25
+09-08 17:57:42.697 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1067 processMs=26 totalMs=27
+09-08 17:57:42.733 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1068 processMs=25 totalMs=26
+09-08 17:57:42.763 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1069 processMs=25 totalMs=26
+09-08 17:57:42.798 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1070 processMs=25 totalMs=26
+09-08 17:57:42.834 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1071 processMs=25 totalMs=26
+09-08 17:57:42.863 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1072 processMs=25 totalMs=25
+09-08 17:57:42.899 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1073 processMs=25 totalMs=25
+09-08 17:57:42.931 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1074 processMs=26 totalMs=26
+09-08 17:57:42.934  1410  1410 I adbd    : adbd service requested 'shell,v2,TERM=xterm-256color,raw:pidof com.p4pilot'
+09-08 17:57:42.965 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1075 processMs=25 totalMs=25
+09-08 17:57:43.000 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1076 processMs=24 totalMs=25
+09-08 17:57:43.030 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1077 processMs=25 totalMs=25
+09-08 17:57:43.065 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1078 processMs=25 totalMs=25
+09-08 17:57:43.098 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1079 processMs=26 totalMs=26
+09-08 17:57:43.129 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1080 processMs=25 totalMs=25
+09-08 17:57:43.164 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1081 processMs=25 totalMs=26
+09-08 17:57:43.200 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1082 processMs=26 totalMs=26
+09-08 17:57:43.230 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1083 processMs=25 totalMs=26
+09-08 17:57:43.264 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1084 processMs=25 totalMs=26
+09-08 17:57:43.297 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1085 processMs=25 totalMs=26
+09-08 17:57:43.331 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1086 processMs=26 totalMs=26
+09-08 17:57:43.368 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1087 processMs=26 totalMs=26
+09-08 17:57:43.395 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1088 processMs=25 totalMs=25
+09-08 17:57:43.429 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1089 processMs=25 totalMs=25
+09-08 17:57:43.466 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1090 processMs=25 totalMs=26
+09-08 17:57:43.497 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1091 processMs=26 totalMs=26
+09-08 17:57:43.532 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1092 processMs=25 totalMs=26
+09-08 17:57:43.563 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1093 processMs=26 totalMs=26
+09-08 17:57:43.600 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1094 processMs=26 totalMs=27
+09-08 17:57:43.633 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1095 processMs=27 totalMs=28
+09-08 17:57:43.670 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1096 processMs=28 totalMs=28
+09-08 17:57:43.697 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1097 processMs=25 totalMs=25
+09-08 17:57:43.731 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1098 processMs=26 totalMs=27
+09-08 17:57:43.766 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1099 processMs=25 totalMs=25
+09-08 17:57:43.795 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1100 processMs=25 totalMs=25
+09-08 17:57:43.829 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1101 processMs=25 totalMs=25
+09-08 17:57:43.861 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1102 processMs=25 totalMs=25
+09-08 17:57:43.896 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1103 processMs=26 totalMs=26
+09-08 17:57:43.936 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1104 processMs=24 totalMs=24
+09-08 17:57:43.963 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1105 processMs=25 totalMs=25
+09-08 17:57:43.994 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1106 processMs=25 totalMs=25
+09-08 17:57:44.030 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1107 processMs=25 totalMs=25
+09-08 17:57:44.064 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1108 processMs=25 totalMs=26
+09-08 17:57:44.097 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1109 processMs=24 totalMs=25
+09-08 17:57:44.130 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1110 processMs=26 totalMs=27
+09-08 17:57:44.163 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1111 processMs=25 totalMs=25
+09-08 17:57:44.198 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1112 processMs=24 totalMs=25
+09-08 17:57:44.229 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1113 processMs=25 totalMs=25
+09-08 17:57:44.262 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1114 processMs=25 totalMs=25
+09-08 17:57:44.297 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1115 processMs=26 totalMs=26
+09-08 17:57:44.331 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1116 processMs=25 totalMs=25
+09-08 17:57:44.361 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1117 processMs=24 totalMs=25
+09-08 17:57:44.395 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1118 processMs=24 totalMs=25
+09-08 17:57:44.431 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1119 processMs=24 totalMs=25
+09-08 17:57:44.462 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1120 processMs=24 totalMs=24
+09-08 17:57:44.498 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1121 processMs=26 totalMs=26
+09-08 17:57:44.535 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1122 processMs=29 totalMs=29
+09-08 17:57:44.565 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1123 processMs=26 totalMs=27
+09-08 17:57:44.599 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1124 processMs=26 totalMs=26
+09-08 17:57:44.632 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1125 processMs=25 totalMs=25
+09-08 17:57:44.660 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1126 processMs=24 totalMs=24
+09-08 17:57:44.696 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1127 processMs=25 totalMs=25
+09-08 17:57:44.729 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1128 processMs=24 totalMs=24
+09-08 17:57:44.762 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1129 processMs=24 totalMs=25
+09-08 17:57:44.794 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1130 processMs=24 totalMs=24
+09-08 17:57:44.829 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1131 processMs=24 totalMs=25
+09-08 17:57:44.866 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1132 processMs=24 totalMs=24
+09-08 17:57:44.894 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1133 processMs=24 totalMs=24
+09-08 17:57:44.929 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1134 processMs=25 totalMs=26
+09-08 17:57:44.966 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1135 processMs=24 totalMs=24
+09-08 17:57:44.995 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1136 processMs=24 totalMs=25
+09-08 17:57:45.028 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1137 processMs=24 totalMs=24
+09-08 17:57:45.064 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1138 processMs=24 totalMs=25
+09-08 17:57:45.096 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1139 processMs=25 totalMs=25
+09-08 17:57:45.128 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1140 processMs=24 totalMs=25
+09-08 17:57:45.163 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1141 processMs=24 totalMs=25
+09-08 17:57:45.196 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1142 processMs=24 totalMs=24
+09-08 17:57:45.228 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1143 processMs=24 totalMs=24
+09-08 17:57:45.260 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1144 processMs=24 totalMs=24
+09-08 17:57:45.295 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1145 processMs=24 totalMs=24
+09-08 17:57:45.329 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1146 processMs=25 totalMs=25
+09-08 17:57:45.362 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1147 processMs=24 totalMs=24
+09-08 17:57:45.395 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1148 processMs=24 totalMs=25
+09-08 17:57:45.427 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1149 processMs=23 totalMs=24
+09-08 17:57:45.463 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1150 processMs=25 totalMs=26
+09-08 17:57:45.500 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1151 processMs=28 totalMs=28
+09-08 17:57:45.535 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1152 processMs=27 totalMs=27
+09-08 17:57:45.567 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1153 processMs=28 totalMs=30
+09-08 17:57:45.596 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1154 processMs=25 totalMs=25
+09-08 17:57:45.630 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1155 processMs=24 totalMs=25
+09-08 17:57:45.660 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1156 processMs=24 totalMs=25
+09-08 17:57:45.695 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1157 processMs=24 totalMs=25
+09-08 17:57:45.730 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1158 processMs=24 totalMs=24
+09-08 17:57:45.762 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1159 processMs=25 totalMs=26
+09-08 17:57:45.794 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1160 processMs=24 totalMs=24
+09-08 17:57:45.828 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1161 processMs=24 totalMs=24
+09-08 17:57:45.863 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1162 processMs=24 totalMs=25
+09-08 17:57:45.894 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1163 processMs=24 totalMs=24
+09-08 17:57:45.934 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1164 processMs=25 totalMs=25
+09-08 17:57:45.964 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1165 processMs=24 totalMs=24
+09-08 17:57:45.995 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1166 processMs=25 totalMs=25
+09-08 17:57:46.026 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1167 processMs=24 totalMs=25
+09-08 17:57:46.061 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1168 processMs=25 totalMs=25
+09-08 17:57:46.095 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1169 processMs=24 totalMs=25
+09-08 17:57:46.123  1410  1410 I adbd    : adbd service requested 'shell,v2,TERM=xterm-256color,raw:pidof com.p4pilot'
+09-08 17:57:46.127 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1170 processMs=23 totalMs=23
+09-08 17:57:46.163 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1171 processMs=24 totalMs=25
+09-08 17:57:46.195 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1172 processMs=24 totalMs=24
+09-08 17:57:46.227 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1173 processMs=25 totalMs=25
+09-08 17:57:46.262 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1174 processMs=24 totalMs=24
+09-08 17:57:46.299 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1175 processMs=24 totalMs=24
+09-08 17:57:46.326 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1176 processMs=24 totalMs=24
+09-08 17:57:46.360 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1177 processMs=24 totalMs=24
+09-08 17:57:46.393 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1178 processMs=23 totalMs=24
+09-08 17:57:46.428 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1179 processMs=24 totalMs=24
+09-08 17:57:46.461 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1180 processMs=24 totalMs=25
+09-08 17:57:46.494 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1181 processMs=24 totalMs=25
+09-08 17:57:46.529 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1182 processMs=25 totalMs=25
+09-08 17:57:46.562 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1183 processMs=25 totalMs=26
+09-08 17:57:46.597 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1184 processMs=25 totalMs=25
+09-08 17:57:46.629 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1185 processMs=25 totalMs=26
+09-08 17:57:46.662 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1186 processMs=25 totalMs=26
+09-08 17:57:46.694 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1187 processMs=25 totalMs=25
+09-08 17:57:46.730 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1188 processMs=24 totalMs=24
+09-08 17:57:46.762 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1189 processMs=25 totalMs=25
+09-08 17:57:46.798 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1190 processMs=28 totalMs=28
+09-08 17:57:46.839 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1191 processMs=31 totalMs=31
+09-08 17:57:46.867 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1192 processMs=27 totalMs=30
+09-08 17:57:46.897 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1193 processMs=25 totalMs=26
+09-08 17:57:46.934 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1194 processMs=26 totalMs=26
+09-08 17:57:46.962 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1195 processMs=25 totalMs=25
+09-08 17:57:46.995 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1196 processMs=26 totalMs=26
+09-08 17:57:47.028 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1197 processMs=26 totalMs=26
+09-08 17:57:47.066 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1198 processMs=27 totalMs=27
+09-08 17:57:47.098 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1199 processMs=25 totalMs=27
+09-08 17:57:47.130 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1200 processMs=25 totalMs=26
+09-08 17:57:47.161 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1201 processMs=26 totalMs=26
+09-08 17:57:47.196 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1202 processMs=26 totalMs=26
+09-08 17:57:47.229 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1203 processMs=27 totalMs=27
+09-08 17:57:47.264 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1204 processMs=26 totalMs=27
+09-08 17:57:47.296 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1205 processMs=27 totalMs=28
+09-08 17:57:47.328 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1206 processMs=26 totalMs=26
+09-08 17:57:47.363 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1207 processMs=25 totalMs=26
+09-08 17:57:47.396 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1208 processMs=26 totalMs=26
+09-08 17:57:47.428 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1209 processMs=25 totalMs=26
+09-08 17:57:47.463 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1210 processMs=26 totalMs=26
+09-08 17:57:47.502 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1211 processMs=25 totalMs=26
+09-08 17:57:47.529 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1212 processMs=25 totalMs=25
+09-08 17:57:47.560 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1213 processMs=25 totalMs=25
+09-08 17:57:47.595 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1214 processMs=24 totalMs=25
+09-08 17:57:47.629 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1215 processMs=26 totalMs=26
+09-08 17:57:47.663 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1216 processMs=25 totalMs=26
+09-08 17:57:47.694 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1217 processMs=26 totalMs=26
+09-08 17:57:47.729 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1218 processMs=24 totalMs=25
+09-08 17:57:47.766 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1219 processMs=25 totalMs=25
+09-08 17:57:47.793 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1220 processMs=24 totalMs=24
+09-08 17:57:47.828 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1221 processMs=24 totalMs=25
+09-08 17:57:47.865 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1222 processMs=26 totalMs=26
+09-08 17:57:47.896 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1223 processMs=25 totalMs=26
+09-08 17:57:47.931 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1224 processMs=26 totalMs=26
+09-08 17:57:47.967 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1225 processMs=25 totalMs=25
+09-08 17:57:47.995 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1226 processMs=25 totalMs=25
+09-08 17:57:48.028 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1227 processMs=26 totalMs=26
+09-08 17:57:48.064 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1228 processMs=27 totalMs=27
+09-08 17:57:48.091 31923  4230 I NullBinder: NullBinder for android.net.action.RECOMMEND_NETWORKS triggering remote TransactionTooLargeException due to Service without Chimera impl, calling uid: 1000, calling pid: 0
+09-08 17:57:48.094 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1229 processMs=24 totalMs=25
+09-08 17:57:48.128 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1230 processMs=24 totalMs=25
+09-08 17:57:48.164 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1231 processMs=25 totalMs=26
+09-08 17:57:48.195 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1232 processMs=25 totalMs=26
+09-08 17:57:48.230 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1233 processMs=25 totalMs=26
+09-08 17:57:48.266 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1234 processMs=26 totalMs=27
+09-08 17:57:48.295 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1235 processMs=24 totalMs=25
+09-08 17:57:48.327 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1236 processMs=24 totalMs=25
+09-08 17:57:48.362 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1237 processMs=24 totalMs=24
+09-08 17:57:48.394 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1238 processMs=24 totalMs=25
+09-08 17:57:48.428 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1239 processMs=25 totalMs=25
+09-08 17:57:48.462 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1240 processMs=26 totalMs=26
+09-08 17:57:48.493 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1241 processMs=25 totalMs=25
+09-08 17:57:48.530 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1242 processMs=24 totalMs=24
+09-08 17:57:48.565 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1243 processMs=26 totalMs=26
+09-08 17:57:48.600 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1244 processMs=27 totalMs=27
+09-08 17:57:48.630 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1245 processMs=28 totalMs=28
+09-08 17:57:48.662 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1246 processMs=27 totalMs=27
+09-08 17:57:48.697 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1247 processMs=25 totalMs=26
+09-08 17:57:48.729 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1248 processMs=25 totalMs=25
+09-08 17:57:48.760 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1249 processMs=25 totalMs=25
+09-08 17:57:48.794 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1250 processMs=24 totalMs=24
+09-08 17:57:48.828 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1251 processMs=24 totalMs=24
+09-08 17:57:48.860 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1252 processMs=25 totalMs=25
+09-08 17:57:48.893 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1253 processMs=24 totalMs=25
+09-08 17:57:48.932 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1254 processMs=24 totalMs=25
+09-08 17:57:48.960 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1255 processMs=24 totalMs=24
+09-08 17:57:48.993 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1256 processMs=24 totalMs=24
+09-08 17:57:49.032 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1257 processMs=24 totalMs=24
+09-08 17:57:49.060 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1258 processMs=24 totalMs=24
+09-08 17:57:49.093 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1259 processMs=25 totalMs=25
+09-08 17:57:49.128 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1260 processMs=24 totalMs=25
+09-08 17:57:49.160 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1261 processMs=24 totalMs=24
+09-08 17:57:49.193 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1262 processMs=25 totalMs=25
+09-08 17:57:49.229 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1263 processMs=24 totalMs=25
+09-08 17:57:49.262 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1264 processMs=25 totalMs=26
+09-08 17:57:49.295 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1265 processMs=24 totalMs=25
+09-08 17:57:49.313  1410  1410 I adbd    : adbd service requested 'shell,v2,TERM=xterm-256color,raw:pidof com.p4pilot'
+09-08 17:57:49.327 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1266 processMs=25 totalMs=26
+09-08 17:57:49.361 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1267 processMs=25 totalMs=25
+09-08 17:57:49.398 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1268 processMs=25 totalMs=25
+09-08 17:57:49.426 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1269 processMs=25 totalMs=25
+09-08 17:57:49.463 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1270 processMs=26 totalMs=26
+09-08 17:57:49.498 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1271 processMs=25 totalMs=26
+09-08 17:57:49.528 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1272 processMs=25 totalMs=26
+09-08 17:57:49.573 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1273 processMs=25 totalMs=25
+09-08 17:57:49.599 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1274 processMs=25 totalMs=31
+09-08 17:57:49.630 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1275 processMs=25 totalMs=26
+09-08 17:57:49.666 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1276 processMs=25 totalMs=25
+09-08 17:57:49.695 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1277 processMs=25 totalMs=25
+09-08 17:57:49.726 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1278 processMs=25 totalMs=26
+09-08 17:57:49.764 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1279 processMs=26 totalMs=26
+09-08 17:57:49.795 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1280 processMs=25 totalMs=25
+09-08 17:57:49.827 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1281 processMs=25 totalMs=26
+09-08 17:57:49.860 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1282 processMs=25 totalMs=25
+09-08 17:57:49.895 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1283 processMs=25 totalMs=25
+09-08 17:57:49.928 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1284 processMs=25 totalMs=26
+09-08 17:57:49.965 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1285 processMs=27 totalMs=28
+09-08 17:57:50.001 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1286 processMs=31 totalMs=31
+09-08 17:57:50.028 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1287 processMs=25 totalMs=25
+09-08 17:57:50.061 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1288 processMs=26 totalMs=26
+09-08 17:57:50.094 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1289 processMs=25 totalMs=26
+09-08 17:57:50.130 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1290 processMs=25 totalMs=25
+09-08 17:57:50.162 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1291 processMs=26 totalMs=27
+09-08 17:57:50.198 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1292 processMs=25 totalMs=26
+09-08 17:57:50.232 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1293 processMs=25 totalMs=25
+09-08 17:57:50.261 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1294 processMs=25 totalMs=25
+09-08 17:57:50.295 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1295 processMs=25 totalMs=25
+09-08 17:57:50.333 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1296 processMs=26 totalMs=26
+09-08 17:57:50.361 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1297 processMs=25 totalMs=25
+09-08 17:57:50.395 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1298 processMs=26 totalMs=26
+09-08 17:57:50.427 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1299 processMs=25 totalMs=26
+09-08 17:57:50.461 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1300 processMs=25 totalMs=26
+09-08 17:57:50.495 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1301 processMs=25 totalMs=26
+09-08 17:57:50.527 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1302 processMs=25 totalMs=26
+09-08 17:57:50.599 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1303 processMs=27 totalMs=27
+09-08 17:57:50.625 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1304 processMs=25 totalMs=51
+09-08 17:57:50.651 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1305 processMs=25 totalMs=49
+09-08 17:57:50.678 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1306 processMs=26 totalMs=41
+09-08 17:57:50.704 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1307 processMs=25 totalMs=37
+09-08 17:57:50.730 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1308 processMs=25 totalMs=28
+09-08 17:57:50.766 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1309 processMs=27 totalMs=27
+09-08 17:57:50.795 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1310 processMs=25 totalMs=25
+09-08 17:57:50.829 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1311 processMs=25 totalMs=25
+09-08 17:57:50.861 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1312 processMs=24 totalMs=25
+09-08 17:57:50.897 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1313 processMs=26 totalMs=26
+09-08 17:57:50.935 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1314 processMs=25 totalMs=26
+09-08 17:57:50.962 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1315 processMs=25 totalMs=25
+09-08 17:57:51.001 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1316 processMs=30 totalMs=30
+09-08 17:57:51.031 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1317 processMs=28 totalMs=28
+09-08 17:57:51.060 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1318 processMs=25 totalMs=26
+09-08 17:57:51.094 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1319 processMs=25 totalMs=25
+09-08 17:57:51.125 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1320 processMs=24 totalMs=24
+09-08 17:57:51.160 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1321 processMs=26 totalMs=26
+09-08 17:57:51.193 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1322 processMs=24 totalMs=24
+09-08 17:57:51.225 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1323 processMs=25 totalMs=25
+09-08 17:57:51.261 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1324 processMs=25 totalMs=25
+09-08 17:57:51.295 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1325 processMs=25 totalMs=25
+09-08 17:57:51.327 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1326 processMs=24 totalMs=24
+09-08 17:57:51.361 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1327 processMs=24 totalMs=25
+09-08 17:57:51.398 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1328 processMs=25 totalMs=25
+09-08 17:57:51.431 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1329 processMs=24 totalMs=24
+09-08 17:57:51.459 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1330 processMs=24 totalMs=24
+09-08 17:57:51.493 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1331 processMs=24 totalMs=25
+09-08 17:57:51.528 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1332 processMs=24 totalMs=24
+09-08 17:57:51.559 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1333 processMs=25 totalMs=25
+09-08 17:57:51.597 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1334 processMs=24 totalMs=25
+09-08 17:57:51.627 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1335 processMs=25 totalMs=25
+09-08 17:57:51.664 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1336 processMs=26 totalMs=26
+09-08 17:57:51.695 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1337 processMs=27 totalMs=27
+09-08 17:57:51.729 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1338 processMs=25 totalMs=27
+09-08 17:57:51.764 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1339 processMs=27 totalMs=27
+09-08 17:57:51.795 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1340 processMs=26 totalMs=26
+09-08 17:57:51.825 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1341 processMs=24 totalMs=25
+09-08 17:57:51.862 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1342 processMs=26 totalMs=26
+09-08 17:57:51.897 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1343 processMs=25 totalMs=26
+09-08 17:57:51.929 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1344 processMs=27 totalMs=27
+09-08 17:57:51.964 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1345 processMs=29 totalMs=29
+09-08 17:57:51.993 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1346 processMs=24 totalMs=24
+09-08 17:57:52.027 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1347 processMs=24 totalMs=24
+09-08 17:57:52.059 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1348 processMs=25 totalMs=25
+09-08 17:57:52.092 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1349 processMs=24 totalMs=25
+09-08 17:57:52.126 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1350 processMs=24 totalMs=24
+09-08 17:57:52.161 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1351 processMs=24 totalMs=25
+09-08 17:57:52.195 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1352 processMs=24 totalMs=25
+09-08 17:57:52.225 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1353 processMs=24 totalMs=25
+09-08 17:57:52.260 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1354 processMs=24 totalMs=24
+09-08 17:57:52.298 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1355 processMs=25 totalMs=26
+09-08 17:57:52.328 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1356 processMs=26 totalMs=26
+09-08 17:57:52.359 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1357 processMs=25 totalMs=26
+09-08 17:57:52.395 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1358 processMs=24 totalMs=24
+09-08 17:57:52.425 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1359 processMs=24 totalMs=24
+09-08 17:57:52.458 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1360 processMs=24 totalMs=24
+09-08 17:57:52.492 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1361 processMs=24 totalMs=24
+09-08 17:57:52.524  1410  1410 I adbd    : adbd service requested 'shell,v2,TERM=xterm-256color,raw:pidof com.p4pilot'
+09-08 17:57:52.530 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1362 processMs=24 totalMs=25
+09-08 17:57:52.562 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1363 processMs=24 totalMs=25
+09-08 17:57:52.598 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1364 processMs=25 totalMs=26
+09-08 17:57:52.628 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1365 processMs=24 totalMs=24
+09-08 17:57:52.660 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1366 processMs=24 totalMs=25
+09-08 17:57:52.691 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1367 processMs=24 totalMs=25
+09-08 17:57:52.725 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1368 processMs=24 totalMs=24
+09-08 17:57:52.761 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1369 processMs=25 totalMs=25
+09-08 17:57:52.793 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1370 processMs=24 totalMs=25
+09-08 17:57:52.827 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1371 processMs=25 totalMs=25
+09-08 17:57:52.857 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1372 processMs=24 totalMs=24
+09-08 17:57:52.892 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1373 processMs=24 totalMs=24
+09-08 17:57:52.926 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1374 processMs=24 totalMs=24
+09-08 17:57:52.959 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1375 processMs=24 totalMs=24
+09-08 17:57:52.994 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1376 processMs=25 totalMs=26
+09-08 17:57:53.025 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1377 processMs=24 totalMs=25
+09-08 17:57:53.059 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1378 processMs=24 totalMs=24
+09-08 17:57:53.092 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1379 processMs=24 totalMs=24
+09-08 17:57:53.127 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1380 processMs=24 totalMs=24
+09-08 17:57:53.164 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1381 processMs=26 totalMs=27
+09-08 17:57:53.193 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1382 processMs=24 totalMs=24
+09-08 17:57:53.229 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1383 processMs=24 totalMs=25
+09-08 17:57:53.259 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1384 processMs=24 totalMs=24
+09-08 17:57:53.293 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1385 processMs=24 totalMs=24
+09-08 17:57:53.327 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1386 processMs=24 totalMs=25
+09-08 17:57:53.360 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1387 processMs=25 totalMs=26
+09-08 17:57:53.394 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1388 processMs=24 totalMs=25
+09-08 17:57:53.431 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1389 processMs=24 totalMs=25
+09-08 17:57:53.458 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1390 processMs=24 totalMs=24
+09-08 17:57:53.494 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1391 processMs=24 totalMs=25
+09-08 17:57:53.529 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1392 processMs=25 totalMs=26
+09-08 17:57:53.564 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1393 processMs=28 totalMs=28
+09-08 17:57:53.591 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1394 processMs=24 totalMs=24
+09-08 17:57:53.625 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1395 processMs=24 totalMs=24
+09-08 17:57:53.659 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1396 processMs=24 totalMs=24
+09-08 17:57:53.691 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1397 processMs=24 totalMs=24
+09-08 17:57:53.725 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1398 processMs=24 totalMs=24
+09-08 17:57:53.760 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1399 processMs=24 totalMs=24
+09-08 17:57:53.793 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1400 processMs=24 totalMs=25
+09-08 17:57:53.827 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1401 processMs=24 totalMs=24
+09-08 17:57:53.857 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1402 processMs=24 totalMs=25
+09-08 17:57:53.893 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1403 processMs=24 totalMs=25
+09-08 17:57:53.927 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1404 processMs=24 totalMs=24
+09-08 17:57:53.958 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1405 processMs=25 totalMs=25
+09-08 17:57:53.993 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1406 processMs=26 totalMs=26
+09-08 17:57:54.030 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1407 processMs=26 totalMs=26
+09-08 17:57:54.060 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1408 processMs=25 totalMs=26
+09-08 17:57:54.092 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1409 processMs=24 totalMs=25
+09-08 17:57:54.125 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1410 processMs=24 totalMs=24
+09-08 17:57:54.163 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1411 processMs=24 totalMs=25
+09-08 17:57:54.192 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1412 processMs=25 totalMs=25
+09-08 17:57:54.224 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1413 processMs=24 totalMs=24
+09-08 17:57:54.258 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1414 processMs=24 totalMs=24
+09-08 17:57:54.292 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1415 processMs=24 totalMs=24
+09-08 17:57:54.323 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1416 processMs=24 totalMs=25
+09-08 17:57:54.358 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1417 processMs=24 totalMs=24
+09-08 17:57:54.402 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1418 processMs=26 totalMs=26
+09-08 17:57:54.429 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1419 processMs=24 totalMs=24
+09-08 17:57:54.460 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1420 processMs=25 totalMs=25
+09-08 17:57:54.494 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1421 processMs=24 totalMs=24
+09-08 17:57:54.529 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1422 processMs=24 totalMs=24
+09-08 17:57:54.562 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1423 processMs=30 totalMs=30
+09-08 17:57:54.596 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1424 processMs=26 totalMs=26
+09-08 17:57:54.632 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1425 processMs=27 totalMs=28
+09-08 17:57:54.660 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1426 processMs=25 totalMs=25
+09-08 17:57:54.693 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1427 processMs=23 totalMs=24
+09-08 17:57:54.726 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1428 processMs=24 totalMs=25
+09-08 17:57:54.757 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1429 processMs=24 totalMs=24
+09-08 17:57:54.793 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1430 processMs=25 totalMs=26
+09-08 17:57:54.830 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1431 processMs=24 totalMs=25
+09-08 17:57:54.860 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1432 processMs=24 totalMs=24
+09-08 17:57:54.890 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1433 processMs=24 totalMs=25
+09-08 17:57:54.926 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1434 processMs=25 totalMs=25
+09-08 17:57:54.962 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1435 processMs=24 totalMs=25
+09-08 17:57:54.992 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1436 processMs=25 totalMs=25
+09-08 17:57:55.030 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1437 processMs=25 totalMs=26
+09-08 17:57:55.057 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1438 processMs=25 totalMs=25
+09-08 17:57:55.090 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1439 processMs=24 totalMs=24
+09-08 17:57:55.128 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1440 processMs=23 totalMs=23
+09-08 17:57:55.157 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1441 processMs=24 totalMs=24
+09-08 17:57:55.192 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1442 processMs=26 totalMs=26
+09-08 17:57:55.226 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1443 processMs=24 totalMs=24
+09-08 17:57:55.257 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1444 processMs=24 totalMs=24
+09-08 17:57:55.291 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1445 processMs=24 totalMs=24
+09-08 17:57:55.331 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1446 processMs=24 totalMs=24
+09-08 17:57:55.361 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1447 processMs=24 totalMs=24
+09-08 17:57:55.390 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1448 processMs=24 totalMs=25
+09-08 17:57:55.426 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1449 processMs=24 totalMs=26
+09-08 17:57:55.459 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1450 processMs=24 totalMs=24
+09-08 17:57:55.489 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1451 processMs=24 totalMs=24
+09-08 17:57:55.525 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1452 processMs=24 totalMs=24
+09-08 17:57:55.561 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1453 processMs=24 totalMs=24
+09-08 17:57:55.592 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1454 processMs=25 totalMs=26
+09-08 17:57:55.628 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1455 processMs=24 totalMs=24
+09-08 17:57:55.661 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1456 processMs=24 totalMs=24
+09-08 17:57:55.689 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1457 processMs=23 totalMs=24
+09-08 17:57:55.710  1410  1410 I adbd    : adbd service requested 'shell,v2,TERM=xterm-256color,raw:pidof com.p4pilot'
+09-08 17:57:55.724 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1458 processMs=24 totalMs=24
+09-08 17:57:55.760 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1459 processMs=24 totalMs=25
+09-08 17:57:55.791 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1460 processMs=24 totalMs=24
+09-08 17:57:55.825 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1461 processMs=25 totalMs=26
+09-08 17:57:55.859 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1462 processMs=24 totalMs=24
+09-08 17:57:55.892 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1463 processMs=24 totalMs=25
+09-08 17:57:55.924 21834 21863 I System.out: P4Pilot Step54 PROCESSED frame=1464 processMs=24 totalMs=24
+
+============================================================
+Step55-CRASH-2 RESULTS
+============================================================
+INITIAL_PID=21834
+FINAL_PID=21834
+EXIT_SEC=
+FATAL_COUNT=0
+P4PILOT_CRASH_COUNT=0
+CRASH_CAPTURE=NO_REPRO
+
+Step55-CRASH-2 TEST_STATUS=NO_CRASH_REPRODUCED
+
+============================================================
+Step55-CRASH-2 result sync
+TEST_STATUS=NO_CRASH_REPRODUCED
+============================================================
