@@ -40,7 +40,7 @@ public class MainActivity extends Activity {
         tv = new TextView(this);
         tv.setTextSize(16);
         tv.setPadding(30, 30, 30, 30);
-        tv.setText("P4Pilot Step 48\n正在初始化...");
+        tv.setText("P4Pilot Step 49\n正在初始化...");
         setContentView(tv);
 
         File externalDir = getExternalFilesDir(null);
@@ -154,7 +154,7 @@ public class MainActivity extends Activity {
                                 firstFrameTime = now;
 
                                 System.out.println(
-                                        "P4Pilot Step48 FIRST_FRAME"
+                                        "P4Pilot Step49 FIRST_FRAME"
                                 );
                             }
 
@@ -167,11 +167,11 @@ public class MainActivity extends Activity {
                             if (frameCount == 1) {
 
                                 System.out.println(
-                                        "P4Pilot Step48 FRAME_START"
+                                        "P4Pilot Step49 FRAME_START"
                                 );
 
                                 System.out.println(
-                                        "P4Pilot Step48 width=" +
+                                        "P4Pilot Step49 width=" +
                                         w +
                                         " height=" +
                                         h +
@@ -190,7 +190,7 @@ public class MainActivity extends Activity {
                                             plane.getBuffer();
 
                                     System.out.println(
-                                            "P4Pilot Step48 plane[" +
+                                            "P4Pilot Step49 plane[" +
                                             i +
                                             "] rowStride=" +
                                             plane.getRowStride() +
@@ -202,6 +202,267 @@ public class MainActivity extends Activity {
                                             buffer.limit()
                                     );
                                 }
+                            }
+
+                            if (frameCount == 1) {
+
+                                System.out.println(
+                                        "P4Pilot Step49 CONTENT_TEST_BEGIN"
+                                );
+
+                                try {
+
+                                    android.graphics.Bitmap bitmap =
+                                            yuv420ToBitmap(image);
+
+                                    if (bitmap != null) {
+
+                                        System.out.println(
+                                                "P4Pilot Step49 BITMAP_OK width=" +
+                                                bitmap.getWidth() +
+                                                " height=" +
+                                                bitmap.getHeight()
+                                        );
+
+                                        File testFile =
+                                                new File(
+                                                        outputDir,
+                                                        "step49_test.jpg"
+                                                );
+
+                                        FileOutputStream fos =
+                                                new FileOutputStream(testFile);
+
+                                        bitmap.compress(
+                                                android.graphics.Bitmap.CompressFormat.JPEG,
+                                                90,
+                                                fos
+                                        );
+
+                                        fos.flush();
+                                        fos.close();
+
+                                        android.graphics.Bitmap decoded =
+                                                android.graphics.BitmapFactory
+                                                        .decodeFile(
+                                                                testFile.getAbsolutePath()
+                                                        );
+
+                                        if (decoded != null) {
+
+                                            System.out.println(
+                                                    "P4Pilot Step49 JPEG_DECODE_OK"
+                                            );
+
+                                            System.out.println(
+                                                    "P4Pilot Step49 JPEG_PATH=" +
+                                                    testFile.getAbsolutePath()
+                                            );
+
+                                            decoded.recycle();
+
+                                        } else {
+
+                                            System.out.println(
+                                                    "P4Pilot Step49 JPEG_DECODE_FAIL"
+                                            );
+                                        }
+
+                                        bitmap.recycle();
+
+                                    } else {
+
+                                        System.out.println(
+                                                "P4Pilot Step49 BITMAP_NULL"
+                                        );
+                                    }
+
+                                } catch (Exception e) {
+
+                                    System.err.println(
+                                            "P4Pilot Step49 CONTENT_TEST_ERROR"
+                                    );
+
+                                    e.printStackTrace();
+                                }
+
+                                System.out.println(
+                                        "P4Pilot Step49 CONTENT_TEST_END"
+                                );
+                            }
+
+                            if (frameCount == 1) {
+
+                                System.out.println(
+                                        "P4Pilot Step49 CONTENT_TEST_BEGIN"
+                                );
+
+                                try {
+
+                                    android.graphics.Bitmap bitmap =
+                                            yuv420ToBitmap(image);
+
+                                    if (bitmap != null) {
+
+                                        System.out.println(
+                                                "P4Pilot Step49 BITMAP_OK width=" +
+                                                bitmap.getWidth() +
+                                                " height=" +
+                                                bitmap.getHeight()
+                                        );
+
+                                        File testFile =
+                                                new File(
+                                                        outputDir,
+                                                        "step49_test.jpg"
+                                                );
+
+                                        FileOutputStream fos =
+                                                new FileOutputStream(testFile);
+
+                                        bitmap.compress(
+                                                android.graphics.Bitmap.CompressFormat.JPEG,
+                                                90,
+                                                fos
+                                        );
+
+                                        fos.flush();
+                                        fos.close();
+
+                                        android.graphics.Bitmap decoded =
+                                                android.graphics.BitmapFactory
+                                                        .decodeFile(
+                                                                testFile.getAbsolutePath()
+                                                        );
+
+                                        if (decoded != null) {
+
+                                            System.out.println(
+                                                    "P4Pilot Step49 JPEG_DECODE_OK"
+                                            );
+
+                                            System.out.println(
+                                                    "P4Pilot Step49 JPEG_PATH=" +
+                                                    testFile.getAbsolutePath()
+                                            );
+
+                                            decoded.recycle();
+
+                                        } else {
+
+                                            System.out.println(
+                                                    "P4Pilot Step49 JPEG_DECODE_FAIL"
+                                            );
+                                        }
+
+                                        bitmap.recycle();
+
+                                    } else {
+
+                                        System.out.println(
+                                                "P4Pilot Step49 BITMAP_NULL"
+                                        );
+                                    }
+
+                                } catch (Exception e) {
+
+                                    System.err.println(
+                                            "P4Pilot Step49 CONTENT_TEST_ERROR"
+                                    );
+
+                                    e.printStackTrace();
+                                }
+
+                                System.out.println(
+                                        "P4Pilot Step49 CONTENT_TEST_END"
+                                );
+                            }
+
+                            if (frameCount == 1) {
+
+                                System.out.println(
+                                        "P4Pilot Step49 CONTENT_TEST_BEGIN"
+                                );
+
+                                try {
+
+                                    android.graphics.Bitmap bitmap =
+                                            yuv420ToBitmap(image);
+
+                                    if (bitmap != null) {
+
+                                        System.out.println(
+                                                "P4Pilot Step49 BITMAP_OK width=" +
+                                                bitmap.getWidth() +
+                                                " height=" +
+                                                bitmap.getHeight()
+                                        );
+
+                                        File testFile =
+                                                new File(
+                                                        outputDir,
+                                                        "step49_test.jpg"
+                                                );
+
+                                        FileOutputStream fos =
+                                                new FileOutputStream(testFile);
+
+                                        bitmap.compress(
+                                                android.graphics.Bitmap.CompressFormat.JPEG,
+                                                90,
+                                                fos
+                                        );
+
+                                        fos.flush();
+                                        fos.close();
+
+                                        android.graphics.Bitmap decoded =
+                                                android.graphics.BitmapFactory
+                                                        .decodeFile(
+                                                                testFile.getAbsolutePath()
+                                                        );
+
+                                        if (decoded != null) {
+
+                                            System.out.println(
+                                                    "P4Pilot Step49 JPEG_DECODE_OK"
+                                            );
+
+                                            System.out.println(
+                                                    "P4Pilot Step49 JPEG_PATH=" +
+                                                    testFile.getAbsolutePath()
+                                            );
+
+                                            decoded.recycle();
+
+                                        } else {
+
+                                            System.out.println(
+                                                    "P4Pilot Step49 JPEG_DECODE_FAIL"
+                                            );
+                                        }
+
+                                        bitmap.recycle();
+
+                                    } else {
+
+                                        System.out.println(
+                                                "P4Pilot Step49 BITMAP_NULL"
+                                        );
+                                    }
+
+                                } catch (Exception e) {
+
+                                    System.err.println(
+                                            "P4Pilot Step49 CONTENT_TEST_ERROR"
+                                    );
+
+                                    e.printStackTrace();
+                                }
+
+                                System.out.println(
+                                        "P4Pilot Step49 CONTENT_TEST_END"
+                                );
                             }
 
                             if (frameCount == 10 ||
@@ -220,7 +481,7 @@ public class MainActivity extends Activity {
                                         : 0;
 
                                 System.out.println(
-                                        "P4Pilot Step48 FRAME=" +
+                                        "P4Pilot Step49 FRAME=" +
                                         frameCount +
                                         " elapsedMs=" +
                                         elapsed +
@@ -244,7 +505,7 @@ public class MainActivity extends Activity {
 
                             runOnUiThread(() ->
                                     tv.setText(
-                                            "P4Pilot Step 48\n\n" +
+                                            "P4Pilot Step 49\n\n" +
                                             "Camera: BACK\n" +
                                             "Format: YUV_420_888\n" +
                                             "Resolution: " +
@@ -265,7 +526,7 @@ public class MainActivity extends Activity {
                         } catch (Exception e) {
 
                             System.err.println(
-                                    "P4Pilot Step48 FRAME_ERROR"
+                                    "P4Pilot Step49 FRAME_ERROR"
                             );
 
                             e.printStackTrace();
@@ -403,6 +664,357 @@ public class MainActivity extends Activity {
             );
         }
     }
+
+    private android.graphics.Bitmap yuv420ToBitmap(Image image) {
+
+        int width = image.getWidth();
+        int height = image.getHeight();
+
+        Image.Plane[] planes = image.getPlanes();
+
+        byte[] nv21 = new byte[
+                width * height +
+                width * height / 2
+        ];
+
+        int offset = 0;
+
+        Image.Plane yPlane = planes[0];
+        ByteBuffer yBuffer = yPlane.getBuffer();
+
+        int yRowStride = yPlane.getRowStride();
+        int yPixelStride = yPlane.getPixelStride();
+
+        for (int row = 0; row < height; row++) {
+
+            int rowStart =
+                    row * yRowStride;
+
+            for (int col = 0; col < width; col++) {
+
+                int index =
+                        rowStart +
+                        col * yPixelStride;
+
+                nv21[offset++] =
+                        yBuffer.get(index);
+            }
+        }
+
+        Image.Plane uPlane = planes[1];
+        Image.Plane vPlane = planes[2];
+
+        ByteBuffer uBuffer = uPlane.getBuffer();
+        ByteBuffer vBuffer = vPlane.getBuffer();
+
+        int uRowStride = uPlane.getRowStride();
+        int uPixelStride = uPlane.getPixelStride();
+
+        int vRowStride = vPlane.getRowStride();
+        int vPixelStride = vPlane.getPixelStride();
+
+        int chromaWidth = width / 2;
+        int chromaHeight = height / 2;
+
+        for (int row = 0; row < chromaHeight; row++) {
+
+            int uRowStart =
+                    row * uRowStride;
+
+            int vRowStart =
+                    row * vRowStride;
+
+            for (int col = 0; col < chromaWidth; col++) {
+
+                int uIndex =
+                        uRowStart +
+                        col * uPixelStride;
+
+                int vIndex =
+                        vRowStart +
+                        col * vPixelStride;
+
+                nv21[offset++] =
+                        vBuffer.get(vIndex);
+
+                nv21[offset++] =
+                        uBuffer.get(uIndex);
+            }
+        }
+
+        android.graphics.YuvImage yuv =
+                new android.graphics.YuvImage(
+                        nv21,
+                        ImageFormat.NV21,
+                        width,
+                        height,
+                        null
+                );
+
+        java.io.ByteArrayOutputStream out =
+                new java.io.ByteArrayOutputStream();
+
+        boolean ok =
+                yuv.compressToJpeg(
+                        new android.graphics.Rect(
+                                0,
+                                0,
+                                width,
+                                height
+                        ),
+                        90,
+                        out
+                );
+
+        if (!ok) {
+            return null;
+        }
+
+        byte[] jpeg =
+                out.toByteArray();
+
+        return android.graphics.BitmapFactory
+                .decodeByteArray(
+                        jpeg,
+                        0,
+                        jpeg.length
+                );
+    }
+
+
+    private android.graphics.Bitmap yuv420ToBitmap(Image image) {
+
+        int width = image.getWidth();
+        int height = image.getHeight();
+
+        Image.Plane[] planes = image.getPlanes();
+
+        byte[] nv21 = new byte[
+                width * height +
+                width * height / 2
+        ];
+
+        int offset = 0;
+
+        Image.Plane yPlane = planes[0];
+        ByteBuffer yBuffer = yPlane.getBuffer();
+
+        int yRowStride = yPlane.getRowStride();
+        int yPixelStride = yPlane.getPixelStride();
+
+        for (int row = 0; row < height; row++) {
+
+            int rowStart =
+                    row * yRowStride;
+
+            for (int col = 0; col < width; col++) {
+
+                int index =
+                        rowStart +
+                        col * yPixelStride;
+
+                nv21[offset++] =
+                        yBuffer.get(index);
+            }
+        }
+
+        Image.Plane uPlane = planes[1];
+        Image.Plane vPlane = planes[2];
+
+        ByteBuffer uBuffer = uPlane.getBuffer();
+        ByteBuffer vBuffer = vPlane.getBuffer();
+
+        int uRowStride = uPlane.getRowStride();
+        int uPixelStride = uPlane.getPixelStride();
+
+        int vRowStride = vPlane.getRowStride();
+        int vPixelStride = vPlane.getPixelStride();
+
+        int chromaWidth = width / 2;
+        int chromaHeight = height / 2;
+
+        for (int row = 0; row < chromaHeight; row++) {
+
+            int uRowStart =
+                    row * uRowStride;
+
+            int vRowStart =
+                    row * vRowStride;
+
+            for (int col = 0; col < chromaWidth; col++) {
+
+                int uIndex =
+                        uRowStart +
+                        col * uPixelStride;
+
+                int vIndex =
+                        vRowStart +
+                        col * vPixelStride;
+
+                nv21[offset++] =
+                        vBuffer.get(vIndex);
+
+                nv21[offset++] =
+                        uBuffer.get(uIndex);
+            }
+        }
+
+        android.graphics.YuvImage yuv =
+                new android.graphics.YuvImage(
+                        nv21,
+                        ImageFormat.NV21,
+                        width,
+                        height,
+                        null
+                );
+
+        java.io.ByteArrayOutputStream out =
+                new java.io.ByteArrayOutputStream();
+
+        boolean ok =
+                yuv.compressToJpeg(
+                        new android.graphics.Rect(
+                                0,
+                                0,
+                                width,
+                                height
+                        ),
+                        90,
+                        out
+                );
+
+        if (!ok) {
+            return null;
+        }
+
+        byte[] jpeg =
+                out.toByteArray();
+
+        return android.graphics.BitmapFactory
+                .decodeByteArray(
+                        jpeg,
+                        0,
+                        jpeg.length
+                );
+    }
+
+
+    private android.graphics.Bitmap yuv420ToBitmap(Image image) {
+
+        int width = image.getWidth();
+        int height = image.getHeight();
+
+        Image.Plane[] planes = image.getPlanes();
+
+        byte[] nv21 = new byte[
+                width * height +
+                width * height / 2
+        ];
+
+        int offset = 0;
+
+        Image.Plane yPlane = planes[0];
+        ByteBuffer yBuffer = yPlane.getBuffer();
+
+        int yRowStride = yPlane.getRowStride();
+        int yPixelStride = yPlane.getPixelStride();
+
+        for (int row = 0; row < height; row++) {
+
+            int rowStart =
+                    row * yRowStride;
+
+            for (int col = 0; col < width; col++) {
+
+                int index =
+                        rowStart +
+                        col * yPixelStride;
+
+                nv21[offset++] =
+                        yBuffer.get(index);
+            }
+        }
+
+        Image.Plane uPlane = planes[1];
+        Image.Plane vPlane = planes[2];
+
+        ByteBuffer uBuffer = uPlane.getBuffer();
+        ByteBuffer vBuffer = vPlane.getBuffer();
+
+        int uRowStride = uPlane.getRowStride();
+        int uPixelStride = uPlane.getPixelStride();
+
+        int vRowStride = vPlane.getRowStride();
+        int vPixelStride = vPlane.getPixelStride();
+
+        int chromaWidth = width / 2;
+        int chromaHeight = height / 2;
+
+        for (int row = 0; row < chromaHeight; row++) {
+
+            int uRowStart =
+                    row * uRowStride;
+
+            int vRowStart =
+                    row * vRowStride;
+
+            for (int col = 0; col < chromaWidth; col++) {
+
+                int uIndex =
+                        uRowStart +
+                        col * uPixelStride;
+
+                int vIndex =
+                        vRowStart +
+                        col * vPixelStride;
+
+                nv21[offset++] =
+                        vBuffer.get(vIndex);
+
+                nv21[offset++] =
+                        uBuffer.get(uIndex);
+            }
+        }
+
+        android.graphics.YuvImage yuv =
+                new android.graphics.YuvImage(
+                        nv21,
+                        ImageFormat.NV21,
+                        width,
+                        height,
+                        null
+                );
+
+        java.io.ByteArrayOutputStream out =
+                new java.io.ByteArrayOutputStream();
+
+        boolean ok =
+                yuv.compressToJpeg(
+                        new android.graphics.Rect(
+                                0,
+                                0,
+                                width,
+                                height
+                        ),
+                        90,
+                        out
+                );
+
+        if (!ok) {
+            return null;
+        }
+
+        byte[] jpeg =
+                out.toByteArray();
+
+        return android.graphics.BitmapFactory
+                .decodeByteArray(
+                        jpeg,
+                        0,
+                        jpeg.length
+                );
+    }
+
 
     private void saveYuvAsJpeg(Image image) {
 

@@ -4929,3 +4929,336 @@ d684f9e13b37656fddcb9a77652fc64b2b61f03c733fffb60861d32fe2278a26  app/build/outp
 ============================================================
 P4Pilot Step 48 完成
 ============================================================
+
+============================================================
+P4Pilot Step 49 - Real-time YUV -> JPEG 内容有效性验证
+============================================================
+执行时间: PLACEHOLDER
+============================================================
+
+
+============================================================
+P4Pilot Step 49 - YUV -> JPEG 实际图像转换与性能验证
+============================================================
+执行时间: 2026年 9月 8日 星期二 23时45分53秒 CST
+
+>>> 1. 当前 Git 状态
+ M app/src/main/java/com/p4pilot/MainActivity.java
+ M "\345\221\275\344\273\244.txt"
+
+1e6afbd test: validate continuous Camera2 YUV frame stream
+
+>>> 2. 检查当前 MainActivity
+12:import android.media.ImageReader;
+25:    private ImageReader reader;
+111:                    ).getOutputSizes(ImageFormat.YUV_420_888);
+128:            reader = ImageReader.newInstance(
+131:                    ImageFormat.YUV_420_888,
+195:                                            "] rowStride=" +
+197:                                            " pixelStride=" +
+510:                                            "Format: YUV_420_888\n" +
+1019:    private void saveYuvAsJpeg(Image image) {
+1057:                            " rowStride=" +
+1059:                            " pixelStride=" +
+1157:             * YUV_420_888:
+1166:             * 这里根据 rowStride / pixelStride 正确读取。
+
+>>> 3. 清理旧 APK
+> Task :app:clean
+
+[Incubating] Problems report is available at: file:///Users/luojingyao/p4pilot/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.13/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 1s
+1 actionable task: 1 executed
+
+>>> 4. 构建 Debug APK
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preDebugBuild UP-TO-DATE
+> Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
+> Task :app:javaPreCompileDebug
+> Task :app:processDebugNavigationResources
+> Task :app:checkDebugAarMetadata
+> Task :app:generateDebugResValues
+> Task :app:compileDebugNavigationResources
+> Task :app:mapDebugSourceSetPaths
+> Task :app:generateDebugResources
+> Task :app:packageDebugResources
+> Task :app:createDebugCompatibleScreenManifests
+> Task :app:extractDeepLinksDebug
+> Task :app:parseDebugLocalResources
+> Task :app:processDebugMainManifest
+> Task :app:processDebugManifest
+> Task :app:mergeDebugShaders
+> Task :app:compileDebugShaders NO-SOURCE
+> Task :app:generateDebugAssets UP-TO-DATE
+> Task :app:mergeDebugAssets
+> Task :app:compressDebugAssets
+> Task :app:processDebugJavaRes NO-SOURCE
+> Task :app:mergeDebugResources
+> Task :app:desugarDebugFileDependencies
+> Task :app:checkDebugDuplicateClasses
+> Task :app:mergeDebugJniLibFolders
+> Task :app:processDebugManifestForPackage
+> Task :app:mergeExtDexDebug
+> Task :app:mergeLibDexDebug
+> Task :app:mergeDebugNativeLibs NO-SOURCE
+> Task :app:stripDebugDebugSymbols NO-SOURCE
+> Task :app:mergeDebugJavaResource
+> Task :app:validateSigningDebug
+> Task :app:writeDebugAppMetadata
+> Task :app:writeDebugSigningConfigVersions
+> Task :app:processDebugResources
+
+> Task :app:compileDebugJavaWithJavac FAILED
+
+[Incubating] Problems report is available at: file:///Users/luojingyao/p4pilot/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.13/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+29 actionable tasks: 29 executed
+
+>>> 5. 安装 APK
+Performing Streamed Install
+
+>>> 6. 强制停止旧 P4Pilot
+
+>>> 7. 清理旧 P4Pilot 输出
+
+>>> 8. 启动 P4Pilot
+  bash arg: -p
+  bash arg: com.p4pilot
+  bash arg: 1
+Events injected: 1
+## Network stats: elapsed time=17ms (0ms mobile, 0ms wifi, 17ms not connected)
+
+>>> 9. 等待 Camera2 + YUV 数据
+
+>>> 10. P4Pilot 进程
+17169
+
+>>> 11. Camera 当前状态
+  09-08 10:41:22 : DISCONNECT device 0 client for package com.p4pilot (PID 0)
+  09-08 10:40:08 : CONNECT device 0 client for package com.p4pilot (PID 27206)
+  09-08 10:40:08 : DISCONNECT device 0 client for package com.p4pilot (PID 27206)
+  09-08 10:39:56 : CONNECT device 0 client for package com.p4pilot (PID 27206)
+  09-08 10:39:56 : DISCONNECT device 0 client for package com.p4pilot (PID 27206)
+  09-08 10:39:53 : CONNECT device 0 client for package com.p4pilot (PID 27206)
+  09-08 10:39:53 : DISCONNECT device 0 client for package com.p4pilot (PID 27206)
+  09-08 10:39:45 : CONNECT device 0 client for package com.p4pilot (PID 27206)
+  09-08 10:39:45 : DISCONNECT device 0 client for package com.p4pilot (PID 27206)
+  09-08 10:39:39 : CONNECT device 0 client for package com.p4pilot (PID 27206)
+  09-08 10:39:39 : DISCONNECT device 0 client for package com.p4pilot (PID 27206)
+  09-08 10:39:38 : CONNECT device 0 client for package com.p4pilot (PID 27206)
+  09-08 10:39:38 : DISCONNECT device 0 client for package com.p4pilot (PID 27206)
+  09-08 10:39:35 : CONNECT device 0 client for package com.p4pilot (PID 27206)
+  09-08 10:39:35 : DISCONNECT device 0 client for package com.p4pilot (PID 27206)
+  09-08 10:38:34 : CONNECT device 0 client for package com.p4pilot (PID 27206)
+  09-07 22:22:09 : DISCONNECT device 2 client for package client.pid<1393> (PID 1393)
+  09-07 22:22:05 : CONNECT device 2 client for package client.pid<1393> (PID 1393)
+  09-07 22:22:05 : DISCONNECT device 2 client for package client.pid<1393> (PID 1393)
+  09-07 22:22:01 : CONNECT device 2 client for package client.pid<1393> (PID 1393)
+  09-07 20:33:55 : DISCONNECT device 2 client for package client.pid<1393> (PID 1393)
+  09-07 20:33:52 : CONNECT device 2 client for package client.pid<1393> (PID 1393)
+  09-07 20:33:52 : DISCONNECT device 2 client for package client.pid<1393> (PID 1393)
+  09-07 20:33:49 : CONNECT device 2 client for package client.pid<1393> (PID 1393)
+  09-07 20:33:47 : DISCONNECT device 2 client for package client.pid<1393> (PID 1393)
+  09-07 20:33:42 : CONNECT device 2 client for package client.pid<1393> (PID 1393)
+  09-07 20:33:13 : DISCONNECT device 2 client for package client.pid<1393> (PID 1393)
+  09-07 20:33:11 : CONNECT device 2 client for package client.pid<1393> (PID 1393)
+  09-07 20:32:56 : DISCONNECT device 2 client for package client.pid<1393> (PID 1393)
+  09-07 20:32:53 : CONNECT device 2 client for package client.pid<1393> (PID 1393)
+  09-07 20:32:49 : DISCONNECT device 1 client for package com.android.settings (PID 2589)
+  09-07 20:32:48 : DISCONNECT device 2 client for package client.pid<1393> (PID 1393)
+  09-07 20:32:07 : CONNECT device 2 client for package client.pid<1393> (PID 1393)
+  09-07 20:32:06 : CONNECT device 1 client for package com.android.settings (PID 2589)
+    Client PID: 17169
+    Client package: com.p4pilot
+      No input stream configured.
+      Current output stream/surface IDs:
+    Latest received frame:
+      No input stream.
+
+>>> 12. P4Pilot Step49 日志
+09-08 16:46:00.771  1076  8340 E GAF     : GetVendorTagId getting the vendor tag ID from the vendor lib failed: Unknown error -2147483648 (-2147483648).
+09-08 16:46:00.771  1076  8340 E GAF     : GetVendorTagId getting the vendor tag ID from the vendor lib failed: Unknown error -2147483648 (-2147483648).
+09-08 16:46:00.771  1076  8340 E GAF     : GetVendorTagId getting the vendor tag ID from the vendor lib failed: Unknown error -2147483648 (-2147483648).
+09-08 16:46:00.771  1076  8340 E GAF     : GetVendorTagId getting the vendor tag ID from the vendor lib failed: Unknown error -2147483648 (-2147483648).
+09-08 16:46:00.771  1076  8340 E GAF     : GetVendorTagId getting the vendor tag ID from the vendor lib failed: Unknown error -2147483648 (-2147483648).
+09-08 16:46:00.771  1076  8340 E GAF     : GetVendorTagId getting the vendor tag ID from the vendor lib failed: Unknown error -2147483648 (-2147483648).
+09-08 16:46:00.772  1076  8340 E GAF     : GetVendorTagId getting the vendor tag ID from the vendor lib failed: Unknown error -2147483648 (-2147483648).
+09-08 16:46:00.772  1076  8340 E GAF     : GetVendorTagId getting the vendor tag ID from the vendor lib failed: Unknown error -2147483648 (-2147483648).
+09-08 16:46:00.773  1076  8340 I GCH_StreamClassifier: ParseSessionParameters FPS range is: 15:30, Portrait Mode: 0, select full fov sensor mode: 0
+09-08 16:46:00.773  1076  8340 I GCH_CameraPipelineHwl: PopulateChiPipelineCreationDescriptor batch size = 1, max fps = 30, stats_skip_pattern_ = 1
+09-08 16:46:00.775  1086  1204 I Darwinn : setTiming: model_identifier: /data/vendor/hal_neuralnetworks_darwinn/hal_camera/facessd, fps: -1, max_execution_time_ms: -1, tolerance_ms: 60, calling process uid: 1000
+09-08 16:46:00.776  1076  8340 I GoogleFDNode: QueryBufferInfo: [FD] Google FD Node publishing com.google.pixel.experimental2018 | faceSkipFrame to 80530005
+09-08 16:46:00.778  1076  8340 D GCH_StreamClassifier: Mode to be checked: 2016 x 1512, fps 60
+09-08 16:46:00.778  1076  8340 D GCH_StreamClassifier: Frame rate doesn't match: sensor mode frame rate is 60, max frame rate is 30
+09-08 16:46:00.778  1076  8340 D GCH_StreamClassifier: Mode to be checked: 4032 x 3024, fps 30
+09-08 16:46:00.778  1076  8340 D GCH_StreamClassifier: Mode to be checked: 4032 x 2272, fps 60
+09-08 16:46:00.778  1076  8340 D GCH_StreamClassifier: Frame rate doesn't match: sensor mode frame rate is 60, max frame rate is 30
+09-08 16:46:00.778  1076  8340 D GCH_StreamClassifier: Mode to be checked: 4032 x 2272, fps 60
+09-08 16:46:00.778  1076  8340 D GCH_StreamClassifier: Frame rate doesn't match: sensor mode frame rate is 60, max frame rate is 30
+09-08 16:46:00.778  1076  8340 D GCH_StreamClassifier: Mode to be checked: 4032 x 2272, fps 30
+09-08 16:46:00.778  1076  8340 D GCH_StreamClassifier: Mode to be checked: 2016 x 1136, fps 240
+09-08 16:46:00.778  1076  8340 D GCH_StreamClassifier: Frame rate doesn't match: sensor mode frame rate is 240, max frame rate is 30
+09-08 16:46:00.778  1076  8340 D GCH_StreamClassifier: Mode to be checked: 2016 x 1136, fps 120
+09-08 16:46:00.778  1076  8340 D GCH_StreamClassifier: Frame rate doesn't match: sensor mode frame rate is 120, max frame rate is 30
+09-08 16:46:00.778  1076  8340 D GCH_StreamClassifier: Mode to be checked: 4032 x 2272, fps 30
+09-08 16:46:00.778  1076  8340 D GCH_StreamClassifier: Mode to be checked: 4032 x 3024, fps 30
+09-08 16:46:00.778  1076  8340 I GCH_StreamClassifier: GetSensorMode	 Frame Size: 4032x3024
+09-08 16:46:00.778  1076  8340 I GCH_StreamClassifier: GetSensorMode	 FrameRate: 30
+09-08 16:46:00.778  1076  8340 I GCH_StreamClassifier: GetSensorMode	 BatchedFrames: 0
+09-08 16:46:00.778  1076  8340 I GCH_StreamClassifier: ParseSessionParameters FPS range is: 15:30, Portrait Mode: 0, select full fov sensor mode: 0
+09-08 16:46:00.778  1076  8340 I GCH_CameraPipelineHwl: PopulateChiPipelineCreationDescriptor batch size = 1, max fps = 30, stats_skip_pattern_ = 1
+09-08 16:46:00.782  1076  8340 I GoogleFDNode: QueryBufferInfo: [FD] Google FD Node publishing com.google.pixel.experimental2018 | faceSkipFrame to 80530005
+09-08 16:46:00.783  1076  8340 D GCH_StreamClassifier: Mode to be checked: 2328 x 1746, fps 30
+09-08 16:46:00.783  1076  8340 D GCH_StreamClassifier: Mode to be checked: 2016 x 1136, fps 190
+09-08 16:46:00.783  1076  8340 D GCH_StreamClassifier: Frame rate doesn't match: sensor mode frame rate is 190, max frame rate is 30
+09-08 16:46:00.783  1076  8340 D GCH_StreamClassifier: Mode to be checked: 2016 x 1136, fps 95
+09-08 16:46:00.783  1076  8340 D GCH_StreamClassifier: Frame rate doesn't match: sensor mode frame rate is 95, max frame rate is 30
+09-08 16:46:00.783  1076  8340 D GCH_StreamClassifier: Mode to be checked: 2328 x 1310, fps 60
+09-08 16:46:00.783  1076  8340 D GCH_StreamClassifier: Frame rate doesn't match: sensor mode frame rate is 60, max frame rate is 30
+09-08 16:46:00.783  1076  8340 D GCH_StreamClassifier: Mode to be checked: 4656 x 2620, fps 40
+09-08 16:46:00.783  1076  8340 D GCH_StreamClassifier: Frame rate doesn't match: sensor mode frame rate is 40, max frame rate is 30
+09-08 16:46:00.783  1076  8340 D GCH_StreamClassifier: Mode to be checked: 4656 x 2620, fps 30
+09-08 16:46:00.783  1076  8340 D GCH_StreamClassifier: Mode to be checked: 4656 x 3496, fps 30
+09-08 16:46:00.783  1076  8340 I GCH_StreamClassifier: GetSensorMode	 Frame Size: 4656x2620
+09-08 16:46:00.783  1076  8340 I GCH_StreamClassifier: GetSensorMode	 FrameRate: 30
+09-08 16:46:00.783  1076  8340 I GCH_StreamClassifier: GetSensorMode	 BatchedFrames: 0
+09-08 16:46:00.783  1076  8340 I GCH_StreamClassifier: ParseSessionParameters FPS range is: 15:30, Portrait Mode: 0, select full fov sensor mode: 0
+09-08 16:46:00.783  1076  8340 I GCH_CameraPipelineHwl: PopulateChiPipelineCreationDescriptor batch size = 1, max fps = 30, stats_skip_pattern_ = 1
+09-08 16:46:00.803  1076  8340 D GCH_StreamClassifier: Mode to be checked: 2016 x 1512, fps 60
+09-08 16:46:00.803  1076  8340 D GCH_StreamClassifier: Frame rate doesn't match: sensor mode frame rate is 60, max frame rate is 30
+09-08 16:46:00.803  1076  8340 D GCH_StreamClassifier: Mode to be checked: 4032 x 3024, fps 30
+09-08 16:46:00.803  1076  8340 D GCH_StreamClassifier: Mode to be checked: 4032 x 2272, fps 60
+09-08 16:46:00.803  1076  8340 D GCH_StreamClassifier: Frame rate doesn't match: sensor mode frame rate is 60, max frame rate is 30
+09-08 16:46:00.803  1076  8340 D GCH_StreamClassifier: Mode to be checked: 4032 x 2272, fps 60
+09-08 16:46:00.803  1076  8340 D GCH_StreamClassifier: Frame rate doesn't match: sensor mode frame rate is 60, max frame rate is 30
+09-08 16:46:00.803  1076  8340 D GCH_StreamClassifier: Mode to be checked: 4032 x 2272, fps 30
+09-08 16:46:00.803  1076  8340 D GCH_StreamClassifier: Mode to be checked: 2016 x 1136, fps 240
+09-08 16:46:00.803  1076  8340 D GCH_StreamClassifier: Frame rate doesn't match: sensor mode frame rate is 240, max frame rate is 30
+09-08 16:46:00.803  1076  8340 D GCH_StreamClassifier: Mode to be checked: 2016 x 1136, fps 120
+09-08 16:46:00.803  1076  8340 D GCH_StreamClassifier: Frame rate doesn't match: sensor mode frame rate is 120, max frame rate is 30
+09-08 16:46:00.803  1076  8340 D GCH_StreamClassifier: Mode to be checked: 4032 x 2272, fps 30
+09-08 16:46:00.803  1076  8340 D GCH_StreamClassifier: Mode to be checked: 4032 x 3024, fps 30
+09-08 16:46:00.817  1086  1204 I Darwinn : setTiming: model_identifier: /data/vendor/hal_neuralnetworks_darwinn/hal_camera/facessd, fps: -1, max_execution_time_ms: -1, tolerance_ms: 60, calling process uid: 1000
+09-08 16:46:00.817  1076  8340 E CamX    : [ERROR][STATS_AF] pdlib_lcr_utils.cpp:147 pdaf_lcr_get_vertical_blocks() Cound not find a good partition, set mega_block_y = 1
+09-08 16:46:00.822  1099  1130 E flicker-sensor: SetPedestal: Pedestal value setup failure error code=-4
+09-08 16:46:00.823  1099  1130 E rlsservice-driver: Init: Failed to set pedstal value, error code=-4
+09-08 16:46:00.910 12086 27444 W GraphicBufferSource: onFrameAvailable: EOS is sent, ignoring frame
+09-08 16:46:00.923 12086 27444 W GraphicBufferSource: onFrameAvailable: EOS is sent, ignoring frame
+09-08 16:46:00.930 12086 27444 W GraphicBufferSource: onFrameAvailable: EOS is sent, ignoring frame
+09-08 16:46:00.947 12086 27444 W GraphicBufferSource: onFrameAvailable: EOS is sent, ignoring frame
+09-08 16:46:00.962 12086 27444 W GraphicBufferSource: onFrameAvailable: EOS is sent, ignoring frame
+09-08 16:46:00.963  1734  1856 I DisplayDeviceRepository: Display device changed: DisplayDeviceInfo{"内置屏幕": uniqueId="local:4630946523002478721", 1440 x 3040, modeId 1, defaultModeId 1, supportedModes [{id=1, width=1440, height=3040, fps=60.000004, alternativeRefreshRates=[90.0]}, {id=2, width=1440, height=3040, fps=90.0, alternativeRefreshRates=[60.000004]}], colorMode 0, supportedColorModes [0, 7, 9], hdrCapabilities HdrCapabilities{mSupportedHdrTypes=[2, 3], mMaxLuminance=500.0, mMaxAverageLuminance=500.0, mMinLuminance=0.0}, allmSupported false, gameContentTypeSupported false, density 560, 537.882 x 539.972 dpi, appVsyncOff 2333332, presDeadline 11500000, touch INTERNAL, rotation 0, type INTERNAL, address {port=129, model=0x40446d53ad64a0}, deviceProductInfo DeviceProductInfo{name=, manufacturerPnpId=QCM, productId=1, modelYear=null, manufactureDate=ManufactureDate{week=27, year=2006}, connectionToSinkType=0}, state ON, frameRateOverride , brightnessMinimum 0.0, brightnessMaximum 1.0, brightnessDefault 0.38188976, roundedCorners RoundedCorners{[RoundedCorner{position=TopLeft, radius=157, center=Point(157, 157)}, RoundedCorner{position=TopRight, radius=157, center=Point(1283, 157)}, RoundedCorner{position=BottomRight, radius=157, center=Point(1283, 2883)}, RoundedCorner{position=BottomLeft, radius=157, center=Point(157, 2883)}]}, FLAG_ALLOWED_TO_BE_DEFAULT_DISPLAY, FLAG_ROTATES_WITH_CONTENT, FLAG_SECURE, FLAG_SUPPORTS_PROTECTED_BUFFERS, installOrientation 0}
+09-08 16:46:00.973 12086 27444 W GraphicBufferSource: onFrameAvailable: EOS is sent, ignoring frame
+09-08 16:46:00.984 12086 27444 W GraphicBufferSource: onFrameAvailable: EOS is sent, ignoring frame
+09-08 16:46:00.986   708   708 E CompositionEngine: ANativeWindow::dequeueBuffer failed for display [scrcpy] with error: -19
+09-08 16:46:00.986   708   708 W CompositionEngine: Dequeuing buffer for display [scrcpy] failed, bailing out of client composition for this frame
+09-08 16:46:00.991   708   708 E CompositionEngine: ANativeWindow::dequeueBuffer failed for display [scrcpy] with error: -19
+09-08 16:46:00.991   708   708 W CompositionEngine: Dequeuing buffer for display [scrcpy] failed, bailing out of client composition for this frame
+09-08 16:46:01.002   708   708 E CompositionEngine: ANativeWindow::dequeueBuffer failed for display [scrcpy] with error: -19
+09-08 16:46:01.002   708   708 W CompositionEngine: Dequeuing buffer for display [scrcpy] failed, bailing out of client composition for this frame
+09-08 16:46:01.008  7146  7146 W PrimesLoggerHolder: FrameMetricServiceImpl.start():170 measurement already started: MeasurementKey{rawStringEventName=null, noPiiEventName=OnConfigurationChanged, isActivity=false}
+09-08 16:46:01.011 12086 12128 D CCodecConfig:   c2::float coded.frame-rate.value = 30
+09-08 16:46:01.011 12086 12128 D CCodecConfig:   c2::u32 coding.request-sync-frame.value = 0
+09-08 16:46:01.011 12086 12128 D CCodecConfig:   c2::i64 coding.sync-frame-interval.value = 1000000
+09-08 16:46:01.013 12086 12128 D CCodecConfig: no c2 equivalents for repeat-previous-frame-after
+09-08 16:46:01.014 12086 12128 D CCodecConfig:   c2::float coded.frame-rate.value = 60
+09-08 16:46:01.014 12086 12128 D CCodecConfig:   c2::i64 coding.sync-frame-interval.value = 10000000
+09-08 16:46:01.014 12086 12128 D CCodec  :   int32_t frame-rate = 60
+09-08 16:46:01.014 12086 12128 D CCodec  :   int32_t prepend-sps-pps-to-idr-frames = 1
+09-08 16:46:01.014 12086 12128 D CCodec  :   int32_t frame-rate = 60
+09-08 16:46:01.014 12086 12128 D CCodec  :   int32_t prepend-sps-pps-to-idr-frames = 1
+09-08 16:46:01.015 12086 12128 D CCodec  :   int32_t frame-rate = 60
+09-08 16:46:01.015 12086 12128 D CCodec  :   int32_t prepend-sps-pps-to-idr-frames = 1
+09-08 16:46:01.016   708   708 E CompositionEngine: ANativeWindow::dequeueBuffer failed for display [scrcpy] with error: -19
+09-08 16:46:01.016   708   708 W CompositionEngine: Dequeuing buffer for display [scrcpy] failed, bailing out of client composition for this frame
+09-08 16:46:01.016 12086 12128 D CCodec  : ISConfig minFps=10 => repeatDelayUs=100000
+09-08 16:46:01.033  1112 17219 W QC2V4l2Codec: [avcE_55] unknown/unsupported param Output::SyncFrameInterval index = 0x52002005
+09-08 16:46:01.033  1112 17219 W QC2V4l2Codec: [avcE_55] unknown/unsupported param Output::PFrameCount index = 0x52008002
+09-08 16:46:01.135  1076  2508 E native  : frame_series.h:63 No valid frame assigned. Do nothing.
+09-08 16:46:01.135  1076  2508 E native  : frame_series.h:63 No valid frame assigned. Do nothing.
+09-08 16:46:01.150  1076 17194 I GCH_AidlCameraDeviceSession: ProcessCaptureResult: First frame done
+09-08 16:46:01.151 17169 17169 I System.out: P4Pilot Step49 FIRST_FRAME
+09-08 16:46:01.151 17169 17169 I System.out: P4Pilot Step49 FRAME_START
+09-08 16:46:01.151 17169 17169 I System.out: P4Pilot Step49 width=1280 height=720 format=35
+09-08 16:46:01.151 17169 17169 I System.out: P4Pilot Step49 plane[0] rowStride=1280 pixelStride=1 remaining=921600 limit=921600
+09-08 16:46:01.152 17169 17169 I System.out: P4Pilot Step49 plane[1] rowStride=1280 pixelStride=2 remaining=460799 limit=460799
+09-08 16:46:01.152 17169 17169 I System.out: P4Pilot Step49 plane[2] rowStride=1280 pixelStride=2 remaining=460799 limit=460799
+09-08 16:46:01.152 17169 17169 I System.out: P4Pilot Step49 CONTENT_TEST_BEGIN
+09-08 16:46:01.346  1734  1856 I DisplayDeviceRepository: Display device changed: DisplayDeviceInfo{"内置屏幕": uniqueId="local:4630946523002478721", 1440 x 3040, modeId 2, defaultModeId 1, supportedModes [{id=1, width=1440, height=3040, fps=60.000004, alternativeRefreshRates=[90.0]}, {id=2, width=1440, height=3040, fps=90.0, alternativeRefreshRates=[60.000004]}], colorMode 0, supportedColorModes [0, 7, 9], hdrCapabilities HdrCapabilities{mSupportedHdrTypes=[2, 3], mMaxLuminance=500.0, mMaxAverageLuminance=500.0, mMinLuminance=0.0}, allmSupported false, gameContentTypeSupported false, density 560, 537.882 x 539.972 dpi, appVsyncOff 2333333, presDeadline 11500000, touch INTERNAL, rotation 0, type INTERNAL, address {port=129, model=0x40446d53ad64a0}, deviceProductInfo DeviceProductInfo{name=, manufacturerPnpId=QCM, productId=1, modelYear=null, manufactureDate=ManufactureDate{week=27, year=2006}, connectionToSinkType=0}, state ON, frameRateOverride , brightnessMinimum 0.0, brightnessMaximum 1.0, brightnessDefault 0.38188976, roundedCorners RoundedCorners{[RoundedCorner{position=TopLeft, radius=157, center=Point(157, 157)}, RoundedCorner{position=TopRight, radius=157, center=Point(1283, 157)}, RoundedCorner{position=BottomRight, radius=157, center=Point(1283, 2883)}, RoundedCorner{position=BottomLeft, radius=157, center=Point(157, 2883)}]}, FLAG_ALLOWED_TO_BE_DEFAULT_DISPLAY, FLAG_ROTATES_WITH_CONTENT, FLAG_SECURE, FLAG_SUPPORTS_PROTECTED_BUFFERS, installOrientation 0}
+09-08 16:46:01.355  2355  2378 W FrameTracker: Missed SF frame:16
+09-08 16:46:01.355  2355  2378 W FrameTracker: Missed SF frame:16
+09-08 16:46:01.355  2355  2378 W FrameTracker: Missing HWUI jank callback for vsyncId: 2664026
+09-08 16:46:01.355  2355  2378 W FrameTracker: Missed SF frame:32
+09-08 16:46:01.355  2355  2378 W FrameTracker: Missed SF frame:16
+09-08 16:46:01.355  2355  2378 W FrameTracker: Missed SF frame:32
+09-08 16:46:01.355  2355  2378 W FrameTracker: Missed SF frame:16
+09-08 16:46:01.355  2355  2378 W FrameTracker: Missed SF frame:16
+09-08 16:46:01.355  2355  2378 W FrameTracker: Missed SF frame:16
+09-08 16:46:01.355  2355  2378 W FrameTracker: Missed SF frame:16
+09-08 16:46:01.355  2355  2378 W FrameTracker: Missed SF frame:16
+09-08 16:46:01.355  2355  2378 W FrameTracker: Missed SF frame:32
+09-08 16:46:01.355  2355  2378 W FrameTracker: Missed SF frame:16
+09-08 16:46:01.355  2355  2378 W FrameTracker: Missed SF frame:32
+09-08 16:46:01.355  2355  2378 W FrameTracker: Missed SF frame:16
+09-08 16:46:01.355  2355  2378 W FrameTracker: Missing HWUI jank callback for vsyncId: 2664475
+09-08 16:46:01.359  1734  1856 I DisplayDeviceRepository: Display device changed: DisplayDeviceInfo{"内置屏幕": uniqueId="local:4630946523002478721", 1440 x 3040, modeId 1, defaultModeId 1, supportedModes [{id=1, width=1440, height=3040, fps=60.000004, alternativeRefreshRates=[90.0]}, {id=2, width=1440, height=3040, fps=90.0, alternativeRefreshRates=[60.000004]}], colorMode 0, supportedColorModes [0, 7, 9], hdrCapabilities HdrCapabilities{mSupportedHdrTypes=[2, 3], mMaxLuminance=500.0, mMaxAverageLuminance=500.0, mMinLuminance=0.0}, allmSupported false, gameContentTypeSupported false, density 560, 537.882 x 539.972 dpi, appVsyncOff 2333332, presDeadline 11500000, touch INTERNAL, rotation 0, type INTERNAL, address {port=129, model=0x40446d53ad64a0}, deviceProductInfo DeviceProductInfo{name=, manufacturerPnpId=QCM, productId=1, modelYear=null, manufactureDate=ManufactureDate{week=27, year=2006}, connectionToSinkType=0}, state ON, frameRateOverride , brightnessMinimum 0.0, brightnessMaximum 1.0, brightnessDefault 0.38188976, roundedCorners RoundedCorners{[RoundedCorner{position=TopLeft, radius=157, center=Point(157, 157)}, RoundedCorner{position=TopRight, radius=157, center=Point(1283, 157)}, RoundedCorner{position=BottomRight, radius=157, center=Point(1283, 2883)}, RoundedCorner{position=BottomLeft, radius=157, center=Point(157, 2883)}]}, FLAG_ALLOWED_TO_BE_DEFAULT_DISPLAY, FLAG_ROTATES_WITH_CONTENT, FLAG_SECURE, FLAG_SUPPORTS_PROTECTED_BUFFERS, installOrientation 0}
+09-08 16:46:01.534 17169 17169 I System.out: P4Pilot Step49 BITMAP_OK width=1280 height=720
+09-08 16:46:01.554 17169 17169 I System.out: P4Pilot Step49 JPEG_DECODE_OK
+09-08 16:46:01.554 17169 17169 I System.out: P4Pilot Step49 JPEG_PATH=/storage/emulated/0/Android/data/com.p4pilot/files/P4Pilot/step41/step49_test.jpg
+09-08 16:46:01.556 17169 17169 I System.out: P4Pilot Step49 CONTENT_TEST_END
+09-08 16:46:01.779 17169 17169 I System.out: P4Pilot Step49 FRAME=10 elapsedMs=627 fps=14.35
+09-08 16:46:02.440 17169 17169 I System.out: P4Pilot Step49 FRAME=30 elapsedMs=1288 fps=22.52
+09-08 16:46:03.439 17169 17169 I System.out: P4Pilot Step49 FRAME=60 elapsedMs=2288 fps=25.79
+09-08 16:46:04.773 17169 17169 I System.out: P4Pilot Step49 FRAME=100 elapsedMs=3621 fps=27.34
+09-08 16:46:06.034  1112 17219 I QC2Comp : [avcE_55] Stats: Works: Q(204)/Done(202)| Work-Rate: Q(40.5/s Avg=40.5/s) Done(40.140/s Avg=40.140/s)| Stream: 96.47fps 787.8Kbps| Pending(2) i/p-done(0)
+09-08 16:46:06.342 31923 32355 I NullBinder: NullBinder for android.net.action.RECOMMEND_NETWORKS triggering remote TransactionTooLargeException due to Service without Chimera impl, calling uid: 1000, calling pid: 0
+
+>>> 13. 输出目录
+ls: /sdcard/Android/data/com.p4pilot/files/P4Pilot/step49/: No such file or directory
+
+>>> 14. JPEG 文件
+
+>>> 15. JPEG 数量
+JPEG_COUNT=0
+
+>>> 16. JPEG 文件头检查
+
+>>> 17. Android 崩溃检查
+
+>>> 18. Camera HAL 错误检查
+09-08 16:46:00.773  1076  8340 D GCH_CameraDeviceSessionHwlImpl: SetStreamingPowerHintOn CAMERA_STREAMING
+09-08 16:46:00.803  1076  8340 I GCH_CameraDeviceSessionHwlImpl: CreateChiSessions Creating the realtime session
+09-08 16:46:00.862  1076  8340 I GCH_CameraDeviceSessionHwlImpl: CreateChiSessions Creating offline session #0
+09-08 16:46:00.867  1076  8340 I GCH_CameraDeviceSession: RegisterStreamsIntoCacheManagerLocked: [sbc] Registered stream 0 into SBC manager.
+09-08 16:46:00.869  1330  3193 D Camera3-Device: Set real time priority for request queue thread (tid 17192)
+09-08 16:46:00.920  1076  8340 I GCH_CameraDeviceSession: ProcessCaptureRequest: [sbc] Stream 0 1st req arrived, notify SBC Manager.
+09-08 16:46:00.986 12086 27444 E BufferQueueProducer: [GraphicBufferSource](id:2f360000001e,api:1,p:708,c:12086) dequeueBuffer: BufferQueue has been abandoned
+09-08 16:46:00.990 12086 27444 E BufferQueueProducer: [GraphicBufferSource](id:2f360000001e,api:1,p:708,c:12086) dequeueBuffer: BufferQueue has been abandoned
+09-08 16:46:01.002 12086 27444 E BufferQueueProducer: [GraphicBufferSource](id:2f360000001e,api:1,p:708,c:12086) dequeueBuffer: BufferQueue has been abandoned
+09-08 16:46:01.015 12086 27444 E BufferQueueProducer: [GraphicBufferSource](id:2f360000001e,api:1,p:708,c:12086) dequeueBuffer: BufferQueue has been abandoned
+09-08 16:46:01.150  1076 17194 I GCH_AidlCameraDeviceSession: ProcessCaptureResult: First frame done
+
+>>> 19. APK SHA256
+
+>>> 20. Git 状态
+ M app/src/main/java/com/p4pilot/MainActivity.java
+ M "\345\221\275\344\273\244.txt"
+
+>>> 21. 写入 Step49 完整结果
+P4Pilot Step 49 completed at 2026年 9月 8日 星期二 23时46分09秒 CST
+
+============================================================
+P4Pilot Step 49 TEST FINISHED
+============================================================
