@@ -40,7 +40,7 @@ public class MainActivity extends Activity {
         tv = new TextView(this);
         tv.setTextSize(16);
         tv.setPadding(30, 30, 30, 30);
-        tv.setText("P4Pilot Step 40\n正在初始化...");
+        tv.setText("P4Pilot Step 48\n正在初始化...");
         setContentView(tv);
 
         File externalDir = getExternalFilesDir(null);
@@ -139,8 +139,7 @@ public class MainActivity extends Activity {
 
                         try {
 
-                            image =
-                                    imageReader.acquireLatestImage();
+                            image = imageReader.acquireLatestImage();
 
                             if (image == null) {
                                 return;
@@ -153,16 +152,84 @@ public class MainActivity extends Activity {
 
                             if (firstFrameTime == 0) {
                                 firstFrameTime = now;
+
+                                System.out.println(
+                                        "P4Pilot Step48 FIRST_FRAME"
+                                );
                             }
 
-                            /*
-                             * 每 30 帧保存一张 JPEG，
-                             * 避免连续写磁盘造成 Camera 阻塞。
-                             */
-                            if (frameCount % 30 == 1 &&
-                                    savedCount < 5) {
+                            int w = image.getWidth();
+                            int h = image.getHeight();
 
-                                saveYuvAsJpeg(image);
+                            Image.Plane[] planes =
+                                    image.getPlanes();
+
+                            if (frameCount == 1) {
+
+                                System.out.println(
+                                        "P4Pilot Step48 FRAME_START"
+                                );
+
+                                System.out.println(
+                                        "P4Pilot Step48 width=" +
+                                        w +
+                                        " height=" +
+                                        h +
+                                        " format=" +
+                                        image.getFormat()
+                                );
+
+                                for (int i = 0;
+                                     i < planes.length;
+                                     i++) {
+
+                                    Image.Plane plane =
+                                            planes[i];
+
+                                    ByteBuffer buffer =
+                                            plane.getBuffer();
+
+                                    System.out.println(
+                                            "P4Pilot Step48 plane[" +
+                                            i +
+                                            "] rowStride=" +
+                                            plane.getRowStride() +
+                                            " pixelStride=" +
+                                            plane.getPixelStride() +
+                                            " remaining=" +
+                                            buffer.remaining() +
+                                            " limit=" +
+                                            buffer.limit()
+                                    );
+                                }
+                            }
+
+                            if (frameCount == 10 ||
+                                frameCount == 30 ||
+                                frameCount == 60 ||
+                                frameCount == 100) {
+
+                                long elapsed =
+                                        now - firstFrameTime;
+
+                                double fps =
+                                        elapsed > 0
+                                        ? (frameCount - 1) *
+                                          1000.0 /
+                                          elapsed
+                                        : 0;
+
+                                System.out.println(
+                                        "P4Pilot Step48 FRAME=" +
+                                        frameCount +
+                                        " elapsedMs=" +
+                                        elapsed +
+                                        " fps=" +
+                                        String.format(
+                                                "%.2f",
+                                                fps
+                                        )
+                                );
                             }
 
                             long elapsed =
@@ -170,15 +237,14 @@ public class MainActivity extends Activity {
 
                             double fps =
                                     elapsed > 0
-                                    ? frameCount * 1000.0 / elapsed
+                                    ? (frameCount - 1) *
+                                      1000.0 /
+                                      elapsed
                                     : 0;
-
-                            int w = image.getWidth();
-                            int h = image.getHeight();
 
                             runOnUiThread(() ->
                                     tv.setText(
-                                            "P4Pilot Step 40\n\n" +
+                                            "P4Pilot Step 48\n\n" +
                                             "Camera: BACK\n" +
                                             "Format: YUV_420_888\n" +
                                             "Resolution: " +
@@ -189,21 +255,24 @@ public class MainActivity extends Activity {
                                                     "FPS: %.2f\n",
                                                     fps
                                             ) +
-                                            "JPEG saved: " +
-                                            savedCount + "\n" +
-                                            "Output: " +
-                                            outputDir.getAbsolutePath() +
-                                            "\n\nStatus: RUNNING"
+                                            "YUV planes: " +
+                                            planes.length +
+                                            "\n\n" +
+                                            "Status: YUV STREAMING"
                                     )
                             );
 
                         } catch (Exception e) {
 
+                            System.err.println(
+                                    "P4Pilot Step48 FRAME_ERROR"
+                            );
+
                             e.printStackTrace();
 
                             runOnUiThread(() ->
                                     tv.setText(
-                                            "ERROR:\n" +
+                                            "Step48 ERROR:\n" +
                                             e.toString()
                                     ));
 

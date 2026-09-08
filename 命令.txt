@@ -4832,3 +4832,100 @@ P4Pilot Step 47 TEST FINISHED
 ============================================================
 P4Pilot Step 47 - JPEG 解码最终确认
 ============================================================
+
+============================================================
+P4Pilot Step 48 - 真实 YUV 连续取帧验证结果
+============================================================
+执行时间: 2026年 9月 8日 星期二 23时40分08秒 CST
+============================================================
+
+>>> Camera 状态:
+Active Camera Clients:
+  09-08 16:40:01 : CONNECT device 0 client for package com.p4pilot (PID 16572)
+  09-08 10:59:37 : DISCONNECT device 0 client for package com.p4pilot (PID 0)
+  09-08 10:57:54 : CONNECT device 0 client for package com.p4pilot (PID 30247)
+  09-08 10:57:53 : DISCONNECT device 0 client for package com.p4pilot (PID 0)
+  09-08 10:56:28 : CONNECT device 0 client for package com.p4pilot (PID 30073)
+  09-08 10:56:27 : DISCONNECT device 0 client for package com.p4pilot (PID 0)
+  09-08 10:51:34 : CONNECT device 0 client for package com.p4pilot (PID 29529)
+  09-08 10:51:33 : DISCONNECT device 0 client for package com.p4pilot (PID 0)
+  09-08 10:50:05 : CONNECT device 0 client for package com.p4pilot (PID 29260)
+  09-08 10:50:05 : DISCONNECT device 0 client for package com.p4pilot (PID 29260)
+  09-08 10:50:03 : CONNECT device 0 client for package com.p4pilot (PID 29260)
+  09-08 10:50:03 : DISCONNECT device 0 client for package com.p4pilot (PID 29260)
+  09-08 10:50:03 : CONNECT device 0 client for package com.p4pilot (PID 29260)
+  09-08 10:50:02 : DISCONNECT device 0 client for package com.p4pilot (PID 0)
+  09-08 10:48:05 : CONNECT device 0 client for package com.p4pilot (PID 28974)
+  09-08 10:48:03 : DISCONNECT device 0 client for package com.p4pilot (PID 0)
+  09-08 10:44:24 : CONNECT device 0 client for package com.p4pilot (PID 28626)
+  09-08 10:44:23 : DISCONNECT device 0 client for package com.p4pilot (PID 0)
+  09-08 10:43:04 : CONNECT device 0 client for package com.p4pilot (PID 28312)
+  09-08 10:43:04 : DISCONNECT device 0 client for package com.p4pilot (PID 28312)
+  09-08 10:43:03 : CONNECT device 0 client for package com.p4pilot (PID 28312)
+  09-08 10:43:03 : DISCONNECT device 0 client for package com.p4pilot (PID 0)
+  09-08 10:42:03 : CONNECT device 0 client for package com.p4pilot (PID 27830)
+  09-08 10:42:03 : DISCONNECT device 0 client for package com.p4pilot (PID 27830)
+  09-08 10:41:37 : CONNECT device 0 client for package com.p4pilot (PID 27830)
+  09-08 10:41:37 : DISCONNECT device 0 client for package com.p4pilot (PID 27830)
+  09-08 10:41:37 : CONNECT device 0 client for package com.p4pilot (PID 27830)
+  09-08 10:41:36 : DISCONNECT device 0 client for package com.p4pilot (PID 27830)
+  09-08 10:41:32 : CONNECT device 0 client for package com.p4pilot (PID 27830)
+  09-08 10:41:32 : DISCONNECT device 0 client for package com.p4pilot (PID 27830)
+  09-08 10:41:24 : CONNECT device 0 client for package com.p4pilot (PID 27830)
+  09-08 10:41:24 : DISCONNECT device 0 client for package com.p4pilot (PID 27830)
+  09-08 10:41:23 : CONNECT device 0 client for package com.p4pilot (PID 27830)
+  09-08 10:41:23 : DISCONNECT device 0 client for package com.p4pilot (PID 27830)
+  09-08 10:41:23 : CONNECT device 0 client for package com.p4pilot (PID 27830)
+  09-08 10:41:22 : DISCONNECT device 0 client for package com.p4pilot (PID 0)
+  09-08 10:40:08 : CONNECT device 0 client for package com.p4pilot (PID 27206)
+  09-08 10:40:08 : DISCONNECT device 0 client for package com.p4pilot (PID 27206)
+  09-08 10:39:56 : CONNECT device 0 client for package com.p4pilot (PID 27206)
+  09-08 10:39:56 : DISCONNECT device 0 client for package com.p4pilot (PID 27206)
+  09-08 10:39:53 : CONNECT device 0 client for package com.p4pilot (PID 27206)
+  09-08 10:39:53 : DISCONNECT device 0 client for package com.p4pilot (PID 27206)
+  09-08 10:39:45 : CONNECT device 0 client for package com.p4pilot (PID 27206)
+  09-08 10:39:45 : DISCONNECT device 0 client for package com.p4pilot (PID 27206)
+  09-08 10:39:39 : CONNECT device 0 client for package com.p4pilot (PID 27206)
+  09-08 10:39:39 : DISCONNECT device 0 client for package com.p4pilot (PID 27206)
+  09-08 10:39:38 : CONNECT device 0 client for package com.p4pilot (PID 27206)
+  09-08 10:39:38 : DISCONNECT device 0 client for package com.p4pilot (PID 27206)
+  09-08 10:39:35 : CONNECT device 0 client for package com.p4pilot (PID 27206)
+  09-08 10:39:35 : DISCONNECT device 0 client for package com.p4pilot (PID 27206)
+  09-08 10:38:34 : CONNECT device 0 client for package com.p4pilot (PID 27206)
+  09-07 22:22:09 : DISCONNECT device 2 client for package client.pid<1393> (PID 1393)
+  09-07 22:22:05 : CONNECT device 2 client for package client.pid<1393> (PID 1393)
+  09-07 22:22:05 : DISCONNECT device 2 client for package client.pid<1393> (PID 1393)
+  09-07 22:22:01 : CONNECT device 2 client for package client.pid<1393> (PID 1393)
+  09-07 20:33:55 : DISCONNECT device 2 client for package client.pid<1393> (PID 1393)
+  09-07 20:33:52 : CONNECT device 2 client for package client.pid<1393> (PID 1393)
+  09-07 20:33:52 : DISCONNECT device 2 client for package client.pid<1393> (PID 1393)
+  09-07 20:33:49 : CONNECT device 2 client for package client.pid<1393> (PID 1393)
+  09-07 20:33:47 : DISCONNECT device 2 client for package client.pid<1393> (PID 1393)
+  09-07 20:33:42 : CONNECT device 2 client for package client.pid<1393> (PID 1393)
+  09-07 20:33:13 : DISCONNECT device 2 client for package client.pid<1393> (PID 1393)
+  09-07 20:33:11 : CONNECT device 2 client for package client.pid<1393> (PID 1393)
+  09-07 20:32:56 : DISCONNECT device 2 client for package client.pid<1393> (PID 1393)
+  09-07 20:32:53 : CONNECT device 2 client for package client.pid<1393> (PID 1393)
+  09-07 20:32:49 : DISCONNECT device 1 client for package com.android.settings (PID 2589)
+  09-07 20:32:48 : DISCONNECT device 2 client for package client.pid<1393> (PID 1393)
+  09-07 20:32:07 : CONNECT device 2 client for package client.pid<1393> (PID 1393)
+  09-07 20:32:06 : CONNECT device 1 client for package com.android.settings (PID 2589)
+  CameraDeviceClient[0] (0xb400007b9a99dc90) dump:
+      No input stream configured.
+      Current output stream/surface IDs:
+    Latest received frame:
+      No input stream.
+
+>>> P4Pilot YUV 日志:
+09-08 16:40:03.137 16572 16572 I System.out: P4Pilot Step48 FRAME=30 elapsedMs=985 fps=29.44
+09-08 16:40:04.134 16572 16572 I System.out: P4Pilot Step48 FRAME=60 elapsedMs=1982 fps=29.77
+09-08 16:40:05.468 16572 16572 I System.out: P4Pilot Step48 FRAME=100 elapsedMs=3317 fps=29.85
+
+>>> 错误:
+
+>>> APK SHA256:
+d684f9e13b37656fddcb9a77652fc64b2b61f03c733fffb60861d32fe2278a26  app/build/outputs/apk/debug/app-debug.apk
+
+============================================================
+P4Pilot Step 48 完成
+============================================================
