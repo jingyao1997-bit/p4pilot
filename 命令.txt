@@ -2899,3 +2899,103 @@ zipStorePath=wrapper/dists
 
 ============================================================
 P4Pilot Step 34 完成
+
+P4Pilot Step 35 - 首次 Android Debug 构建验证
+============================================================
+
+>>> Java:
+openjdk version "17.0.18" 2026-01-20
+OpenJDK Runtime Environment Homebrew (build 17.0.18+0)
+OpenJDK 64-Bit Server VM Homebrew (build 17.0.18+0, mixed mode, sharing)
+
+>>> JAVA_HOME:
+未设置
+
+>>> Gradle Wrapper:
+
+------------------------------------------------------------
+Gradle 8.13
+------------------------------------------------------------
+
+Build time:    2025-02-25 09:22:14 UTC
+Revision:      073314332697ba45c16c0a0ce1891fa6794179ff
+
+Kotlin:        2.0.21
+Groovy:        3.0.22
+Ant:           Apache Ant(TM) version 1.10.15 compiled on August 25 2024
+Launcher JVM:  17.0.18 (Homebrew 17.0.18+0)
+Daemon JVM:    /usr/local/Cellar/openjdk@17/17.0.18/libexec/openjdk.jdk/Contents/Home (no JDK specified, using current Java home)
+OS:            Mac OS X 26.5.1 x86_64
+
+
+>>> 开始 Debug 构建:
+Checking the license for package Android SDK Build-Tools 35 in /usr/local/share/android-commandlinetools/licenses
+License for package Android SDK Build-Tools 35 accepted.
+Preparing "Install Android SDK Build-Tools 35 v.35.0.0".
+"Install Android SDK Build-Tools 35 v.35.0.0" ready.
+Installing Android SDK Build-Tools 35 in /usr/local/share/android-commandlinetools/build-tools/35.0.0
+"Install Android SDK Build-Tools 35 v.35.0.0" complete.
+"Install Android SDK Build-Tools 35 v.35.0.0" finished.
+[=========                              ] 25%                                   > Task :app:preBuild UP-TO-DATE
+> Task :app:preDebugBuild UP-TO-DATE
+> Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
+> Task :app:javaPreCompileDebug
+> Task :app:checkDebugAarMetadata
+> Task :app:processDebugNavigationResources
+> Task :app:generateDebugResValues
+> Task :app:compileDebugNavigationResources
+> Task :app:mapDebugSourceSetPaths
+> Task :app:generateDebugResources
+> Task :app:packageDebugResources
+> Task :app:mergeDebugResources
+> Task :app:createDebugCompatibleScreenManifests
+> Task :app:extractDeepLinksDebug
+> Task :app:parseDebugLocalResources
+> Task :app:processDebugMainManifest
+> Task :app:processDebugManifest
+> Task :app:mergeDebugShaders
+> Task :app:compileDebugShaders NO-SOURCE
+> Task :app:generateDebugAssets UP-TO-DATE
+> Task :app:mergeDebugAssets
+> Task :app:compressDebugAssets
+> Task :app:processDebugJavaRes NO-SOURCE
+> Task :app:desugarDebugFileDependencies
+> Task :app:checkDebugDuplicateClasses
+> Task :app:mergeDebugJniLibFolders
+> Task :app:mergeDebugNativeLibs NO-SOURCE
+> Task :app:stripDebugDebugSymbols NO-SOURCE
+> Task :app:mergeExtDexDebug
+> Task :app:mergeLibDexDebug
+> Task :app:mergeDebugJavaResource
+> Task :app:validateSigningDebug
+> Task :app:writeDebugAppMetadata
+> Task :app:writeDebugSigningConfigVersions
+> Task :app:processDebugManifestForPackage
+> Task :app:processDebugResources
+> Task :app:compileDebugJavaWithJavac
+> Task :app:dexBuilderDebug
+> Task :app:mergeProjectDexDebug
+> Task :app:packageDebug
+> Task :app:createDebugApkListingFileRedirect
+> Task :app:assembleDebug
+
+[Incubating] Problems report is available at: file:///Users/luojingyao/p4pilot/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.13/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 18s
+33 actionable tasks: 33 executed
+
+>>> APK:
+app/build/outputs/apk/debug/output-metadata.json
+app/build/outputs/apk/debug/app-debug.apk
+
+>>> APK SHA256:
+2deff0cc0b54844eade5e6182ad816aa12094aec5be0e68dc61e31ff84a5d89e  app/build/outputs/apk/debug/app-debug.apk
+
+============================================================
+P4Pilot Step 35 完成
