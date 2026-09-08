@@ -4,6 +4,7 @@ import android.Manifest;
 import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.HandlerThread;
 import android.os.Looper;
 import android.content.pm.PackageManager;
 import android.graphics.ImageFormat;
@@ -24,11 +25,36 @@ public class MainActivity extends Activity {
     private CameraDevice camera;
     private ImageReader reader;
     private CameraCaptureSession session;
-    private final Handler handler = new Handler(Looper.getMainLooper());
+    /*
+     * Step54:
+     *
+     * mainHandler:
+     *   UI / lifecycle related work only.
+     *
+     * cameraThread:
+     *   ImageReader callback and Camera2 callbacks.
+     *
+     * processingThread:
+     *   YUV -> Bitmap -> JPEG CPU work.
+     *
+     * ImageReader Image objects NEVER leave cameraThread.
+     */
+    private final Handler mainHandler =
+            new Handler(Looper.getMainLooper());
+
+    private HandlerThread cameraThread;
+    private Handler cameraHandler;
+
+    private HandlerThread processingThread;
+    private Handler processingHandler;
+
     private TextView tv;
 
-    private int frameCount = 0;
-    private int savedCount = 0;
+    private volatile int frameCount = 0;
+    private volatile int processedCount = 0;
+    private volatile int droppedCount = 0;
+    private volatile int savedCount = 0;
+
     private long firstFrameTime = 0;
 
     private File outputDir;
@@ -60,6 +86,37 @@ public class MainActivity extends Activity {
         System.out.println(
                 "P4Pilot outputDir=" +
                 outputDir.getAbsolutePath()
+        );
+
+        /*
+         * Step54 background execution model.
+         */
+        cameraThread = new HandlerThread(
+                "P4Pilot-CameraThread",
+                android.os.Process.THREAD_PRIORITY_DISPLAY
+        );
+        cameraThread.start();
+        cameraHandler = new Handler(
+                cameraThread.getLooper()
+        );
+
+        processingThread = new HandlerThread(
+                "P4Pilot-ProcessingThread",
+                android.os.Process.THREAD_PRIORITY_DEFAULT
+        );
+        processingThread.start();
+        processingHandler = new Handler(
+                processingThread.getLooper()
+        );
+
+        System.out.println(
+                "P4Pilot Step54 CAMERA_THREAD=" +
+                cameraThread.getName()
+        );
+
+        System.out.println(
+                "P4Pilot Step54 PROCESSING_THREAD=" +
+                processingThread.getName()
         );
 
         if (checkSelfPermission(Manifest.permission.CAMERA)
@@ -161,7 +218,7 @@ public class MainActivity extends Activity {
 
                             if (planes.length != 3) {
                                 System.err.println(
-                                        "P4Pilot Step53 INVALID_PLANES=" +
+                                        "P4Pilot Step54 INVALID_PLANES=" +
                                         planes.length
                                 );
                                 return;
@@ -193,7 +250,7 @@ public class MainActivity extends Activity {
                             } catch (Exception copyException) {
 
                                 System.err.println(
-                                        "P4Pilot Step53 YUV_COPY_ERROR"
+                                        "P4Pilot Step54 YUV_COPY_ERROR"
                                 );
 
                                 copyException.printStackTrace();
@@ -203,6 +260,16 @@ public class MainActivity extends Activity {
 
                             frameCount++;
 
+                            /*
+                             * Step54:
+                             * acquireLatestImage() intentionally keeps
+                             * the newest available frame. Older frames
+                             * may therefore be dropped by Camera2.
+                             *
+                             * We cannot directly count every HAL-level
+                             * discarded frame here, so this counter tracks
+                             * processing-side drops when the queue is busy.
+                             */
                             long now =
                                     System.currentTimeMillis();
 
@@ -211,15 +278,15 @@ public class MainActivity extends Activity {
                                 firstFrameTime = now;
 
                                 System.out.println(
-                                        "P4Pilot Step53 FIRST_FRAME"
+                                        "P4Pilot Step54 FIRST_FRAME"
                                 );
 
                                 System.out.println(
-                                        "P4Pilot Step53 FRAME_START"
+                                        "P4Pilot Step54 FRAME_START"
                                 );
 
                                 System.out.println(
-                                        "P4Pilot Step53 width=" +
+                                        "P4Pilot Step54 width=" +
                                         w +
                                         " height=" +
                                         h +
@@ -238,7 +305,7 @@ public class MainActivity extends Activity {
                                             plane.getBuffer();
 
                                     System.out.println(
-                                            "P4Pilot Step53 plane[" +
+                                            "P4Pilot Step54 plane[" +
                                             i +
                                             "] rowStride=" +
                                             plane.getRowStride() +
@@ -282,7 +349,13 @@ public class MainActivity extends Activity {
                             final int vPixelStride =
                                     planes[2].getPixelStride();
 
-                            handler.post(() -> {
+                            /*
+                             * Step54:
+                             * The Image has already been closed.
+                             * Processing now happens exclusively on the
+                             * dedicated processing HandlerThread.
+                             */
+                            if (!processingHandler.post(() -> {
 
                                 long processStart =
                                         System.currentTimeMillis();
@@ -312,19 +385,20 @@ public class MainActivity extends Activity {
                                     if (bitmap == null) {
 
                                         System.err.println(
-                                                "P4Pilot Step53 BITMAP_NULL frame=" +
+                                                "P4Pilot Step54 BITMAP_NULL frame=" +
                                                 currentFrame
                                         );
 
                                         return;
                                     }
 
+                                    processedCount++;
                                     savedCount++;
 
                                     if (currentFrame == 1) {
 
                                         System.out.println(
-                                                "P4Pilot Step53 BITMAP_OK width=" +
+                                                "P4Pilot Step54 BITMAP_OK width=" +
                                                 bitmap.getWidth() +
                                                 " height=" +
                                                 bitmap.getHeight()
@@ -361,11 +435,11 @@ public class MainActivity extends Activity {
                                         if (decoded != null) {
 
                                             System.out.println(
-                                                    "P4Pilot Step53 JPEG_DECODE_OK"
+                                                    "P4Pilot Step54 JPEG_DECODE_OK"
                                             );
 
                                             System.out.println(
-                                                    "P4Pilot Step53 JPEG_PATH=" +
+                                                    "P4Pilot Step54 JPEG_PATH=" +
                                                     testFile.getAbsolutePath()
                                             );
 
@@ -374,7 +448,7 @@ public class MainActivity extends Activity {
                                         } else {
 
                                             System.err.println(
-                                                    "P4Pilot Step53 JPEG_DECODE_FAIL"
+                                                    "P4Pilot Step54 JPEG_DECODE_FAIL"
                                             );
                                         }
                                     }
@@ -384,7 +458,7 @@ public class MainActivity extends Activity {
                                             processStart;
 
                                     System.out.println(
-                                            "P4Pilot Step53 PROCESSED frame=" +
+                                            "P4Pilot Step54 PROCESSED frame=" +
                                             currentFrame +
                                             " processMs=" +
                                             processElapsed +
@@ -410,7 +484,7 @@ public class MainActivity extends Activity {
                                                 : 0;
 
                                         System.out.println(
-                                                "P4Pilot Step53 FRAME=" +
+                                                "P4Pilot Step54 FRAME=" +
                                                 currentFrame +
                                                 " elapsedMs=" +
                                                 elapsed +
@@ -427,7 +501,7 @@ public class MainActivity extends Activity {
 
                                     runOnUiThread(() ->
                                             tv.setText(
-                                                    "P4Pilot Step 53\n\n" +
+                                                    "P4Pilot Step 54\n\n" +
                                                     "Camera: BACK\n" +
                                                     "Format: YUV_420_888\n" +
                                                     "Resolution: " +
@@ -435,7 +509,7 @@ public class MainActivity extends Activity {
                                                     "Captured: " +
                                                     frameCount + "\n" +
                                                     "Processed: " +
-                                                    savedCount + "\n" +
+                                                    processedCount + "\n" +
                                                     "Current frame: " +
                                                     displayedFrame + "\n\n" +
                                                     "Status: BACKGROUND PROCESSING"
@@ -447,18 +521,26 @@ public class MainActivity extends Activity {
                                 } catch (Exception processingException) {
 
                                     System.err.println(
-                                            "P4Pilot Step53 PROCESS_ERROR frame=" +
+                                            "P4Pilot Step54 PROCESS_ERROR frame=" +
                                             currentFrame
                                     );
 
                                     processingException.printStackTrace();
                                 }
-                            });
+                            })) {
+                                droppedCount++;
+
+                                System.out.println(
+                                        "P4Pilot Step54 DROPPED frame=" +
+                                        currentFrame +
+                                        " reason=PROCESS_QUEUE_REJECTED"
+                                );
+                            }
 
                         } catch (Exception e) {
 
                             System.err.println(
-                                    "P4Pilot Step53 FRAME_ERROR"
+                                    "P4Pilot Step54 FRAME_ERROR"
                             );
 
                             e.printStackTrace();
@@ -476,7 +558,7 @@ public class MainActivity extends Activity {
                         }
 
                     },
-                    handler
+                    cameraHandler
             );
 
 manager.openCamera(
@@ -521,7 +603,7 @@ manager.openCamera(
                                                                     request
                                                                             .build(),
                                                                     null,
-                                                                    handler
+                                                                    cameraHandler
                                                             );
 
                                                 } catch (Exception e) {
@@ -541,7 +623,7 @@ manager.openCamera(
                                             }
                                         },
 
-                                        handler
+                                        cameraHandler
                                 );
 
                             } catch (Exception e) {
@@ -582,7 +664,7 @@ manager.openCamera(
                                     ));
                         }
                     },
-                    handler
+                    cameraHandler
             );
 
         } catch (Exception e) {
@@ -1180,4 +1262,55 @@ private android.graphics.Bitmap yuv420ToBitmap(Image image) {
         } catch (Exception ignored) {
         }
     }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        System.out.println(
+                "P4Pilot Step54 onDestroy"
+        );
+
+        try {
+            if (session != null) {
+                session.close();
+                session = null;
+            }
+        } catch (Exception ignored) {
+        }
+
+        try {
+            if (camera != null) {
+                camera.close();
+                camera = null;
+            }
+        } catch (Exception ignored) {
+        }
+
+        try {
+            if (reader != null) {
+                reader.close();
+                reader = null;
+            }
+        } catch (Exception ignored) {
+        }
+
+        try {
+            if (cameraThread != null) {
+                cameraThread.quitSafely();
+                cameraThread = null;
+                cameraHandler = null;
+            }
+        } catch (Exception ignored) {
+        }
+
+        try {
+            if (processingThread != null) {
+                processingThread.quitSafely();
+                processingThread = null;
+                processingHandler = null;
+            }
+        } catch (Exception ignored) {
+        }
+    }
+
 }

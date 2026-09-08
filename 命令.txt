@@ -7263,3 +7263,298 @@ app/src/main/java/com/p4pilot/MainActivity.java:599: trailing whitespace.
 ============================================================
 P4Pilot Step 53 TEST FINISHED
 ============================================================
+
+>>> 当前 Git
+5faab5d09db2e56982b4a042db0a926cc583cc35
+
+>>> Step53 基线
+27:    private final Handler handler = new Handler(Looper.getMainLooper());
+
+>>> 修改 MainActivity.java
+
+>>> 代码结构检查
+cameraThread:
+95:                "P4Pilot-CameraThread",
+
+processingThread:
+104:                "P4Pilot-ProcessingThread",
+
+ImageReader handler:
+46:    private Handler cameraHandler;
+99:        cameraHandler = new Handler(
+192:            reader.setOnImageAvailableListener(
+561:                    cameraHandler
+606:                                                                    cameraHandler
+626:                                        cameraHandler
+667:                    cameraHandler
+1301:                cameraHandler = null;
+
+Processing handler:
+358:                            if (!processingHandler.post(() -> {
+
+Main Looper handler:
+43:            new Handler(Looper.getMainLooper());
+
+Step54 marker count:
+19
+
+>>> 检查 yuv420ToBitmap(Image) 是否仍存在
+820:private android.graphics.Bitmap yuv420ToBitmap(Image image) {
+
+>>> git diff --check
+
+>>> 编译
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.13/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+Warning: SDK processing. This version only understands SDK XML versions up to 3 but an SDK XML file of version 4 was encountered. This can happen if you use versions of Android Studio and the command-line tools that were released at different times.
+> Task :app:clean
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preDebugBuild UP-TO-DATE
+> Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
+> Task :app:checkDebugAarMetadata
+> Task :app:processDebugNavigationResources
+> Task :app:javaPreCompileDebug
+> Task :app:generateDebugResValues
+> Task :app:compileDebugNavigationResources
+> Task :app:mapDebugSourceSetPaths
+> Task :app:generateDebugResources
+> Task :app:packageDebugResources
+> Task :app:createDebugCompatibleScreenManifests
+> Task :app:extractDeepLinksDebug
+> Task :app:parseDebugLocalResources
+> Task :app:processDebugMainManifest
+> Task :app:mergeDebugResources
+> Task :app:processDebugManifest
+> Task :app:mergeDebugShaders
+> Task :app:compileDebugShaders NO-SOURCE
+> Task :app:generateDebugAssets UP-TO-DATE
+> Task :app:mergeDebugAssets
+> Task :app:compressDebugAssets
+> Task :app:processDebugJavaRes NO-SOURCE
+> Task :app:processDebugManifestForPackage
+> Task :app:checkDebugDuplicateClasses
+> Task :app:desugarDebugFileDependencies
+> Task :app:mergeDebugJniLibFolders
+> Task :app:mergeDebugNativeLibs NO-SOURCE
+> Task :app:stripDebugDebugSymbols NO-SOURCE
+> Task :app:mergeExtDexDebug
+> Task :app:mergeLibDexDebug
+> Task :app:mergeDebugJavaResource
+> Task :app:validateSigningDebug
+> Task :app:writeDebugAppMetadata
+> Task :app:writeDebugSigningConfigVersions
+> Task :app:processDebugResources
+
+> Task :app:compileDebugJavaWithJavac FAILED
+/Users/luojingyao/p4pilot/app/src/main/java/com/p4pilot/MainActivity.java:1266: 错误: 已在类 MainActivity中定义了方法 onDestroy()
+    protected void onDestroy() {
+                   ^
+注: /Users/luojingyao/p4pilot/app/src/main/java/com/p4pilot/MainActivity.java使用或覆盖了已过时的 API。
+注: 有关详细信息, 请使用 -Xlint:deprecation 重新编译。
+1 个错误
+
+[Incubating] Problems report is available at: file:///Users/luojingyao/p4pilot/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':app:compileDebugJavaWithJavac'.
+> Compilation failed; see the compiler output below.
+  /Users/luojingyao/p4pilot/app/src/main/java/com/p4pilot/MainActivity.java:1266: 错误: 已在类 MainActivity中定义了方法 onDestroy()
+      protected void onDestroy() {
+                     ^
+  注: /Users/luojingyao/p4pilot/app/src/main/java/com/p4pilot/MainActivity.java使用或覆盖了已过时的 API。
+  注: 有关详细信息, 请使用 -Xlint:deprecation 重新编译。
+  1 个错误
+
+* Try:
+> Check your code and dependencies to fix the compilation error(s)
+> Run with --scan to get full insights.
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.13/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD FAILED in 13s
+30 actionable tasks: 30 executed
+
+>>> APK SHA256
+shasum: app/build/outputs/apk/debug/app-debug.apk: No such file or directory
+
+>>> 安装 APK
+adb: failed to stat app/build/outputs/apk/debug/app-debug.apk: No such file or directory
+Performing Streamed Install
+
+>>> 清理 Step54 输出
+
+>>> 清理旧 logcat
+
+>>> 启动 P4Pilot
+  bash arg: -p
+  bash arg: com.p4pilot
+  bash arg: 1
+args: [-p, com.p4pilot, 1]
+ arg: "-p"
+ arg: "com.p4pilot"
+ arg: "1"
+data="com.p4pilot"
+Events injected: 1
+## Network stats: elapsed time=49ms (0ms mobile, 0ms wifi, 49ms not connected)
+
+>>> 等待 10 秒
+
+>>> PID
+PID=18516
+
+>>> Step54 核心日志
+09-08 16:58:30.614  1076 18202 W GCH_CameraDeviceSession: RequestStreamBuffers: Requesting stream buffer failed. (buffer_returns has 1 entries)
+09-08 16:58:30.614  1076 18202 I GCH_CameraDeviceSession: RequestStreamBuffers: stream -1, buffer request error 3
+09-08 16:58:30.626  1076  8340 I GCH_CameraDeviceSessionHwlImpl: FlushLocked Flushing pipelines
+09-08 16:58:30.669  1076  8340 I GCH_CameraDeviceSessionHwlImpl: FlushLocked Flushing pipelines
+09-08 16:58:30.672  1076 18185 I GCH_CameraDeviceSession: UpdatePendingRequest: [sbc] All inflight requests/streams cleared. Notified SBC for flushing.
+09-08 16:58:30.682  1076  8340 I GCH_CameraDeviceSessionHwlImpl: DestroyPipelinesLocked Destroying pipelines
+09-08 16:58:30.682  1076  8340 D GCH_CameraDeviceSessionHwlImpl: DestroyPipelinesLocked CAMERA_STREAMING_OFF
+09-08 16:58:30.682  1076  8340 I GCH_CameraDeviceSessionHwlImpl: FlushLocked Flushing pipelines
+09-08 16:58:30.876  1076  8340 D GCH_CameraDeviceSessionHwlImpl: DestroyPipelinesLocked CAMERA_LAUNCH 0
+09-08 16:58:30.881  1076  8340 I GCH_CameraDeviceSessionHwlImpl: DestroyPipelinesLocked Destroying pipelines
+09-08 16:58:30.881  1076  8340 D GCH_CameraDeviceSessionHwlImpl: ~CameraDeviceSessionHwlImpl CAMERA_LAUNCH 0
+09-08 16:58:31.211  1330  4316 I CameraDeviceClient: CameraDeviceClient 0: Opened
+09-08 16:58:31.213  1076  8592 D GCH_CameraDeviceHwlImpl: CreateCameraDeviceSessionHwl CAMERA_LAUNCH 1
+09-08 16:58:31.213  1076  8592 I GCH_CameraDeviceSession: Initialize: measure buffer allocation time: 0 
+09-08 16:58:31.222  1076  8592 W GCH_CameraDeviceSession: InitializeZoomRatioMapper: Failed to get the zoom ratio range: No such file or directory(-2)
+09-08 16:58:31.222  1076  8592 I GCH_CameraDeviceSession: Create: Created a device session for camera 0 with 2 physical cameras: 3 4 
+09-08 16:58:31.237  1076  8271 I GCH_CameraDeviceSession: NotifyThrottling: temperature type: -1, severity: 0, value: 0.000000
+09-08 16:58:31.237  1076  8271 I GCH_CameraDeviceSession: NotifyThrottling: temperature type: 3, severity: 1, value: 40.522003
+09-08 16:58:31.237  1076  8271 I GCH_CameraDeviceSession: NotifyThrottling: temperature type: 4, severity: 0, value: 31.234001
+09-08 16:58:31.264  1076  8592 D GCH_CameraDeviceSessionHwlImpl: SetStreamingPowerHintOn CAMERA_STREAMING
+09-08 16:58:31.289  1076  8592 I GCH_CameraDeviceSessionHwlImpl: CreateChiSessions Creating the realtime session
+09-08 16:58:31.357  1076  8592 I GCH_CameraDeviceSessionHwlImpl: CreateChiSessions Creating offline session #0
+09-08 16:58:31.363  1076  8592 I GCH_CameraDeviceSession: RegisterStreamsIntoCacheManagerLocked: [sbc] Registered stream 0 into SBC manager.
+09-08 16:58:31.476  1076  8592 I GCH_CameraDeviceSession: ProcessCaptureRequest: [sbc] Stream 0 1st req arrived, notify SBC Manager.
+09-08 16:58:31.669  1076 18549 I GCH_AidlCameraDeviceSession: ProcessCaptureResult: First frame done
+
+>>> ImageReader buffer 警告统计
+BUFFER_WARNING_COUNT=0
+
+>>> Crash / ANR
+09-08 16:58:30.805 18497 18497 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+09-08 16:58:30.810 18497 18497 I AndroidRuntime: Using default boot image
+09-08 16:58:30.810 18497 18497 I AndroidRuntime: Leaving lock profiling enabled
+09-08 16:58:30.928 18497 18497 D AndroidRuntime: Calling main entry com.android.commands.monkey.Monkey
+09-08 16:58:31.032 18497 18497 I AndroidRuntime: VM exiting with result code 0.
+
+>>> Camera 状态
+  09-08 10:42:03 : CONNECT device 0 client for package com.p4pilot (PID 27830)
+  09-08 10:42:03 : DISCONNECT device 0 client for package com.p4pilot (PID 27830)
+  09-08 10:41:37 : CONNECT device 0 client for package com.p4pilot (PID 27830)
+  09-08 10:41:37 : DISCONNECT device 0 client for package com.p4pilot (PID 27830)
+  09-08 10:41:37 : CONNECT device 0 client for package com.p4pilot (PID 27830)
+  09-08 10:41:36 : DISCONNECT device 0 client for package com.p4pilot (PID 27830)
+  09-08 10:41:32 : CONNECT device 0 client for package com.p4pilot (PID 27830)
+  09-08 10:41:32 : DISCONNECT device 0 client for package com.p4pilot (PID 27830)
+  09-08 10:41:24 : CONNECT device 0 client for package com.p4pilot (PID 27830)
+  09-08 10:41:24 : DISCONNECT device 0 client for package com.p4pilot (PID 27830)
+  09-08 10:41:23 : CONNECT device 0 client for package com.p4pilot (PID 27830)
+  09-08 10:41:23 : DISCONNECT device 0 client for package com.p4pilot (PID 27830)
+  09-08 10:41:23 : EVICT device 0 client held by package com.p4pilot (PID 27830, score 0, state 2)
+ - Evicted by device 0 client for package com.p4pilot (PID 27830, score 0, state 2)
+  09-08 10:41:23 : CONNECT device 0 client for package com.p4pilot (PID 27830)
+  09-08 10:41:22 : DISCONNECT device 0 client for package com.p4pilot (PID 0)
+  09-08 10:40:08 : CONNECT device 0 client for package com.p4pilot (PID 27206)
+  09-08 10:40:08 : DISCONNECT device 0 client for package com.p4pilot (PID 27206)
+  09-08 10:39:56 : CONNECT device 0 client for package com.p4pilot (PID 27206)
+  09-08 10:39:56 : DISCONNECT device 0 client for package com.p4pilot (PID 27206)
+  09-08 10:39:53 : CONNECT device 0 client for package com.p4pilot (PID 27206)
+  09-08 10:39:53 : DISCONNECT device 0 client for package com.p4pilot (PID 27206)
+  09-08 10:39:45 : CONNECT device 0 client for package com.p4pilot (PID 27206)
+  09-08 10:39:45 : DISCONNECT device 0 client for package com.p4pilot (PID 27206)
+  09-08 10:39:39 : CONNECT device 0 client for package com.p4pilot (PID 27206)
+  09-08 10:39:39 : DISCONNECT device 0 client for package com.p4pilot (PID 27206)
+  09-08 10:39:38 : CONNECT device 0 client for package com.p4pilot (PID 27206)
+  09-08 10:39:38 : DISCONNECT device 0 client for package com.p4pilot (PID 27206)
+  09-08 10:39:35 : CONNECT device 0 client for package com.p4pilot (PID 27206)
+  09-08 10:39:35 : DISCONNECT device 0 client for package com.p4pilot (PID 27206)
+  09-08 10:38:34 : CONNECT device 0 client for package com.p4pilot (PID 27206)
+  09-07 22:22:09 : DISCONNECT device 2 client for package client.pid<1393> (PID 1393)
+  09-07 22:22:05 : CONNECT device 2 client for package client.pid<1393> (PID 1393)
+  09-07 22:22:05 : DISCONNECT device 2 client for package client.pid<1393> (PID 1393)
+  09-07 22:22:01 : CONNECT device 2 client for package client.pid<1393> (PID 1393)
+  09-07 20:33:55 : DISCONNECT device 2 client for package client.pid<1393> (PID 1393)
+  09-07 20:33:52 : CONNECT device 2 client for package client.pid<1393> (PID 1393)
+  09-07 20:33:52 : DISCONNECT device 2 client for package client.pid<1393> (PID 1393)
+  09-07 20:33:49 : CONNECT device 2 client for package client.pid<1393> (PID 1393)
+  09-07 20:33:47 : DISCONNECT device 2 client for package client.pid<1393> (PID 1393)
+  09-07 20:33:42 : CONNECT device 2 client for package client.pid<1393> (PID 1393)
+  09-07 20:33:13 : DISCONNECT device 2 client for package client.pid<1393> (PID 1393)
+  09-07 20:33:11 : CONNECT device 2 client for package client.pid<1393> (PID 1393)
+  09-07 20:32:56 : DISCONNECT device 2 client for package client.pid<1393> (PID 1393)
+  09-07 20:32:53 : CONNECT device 2 client for package client.pid<1393> (PID 1393)
+  09-07 20:32:49 : DISCONNECT device 1 client for package com.android.settings (PID 2589)
+  09-07 20:32:48 : DISCONNECT device 2 client for package client.pid<1393> (PID 1393)
+  09-07 20:32:07 : CONNECT device 2 client for package client.pid<1393> (PID 1393)
+  09-07 20:32:06 : CONNECT device 1 client for package com.android.settings (PID 2589)
+    Client package: com.p4pilot
+
+>>> Step54 文件
+find: '/sdcard/Android/data/com.p4pilot/files/P4Pilot/step54': No such file or directory
+
+>>> 进程状态
+u0_a256      18516  1056 14530252 140796 0                  0 S com.p4pilot
+
+>>> exit-info
+          timestamp=2026-09-08 16:39:59.434 pid=30247 realUid=10256 packageUid=10256 definingUid=10256 user=0
+          process=com.p4pilot reason=10 (USER REQUESTED) subreason=21 (FORCE STOP) status=0
+          importance=400 pss=57MB rss=126MB description=stop com.p4pilot due to installPackageLI state=empty trace=null
+        ApplicationExitInfo #8:
+          timestamp=2026-09-08 10:57:53.143 pid=30073 realUid=10256 packageUid=10256 definingUid=10256 user=0
+          process=com.p4pilot reason=10 (USER REQUESTED) subreason=21 (FORCE STOP) status=0
+          importance=100 pss=0.00 rss=0.00 description=stop com.p4pilot due to installPackageLI state=empty trace=null
+        ApplicationExitInfo #9:
+          timestamp=2026-09-08 10:56:26.965 pid=29529 realUid=10256 packageUid=10256 definingUid=10256 user=0
+          process=com.p4pilot reason=10 (USER REQUESTED) subreason=21 (FORCE STOP) status=0
+          importance=100 pss=0.00 rss=0.00 description=stop com.p4pilot due to installPackageLI state=empty trace=null
+        ApplicationExitInfo #10:
+          timestamp=2026-09-08 10:51:33.616 pid=29260 realUid=10256 packageUid=10256 definingUid=10256 user=0
+          process=com.p4pilot reason=10 (USER REQUESTED) subreason=21 (FORCE STOP) status=0
+          importance=100 pss=0.00 rss=0.00 description=stop com.p4pilot due to installPackageLI state=empty trace=null
+        ApplicationExitInfo #11:
+          timestamp=2026-09-08 10:50:02.181 pid=28974 realUid=10256 packageUid=10256 definingUid=10256 user=0
+          process=com.p4pilot reason=10 (USER REQUESTED) subreason=21 (FORCE STOP) status=0
+          importance=100 pss=0.00 rss=0.00 description=stop com.p4pilot due to installPackageLI state=empty trace=null
+        ApplicationExitInfo #12:
+          timestamp=2026-09-08 10:48:03.459 pid=28626 realUid=10256 packageUid=10256 definingUid=10256 user=0
+          process=com.p4pilot reason=10 (USER REQUESTED) subreason=21 (FORCE STOP) status=0
+          importance=100 pss=0.00 rss=0.00 description=stop com.p4pilot due to installPackageLI state=empty trace=null
+        ApplicationExitInfo #13:
+          timestamp=2026-09-08 10:44:23.545 pid=28312 realUid=10256 packageUid=10256 definingUid=10256 user=0
+          process=com.p4pilot reason=10 (USER REQUESTED) subreason=21 (FORCE STOP) status=0
+          importance=100 pss=0.00 rss=0.00 description=stop com.p4pilot due to installPackageLI state=empty trace=null
+        ApplicationExitInfo #14:
+          timestamp=2026-09-08 10:43:02.821 pid=27830 realUid=10256 packageUid=10256 definingUid=10256 user=0
+          process=com.p4pilot reason=10 (USER REQUESTED) subreason=21 (FORCE STOP) status=0
+          importance=100 pss=0.00 rss=0.00 description=stop com.p4pilot due to installPackageLI state=empty trace=null
+        ApplicationExitInfo #15:
+          timestamp=2026-09-08 10:41:21.919 pid=27206 realUid=10256 packageUid=10256 definingUid=10256 user=0
+          process=com.p4pilot reason=10 (USER REQUESTED) subreason=21 (FORCE STOP) status=0
+          importance=100 pss=0.00 rss=0.00 description=stop com.p4pilot due to installPackageLI state=empty trace=null
+  package: com.android.hotwordenrollment.xgoogle
+    Historical Process Exit for uid=10135
+        ApplicationExitInfo #0:
+          timestamp=2026-09-07 20:36:49.891 pid=5165 realUid=10135 packageUid=10135 definingUid=10135 user=0
+          process=com.android.hotwordenrollment.xgoogle reason=13 (OTHER KILLS BY SYSTEM) subreason=3 (TOO MANY EMPTY PROCS) status=0
+          importance=400 pss=4.3MB rss=74MB description=too many empty state=empty trace=null
+        ApplicationExitInfo #1:
+          timestamp=2026-09-06 18:14:25.216 pid=4982 realUid=10135 packageUid=10135 definingUid=10135 user=0
+          process=com.android.hotwordenrollment.xgoogle reason=13 (OTHER KILLS BY SYSTEM) subreason=3 (TOO MANY EMPTY PROCS) status=0
+          importance=400 pss=4.4MB rss=76MB description=too many empty state=empty trace=null
+        ApplicationExitInfo #2:
+          timestamp=2026-09-06 10:18:13.426 pid=5245 realUid=10135 packageUid=10135 definingUid=10135 user=0
+          process=com.android.hotwordenrollment.xgoogle reason=13 (OTHER KILLS BY SYSTEM) subreason=3 (TOO MANY EMPTY PROCS) status=0
+          importance=400 pss=4.3MB rss=76MB description=too many empty state=empty trace=null
+        ApplicationExitInfo #3:
+
+============================================================
+P4Pilot Step54 测试阶段结束
+============================================================
