@@ -359,3 +359,83 @@ installed.
   -h, --help                       Show this message.
 Error: invalid option: --cask
 ls: : No such file or directory
+
+============================================================
+P4Pilot Step 04 - Android SDK 配置
+Time: 2026-09-08 15:16:12 +0800
+============================================================
+
+>>> Android SDK 路径
+ANDROID_SDK_ROOT=/usr/local/share/android-commandlinetools
+ANDROID_HOME=/usr/local/share/android-commandlinetools
+
+>>> sdkmanager
+/usr/local/bin/sdkmanager
+WARNING: The SDK Manager CLI tool (sdkmanager) is deprecated. Use Android CLI instead.
+The 'android' binary can also be found in the cmdline-tools directory, and 'android sdk' is the replacement for 'sdkmanager'.
+To learn more about the Android CLI and how to use it, see the documentation (https://d.android.com/tools/agents/android-cli)
+
+22.0
+
+
+############################
+# Android SDK
+############################
+ANDROID_SDK_ROOT=/usr/local/share/android-commandlinetools
+ANDROID_HOME=/usr/local/share/android-commandlinetools
+
+>>> sdkmanager
+/usr/local/share/android-commandlinetools/cmdline-tools/latest/bin/sdkmanager
+WARNING: The SDK Manager CLI tool (sdkmanager) is deprecated. Use Android CLI instead.
+The 'android' binary can also be found in the cmdline-tools directory, and 'android sdk' is the replacement for 'sdkmanager'.
+To learn more about the Android CLI and how to use it, see the documentation (https://d.android.com/tools/agents/android-cli)
+
+22.0
+
+
+>>> SDK platforms
+total 0
+drwxr-xr-x   3 luojingyao  admin   96  9月  8 15:17 .
+drwxr-xr-x   9 luojingyao  admin  288  9月  8 15:17 ..
+drwxr-xr-x  15 luojingyao  admin  480  9月  8 15:17 android-33
+
+>>> Build Tools
+total 0
+drwxr-xr-x   3 luojingyao  admin   96  9月  8 15:17 .
+drwxr-xr-x   9 luojingyao  admin  288  9月  8 15:17 ..
+drwxr-xr-x  27 luojingyao  admin  864  9月  8 15:17 34.0.0
+
+>>> Android 33
+total 69936
+drwxr-xr-x  15 luojingyao  admin       480  9月  8 15:17 .
+drwxr-xr-x   3 luojingyao  admin        96  9月  8 15:17 ..
+-rw-r--r--   1 luojingyao  admin   7195875  9月  8 15:17 android-stubs-src.jar
+-rw-r--r--   1 luojingyao  admin  27139018  9月  8 15:17 android.jar
+-rw-r--r--   1 luojingyao  admin      4604  9月  8 15:17 build.prop
+-rw-r--r--   1 luojingyao  admin   1367407  9月  8 15:17 core-for-system-modules.jar
+drwxr-xr-x  12 luojingyao  admin       384  9月  8 15:17 data
+-rw-r--r--   1 luojingyao  admin     51339  9月  8 15:17 framework.aidl
+drwxr-xr-x   9 luojingyao  admin       288  9月  8 15:17 optional
+-rw-r--r--   1 luojingyao  admin     18887  9月  8 15:17 package.xml
+-rw-r--r--   1 luojingyao  admin       209  9月  8 15:17 sdk.properties
+drwxr-xr-x  13 luojingyao  admin       416  9月  8 15:17 skins
+-rw-r--r--   1 luojingyao  admin       256  9月  8 15:17 source.properties
+drwxr-xr-x  13 luojingyao  admin       416  9月  8 15:17 templates
+-rw-r--r--   1 luojingyao  admin     10547  9月  8 15:17 uiautomator.jar
+
+>>> adb
+Android Debug Bridge version 1.0.41
+Version 37.0.1-15733141
+Installed as /usr/local/share/android-commandlinetools/platform-tools/adb
+Running on Darwin 25.5.0 (x86_64)
+
+>>> Pixel
+List of devices attached
+9A181FFBA00072         device 20-6 product:coral model:Pixel_4_XL device:coral transport_id:3
+
+33
+13
+
+============================================================
+Step 04 完成
+============================================================
