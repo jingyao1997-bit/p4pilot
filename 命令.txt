@@ -24932,3 +24932,266 @@ origin/main : 4678cc581866f2dadf8c5a3669abef2fae9d7707
 REAL REMOTE : 4678cc581866f2dadf8c5a3669abef2fae9d7707
 
 FORCE_SYNC=PASS
+
+============================================================
+P4Pilot Step55-MEM-1
+Goal: inspect OOM allocation and processing queue
+DATE=2026-09-09 01:03:31
+============================================================
+
+>>> HEAD
+fe8f06ee4414998b52be41df8740199968c4fe98
+
+>>> MainActivity lines 210-390
+
+   210	                            if (image == null) {
+   211	                                return;
+   212	                            }
+   213	
+   214	                            final int w = image.getWidth();
+   215	                            final int h = image.getHeight();
+   216	
+   217	                            Image.Plane[] planes = image.getPlanes();
+   218	
+   219	                            if (planes.length != 3) {
+   220	                                System.err.println(
+   221	                                        "P4Pilot Step54 INVALID_PLANES=" +
+   222	                                        planes.length
+   223	                                );
+   224	                                return;
+   225	                            }
+   226	
+   227	                            final byte[] yData;
+   228	                            final byte[] uData;
+   229	                            final byte[] vData;
+   230	
+   231	                            try {
+   232	
+   233	                                ByteBuffer yBuffer =
+   234	                                        planes[0].getBuffer().duplicate();
+   235	
+   236	                                ByteBuffer uBuffer =
+   237	                                        planes[1].getBuffer().duplicate();
+   238	
+   239	                                ByteBuffer vBuffer =
+   240	                                        planes[2].getBuffer().duplicate();
+   241	
+   242	                                yData = new byte[yBuffer.remaining()];
+   243	                                uData = new byte[uBuffer.remaining()];
+   244	                                vData = new byte[vBuffer.remaining()];
+   245	
+   246	                                yBuffer.get(yData);
+   247	                                uBuffer.get(uData);
+   248	                                vBuffer.get(vData);
+   249	
+   250	                            } catch (Exception copyException) {
+   251	
+   252	                                System.err.println(
+   253	                                        "P4Pilot Step54 YUV_COPY_ERROR"
+   254	                                );
+   255	
+   256	                                copyException.printStackTrace();
+   257	
+   258	                                return;
+   259	                            }
+   260	
+   261	                            frameCount++;
+   262	
+   263	                            /*
+   264	                             * Step54:
+   265	                             * acquireLatestImage() intentionally keeps
+   266	                             * the newest available frame. Older frames
+   267	                             * may therefore be dropped by Camera2.
+   268	                             *
+   269	                             * We cannot directly count every HAL-level
+   270	                             * discarded frame here, so this counter tracks
+   271	                             * processing-side drops when the queue is busy.
+   272	                             */
+   273	                            long now =
+   274	                                    System.currentTimeMillis();
+   275	
+   276	                            if (firstFrameTime == 0) {
+   277	
+   278	                                firstFrameTime = now;
+   279	
+   280	                                System.out.println(
+   281	                                        "P4Pilot Step54 FIRST_FRAME"
+   282	                                );
+   283	
+   284	                                System.out.println(
+   285	                                        "P4Pilot Step54 FRAME_START"
+   286	                                );
+   287	
+   288	                                System.out.println(
+   289	                                        "P4Pilot Step54 width=" +
+   290	                                        w +
+   291	                                        " height=" +
+   292	                                        h +
+   293	                                        " format=" +
+   294	                                        ImageFormat.YUV_420_888
+   295	                                );
+   296	
+   297	                                for (int i = 0;
+   298	                                     i < planes.length;
+   299	                                     i++) {
+   300	
+   301	                                    Image.Plane plane =
+   302	                                            planes[i];
+   303	
+   304	                                    ByteBuffer buffer =
+   305	                                            plane.getBuffer();
+   306	
+   307	                                    System.out.println(
+   308	                                            "P4Pilot Step54 plane[" +
+   309	                                            i +
+   310	                                            "] rowStride=" +
+   311	                                            plane.getRowStride() +
+   312	                                            " pixelStride=" +
+   313	                                            plane.getPixelStride() +
+   314	                                            " remaining=" +
+   315	                                            buffer.remaining() +
+   316	                                            " limit=" +
+   317	                                            buffer.limit()
+   318	                                    );
+   319	                                }
+   320	                            }
+   321	
+   322	                            /*
+   323	                             * CRITICAL:
+   324	                             * Image is no longer used after this point.
+   325	                             * finally{} below releases the Camera2 buffer.
+   326	                             */
+   327	
+   328	                            final long frameTimestamp =
+   329	                                    now;
+   330	
+   331	                            final int currentFrame =
+   332	                                    frameCount;
+   333	
+   334	                            final int yRowStride =
+   335	                                    planes[0].getRowStride();
+   336	
+   337	                            final int yPixelStride =
+   338	                                    planes[0].getPixelStride();
+   339	
+   340	                            final int uRowStride =
+   341	                                    planes[1].getRowStride();
+   342	
+   343	                            final int uPixelStride =
+   344	                                    planes[1].getPixelStride();
+   345	
+   346	                            final int vRowStride =
+   347	                                    planes[2].getRowStride();
+   348	
+   349	                            final int vPixelStride =
+   350	                                    planes[2].getPixelStride();
+   351	
+   352	                            /*
+   353	                             * Step54:
+   354	                             * The Image has already been closed.
+   355	                             * Processing now happens exclusively on the
+   356	                             * dedicated processing HandlerThread.
+   357	                             */
+   358	                            if (!processingHandler.post(() -> {
+   359	
+   360	                                long processStart =
+   361	                                        System.currentTimeMillis();
+   362	
+   363	                                try {
+   364	
+   365	                                    /*
+   366	                                     * Step53 processing is deliberately
+   367	                                     * performed outside ImageReader callback.
+   368	                                     */
+   369	
+   370	                                    android.graphics.Bitmap bitmap =
+   371	                                            yuv420ToBitmapFromCopiedPlanes(
+   372	                                                    w,
+   373	                                                    h,
+   374	                                                    yData,
+   375	                                                    uData,
+   376	                                                    vData,
+   377	                                                    yRowStride,
+   378	                                                    yPixelStride,
+   379	                                                    uRowStride,
+   380	                                                    uPixelStride,
+   381	                                                    vRowStride,
+   382	                                                    vPixelStride
+   383	                                            );
+   384	
+   385	                                    if (bitmap == null) {
+   386	
+   387	                                        System.err.println(
+   388	                                                "P4Pilot Step54 BITMAP_NULL frame=" +
+   389	                                                currentFrame
+   390	                                        );
+
+>>> Relevant allocation / queue references
+
+20:import java.nio.ByteBuffer;
+54:    private volatile int processedCount = 0;
+55:    private volatile int droppedCount = 0;
+195:                        Image image = null;
+208:                            image = imageReader.acquireLatestImage();
+233:                                ByteBuffer yBuffer =
+236:                                ByteBuffer uBuffer =
+239:                                ByteBuffer vBuffer =
+242:                                yData = new byte[yBuffer.remaining()];
+243:                                uData = new byte[uBuffer.remaining()];
+244:                                vData = new byte[vBuffer.remaining()];
+265:                             * acquireLatestImage() intentionally keeps
+304:                                    ByteBuffer buffer =
+314:                                            " remaining=" +
+315:                                            buffer.remaining() +
+358:                            if (!processingHandler.post(() -> {
+395:                                    processedCount++;
+512:                                                    processedCount + "\n" +
+531:                                droppedCount++;
+556:                                image.close();
+696:                new byte[
+820:private android.graphics.Bitmap yuv420ToBitmap(Image image) {
+827:        byte[] nv21 = new byte[
+835:        ByteBuffer yBuffer = yPlane.getBuffer();
+859:        ByteBuffer uBuffer = uPlane.getBuffer();
+860:        ByteBuffer vBuffer = vPlane.getBuffer();
+943:    private void saveYuvAsJpeg(Image image) {
+977:                    ByteBuffer buffer = plane.getBuffer();
+985:                            " remaining=" +
+986:                            buffer.remaining() +
+1093:            byte[] nv21 = new byte[
+1106:            ByteBuffer yBuffer = yPlane.getBuffer();
+1134:            ByteBuffer uBuffer = uPlane.getBuffer();
+1135:            ByteBuffer vBuffer = vPlane.getBuffer();
+
+>>> Exact line 244 context
+
+   232	
+   233	                                ByteBuffer yBuffer =
+   234	                                        planes[0].getBuffer().duplicate();
+   235	
+   236	                                ByteBuffer uBuffer =
+   237	                                        planes[1].getBuffer().duplicate();
+   238	
+   239	                                ByteBuffer vBuffer =
+   240	                                        planes[2].getBuffer().duplicate();
+   241	
+   242	                                yData = new byte[yBuffer.remaining()];
+   243	                                uData = new byte[uBuffer.remaining()];
+   244	                                vData = new byte[vBuffer.remaining()];
+   245	
+   246	                                yBuffer.get(yData);
+   247	                                uBuffer.get(uData);
+   248	                                vBuffer.get(vData);
+   249	
+   250	                            } catch (Exception copyException) {
+   251	
+   252	                                System.err.println(
+   253	                                        "P4Pilot Step54 YUV_COPY_ERROR"
+   254	                                );
+   255	
+
+Step55-MEM-1 INSPECTION=COMPLETE
+
+============================================================
+Step55-MEM-1 result sync
+============================================================
