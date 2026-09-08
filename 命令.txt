@@ -4054,3 +4054,194 @@ d2b60210a4fc37ad7d9fce03e743e867f1e89a5e38d48fb7633c55f704cdbe84  app/build/outp
 ===== Step 43 git status =====
  M app/src/main/java/com/p4pilot/MainActivity.java
  M "\345\221\275\344\273\244.txt"
+============================================================
+P4Pilot Step 44 - YUV Buffer Boundary Safety Validation
+2026年 9月 8日 星期二 17时49分47秒 CST
+============================================================
+===== BUILD =====
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.13/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+Warning: SDK processing. This version only understands SDK XML versions up to 3 but an SDK XML file of version 4 was encountered. This can happen if you use versions of Android Studio and the command-line tools that were released at different times.
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preDebugBuild UP-TO-DATE
+> Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
+> Task :app:javaPreCompileDebug UP-TO-DATE
+> Task :app:checkDebugAarMetadata UP-TO-DATE
+> Task :app:processDebugNavigationResources UP-TO-DATE
+> Task :app:compileDebugNavigationResources UP-TO-DATE
+> Task :app:generateDebugResValues UP-TO-DATE
+> Task :app:mapDebugSourceSetPaths UP-TO-DATE
+> Task :app:generateDebugResources UP-TO-DATE
+> Task :app:mergeDebugResources UP-TO-DATE
+> Task :app:packageDebugResources UP-TO-DATE
+> Task :app:parseDebugLocalResources UP-TO-DATE
+> Task :app:createDebugCompatibleScreenManifests UP-TO-DATE
+> Task :app:extractDeepLinksDebug UP-TO-DATE
+> Task :app:processDebugMainManifest UP-TO-DATE
+> Task :app:processDebugManifest UP-TO-DATE
+> Task :app:processDebugManifestForPackage UP-TO-DATE
+> Task :app:processDebugResources UP-TO-DATE
+
+> Task :app:compileDebugJavaWithJavac
+注: /Users/luojingyao/p4pilot/app/src/main/java/com/p4pilot/MainActivity.java使用或覆盖了已过时的 API。
+注: 有关详细信息, 请使用 -Xlint:deprecation 重新编译。
+
+> Task :app:mergeDebugShaders UP-TO-DATE
+> Task :app:compileDebugShaders NO-SOURCE
+> Task :app:generateDebugAssets UP-TO-DATE
+> Task :app:mergeDebugAssets UP-TO-DATE
+> Task :app:compressDebugAssets UP-TO-DATE
+> Task :app:processDebugJavaRes NO-SOURCE
+> Task :app:mergeDebugJavaResource UP-TO-DATE
+> Task :app:checkDebugDuplicateClasses UP-TO-DATE
+> Task :app:desugarDebugFileDependencies UP-TO-DATE
+> Task :app:mergeExtDexDebug UP-TO-DATE
+> Task :app:mergeLibDexDebug UP-TO-DATE
+> Task :app:dexBuilderDebug
+> Task :app:mergeDebugJniLibFolders UP-TO-DATE
+> Task :app:mergeDebugNativeLibs NO-SOURCE
+> Task :app:stripDebugDebugSymbols NO-SOURCE
+> Task :app:validateSigningDebug UP-TO-DATE
+> Task :app:writeDebugAppMetadata UP-TO-DATE
+> Task :app:writeDebugSigningConfigVersions UP-TO-DATE
+> Task :app:mergeProjectDexDebug
+> Task :app:packageDebug
+> Task :app:createDebugApkListingFileRedirect UP-TO-DATE
+> Task :app:assembleDebug
+
+[Incubating] Problems report is available at: file:///Users/luojingyao/p4pilot/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.13/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 12s
+33 actionable tasks: 4 executed, 29 up-to-date
+===== INSTALL =====
+Performing Streamed Install
+Success
+===== CLEAR LOG =====
+===== START P4PILOT =====
+  bash arg: -p
+  bash arg: com.p4pilot
+  bash arg: 1
+args: [-p, com.p4pilot, 1]
+ arg: "-p"
+ arg: "com.p4pilot"
+ arg: "1"
+data="com.p4pilot"
+Events injected: 1
+## Network stats: elapsed time=253ms (0ms mobile, 0ms wifi, 253ms not connected)
+===== STEP 44 YUV RESULT =====
+09-08 10:50:04.256 I/System.out(29260): P4Pilot Step43 YUV layout:
+09-08 10:50:04.256 I/System.out(29260): P4Pilot Step43 image width=1280 height=720
+09-08 10:50:04.256 I/System.out(29260): P4Pilot Step43 plane[0] rowStride=1280 pixelStride=1 remaining=921600 position=0 limit=921600
+09-08 10:50:04.256 I/System.out(29260): P4Pilot Step43 plane[1] rowStride=1280 pixelStride=2 remaining=460799 position=0 limit=460799
+09-08 10:50:04.256 I/System.out(29260): P4Pilot Step43 plane[2] rowStride=1280 pixelStride=2 remaining=460799 position=0 limit=460799
+09-08 10:50:04.256 I/System.out(29260): P4Pilot Step43 Y requiredBytes=921600
+09-08 10:50:04.256 I/System.out(29260): P4Pilot Step43 Y maxIndex=921599 bufferLimit=921600 safe=true
+09-08 10:50:04.256 I/System.out(29260): P4Pilot Step43 U maxIndex=460798 bufferLimit=460799 safe=true
+09-08 10:50:04.256 I/System.out(29260): P4Pilot Step43 V maxIndex=460798 bufferLimit=460799 safe=true
+09-08 10:50:04.256 I/System.out(29260): P4Pilot Step44 boundaryCheck Y=true U=true V=true
+09-08 10:50:04.256 I/System.out(29260): P4Pilot Step44 YUV buffer boundary SAFE
+09-08 10:50:05.886 I/System.out(29260): P4Pilot Step43 YUV layout:
+09-08 10:50:05.886 I/System.out(29260): P4Pilot Step43 image width=1280 height=720
+09-08 10:50:05.886 I/System.out(29260): P4Pilot Step43 plane[0] rowStride=1280 pixelStride=1 remaining=921600 position=0 limit=921600
+09-08 10:50:05.886 I/System.out(29260): P4Pilot Step43 plane[1] rowStride=1280 pixelStride=2 remaining=460799 position=0 limit=460799
+09-08 10:50:05.886 I/System.out(29260): P4Pilot Step43 plane[2] rowStride=1280 pixelStride=2 remaining=460799 position=0 limit=460799
+09-08 10:50:05.886 I/System.out(29260): P4Pilot Step43 Y requiredBytes=921600
+09-08 10:50:05.886 I/System.out(29260): P4Pilot Step43 Y maxIndex=921599 bufferLimit=921600 safe=true
+09-08 10:50:05.886 I/System.out(29260): P4Pilot Step43 U maxIndex=460798 bufferLimit=460799 safe=true
+09-08 10:50:05.886 I/System.out(29260): P4Pilot Step43 V maxIndex=460798 bufferLimit=460799 safe=true
+09-08 10:50:05.886 I/System.out(29260): P4Pilot Step44 boundaryCheck Y=true U=true V=true
+09-08 10:50:05.886 I/System.out(29260): P4Pilot Step44 YUV buffer boundary SAFE
+===== JPEG RESULT =====
+09-08 10:50:03.518 I/System.out(29260): P4Pilot outputDir=/storage/emulated/0/Android/data/com.p4pilot/files/P4Pilot/step41
+09-08 10:50:03.733 I/System.out(29260): P4Pilot outputDir=/storage/emulated/0/Android/data/com.p4pilot/files/P4Pilot/step41
+09-08 10:50:05.281 I/System.out(29260): P4Pilot JPEG saved: /storage/emulated/0/Android/data/com.p4pilot/files/P4Pilot/step41/frame_001.jpg size=103897
+09-08 10:50:05.506 I/System.out(29260): P4Pilot outputDir=/storage/emulated/0/Android/data/com.p4pilot/files/P4Pilot/step41
+09-08 10:50:05.974 I/System.out(29260): P4Pilot JPEG saved: /storage/emulated/0/Android/data/com.p4pilot/files/P4Pilot/step41/frame_001.jpg size=105057
+09-08 10:50:06.997 I/System.out(29260): P4Pilot JPEG saved: /storage/emulated/0/Android/data/com.p4pilot/files/P4Pilot/step41/frame_002.jpg size=152243
+09-08 10:50:08.030 I/System.out(29260): P4Pilot JPEG saved: /storage/emulated/0/Android/data/com.p4pilot/files/P4Pilot/step41/frame_003.jpg size=152484
+09-08 10:50:09.057 I/System.out(29260): P4Pilot JPEG saved: /storage/emulated/0/Android/data/com.p4pilot/files/P4Pilot/step41/frame_004.jpg size=151718
+09-08 10:50:10.091 I/System.out(29260): P4Pilot JPEG saved: /storage/emulated/0/Android/data/com.p4pilot/files/P4Pilot/step41/frame_005.jpg size=150871
+===== CRASH / ANR =====
+===== CAMERA =====
+    Device 1 maps to "1"
+Active Camera Clients:
+[
+(Camera ID: 0, Cost: 50, PID: 29260, Score: 0, State: 2User Id: 0, Client Package Name: com.p4pilot, Conflicting Client Devices: {1, 2, 3, 4, 5, 6, 7, })
+]
+Allowed user IDs: 0
+
+== Camera service events log (most recent at top): ==
+  09-08 10:50:05 : CONNECT device 0 client for package com.p4pilot (PID 29260)
+  09-08 10:50:05 : DISCONNECT device 0 client for package com.p4pilot (PID 29260)
+  09-08 10:50:03 : CONNECT device 0 client for package com.p4pilot (PID 29260)
+  09-08 10:50:03 : DISCONNECT device 0 client for package com.p4pilot (PID 29260)
+  09-08 10:50:03 : EVICT device 0 client held by package com.p4pilot (PID 29260, score 0, state 2)
+ - Evicted by device 0 client for package com.p4pilot (PID 29260, score 0, state 2)
+  09-08 10:50:03 : CONNECT device 0 client for package com.p4pilot (PID 29260)
+  09-08 10:50:02 : DISCONNECT device 0 client for package com.p4pilot (PID 0)
+  09-08 10:50:02 : DIED client(s) with PID 1330, reason: (Binder died unexpectedly)
+  09-08 10:48:05 : CONNECT device 0 client for package com.p4pilot (PID 28974)
+  09-08 10:48:03 : DISCONNECT device 0 client for package com.p4pilot (PID 0)
+  09-08 10:48:03 : DIED client(s) with PID 1330, reason: (Binder died unexpectedly)
+  09-08 10:44:24 : CONNECT device 0 client for package com.p4pilot (PID 28626)
+  09-08 10:44:23 : DISCONNECT device 0 client for package com.p4pilot (PID 0)
+  09-08 10:44:23 : DIED client(s) with PID 1330, reason: (Binder died unexpectedly)
+  09-08 10:43:04 : CONNECT device 0 client for package com.p4pilot (PID 28312)
+  09-08 10:43:04 : DISCONNECT device 0 client for package com.p4pilot (PID 28312)
+  09-08 10:43:03 : CONNECT device 0 client for package com.p4pilot (PID 28312)
+  09-08 10:43:03 : DISCONNECT device 0 client for package com.p4pilot (PID 0)
+  09-08 10:43:02 : DIED client(s) with PID 1330, reason: (Binder died unexpectedly)
+  09-08 10:42:03 : CONNECT device 0 client for package com.p4pilot (PID 27830)
+  09-08 10:42:03 : DISCONNECT device 0 client for package com.p4pilot (PID 27830)
+  09-08 10:41:37 : CONNECT device 0 client for package com.p4pilot (PID 27830)
+  09-08 10:41:37 : DISCONNECT device 0 client for package com.p4pilot (PID 27830)
+  09-08 10:41:37 : CONNECT device 0 client for package com.p4pilot (PID 27830)
+  09-08 10:41:36 : DISCONNECT device 0 client for package com.p4pilot (PID 27830)
+  09-08 10:41:32 : CONNECT device 0 client for package com.p4pilot (PID 27830)
+  09-08 10:41:32 : DISCONNECT device 0 client for package com.p4pilot (PID 27830)
+  09-08 10:41:24 : CONNECT device 0 client for package com.p4pilot (PID 27830)
+  09-08 10:41:24 : DISCONNECT device 0 client for package com.p4pilot (PID 27830)
+  09-08 10:41:23 : CONNECT device 0 client for package com.p4pilot (PID 27830)
+  09-08 10:41:23 : DISCONNECT device 0 client for package com.p4pilot (PID 27830)
+  09-08 10:41:23 : EVICT device 0 client held by package com.p4pilot (PID 27830, score 0, state 2)
+ - Evicted by device 0 client for package com.p4pilot (PID 27830, score 0, state 2)
+  09-08 10:41:23 : CONNECT device 0 client for package com.p4pilot (PID 27830)
+  09-08 10:41:22 : DISCONNECT device 0 client for package com.p4pilot (PID 0)
+  09-08 10:41:21 : DIED client(s) with PID 1330, reason: (Binder died unexpectedly)
+  09-08 10:40:08 : CONNECT device 0 client for package com.p4pilot (PID 27206)
+  09-08 10:40:08 : DISCONNECT device 0 client for package com.p4pilot (PID 27206)
+  09-08 10:39:56 : CONNECT device 0 client for package com.p4pilot (PID 27206)
+  09-08 10:39:56 : DISCONNECT device 0 client for package com.p4pilot (PID 27206)
+  09-08 10:39:53 : CONNECT device 0 client for package com.p4pilot (PID 27206)
+  09-08 10:39:53 : DISCONNECT device 0 client for package com.p4pilot (PID 27206)
+  09-08 10:39:45 : CONNECT device 0 client for package com.p4pilot (PID 27206)
+  09-08 10:39:45 : DISCONNECT device 0 client for package com.p4pilot (PID 27206)
+  09-08 10:39:39 : CONNECT device 0 client for package com.p4pilot (PID 27206)
+  09-08 10:39:39 : DISCONNECT device 0 client for package com.p4pilot (PID 27206)
+  09-08 10:39:38 : CONNECT device 0 client for package com.p4pilot (PID 27206)
+  09-08 10:39:38 : DISCONNECT device 0 client for package com.p4pilot (PID 27206)
+  09-08 10:39:35 : CONNECT device 0 client for package com.p4pilot (PID 27206)
+  09-08 10:39:35 : DISCONNECT device 0 client for package com.p4pilot (PID 27206)
+  09-08 10:38:34 : CONNECT device 0 client for package com.p4pilot (PID 27206)
+  09-07 22:22:09 : DISCONNECT device 2 client for package client.pid<1393> (PID 1393)
+  09-07 22:22:05 : CONNECT device 2 client for package client.pid<1393> (PID 1393)
+  09-07 22:22:05 : DISCONNECT device 2 client for package client.pid<1393> (PID 1393)
+--
+  09-08 10:50:14 : Device 0 is open. Client instance dump:
+    Client priority score: 0 state: 2
+    Client PID: 29260
+    Client package: com.p4pilot
+  CameraDeviceClient[0] (0xb400007b9a99db30) dump:
+    Current client UID 10256
+    State:
+===== APK SHA256 =====
+60e6930ae4cb768c59cdf0b0e787a449a03742749ffd8a698df304bafd7b85ff  app/build/outputs/apk/debug/app-debug.apk
+===== GIT STATUS =====
+ M app/src/main/java/com/p4pilot/MainActivity.java
+ M "\345\221\275\344\273\244.txt"

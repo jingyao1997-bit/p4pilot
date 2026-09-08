@@ -390,6 +390,13 @@ public class MainActivity extends Activity {
                         (height - 1) * planes[0].getRowStride() +
                         (width - 1) * planes[0].getPixelStride();
 
+                int yRequiredBytes = yMaxIndex + 1;
+
+                System.out.println(
+                        "P4Pilot Step43 Y requiredBytes=" +
+                        yRequiredBytes
+                );
+
                 int chromaWidth = width / 2;
                 int chromaHeight = height / 2;
 
@@ -430,6 +437,38 @@ public class MainActivity extends Activity {
                         planes[2].getBuffer().limit() +
                         " safe=" +
                         (vMaxIndex < planes[2].getBuffer().limit())
+                );
+
+                boolean ySafe =
+                        yMaxIndex <
+                        planes[0].getBuffer().limit();
+
+                boolean uSafe =
+                        uMaxIndex <
+                        planes[1].getBuffer().limit();
+
+                boolean vSafe =
+                        vMaxIndex <
+                        planes[2].getBuffer().limit();
+
+                System.out.println(
+                        "P4Pilot Step44 boundaryCheck Y=" +
+                        ySafe +
+                        " U=" +
+                        uSafe +
+                        " V=" +
+                        vSafe
+                );
+
+                if (!ySafe || !uSafe || !vSafe) {
+                    System.out.println(
+                            "P4Pilot Step44 ERROR: YUV buffer boundary unsafe"
+                    );
+                    return;
+                }
+
+                System.out.println(
+                        "P4Pilot Step44 YUV buffer boundary SAFE"
                 );
             }
 
