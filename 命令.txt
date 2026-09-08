@@ -23181,3 +23181,872 @@ Step55-R5 FAIL
 Step55-R5 result sync
 TEST_STATUS=FAIL
 ============================================================
+[main 04f12ee] test: record Step55-R5 failure
+ 1 file changed, 1939 insertions(+)
+To https://github.com/jingyao1997-bit/p4pilot.git
+   8d8a25f..04f12ee  main -> main
+来自 https://github.com/jingyao1997-bit/p4pilot
+ * branch            main       -> FETCH_HEAD
+LOCAL       : 04f12eea715e7084d9579ee3fcf8432b3c8f637a
+origin/main : 04f12eea715e7084d9579ee3fcf8432b3c8f637a
+REAL REMOTE : 04f12eea715e7084d9579ee3fcf8432b3c8f637a
+RESULT_SYNC=PASS
+
+Step55-R5 COMPLETE
+
+============================================================
+P4Pilot Step55-CRASH-1
+Goal: isolate real P4Pilot crash stack
+DATE=2026-09-09 00:54:33
+============================================================
+
+>>> HEAD
+04f12eea715e7084d9579ee3fcf8432b3c8f637a
+
+>>> Build
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preDebugBuild UP-TO-DATE
+> Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
+> Task :app:javaPreCompileDebug UP-TO-DATE
+> Task :app:checkDebugAarMetadata UP-TO-DATE
+> Task :app:processDebugNavigationResources UP-TO-DATE
+> Task :app:compileDebugNavigationResources UP-TO-DATE
+> Task :app:generateDebugResValues UP-TO-DATE
+> Task :app:mapDebugSourceSetPaths UP-TO-DATE
+> Task :app:generateDebugResources UP-TO-DATE
+> Task :app:mergeDebugResources UP-TO-DATE
+> Task :app:packageDebugResources UP-TO-DATE
+> Task :app:parseDebugLocalResources UP-TO-DATE
+> Task :app:createDebugCompatibleScreenManifests UP-TO-DATE
+> Task :app:extractDeepLinksDebug UP-TO-DATE
+> Task :app:processDebugMainManifest UP-TO-DATE
+> Task :app:processDebugManifest UP-TO-DATE
+> Task :app:processDebugManifestForPackage UP-TO-DATE
+> Task :app:processDebugResources UP-TO-DATE
+> Task :app:compileDebugJavaWithJavac UP-TO-DATE
+> Task :app:mergeDebugShaders UP-TO-DATE
+> Task :app:compileDebugShaders NO-SOURCE
+> Task :app:generateDebugAssets UP-TO-DATE
+> Task :app:mergeDebugAssets UP-TO-DATE
+> Task :app:compressDebugAssets UP-TO-DATE
+> Task :app:processDebugJavaRes NO-SOURCE
+> Task :app:mergeDebugJavaResource UP-TO-DATE
+> Task :app:checkDebugDuplicateClasses UP-TO-DATE
+> Task :app:desugarDebugFileDependencies UP-TO-DATE
+> Task :app:mergeExtDexDebug UP-TO-DATE
+> Task :app:mergeLibDexDebug UP-TO-DATE
+> Task :app:dexBuilderDebug UP-TO-DATE
+> Task :app:mergeProjectDexDebug UP-TO-DATE
+> Task :app:mergeDebugJniLibFolders UP-TO-DATE
+> Task :app:mergeDebugNativeLibs NO-SOURCE
+> Task :app:stripDebugDebugSymbols NO-SOURCE
+> Task :app:validateSigningDebug UP-TO-DATE
+> Task :app:writeDebugAppMetadata UP-TO-DATE
+> Task :app:writeDebugSigningConfigVersions UP-TO-DATE
+> Task :app:packageDebug UP-TO-DATE
+> Task :app:createDebugApkListingFileRedirect UP-TO-DATE
+> Task :app:assembleDebug UP-TO-DATE
+
+[Incubating] Problems report is available at: file:///Users/luojingyao/p4pilot/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.13/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 1s
+33 actionable tasks: 33 up-to-date
+BUILD=PASS
+
+>>> Install
+Performing Streamed Install
+Success
+INSTALL=PASS
+
+>>> Launch
+  bash arg: -p
+  bash arg: com.p4pilot
+  bash arg: -c
+  bash arg: android.intent.category.LAUNCHER
+  bash arg: 1
+args: [-p, com.p4pilot, -c, android.intent.category.LAUNCHER, 1]
+ arg: "-p"
+ arg: "com.p4pilot"
+ arg: "-c"
+ arg: "android.intent.category.LAUNCHER"
+ arg: "1"
+data="com.p4pilot"
+data="android.intent.category.LAUNCHER"
+Events injected: 1
+## Network stats: elapsed time=58ms (0ms mobile, 0ms wifi, 58ms not connected)
+INITIAL_PID=21490
+
+>>> Monitor process up to 45 seconds
+CHECKPOINT_SEC=3 PID=21490
+CHECKPOINT_SEC=6 PID=21490
+CHECKPOINT_SEC=9 PID=21490
+CHECKPOINT_SEC=12 PID=21490
+CHECKPOINT_SEC=15 PID=21490
+CHECKPOINT_SEC=18 PID=21490
+CHECKPOINT_SEC=21 PID=21490
+CHECKPOINT_SEC=24 PID=21490
+CHECKPOINT_SEC=27 PID=21490
+CHECKPOINT_SEC=30 PID=21490
+CHECKPOINT_SEC=33 PID=21490
+CHECKPOINT_SEC=36 PID=21490
+CHECKPOINT_SEC=39 PID=21490
+CHECKPOINT_SEC=42 PID=21490
+CHECKPOINT_SEC=45 PID=21490
+
+>>> Capture logcat
+
+============================================================
+P4PILOT FATAL EXCEPTION / STACK
+============================================================
+194-09-08 17:54:38.526 31923 32047 I FontLog : (REDACTED) Received query %s, URI %s
+195-09-08 17:54:38.526 31923 32047 I FontLog : (REDACTED) Query [%s] resolved to %s
+196-09-08 17:54:38.530 31923 32240 I FontLog : (REDACTED) Received query %s, URI %s
+197-09-08 17:54:38.530 31923 32240 I FontLog : (REDACTED) Query [%s] resolved to %s
+198-09-08 17:54:38.531 31923 32240 I FontLog : (REDACTED) Fetch %s end status %s
+199-09-08 17:54:38.532 31923 32240 I FontLog : (REDACTED) Pulling font file for id = %d, cache size = %d
+200-09-08 17:54:38.534 31923 32047 I FontLog : (REDACTED) Fetch %s end status %s
+201-09-08 17:54:38.538 31923 32047 I FontLog : (REDACTED) Pulling font file for id = %d, cache size = %d
+202-09-08 17:54:38.538 21439 21472 I Bugle   : DatabaseHelperBasic: sqlite version is 3.32.2
+203-09-08 17:54:38.539 31923 32047 I FontLog : (REDACTED) Pulling font file for id = %d, cache size = %d
+204-09-08 17:54:38.542 21439 21472 I Bugle   : DatabaseHelperBasic.doInitializationTraced() returned SQLiteDatabase: /data/user/0/com.google.android.apps.messaging/databases/workqueue_db
+205-09-08 17:54:38.542 21439 21472 I Bugle   : DatabaseHelperBasic.doInitializationTraced returned SQLiteDatabase: /data/user/0/com.google.android.apps.messaging/databases/workqueue_db
+206-09-08 17:54:38.542 21439 21462 I Bugle   : DatabaseHelperBasic: sqlite version is 3.32.2
+207-09-08 17:54:38.545 21439 21462 I Bugle   : DatabaseHelperBasic.doInitializationTraced() returned SQLiteDatabase: /data/user/0/com.google.android.apps.messaging/databases/bugle_backup_db
+208-09-08 17:54:38.545 21439 21462 I Bugle   : DatabaseHelperBasic.doInitializationTraced returned SQLiteDatabase: /data/user/0/com.google.android.apps.messaging/databases/bugle_backup_db
+209:09-08 17:54:38.558 21470 21470 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+210-09-08 17:54:38.560 21439 21461 D CompatibilityChangeReporter: Compat change id reported: 194532703; UID 10147; state: ENABLED
+211-09-08 17:54:38.560 21439 21461 D WM-SystemJobScheduler: Scheduling work ID 26a4dc15-8e1d-453f-9971-baa6c19abba2 (com.google.apps.tiktok.contrib.work.TikTokListenableWorker), Job ID 1000
+212-09-08 17:54:38.561  1734  4300 D CompatibilityChangeReporter: Compat change id reported: 194532703; UID 10147; state: ENABLED
+213:09-08 17:54:38.563 21470 21470 I AndroidRuntime: Using default boot image
+214:09-08 17:54:38.563 21470 21470 I AndroidRuntime: Leaving lock profiling enabled
+215-09-08 17:54:38.567 21470 21470 I app_process: Using generational CollectorTypeCC GC.
+216-09-08 17:54:38.591 31923 32047 I FontLog : (REDACTED) Pulling font file for id = %d, cache size = %d
+217-09-08 17:54:38.593 21439 21461 D WM-SystemJobScheduler: Scheduling work ID 8eba1d40-acae-441a-8a67-b96050da921d (com.google.apps.tiktok.contrib.work.TikTokListenableWorker), Job ID 1001
+218-09-08 17:54:38.593 31923 32110 I FusedLocation: (REDACTED) location delivery to %s blocked - too close
+219-09-08 17:54:38.593 31923 32110 I FusedLocation: (REDACTED) location delivery to %s blocked - too close
+220-09-08 17:54:38.593 31923 32110 I FusedLocation: (REDACTED) location delivery to %s blocked - too close
+221-09-08 17:54:38.593 31923 32110 I FusedLocation: (REDACTED) location delivery to %s blocked - too fast
+222-09-08 17:54:38.594 31923 32110 I FusedLocation: (REDACTED) location delivery to %s blocked - too fast
+223-09-08 17:54:38.598 21439 21461 D WM-SystemJobScheduler: Scheduling work ID b64b2b94-0536-4023-ae7a-135e9dce17c7 (com.google.apps.tiktok.contrib.work.TikTokListenableWorker), Job ID 1668
+224-09-08 17:54:38.604 21439 21461 D WM-SystemJobScheduler: Scheduling work ID 98e41d43-ff5a-439d-ab52-84a9fc5ea407 (com.google.android.libraries.notifications.platform.entrypoints.job.GnpWorker), Job ID 1873
+225-09-08 17:54:38.610 21439 21461 D WM-SystemJobScheduler: Scheduling work ID 9c049dbd-5956-41a7-93a7-68c9c61857b1 (com.google.android.libraries.notifications.platform.entrypoints.job.GnpWorker), Job ID 1140
+226-09-08 17:54:38.615 21439 21461 D WM-SystemJobScheduler: Scheduling work ID f707d3d1-bab8-4786-9018-16fa3564f31c (com.google.apps.tiktok.contrib.work.TikTokListenableWorker), Job ID 1726
+227-09-08 17:54:38.617 21439 21461 D WM-SystemJobScheduler: Scheduling work ID 3d3156f3-fa07-4354-8877-dd8195d27357 (com.google.android.libraries.mdi.download.workmanager.workers.PeriodicWorker), Job ID 1913
+228-09-08 17:54:38.621 21439 21461 D WM-SystemJobScheduler: Scheduling work ID cffe50f2-8314-4b9d-a3c4-50dc1e2a012f (com.google.apps.tiktok.contrib.work.TikTokListenableWorker), Job ID 1919
+229-09-08 17:54:38.623 21439 21461 D WM-SystemJobScheduler: Scheduling work ID cd71148d-c51d-4f3e-b8f8-44c67e96d4ce (com.google.android.apps.messaging.shared.datamodel.search.monitoring.IcingRecurringWorker), Job ID 1051
+230-09-08 17:54:38.627 21439 21459 I CarrierServices: Initializing Carrier Services Logging. [CONTEXT thread_id=63 ]
+231-09-08 17:54:38.632 21470 21470 D nativeloader: InitDefaultPublicLibraries for_preload=1: libandroid.so:libaaudio.so:libamidi.so:libbinder_ndk.so:libc.so:libcamera2ndk.so:libdl.so:libEGL.so:libGLESv1_CM.so:libGLESv2.so:libGLESv3.so:libicu.so:libicui18n.so:libicuuc.so:libjnigraphics.so:liblog.so:libmediandk.so:libm.so:libnativehelper.so:libnativewindow.so:libOpenMAXAL.so:libOpenSLES.so:libRS.so:libstdc++.so:libsync.so:libvulkan.so:libwebviewchromium_plat_support.so:libz.so
+232-09-08 17:54:38.634 21439 21461 D WM-SystemJobScheduler: Scheduling work ID ecb2a9a7-4058-4d5b-9be6-8e54a038bcc5 (com.google.android.apps.messaging.shared.rcsprovisioning.RcsProvisioningListenableWorker), Job ID 1806
+233-09-08 17:54:38.639 21439 21461 D WM-SystemJobScheduler: Scheduling work ID 9a7821d4-aa9c-4b88-ac5b-8f9a59632b80 (com.google.android.libraries.notifications.platform.entrypoints.job.GnpWorker), Job ID 1875
+234-09-08 17:54:38.640 21439 21459 I LogSaver: LogSaver new instance with filename: carrier_services
+235-09-08 17:54:38.644 21439 21461 D WM-SystemJobScheduler: Scheduling work ID 9cebdefd-9a69-4927-a2ee-0cf30ea8b8ae (com.google.android.libraries.notifications.platform.entrypoints.job.GnpWorker), Job ID 1874
+236-09-08 17:54:38.646 21470 21470 D nativeloader: Load libicu_jni.so using APEX ns com_android_art for caller /apex/com.android.art/javalib/core-oj.jar: ok
+237-09-08 17:54:38.646 21470 21470 D app_process: Time zone APEX ICU file found: /apex/com.android.tzdata/etc/icu/icu_tzdata.dat
+238-09-08 17:54:38.646 21470 21470 D app_process: I18n APEX ICU file found: /apex/com.android.i18n/etc/icu/icudt70l.dat
+239-09-08 17:54:38.647 21470 21470 D nativeloader: Load libjavacore.so using APEX ns com_android_art for caller /apex/com.android.art/javalib/core-oj.jar: ok
+240-09-08 17:54:38.648 21470 21470 D nativeloader: Load libopenjdk.so using APEX ns com_android_art for caller /apex/com.android.art/javalib/core-oj.jar: ok
+241-09-08 17:54:38.650 21470 21470 I app_process: Priority-to-niceness mapping: 19, 16, 13, 10, 0, -2, -4, -5, -6, -8
+242-09-08 17:54:38.650 21439 21461 D WM-SystemJobScheduler: Scheduling work ID 189a8079-e7f2-409a-801f-0477bd6ad4b7 (com.google.android.libraries.mdi.download.workmanager.workers.PeriodicWorker), Job ID 1912
+243-09-08 17:54:38.655 21439 21459 I BugleBackup: Registering preference change listener for "bugle".
+244-09-08 17:54:38.656 21439 21460 I Bugle   : DatabaseHelperBasic: sqlite version is 3.32.2
+245-09-08 17:54:38.657 21439 21461 D WM-SystemJobScheduler: Scheduling work ID 92f5d307-797b-4d2a-90b5-cd91829f91ee (com.google.android.libraries.mdi.download.workmanager.workers.PeriodicWorker), Job ID 1914
+246-09-08 17:54:38.661 21439 21461 D WM-SystemJobScheduler: Scheduling work ID fa2a4f18-5ef8-473a-ae09-e87ccaa7e32b (com.google.apps.tiktok.contrib.work.TikTokListenableWorker), Job ID 1920
+247-09-08 17:54:38.664 21439 21461 D WM-SystemJobScheduler: Scheduling work ID fd521ad7-e9ea-4231-b11c-dce53162ff4a (com.google.android.libraries.mdi.download.workmanager.workers.PeriodicWorker), Job ID 1915
+248-09-08 17:54:38.667 21439 21461 D WM-SystemJobScheduler: Scheduling work ID 70da3cd3-e6d9-4088-a286-f2ac1b83cab8 (com.google.apps.tiktok.contrib.work.TikTokListenableWorker), Job ID 1918
+249-09-08 17:54:38.670 21439 21461 D WM-SystemJobScheduler: Scheduling work ID 7c5714a1-be30-4a55-b842-c33356e0ef52 (com.google.android.libraries.communications.mobileconfiguration.sync.SyncWorker), Job ID 1905
+250-09-08 17:54:38.673 21439 21461 D WM-SystemJobScheduler: Scheduling work ID ea1b7eac-9b60-4415-a44b-3bf7c785f250 (com.google.android.apps.messaging.shared.rcs.availability.metrics.RcsAvailabilityLogWorker), Job ID 1911
+251-09-08 17:54:38.675 21439 21461 D WM-SystemJobScheduler: Scheduling work ID 516654a8-31df-45bd-b2f6-1d74fd4a6370 (com.google.apps.tiktok.contrib.work.TikTokListenableWorker), Job ID 1917
+252-09-08 17:54:38.676 21439 21439 D WM-SystemJobService: onStopJob for WorkGenerationalId(workSpecId=516654a8-31df-45bd-b2f6-1d74fd4a6370, generation=109)
+253-09-08 17:54:38.677 21470 21470 D nativeloader: Load libframework-connectivity-tiramisu-jni.so using APEX ns com_android_tethering for caller /apex/com.android.tethering/javalib/framework-connectivity-t.jar: ok
+254:09-08 17:54:38.677 21470 21470 D AndroidRuntime: Calling main entry com.android.commands.monkey.Monkey
+255-09-08 17:54:38.678 21470 21470 W Monkey  : args: [-p, com.p4pilot, -c, android.intent.category.LAUNCHER, 1]
+256-09-08 17:54:38.679 21470 21470 W Monkey  :  arg: "-p"
+257-09-08 17:54:38.679 21470 21470 W Monkey  :  arg: "com.p4pilot"
+258-09-08 17:54:38.679 21470 21470 W Monkey  :  arg: "-c"
+259-09-08 17:54:38.679 21470 21470 W Monkey  :  arg: "android.intent.category.LAUNCHER"
+260-09-08 17:54:38.679 21470 21470 W Monkey  :  arg: "1"
+261-09-08 17:54:38.679 21470 21470 W Monkey  : data="com.p4pilot"
+262-09-08 17:54:38.679 21470 21470 W Monkey  : data="android.intent.category.LAUNCHER"
+263-09-08 17:54:38.681 21439 21461 D WM-SystemJobScheduler: Scheduling work ID 4f483375-47b3-4b5a-a0c4-d9ee1207bd7f (com.google.apps.tiktok.contrib.work.TikTokListenableWorker), Job ID 1906
+264-09-08 17:54:38.681  1734  4296 W JobScheduler: Job didn't exist in JobStore: b72ee72 #u0a147/1917 com.google.android.apps.messaging/androidx.work.impl.background.systemjob.SystemJobService
+265-09-08 17:54:38.682 21439 21461 D WM-GreedyScheduler: Ignoring {WorkSpec: 189a8079-e7f2-409a-801f-0477bd6ad4b7}. Requires device idle.
+266-09-08 17:54:38.682 21439 21461 D WM-GreedyScheduler: Ignoring {WorkSpec: 4f483375-47b3-4b5a-a0c4-d9ee1207bd7f}. Requires ContentUri triggers.
+267-09-08 17:54:38.682 21439 21461 D WM-GreedyScheduler: Starting work for 516654a8-31df-45bd-b2f6-1d74fd4a6370
+268-09-08 17:54:38.682 21439 21460 I BugleDataModel: HeavyWorkQueueEmptyObserver: Starting observation of WorkQueueWorkManagerTable
+269-09-08 17:54:38.683 21439 21439 D WM-SystemJobService: onStartJob for WorkGenerationalId(workSpecId=516654a8-31df-45bd-b2f6-1d74fd4a6370, generation=109)
+270-09-08 17:54:38.688 21439 21472 D WM-Processor: ucz: processing WorkGenerationalId(workSpecId=516654a8-31df-45bd-b2f6-1d74fd4a6370, generation=109)
+271-09-08 17:54:38.690 21439 21472 D WM-Processor: WorkerWrapper interrupted for 516654a8-31df-45bd-b2f6-1d74fd4a6370 (com.google.apps.tiktok.contrib.work.TikTokListenableWorker), reason: 1
+272-09-08 17:54:38.690 21439 21472 D WM-StopWorkRunnable: StopWorkRunnable for 516654a8-31df-45bd-b2f6-1d74fd4a6370; Processor.stopWork = true, reason: 1
+273-09-08 17:54:38.691 21439 21459 D WM-Processor: ucz: processing WorkGenerationalId(workSpecId=516654a8-31df-45bd-b2f6-1d74fd4a6370, generation=109)
+274-09-08 17:54:38.692  1734  1873 W BroadcastQueue: Skipping deliver [background] BroadcastRecord{7f8abcb u-1 android.net.conn.CONNECTIVITY_CHANGE} to ReceiverList{33b2fa8 21470 (unknown name)/2000/u-1 remote:79c5f45}: process gone or crashing
+275-09-08 17:54:38.693 21439 21472 D WM-Processor: Work WorkGenerationalId(workSpecId=516654a8-31df-45bd-b2f6-1d74fd4a6370, generation=109) is already enqueued for processing
+276-09-08 17:54:38.694 21439 21472 D WM-WorkerWrapper: Status for 516654a8-31df-45bd-b2f6-1d74fd4a6370 is ENQUEUED; not doing any work and rescheduling for later execution
+277-09-08 17:54:38.699  1734  4300 I ActivityTaskManager: START u0 {act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10200000 cmp=com.p4pilot/.MainActivity} from uid 2000
+278-09-08 17:54:38.703 21439 21439 D WM-Processor: ucz 516654a8-31df-45bd-b2f6-1d74fd4a6370 executed; reschedule = true
+279-09-08 17:54:38.703 21439 21439 D WM-SystemJobService: 516654a8-31df-45bd-b2f6-1d74fd4a6370 executed on JobScheduler
+280-09-08 17:54:38.703 31923 32110 I FusedLocation: (REDACTED) location delivery to %s blocked - too close
+281-09-08 17:54:38.703 31923 32110 I FusedLocation: (REDACTED) location delivery to %s blocked - too close
+282-09-08 17:54:38.703 31923 32110 I FusedLocation: (REDACTED) location delivery to %s blocked - too close
+283-09-08 17:54:38.704 31923 32110 I FusedLocation: (REDACTED) location delivery to %s blocked - too fast
+284-09-08 17:54:38.704  1734  4300 D CompatibilityChangeReporter: Compat change id reported: 194480991; UID 10256; state: ENABLED
+285-09-08 17:54:38.706 31923 32110 I FusedLocation: (REDACTED) location delivery to %s blocked - too fast
+286-09-08 17:54:38.706 21439 21472 D MddListenableWorkerFactory: createWorker for class: com.google.apps.tiktok.contrib.work.TikTokListenableWorker
+287-09-08 17:54:38.713  1734  4300 D CompatibilityChangeReporter: Compat change id reported: 205907456; UID 10256; state: ENABLED
+288-09-08 17:54:38.714 21439 21439 D WM-WorkerWrapper: Starting work for com.google.apps.tiktok.contrib.work.TikTokListenableWorker
+289-09-08 17:54:38.720  1734  4300 D CompatibilityChangeReporter: Compat change id reported: 194833441; UID 10256; state: ENABLED
+290-09-08 17:54:38.720 31923 15907 W BpBinder: Large outgoing transaction of 372584 bytes, interface descriptor <uncached descriptor>, code 4
+291-09-08 17:54:38.723 21470 21470 I Monkey  : Events injected: 1
+292-09-08 17:54:38.737 21439 21459 D WM-SystemJobScheduler: Cancelling work ID 516654a8-31df-45bd-b2f6-1d74fd4a6370, Job ID 1917
+293-09-08 17:54:38.740  1734  1856 D CompatibilityChangeReporter: Compat change id reported: 135634846; UID 10256; state: DISABLED
+294-09-08 17:54:38.740  1734  1856 D CompatibilityChangeReporter: Compat change id reported: 177438394; UID 10256; state: DISABLED
+295-09-08 17:54:38.740  1734  1856 D CompatibilityChangeReporter: Compat change id reported: 135772972; UID 10256; state: DISABLED
+296-09-08 17:54:38.740  1734  1856 D CompatibilityChangeReporter: Compat change id reported: 135754954; UID 10256; state: ENABLED
+297-09-08 17:54:38.741  1734  1874 D CompatibilityChangeReporter: Compat change id reported: 143937733; UID 10256; state: ENABLED
+298-09-08 17:54:38.744 21439 21439 I DefaultProcessValidator: Validating WorkManager process
+299-09-08 17:54:38.744 21439 21459 D WM-GreedyScheduler: Cancelling work ID 516654a8-31df-45bd-b2f6-1d74fd4a6370
+300-09-08 17:54:38.750 21439 21462 I Bugle   : TelephonyManagerFactory: Returning per-subscription TelephonyManager (>= N) subscription{id:-1}
+301-09-08 17:54:38.751 31923 15907 W PhBaseOp: Phenotype API error. Event: # izuz@61885ca9, EventCode: COMMIT_CONFIG [CONTEXT service_id=51 ]
+302-09-08 17:54:38.751 31923 15907 W PhBaseOp: fimi: 29547: Stale snapshot for tiktok.device#com.google.android.apps.messaging(new configuration available)
+303-09-08 17:54:38.751 31923 15907 W PhBaseOp: 	at fiol.d(:com.google.android.gms@263234029@26.32.34 (190400-968093310):441)
+304-09-08 17:54:38.751 31923 15907 W PhBaseOp: 	at fiol.b(:com.google.android.gms@263234029@26.32.34 (190400-968093310):44)
+305-09-08 17:54:38.751 31923 15907 W PhBaseOp: 	at fiok.i(:com.google.android.gms@263234029@26.32.34 (190400-968093310):3)
+306-09-08 17:54:38.751 31923 15907 W PhBaseOp: 	at fiog.h(:com.google.android.gms@263234029@26.32.34 (190400-968093310):34)
+307-09-08 17:54:38.751 31923 15907 W PhBaseOp: 	at fiog.f(:com.google.android.gms@263234029@26.32.34 (190400-968093310):16)
+308-09-08 17:54:38.751 31923 15907 W PhBaseOp: 	at dctb.fy(:com.google.android.gms@263234029@26.32.34 (190400-968093310):1)
+309-09-08 17:54:38.751 31923 15907 W PhBaseOp: 	at dctn.run(:com.google.android.gms@263234029@26.32.34 (190400-968093310):122)
+310-09-08 17:54:38.751 31923 15907 W PhBaseOp: 	at hkhu.run(:com.google.android.gms@263234029@26.32.34 (190400-968093310):23)
+311-09-08 17:54:38.751 31923 15907 W PhBaseOp: 	at blzn.d(:com.google.android.gms@263234029@26.32.34 (190400-968093310):50)
+312-09-08 17:54:38.751 31923 15907 W PhBaseOp: 	at blzn.c(:com.google.android.gms@263234029@26.32.34 (190400-968093310):6)
+313-09-08 17:54:38.751 31923 15907 W PhBaseOp: 	at blzn.run(:com.google.android.gms@263234029@26.32.34 (190400-968093310):33)
+314-09-08 17:54:38.751 31923 15907 W PhBaseOp: 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1100)
+315-09-08 17:54:38.751 31923 15907 W PhBaseOp: 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+316-09-08 17:54:38.751 31923 15907 W PhBaseOp: 	at bmfk.run(:com.google.android.gms@263234029@26.32.34 (190400-968093310):8)
+317-09-08 17:54:38.751 31923 15907 W PhBaseOp: 	at java.lang.Thread.run(Thread.java:1572)
+318-09-08 17:54:38.751 31923 15907 W AsyncOperation: operation=CommitToConfigurationOperationCall, opStatusCode=29547 [CONTEXT service_id=51 ]
+319-09-08 17:54:38.751 31923 15907 W AsyncOperation: OperationException[Status{statusCode=Stale snapshot for tiktok.device#com.google.android.apps.messaging(new configuration available), resolution=null}]
+320-09-08 17:54:38.751 31923 15907 W AsyncOperation: 	at fiog.h(:com.google.android.gms@263234029@26.32.34 (190400-968093310):63)
+321-09-08 17:54:38.751 31923 15907 W AsyncOperation: 	at fiog.f(:com.google.android.gms@263234029@26.32.34 (190400-968093310):16)
+322-09-08 17:54:38.751 31923 15907 W AsyncOperation: 	at dctb.fy(:com.google.android.gms@263234029@26.32.34 (190400-968093310):1)
+323-09-08 17:54:38.751 31923 15907 W AsyncOperation: 	at dctn.run(:com.google.android.gms@263234029@26.32.34 (190400-968093310):122)
+324-09-08 17:54:38.751 31923 15907 W AsyncOperation: 	at hkhu.run(:com.google.android.gms@263234029@26.32.34 (190400-968093310):23)
+325-09-08 17:54:38.751 31923 15907 W AsyncOperation: 	at blzn.d(:com.google.android.gms@263234029@26.32.34 (190400-968093310):50)
+326-09-08 17:54:38.751 31923 15907 W AsyncOperation: 	at blzn.c(:com.google.android.gms@263234029@26.32.34 (190400-968093310):6)
+327-09-08 17:54:38.751 31923 15907 W AsyncOperation: 	at blzn.run(:com.google.android.gms@263234029@26.32.34 (190400-968093310):33)
+328-09-08 17:54:38.751 31923 15907 W AsyncOperation: 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1100)
+329-09-08 17:54:38.751 31923 15907 W AsyncOperation: 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+330-09-08 17:54:38.751 31923 15907 W AsyncOperation: 	at bmfk.run(:com.google.android.gms@263234029@26.32.34 (190400-968093310):8)
+331-09-08 17:54:38.751 31923 15907 W AsyncOperation: 	at java.lang.Thread.run(Thread.java:1572)
+332-09-08 17:54:38.753  1734  4300 D CoreBackPreview: Window{8634276 u0 Splash Screen com.p4pilot}: Setting back callback OnBackInvokedCallbackInfo{mCallback=android.window.IOnBackInvokedCallback$Stub$Proxy@7c441b0, mPriority=0}
+333-09-08 17:54:38.757 21439 21459 D WM-GreedyScheduler: Ignoring {WorkSpec: 189a8079-e7f2-409a-801f-0477bd6ad4b7}. Requires device idle.
+334-09-08 17:54:38.757 21439 21459 D WM-GreedyScheduler: Ignoring {WorkSpec: 4f483375-47b3-4b5a-a0c4-d9ee1207bd7f}. Requires ContentUri triggers.
+335-09-08 17:54:38.759 21470 21470 I Monkey  : ## Network stats: elapsed time=58ms (0ms mobile, 0ms wifi, 58ms not connected)
+336-09-08 17:54:38.760 21470 21470 I app_process: System.exit called, status: 0
+337:09-08 17:54:38.760 21470 21470 I AndroidRuntime: VM exiting with result code 0.
+338-09-08 17:54:38.762  2355  2388 W Parcel  : Expecting binder but got null!
+339-09-08 17:54:38.766  1056  1056 D Zygote  : Forked child process 21490
+340-09-08 17:54:38.767 21439 21453 I DefaultProcessValidator: Processes: NONE, true, com.google.android.apps.messaging, com.google.android.apps.messaging
+341-09-08 17:54:38.778  1734  1874 I ActivityManager: Start proc 21490:com.p4pilot/u0a256 for next-top-activity {com.p4pilot/com.p4pilot.MainActivity}
+342-09-08 17:54:38.780 21439 21462 I Bugle   : TelephonyManagerFactory: Returning per-subscription TelephonyManager (>= N) subscription{id:5}
+343-09-08 17:54:38.784 21490 21490 I com.p4pilot: Late-enabling -Xcheck:jni
+344-09-08 17:54:38.785 21439 21462 I Bugle   : TelephonySubscriptionInfoAsOfLmR1: getActiveSubscriptionInfo(): empty sub info [CONTEXT ratelimit_period="1 MINUTES" sub_id=5 ]
+345-09-08 17:54:38.808 31923 32110 I FusedLocation: (REDACTED) location delivery to %s blocked - too close
+346-09-08 17:54:38.808 31923 32110 I FusedLocation: (REDACTED) location delivery to %s blocked - too close
+347-09-08 17:54:38.808 31923 32110 I FusedLocation: (REDACTED) location delivery to %s blocked - too close
+348-09-08 17:54:38.808 31923 32110 I FusedLocation: (REDACTED) location delivery to %s blocked - too fast
+349-09-08 17:54:38.808 21490 21490 I com.p4pilot: Using generational CollectorTypeCC GC.
+350-09-08 17:54:38.809 31923 32110 I FusedLocation: (REDACTED) location delivery to %s blocked - too fast
+351-09-08 17:54:38.813  1410  1483 I adbd    : jdwp connection from 21490
+352-09-08 17:54:38.815  2734  2734 W ViewRootImpl: Not reporting timeline because gpuCompletedTime is 4493781.541362ms ahead of presentTime. FRAME_TIMELINE_VSYNC_ID=3600710, INPUT_EVENT_ID=1209849478
+353-09-08 17:54:38.817 21439 21472 D CompatibilityChangeReporter: Compat change id reported: 303742236; UID 10147; state: ENABLED
+354-09-08 17:54:38.821 15597 15597 I cmzb    : onPause
+355-09-08 17:54:38.823 15597 15597 I cmqn    : onPause
+356-09-08 17:54:38.823 15597 15597 W efry    : measuring already stopped.
+357-09-08 17:54:38.825 21439 21472 I Bugle   : isDefaultSmsApp: true [CONTEXT class_name="PhoneConfiguration" ]
+358-09-08 17:54:38.831  2734  2734 W ViewRootImpl: Not reporting timeline because gpuCompletedTime is 4531203.1605589995ms ahead of presentTime. FRAME_TIMELINE_VSYNC_ID=3617091, INPUT_EVENT_ID=1832213024
+359-09-08 17:54:38.837 21439 21460 I BugleJobs: Starting sync data to wearable message observer. [CONTEXT class_name="SyncDataToWearableMessageChangeObserver" ]
+360-09-08 17:54:38.848 21490 21490 D nativeloader: Load libframework-connectivity-tiramisu-jni.so using APEX ns com_android_tethering for caller /apex/com.android.tethering/javalib/framework-connectivity-t.jar: ok
+361-09-08 17:54:38.872  1093  1194 D VSC     : @ 77297.015: [WO] Proposed rotation: 3, flat angle threshold: 40
+362-09-08 17:54:38.872  1093  1194 D VSC     : @ 77297.015: [WO] orientation angle 265, orientation 3
+363-09-08 17:54:38.872  1093  1194 D VSC     : @ 77297.015: [WO] Gyro angle integrated: 0.026718
+364-09-08 17:54:38.874 21490 21490 D CompatibilityChangeReporter: Compat change id reported: 171979766; UID 10256; state: ENABLED
+365-09-08 17:54:38.897 21490 21490 D nativeloader: Configuring clns-4 for other apk /data/app/~~CXd_mRBNZGBJsgvs_qU2dw==/com.p4pilot-x4Yf_0ebegfVXcnJ7cccSQ==/base.apk. target_sdk_version=33, uses_libraries=, library_path=/data/app/~~CXd_mRBNZGBJsgvs_qU2dw==/com.p4pilot-x4Yf_0ebegfVXcnJ7cccSQ==/lib/arm64, permitted_path=/data:/mnt/expand:/data/user/0/com.p4pilot
+366-09-08 17:54:38.903 21439 21439 I BugleRestore: Returning restoreAnytimeCompatibleRestoreWorkflowSteps [CONTEXT ratelimit_period="10 SECONDS" ]
+367-09-08 17:54:38.907  1734  2352 D ActivityManager: sync unfroze 20018 com.google.android.gm
+368-09-08 17:54:38.909  1734  2352 D CompatibilityChangeReporter: Compat change id reported: 168419799; UID 10177; state: DISABLED
+369-09-08 17:54:38.909 21490 21490 D nativeloader: Load libframework-connectivity-jni.so using APEX ns com_android_tethering for caller /apex/com.android.tethering/javalib/framework-connectivity.jar: ok
+370-09-08 17:54:38.915 21490 21490 V GraphicsEnvironment: ANGLE Developer option for 'com.p4pilot' set to: 'default'
+371-09-08 17:54:38.916 21490 21490 V GraphicsEnvironment: ANGLE GameManagerService for com.p4pilot: false
+372-09-08 17:54:38.916 21490 21490 V GraphicsEnvironment: Updatable production driver is not supported on the device.
+373-09-08 17:54:38.920 21490 21490 D NetworkSecurityConfig: No Network Security Config specified, using platform default
+374-09-08 17:54:38.920 21439 21439 I SyncManagerImpl: #sync(). Running Synclets and scheduling next sync.
+375-09-08 17:54:38.921 21439 21439 D CompatibilityChangeReporter: Compat change id reported: 119147584; UID 10147; state: ENABLED
+376-09-08 17:54:38.921 31923 32110 I FusedLocation: (REDACTED) location delivery to %s blocked - too close
+377-09-08 17:54:38.921 21490 21490 D NetworkSecurityConfig: No Network Security Config specified, using platform default
+378-09-08 17:54:38.921 31923 32110 I FusedLocation: (REDACTED) location delivery to %s blocked - too close
+379-09-08 17:54:38.924 31923 32110 I FusedLocation: (REDACTED) location delivery to %s blocked - too close
+380-09-08 17:54:38.925 31923 32110 I FusedLocation: (REDACTED) location delivery to %s blocked - too fast
+381-09-08 17:54:38.926 31923 32110 I FusedLocation: (REDACTED) location delivery to %s blocked - too fast
+382-09-08 17:54:38.957 21439 21514 I SyncManagerImpl: Running synclets: [TemplateFetcherSynclet]
+383-09-08 17:54:38.962 21439 21467 I SyncManagerImpl: Starting synclet: TemplateFetcherSynclet
+384-09-08 17:54:38.963 21439 21460 I Bugle   : DatabaseHelperBasic.doInitializationTraced() returned SQLiteDatabase: /data/user/0/com.google.android.apps.messaging/databases/bugle_db
+385-09-08 17:54:38.963 21439 21460 I Bugle   : DatabaseHelperBasic.doInitializationTraced returned SQLiteDatabase: /data/user/0/com.google.android.apps.messaging/databases/bugle_db
+386-09-08 17:54:38.967 21490 21490 D CompatibilityChangeReporter: Compat change id reported: 210923482; UID 10256; state: ENABLED
+387-09-08 17:54:38.985 21490 21490 I System.out: P4Pilot outputDir=/storage/emulated/0/Android/data/com.p4pilot/files/P4Pilot/step41
+388-09-08 17:54:38.987 21490 21490 I System.out: P4Pilot Step54 CAMERA_THREAD=P4Pilot-CameraThread
+389-09-08 17:54:38.987 21490 21490 I System.out: P4Pilot Step54 PROCESSING_THREAD=P4Pilot-ProcessingThread
+390-09-08 17:54:38.988  1734  2468 D ConnectivityService: Returning UNBLOCKED NetworkInfo to uid=10177
+391-09-08 17:54:38.989 21439 21472 W .apps.messaging: Verification of void djji.j(int, domy) took 149.197ms (583.12 bytecodes/s) (0B arena alloc)
+392-09-08 17:54:38.990 21490 21490 I CameraManagerGlobal: Connecting to camera service
+393-09-08 17:54:39.011  1330  5183 I CameraService: CameraService::connect call (PID -1 "com.p4pilot", camera ID 0) and Camera API version 2
+394-09-08 17:54:39.012  1330  5183 I Camera2ClientBase: Camera 0: Opened. Client: com.p4pilot (PID 21490, UID 10256)
+395-09-08 17:54:39.012  1330  5183 I CameraDeviceClient: CameraDeviceClient 0: Opened
+396-09-08 17:54:39.013  1330  5183 I CameraService: onTorchStatusChangedLocked: Torch status changed for cameraId=0, newStatus=0
+397-09-08 17:54:39.014  1975  1977 I pixel-thermal: sdm-therm-monitor: 40.303
+398-09-08 17:54:39.014  2573  2573 D GRIL-S  : [0184]> UPDATE_DEVICE_STATE DeviceState: Usb:1, Wifi: 1, Wifi AP: 0, Earpiece: 0, Bluetooth: 1, Wireless charging: 0, Screen: 1, Camera: 1, 0, 0, -, Motion: 0, Bluetooth tethering: 0, Voice: 0, Wifi 2.4G: 0, Radio: 0, Bluetooth connected: 0, Bluetooth media: 0, Wifi Band: 2, Wifi AP Band: 0, Wifi call: 0, mmWave: 0, mCellBackhaul: 0, mHallSensor: 0
+399-09-08 17:54:39.015  1076  8592 D GCH_CameraDeviceHwlImpl: CreateCameraDeviceSessionHwl CAMERA_LAUNCH 1
+400-09-08 17:54:39.016  1330  5183 I CameraProviderManager: Camera device device@1.1/internal/0 torch status is now NOT_AVAILABLE
+401-09-08 17:54:39.016  1330  5183 I CameraService: onTorchStatusChangedLocked: Torch status changed for cameraId=0, newStatus=0
+402-09-08 17:54:39.016  2573  3266 D GRIL-S  : [0184]< UPDATE_DEVICE_STATE 
+403-09-08 17:54:39.017  3075  3215 I SconeBluetoothSarContro: No config
+404-09-08 17:54:39.018  1076  8592 I GCH_CameraDeviceSession: Initialize: measure buffer allocation time: 0 
+405-09-08 17:54:39.018  3101 16937 I AiAiEcho: (REDACTED) Settings changed for uri: %s
+406-09-08 17:54:39.020  1076  8592 E GCH_Utils: GetZoomRatioRange: Getting ANDROID_CONTROL_ZOOM_RATIO_RANGE failed: No such file or directory(-2) count: 0
+407-09-08 17:54:39.020  1076  8592 W GCH_CameraDeviceSession: InitializeZoomRatioMapper: Failed to get the zoom ratio range: No such file or directory(-2)
+408-09-08 17:54:39.020  1076  8592 I GCH_CameraDeviceSession: Create: Created a device session for camera 0 with 2 physical cameras: 3 4 
+409-09-08 17:54:39.026  1975  1975 I pixel-thermal: a callback has been registered to ThermalHAL, isFilter: 0 Type: UNKNOWN
+410-09-08 17:54:39.029 31923 32110 I FusedLocation: (REDACTED) location delivery to %s blocked - too close
+411-09-08 17:54:39.029 21439 21472 I BugleTransport: Not kicking off update transport registration because RCS provisioning change has not been received.
+412-09-08 17:54:39.029 31923 32110 I FusedLocation: (REDACTED) location delivery to %s blocked - too close
+413-09-08 17:54:39.030 31923 32110 I FusedLocation: (REDACTED) location delivery to %s blocked - too close
+414-09-08 17:54:39.030 31923 32110 I FusedLocation: (REDACTED) location delivery to %s blocked - too fast
+415-09-08 17:54:39.030 21439 21472 I BugleRcsProvisioning: BugleSystemBindingManager: onBuglePhenotypeFlagChanged
+416-09-08 17:54:39.030  1975  1975 I pixel-thermal: Sending notification:  Type: UNKNOWN Name: bcl-virt-monitor CurrentValue: 0 ThrottlingStatus: NONE
+417-09-08 17:54:39.030  1975  1975 I pixel-thermal: Sending notification:  Type: SKIN Name: sdm-therm-monitor CurrentValue: 40.303 ThrottlingStatus: LIGHT
+
+============================================================
+P4PILOT ERROR CONTEXT
+============================================================
+09-08 17:55:12.641 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=997 processMs=20 totalMs=21
+09-08 17:55:12.671 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=998 processMs=18 totalMs=18
+09-08 17:55:12.705 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=999 processMs=21 totalMs=21
+09-08 17:55:12.741 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1000 processMs=22 totalMs=22
+09-08 17:55:12.771 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1001 processMs=21 totalMs=21
+09-08 17:55:12.803 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1002 processMs=19 totalMs=19
+09-08 17:55:12.839 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1003 processMs=19 totalMs=19
+09-08 17:55:12.842  1410  1410 I adbd    : adbd service requested 'shell,v2,TERM=xterm-256color,raw:pidof com.p4pilot'
+09-08 17:55:12.874 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1004 processMs=18 totalMs=19
+09-08 17:55:12.905 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1005 processMs=21 totalMs=21
+09-08 17:55:12.940 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1006 processMs=21 totalMs=21
+09-08 17:55:12.972 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1007 processMs=20 totalMs=21
+09-08 17:55:13.004 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1008 processMs=18 totalMs=18
+09-08 17:55:13.040 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1009 processMs=20 totalMs=20
+09-08 17:55:13.070 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1010 processMs=20 totalMs=20
+09-08 17:55:13.107 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1011 processMs=21 totalMs=21
+09-08 17:55:13.141 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1012 processMs=23 totalMs=23
+09-08 17:55:13.172 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1013 processMs=20 totalMs=21
+09-08 17:55:13.208 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1014 processMs=21 totalMs=21
+09-08 17:55:13.238 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1015 processMs=19 totalMs=19
+09-08 17:55:13.276 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1016 processMs=21 totalMs=21
+09-08 17:55:13.308 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1017 processMs=21 totalMs=21
+09-08 17:55:13.344 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1018 processMs=21 totalMs=21
+09-08 17:55:13.372 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1019 processMs=20 totalMs=20
+09-08 17:55:13.403 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1020 processMs=19 totalMs=19
+09-08 17:55:13.442 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1021 processMs=21 totalMs=21
+09-08 17:55:13.471 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1022 processMs=20 totalMs=20
+09-08 17:55:13.509 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1023 processMs=20 totalMs=21
+09-08 17:55:13.541 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1024 processMs=20 totalMs=21
+09-08 17:55:13.573 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1025 processMs=21 totalMs=21
+09-08 17:55:13.606 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1026 processMs=20 totalMs=20
+09-08 17:55:13.639 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1027 processMs=21 totalMs=21
+09-08 17:55:13.670 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1028 processMs=20 totalMs=20
+09-08 17:55:13.702 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1029 processMs=18 totalMs=18
+09-08 17:55:13.742 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1030 processMs=20 totalMs=20
+09-08 17:55:13.773 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1031 processMs=20 totalMs=20
+09-08 17:55:13.816 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1032 processMs=21 totalMs=22
+09-08 17:55:13.847 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1033 processMs=21 totalMs=21
+09-08 17:55:13.870 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1034 processMs=20 totalMs=20
+09-08 17:55:13.910 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1035 processMs=22 totalMs=22
+09-08 17:55:13.936 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1036 processMs=18 totalMs=19
+09-08 17:55:13.970 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1037 processMs=18 totalMs=19
+09-08 17:55:14.003 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1038 processMs=19 totalMs=19
+09-08 17:55:14.041 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1039 processMs=21 totalMs=21
+09-08 17:55:14.075 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1040 processMs=21 totalMs=21
+09-08 17:55:14.102 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1041 processMs=18 totalMs=18
+09-08 17:55:14.140 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1042 processMs=21 totalMs=21
+09-08 17:55:14.168 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1043 processMs=18 totalMs=18
+09-08 17:55:14.203 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1044 processMs=20 totalMs=20
+09-08 17:55:14.240 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1045 processMs=19 totalMs=20
+09-08 17:55:14.273 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1046 processMs=20 totalMs=20
+09-08 17:55:14.305 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1047 processMs=21 totalMs=21
+09-08 17:55:14.342 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1048 processMs=20 totalMs=20
+09-08 17:55:14.373 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1049 processMs=20 totalMs=20
+09-08 17:55:14.404 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1050 processMs=19 totalMs=20
+09-08 17:55:14.440 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1051 processMs=20 totalMs=20
+09-08 17:55:14.470 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1052 processMs=19 totalMs=19
+09-08 17:55:14.503 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1053 processMs=20 totalMs=20
+09-08 17:55:14.538 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1054 processMs=21 totalMs=21
+09-08 17:55:14.571 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1055 processMs=20 totalMs=20
+09-08 17:55:14.604 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1056 processMs=20 totalMs=20
+09-08 17:55:14.641 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1057 processMs=21 totalMs=21
+09-08 17:55:14.675 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1058 processMs=20 totalMs=20
+09-08 17:55:14.703 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1059 processMs=19 totalMs=19
+09-08 17:55:14.734 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1060 processMs=19 totalMs=19
+09-08 17:55:14.771 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1061 processMs=19 totalMs=19
+09-08 17:55:14.808 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1062 processMs=20 totalMs=20
+09-08 17:55:14.837 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1063 processMs=19 totalMs=19
+09-08 17:55:14.870 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1064 processMs=20 totalMs=20
+09-08 17:55:14.902 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1065 processMs=19 totalMs=19
+09-08 17:55:14.943 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1066 processMs=21 totalMs=22
+09-08 17:55:14.975 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1067 processMs=22 totalMs=22
+09-08 17:55:15.013 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1068 processMs=20 totalMs=21
+09-08 17:55:15.040 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1069 processMs=20 totalMs=20
+09-08 17:55:15.068 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1070 processMs=20 totalMs=20
+09-08 17:55:15.106 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1071 processMs=18 totalMs=18
+09-08 17:55:15.141 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1072 processMs=20 totalMs=20
+09-08 17:55:15.171 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1073 processMs=20 totalMs=21
+09-08 17:55:15.203 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1074 processMs=20 totalMs=20
+09-08 17:55:15.242 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1075 processMs=21 totalMs=21
+09-08 17:55:15.270 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1076 processMs=19 totalMs=19
+09-08 17:55:15.302 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1077 processMs=20 totalMs=20
+09-08 17:55:15.337 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1078 processMs=18 totalMs=18
+09-08 17:55:15.376 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1079 processMs=21 totalMs=21
+09-08 17:55:15.409 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1080 processMs=20 totalMs=21
+09-08 17:55:15.439 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1081 processMs=22 totalMs=22
+09-08 17:55:15.471 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1082 processMs=21 totalMs=21
+09-08 17:55:15.503 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1083 processMs=18 totalMs=19
+09-08 17:55:15.541 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1084 processMs=20 totalMs=21
+09-08 17:55:15.571 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1085 processMs=19 totalMs=20
+09-08 17:55:15.611 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1086 processMs=22 totalMs=22
+09-08 17:55:15.642 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1087 processMs=21 totalMs=21
+09-08 17:55:15.669 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1088 processMs=19 totalMs=20
+09-08 17:55:15.703 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1089 processMs=22 totalMs=22
+09-08 17:55:15.740 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1090 processMs=20 totalMs=20
+09-08 17:55:15.773 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1091 processMs=19 totalMs=20
+09-08 17:55:15.809 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1092 processMs=21 totalMs=21
+09-08 17:55:15.837 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1093 processMs=20 totalMs=20
+09-08 17:55:15.872 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1094 processMs=22 totalMs=23
+09-08 17:55:15.906 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1095 processMs=20 totalMs=21
+09-08 17:55:15.938 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1096 processMs=20 totalMs=20
+09-08 17:55:15.972 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1097 processMs=21 totalMs=21
+09-08 17:55:16.002 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1098 processMs=19 totalMs=20
+09-08 17:55:16.027  1410  1410 I adbd    : adbd service requested 'shell,v2,TERM=xterm-256color,raw:pidof com.p4pilot'
+09-08 17:55:16.037 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1099 processMs=20 totalMs=21
+09-08 17:55:16.070 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1100 processMs=18 totalMs=19
+09-08 17:55:16.103 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1101 processMs=20 totalMs=20
+09-08 17:55:16.140 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1102 processMs=21 totalMs=21
+09-08 17:55:16.171 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1103 processMs=20 totalMs=20
+09-08 17:55:16.209 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1104 processMs=20 totalMs=20
+09-08 17:55:16.236 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1105 processMs=19 totalMs=19
+09-08 17:55:16.270 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1106 processMs=20 totalMs=20
+09-08 17:55:16.301 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1107 processMs=19 totalMs=20
+09-08 17:55:16.335 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1108 processMs=19 totalMs=19
+09-08 17:55:16.373 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1109 processMs=22 totalMs=23
+09-08 17:55:16.407 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1110 processMs=20 totalMs=20
+09-08 17:55:16.436 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1111 processMs=19 totalMs=19
+09-08 17:55:16.470 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1112 processMs=20 totalMs=20
+09-08 17:55:16.501 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1113 processMs=19 totalMs=19
+09-08 17:55:16.542 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1114 processMs=21 totalMs=21
+09-08 17:55:16.575 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1115 processMs=20 totalMs=20
+09-08 17:55:16.602 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1116 processMs=19 totalMs=19
+09-08 17:55:16.637 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1117 processMs=19 totalMs=20
+09-08 17:55:16.674 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1118 processMs=21 totalMs=21
+09-08 17:55:16.705 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1119 processMs=21 totalMs=21
+09-08 17:55:16.739 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1120 processMs=21 totalMs=21
+09-08 17:55:16.774 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1121 processMs=21 totalMs=21
+09-08 17:55:16.803 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1122 processMs=20 totalMs=20
+09-08 17:55:16.840 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1123 processMs=22 totalMs=23
+09-08 17:55:16.871 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1124 processMs=21 totalMs=21
+09-08 17:55:16.906 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1125 processMs=21 totalMs=21
+09-08 17:55:16.935 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1126 processMs=19 totalMs=19
+09-08 17:55:16.970 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1127 processMs=19 totalMs=19
+09-08 17:55:17.003 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1128 processMs=19 totalMs=19
+09-08 17:55:17.038 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1129 processMs=20 totalMs=21
+09-08 17:55:17.070 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1130 processMs=20 totalMs=20
+09-08 17:55:17.103 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1131 processMs=20 totalMs=20
+09-08 17:55:17.135 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1132 processMs=19 totalMs=20
+09-08 17:55:17.170 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1133 processMs=20 totalMs=20
+09-08 17:55:17.203 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1134 processMs=20 totalMs=20
+09-08 17:55:17.245 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1135 processMs=21 totalMs=22
+09-08 17:55:17.270 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1136 processMs=21 totalMs=21
+09-08 17:55:17.301 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1137 processMs=19 totalMs=19
+09-08 17:55:17.336 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1138 processMs=18 totalMs=18
+09-08 17:55:17.368 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1139 processMs=19 totalMs=19
+09-08 17:55:17.404 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1140 processMs=20 totalMs=20
+09-08 17:55:17.440 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1141 processMs=20 totalMs=20
+09-08 17:55:17.470 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1142 processMs=20 totalMs=20
+09-08 17:55:17.503 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1143 processMs=20 totalMs=20
+09-08 17:55:17.536 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1144 processMs=20 totalMs=20
+09-08 17:55:17.573 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1145 processMs=20 totalMs=20
+09-08 17:55:17.602 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1146 processMs=19 totalMs=19
+09-08 17:55:17.635 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1147 processMs=20 totalMs=20
+09-08 17:55:17.674 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1148 processMs=20 totalMs=20
+09-08 17:55:17.705 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1149 processMs=19 totalMs=20
+09-08 17:55:17.737 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1150 processMs=20 totalMs=21
+09-08 17:55:17.773 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1151 processMs=21 totalMs=21
+09-08 17:55:17.802 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1152 processMs=20 totalMs=20
+09-08 17:55:17.837 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1153 processMs=21 totalMs=21
+09-08 17:55:17.871 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1154 processMs=20 totalMs=20
+09-08 17:55:17.907 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1155 processMs=23 totalMs=25
+09-08 17:55:17.937 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1156 processMs=20 totalMs=20
+09-08 17:55:17.970 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1157 processMs=18 totalMs=19
+09-08 17:55:18.002 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1158 processMs=19 totalMs=19
+09-08 17:55:18.036 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1159 processMs=18 totalMs=19
+09-08 17:55:18.072 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1160 processMs=21 totalMs=21
+09-08 17:55:18.102 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1161 processMs=21 totalMs=21
+09-08 17:55:18.140 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1162 processMs=23 totalMs=24
+09-08 17:55:18.176 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1163 processMs=23 totalMs=23
+09-08 17:55:18.210 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1164 processMs=21 totalMs=21
+09-08 17:55:18.235 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1165 processMs=20 totalMs=20
+09-08 17:55:18.271 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1166 processMs=18 totalMs=19
+09-08 17:55:18.307 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1167 processMs=21 totalMs=21
+09-08 17:55:18.338 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1168 processMs=21 totalMs=21
+09-08 17:55:18.371 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1169 processMs=22 totalMs=22
+09-08 17:55:18.406 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1170 processMs=19 totalMs=19
+09-08 17:55:18.438 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1171 processMs=18 totalMs=19
+09-08 17:55:18.471 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1172 processMs=20 totalMs=21
+09-08 17:55:18.502 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1173 processMs=19 totalMs=19
+09-08 17:55:18.539 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1174 processMs=22 totalMs=22
+09-08 17:55:18.573 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1175 processMs=21 totalMs=21
+09-08 17:55:18.601 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1176 processMs=19 totalMs=19
+09-08 17:55:18.634 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1177 processMs=19 totalMs=19
+09-08 17:55:18.673 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1178 processMs=21 totalMs=22
+09-08 17:55:18.702 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1179 processMs=21 totalMs=21
+09-08 17:55:18.734 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1180 processMs=20 totalMs=20
+09-08 17:55:18.776 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1181 processMs=21 totalMs=21
+09-08 17:55:18.804 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1182 processMs=20 totalMs=21
+09-08 17:55:18.837 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1183 processMs=20 totalMs=20
+09-08 17:55:18.873 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1184 processMs=21 totalMs=21
+09-08 17:55:18.904 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1185 processMs=21 totalMs=21
+09-08 17:55:18.938 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1186 processMs=22 totalMs=22
+09-08 17:55:18.972 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1187 processMs=18 totalMs=18
+09-08 17:55:19.000 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1188 processMs=18 totalMs=18
+09-08 17:55:19.034 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1189 processMs=18 totalMs=18
+09-08 17:55:19.072 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1190 processMs=20 totalMs=21
+09-08 17:55:19.102 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1191 processMs=20 totalMs=20
+09-08 17:55:19.137 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1192 processMs=21 totalMs=21
+09-08 17:55:19.172 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1193 processMs=20 totalMs=20
+09-08 17:55:19.206 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1194 processMs=24 totalMs=24
+09-08 17:55:19.207  1410  1410 I adbd    : adbd service requested 'shell,v2,TERM=xterm-256color,raw:pidof com.p4pilot'
+09-08 17:55:19.235 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1195 processMs=19 totalMs=19
+09-08 17:55:19.268 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1196 processMs=19 totalMs=19
+09-08 17:55:19.303 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1197 processMs=19 totalMs=19
+09-08 17:55:19.339 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1198 processMs=19 totalMs=19
+09-08 17:55:19.376 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1199 processMs=24 totalMs=24
+09-08 17:55:19.400 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1200 processMs=18 totalMs=19
+09-08 17:55:19.436 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1201 processMs=18 totalMs=19
+09-08 17:55:19.472 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1202 processMs=18 totalMs=19
+09-08 17:55:19.502 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1203 processMs=19 totalMs=19
+09-08 17:55:19.541 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1204 processMs=25 totalMs=25
+09-08 17:55:19.570 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1205 processMs=18 totalMs=18
+09-08 17:55:19.602 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1206 processMs=19 totalMs=19
+09-08 17:55:19.635 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1207 processMs=19 totalMs=19
+09-08 17:55:19.668 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1208 processMs=18 totalMs=19
+09-08 17:55:19.701 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1209 processMs=19 totalMs=19
+09-08 17:55:19.735 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1210 processMs=19 totalMs=19
+09-08 17:55:19.777 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1211 processMs=24 totalMs=24
+09-08 17:55:19.803 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1212 processMs=21 totalMs=21
+09-08 17:55:19.834 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1213 processMs=19 totalMs=19
+09-08 17:55:19.868 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1214 processMs=18 totalMs=18
+09-08 17:55:19.903 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1215 processMs=21 totalMs=21
+09-08 17:55:19.935 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1216 processMs=18 totalMs=19
+09-08 17:55:19.969 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1217 processMs=19 totalMs=20
+09-08 17:55:20.003 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1218 processMs=19 totalMs=19
+09-08 17:55:20.035 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1219 processMs=18 totalMs=19
+09-08 17:55:20.076 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1220 processMs=22 totalMs=23
+09-08 17:55:20.101 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1221 processMs=19 totalMs=19
+09-08 17:55:20.135 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1222 processMs=19 totalMs=19
+09-08 17:55:20.174 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1223 processMs=25 totalMs=25
+09-08 17:55:20.202 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1224 processMs=19 totalMs=19
+09-08 17:55:20.234 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1225 processMs=19 totalMs=19
+09-08 17:55:20.271 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1226 processMs=20 totalMs=20
+09-08 17:55:20.302 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1227 processMs=18 totalMs=18
+09-08 17:55:20.337 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1228 processMs=19 totalMs=19
+09-08 17:55:20.373 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1229 processMs=22 totalMs=22
+09-08 17:55:20.401 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1230 processMs=20 totalMs=20
+09-08 17:55:20.435 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1231 processMs=19 totalMs=20
+09-08 17:55:20.471 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1232 processMs=19 totalMs=20
+09-08 17:55:20.502 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1233 processMs=19 totalMs=19
+09-08 17:55:20.537 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1234 processMs=19 totalMs=19
+09-08 17:55:20.573 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1235 processMs=19 totalMs=20
+09-08 17:55:20.606 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1236 processMs=22 totalMs=22
+09-08 17:55:20.638 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1237 processMs=21 totalMs=21
+09-08 17:55:20.669 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1238 processMs=19 totalMs=20
+09-08 17:55:20.700 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1239 processMs=18 totalMs=19
+09-08 17:55:20.734 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1240 processMs=18 totalMs=19
+09-08 17:55:20.767 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1241 processMs=18 totalMs=18
+09-08 17:55:20.801 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1242 processMs=19 totalMs=19
+09-08 17:55:20.843 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1243 processMs=21 totalMs=21
+09-08 17:55:20.867 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1244 processMs=19 totalMs=19
+09-08 17:55:20.900 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1245 processMs=18 totalMs=19
+09-08 17:55:20.933 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1246 processMs=18 totalMs=19
+09-08 17:55:20.968 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1247 processMs=19 totalMs=19
+09-08 17:55:21.002 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1248 processMs=20 totalMs=20
+09-08 17:55:21.035 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1249 processMs=18 totalMs=19
+09-08 17:55:21.069 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1250 processMs=18 totalMs=19
+09-08 17:55:21.102 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1251 processMs=19 totalMs=19
+09-08 17:55:21.142 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1252 processMs=23 totalMs=24
+09-08 17:55:21.173 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1253 processMs=23 totalMs=23
+09-08 17:55:21.202 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1254 processMs=20 totalMs=20
+09-08 17:55:21.239 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1255 processMs=20 totalMs=21
+09-08 17:55:21.270 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1256 processMs=21 totalMs=21
+09-08 17:55:21.308 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1257 processMs=21 totalMs=21
+09-08 17:55:21.336 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1258 processMs=20 totalMs=20
+09-08 17:55:21.371 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1259 processMs=21 totalMs=21
+09-08 17:55:21.405 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1260 processMs=20 totalMs=20
+09-08 17:55:21.438 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1261 processMs=20 totalMs=21
+09-08 17:55:21.471 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1262 processMs=20 totalMs=21
+09-08 17:55:21.503 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1263 processMs=20 totalMs=21
+09-08 17:55:21.537 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1264 processMs=20 totalMs=20
+09-08 17:55:21.570 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1265 processMs=20 totalMs=20
+09-08 17:55:21.603 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1266 processMs=20 totalMs=21
+09-08 17:55:21.637 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1267 processMs=21 totalMs=22
+09-08 17:55:21.670 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1268 processMs=20 totalMs=21
+09-08 17:55:21.710 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1269 processMs=20 totalMs=20
+09-08 17:55:21.737 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1270 processMs=20 totalMs=21
+09-08 17:55:21.769 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1271 processMs=20 totalMs=20
+09-08 17:55:21.805 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1272 processMs=20 totalMs=20
+09-08 17:55:21.836 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1273 processMs=21 totalMs=21
+09-08 17:55:21.870 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1274 processMs=21 totalMs=21
+09-08 17:55:21.905 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1275 processMs=20 totalMs=21
+09-08 17:55:21.938 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1276 processMs=20 totalMs=21
+09-08 17:55:21.972 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1277 processMs=21 totalMs=21
+09-08 17:55:22.005 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1278 processMs=21 totalMs=22
+09-08 17:55:22.046 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1279 processMs=21 totalMs=21
+09-08 17:55:22.077 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1280 processMs=20 totalMs=20
+09-08 17:55:22.107 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1281 processMs=20 totalMs=21
+09-08 17:55:22.142 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1282 processMs=22 totalMs=23
+09-08 17:55:22.170 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1283 processMs=21 totalMs=21
+09-08 17:55:22.206 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1284 processMs=21 totalMs=22
+09-08 17:55:22.238 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1285 processMs=21 totalMs=21
+09-08 17:55:22.270 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1286 processMs=20 totalMs=21
+09-08 17:55:22.303 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1287 processMs=21 totalMs=21
+09-08 17:55:22.338 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1288 processMs=21 totalMs=21
+09-08 17:55:22.371 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1289 processMs=20 totalMs=21
+09-08 17:55:22.393  1410  1410 I adbd    : adbd service requested 'shell,v2,TERM=xterm-256color,raw:pidof com.p4pilot'
+09-08 17:55:22.407 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1290 processMs=21 totalMs=21
+09-08 17:55:22.438 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1291 processMs=20 totalMs=20
+09-08 17:55:22.471 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1292 processMs=20 totalMs=21
+09-08 17:55:22.503 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1293 processMs=20 totalMs=20
+09-08 17:55:22.536 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1294 processMs=20 totalMs=20
+09-08 17:55:22.570 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1295 processMs=20 totalMs=20
+09-08 17:55:22.602 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1296 processMs=19 totalMs=20
+09-08 17:55:22.638 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1297 processMs=22 totalMs=23
+09-08 17:55:22.673 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1298 processMs=19 totalMs=20
+09-08 17:55:22.709 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1299 processMs=20 totalMs=20
+09-08 17:55:22.742 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1300 processMs=19 totalMs=20
+09-08 17:55:22.776 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1301 processMs=20 totalMs=20
+09-08 17:55:22.801 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1302 processMs=19 totalMs=20
+09-08 17:55:22.835 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1303 processMs=19 totalMs=19
+09-08 17:55:22.868 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1304 processMs=20 totalMs=20
+09-08 17:55:22.903 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1305 processMs=21 totalMs=22
+09-08 17:55:22.935 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1306 processMs=19 totalMs=19
+09-08 17:55:22.970 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1307 processMs=20 totalMs=20
+09-08 17:55:23.008 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1308 processMs=19 totalMs=20
+09-08 17:55:23.036 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1309 processMs=20 totalMs=21
+09-08 17:55:23.075 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1310 processMs=20 totalMs=20
+09-08 17:55:23.091 31923  4230 I NullBinder: NullBinder for android.net.action.RECOMMEND_NETWORKS triggering remote TransactionTooLargeException due to Service without Chimera impl, calling uid: 1000, calling pid: 0
+09-08 17:55:23.103 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1311 processMs=21 totalMs=21
+09-08 17:55:23.139 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1312 processMs=23 totalMs=23
+09-08 17:55:23.170 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1313 processMs=20 totalMs=20
+09-08 17:55:23.202 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1314 processMs=20 totalMs=21
+09-08 17:55:23.235 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1315 processMs=19 totalMs=20
+09-08 17:55:23.269 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1316 processMs=20 totalMs=20
+09-08 17:55:23.303 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1317 processMs=20 totalMs=20
+09-08 17:55:23.341 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1318 processMs=20 totalMs=20
+09-08 17:55:23.368 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1319 processMs=20 totalMs=20
+09-08 17:55:23.403 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1320 processMs=20 totalMs=21
+09-08 17:55:23.439 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1321 processMs=20 totalMs=20
+09-08 17:55:23.468 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1322 processMs=20 totalMs=20
+09-08 17:55:23.502 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1323 processMs=19 totalMs=20
+09-08 17:55:23.538 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1324 processMs=19 totalMs=20
+09-08 17:55:23.571 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1325 processMs=20 totalMs=21
+09-08 17:55:23.602 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1326 processMs=20 totalMs=20
+09-08 17:55:23.639 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1327 processMs=22 totalMs=22
+09-08 17:55:23.670 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1328 processMs=19 totalMs=19
+09-08 17:55:23.703 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1329 processMs=20 totalMs=21
+09-08 17:55:23.736 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1330 processMs=19 totalMs=19
+09-08 17:55:23.769 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1331 processMs=20 totalMs=20
+09-08 17:55:23.804 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1332 processMs=21 totalMs=21
+09-08 17:55:23.837 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1333 processMs=20 totalMs=21
+09-08 17:55:23.871 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1334 processMs=20 totalMs=21
+09-08 17:55:23.903 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1335 processMs=21 totalMs=21
+09-08 17:55:23.936 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1336 processMs=21 totalMs=21
+09-08 17:55:23.973 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1337 processMs=20 totalMs=20
+09-08 17:55:24.003 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1338 processMs=20 totalMs=21
+09-08 17:55:24.037 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1339 processMs=21 totalMs=21
+09-08 17:55:24.074 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1340 processMs=22 totalMs=23
+09-08 17:55:24.107 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1341 processMs=20 totalMs=20
+09-08 17:55:24.139 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1342 processMs=21 totalMs=21
+09-08 17:55:24.170 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1343 processMs=20 totalMs=20
+09-08 17:55:24.203 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1344 processMs=21 totalMs=21
+09-08 17:55:24.235 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1345 processMs=20 totalMs=20
+09-08 17:55:24.269 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1346 processMs=20 totalMs=20
+09-08 17:55:24.303 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1347 processMs=21 totalMs=21
+09-08 17:55:24.336 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1348 processMs=20 totalMs=21
+09-08 17:55:24.368 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1349 processMs=20 totalMs=20
+09-08 17:55:24.402 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1350 processMs=20 totalMs=21
+09-08 17:55:24.436 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1351 processMs=20 totalMs=21
+09-08 17:55:24.468 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1352 processMs=20 totalMs=20
+09-08 17:55:24.506 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1353 processMs=19 totalMs=20
+09-08 17:55:24.537 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1354 processMs=19 totalMs=20
+09-08 17:55:24.571 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1355 processMs=22 totalMs=23
+09-08 17:55:24.603 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1356 processMs=19 totalMs=20
+09-08 17:55:24.634 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1357 processMs=19 totalMs=20
+09-08 17:55:24.667 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1358 processMs=19 totalMs=19
+09-08 17:55:24.700 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1359 processMs=19 totalMs=19
+09-08 17:55:24.734 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1360 processMs=18 totalMs=19
+09-08 17:55:24.769 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1361 processMs=19 totalMs=20
+09-08 17:55:24.801 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1362 processMs=20 totalMs=21
+09-08 17:55:24.835 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1363 processMs=19 totalMs=20
+09-08 17:55:24.869 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1364 processMs=19 totalMs=19
+09-08 17:55:24.901 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1365 processMs=20 totalMs=20
+09-08 17:55:24.934 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1366 processMs=20 totalMs=20
+09-08 17:55:24.968 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1367 processMs=20 totalMs=20
+09-08 17:55:25.001 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1368 processMs=20 totalMs=20
+09-08 17:55:25.037 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1369 processMs=22 totalMs=22
+09-08 17:55:25.070 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1370 processMs=20 totalMs=21
+09-08 17:55:25.104 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1371 processMs=21 totalMs=21
+09-08 17:55:25.135 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1372 processMs=20 totalMs=21
+09-08 17:55:25.169 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1373 processMs=21 totalMs=21
+09-08 17:55:25.202 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1374 processMs=21 totalMs=21
+09-08 17:55:25.239 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1375 processMs=21 totalMs=22
+09-08 17:55:25.271 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1376 processMs=20 totalMs=21
+09-08 17:55:25.302 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1377 processMs=20 totalMs=21
+09-08 17:55:25.336 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1378 processMs=20 totalMs=21
+09-08 17:55:25.373 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1379 processMs=19 totalMs=20
+09-08 17:55:25.402 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1380 processMs=20 totalMs=21
+09-08 17:55:25.435 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1381 processMs=20 totalMs=20
+09-08 17:55:25.472 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1382 processMs=21 totalMs=22
+09-08 17:55:25.503 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1383 processMs=20 totalMs=20
+09-08 17:55:25.535 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1384 processMs=20 totalMs=20
+09-08 17:55:25.574 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1385 processMs=20 totalMs=21
+09-08 17:55:25.578  1410  1410 I adbd    : adbd service requested 'shell,v2,TERM=xterm-256color,raw:pidof com.p4pilot'
+09-08 17:55:25.602 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1386 processMs=20 totalMs=20
+09-08 17:55:25.638 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1387 processMs=20 totalMs=21
+09-08 17:55:25.668 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1388 processMs=20 totalMs=20
+09-08 17:55:25.701 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1389 processMs=20 totalMs=21
+09-08 17:55:25.735 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1390 processMs=21 totalMs=21
+09-08 17:55:25.772 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1391 processMs=20 totalMs=21
+09-08 17:55:25.806 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1392 processMs=20 totalMs=21
+09-08 17:55:25.835 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1393 processMs=21 totalMs=21
+09-08 17:55:25.869 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1394 processMs=21 totalMs=21
+09-08 17:55:25.902 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1395 processMs=21 totalMs=21
+09-08 17:55:25.938 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1396 processMs=22 totalMs=22
+09-08 17:55:25.972 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1397 processMs=21 totalMs=21
+09-08 17:55:26.003 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1398 processMs=21 totalMs=21
+09-08 17:55:26.035 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1399 processMs=20 totalMs=21
+09-08 17:55:26.066 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1400 processMs=20 totalMs=20
+09-08 17:55:26.102 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1401 processMs=21 totalMs=21
+09-08 17:55:26.106 31923 32357 I NullBinder: NullBinder for android.net.action.RECOMMEND_NETWORKS triggering remote TransactionTooLargeException due to Service without Chimera impl, calling uid: 1000, calling pid: 0
+09-08 17:55:26.138 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1402 processMs=21 totalMs=21
+09-08 17:55:26.173 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1403 processMs=21 totalMs=21
+09-08 17:55:26.208 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1404 processMs=21 totalMs=21
+09-08 17:55:26.240 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1405 processMs=20 totalMs=21
+09-08 17:55:26.269 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1406 processMs=20 totalMs=21
+09-08 17:55:26.302 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1407 processMs=20 totalMs=21
+09-08 17:55:26.336 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1408 processMs=20 totalMs=21
+09-08 17:55:26.370 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1409 processMs=21 totalMs=21
+09-08 17:55:26.401 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1410 processMs=21 totalMs=21
+09-08 17:55:26.437 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1411 processMs=20 totalMs=21
+09-08 17:55:26.471 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1412 processMs=20 totalMs=20
+09-08 17:55:26.501 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1413 processMs=20 totalMs=20
+09-08 17:55:26.534 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1414 processMs=21 totalMs=21
+09-08 17:55:26.572 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1415 processMs=20 totalMs=21
+09-08 17:55:26.602 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1416 processMs=20 totalMs=21
+09-08 17:55:26.638 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1417 processMs=22 totalMs=22
+09-08 17:55:26.670 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1418 processMs=20 totalMs=20
+09-08 17:55:26.700 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1419 processMs=20 totalMs=20
+09-08 17:55:26.735 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1420 processMs=20 totalMs=20
+09-08 17:55:26.767 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1421 processMs=20 totalMs=20
+09-08 17:55:26.804 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1422 processMs=20 totalMs=20
+09-08 17:55:26.835 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1423 processMs=20 totalMs=21
+09-08 17:55:26.874 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1424 processMs=23 totalMs=24
+09-08 17:55:26.902 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1425 processMs=20 totalMs=21
+09-08 17:55:26.935 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1426 processMs=20 totalMs=21
+09-08 17:55:26.972 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1427 processMs=20 totalMs=21
+09-08 17:55:27.007 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1428 processMs=20 totalMs=20
+09-08 17:55:27.035 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1429 processMs=20 totalMs=20
+09-08 17:55:27.070 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1430 processMs=20 totalMs=21
+09-08 17:55:27.100 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1431 processMs=20 totalMs=21
+09-08 17:55:27.138 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1432 processMs=19 totalMs=20
+09-08 17:55:27.168 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1433 processMs=19 totalMs=20
+09-08 17:55:27.201 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1434 processMs=20 totalMs=20
+09-08 17:55:27.238 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1435 processMs=19 totalMs=20
+09-08 17:55:27.271 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1436 processMs=20 totalMs=21
+09-08 17:55:27.303 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1437 processMs=22 totalMs=22
+09-08 17:55:27.339 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1438 processMs=19 totalMs=20
+09-08 17:55:27.370 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1439 processMs=19 totalMs=19
+09-08 17:55:27.402 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1440 processMs=20 totalMs=21
+09-08 17:55:27.434 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1441 processMs=20 totalMs=20
+09-08 17:55:27.470 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1442 processMs=20 totalMs=20
+09-08 17:55:27.501 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1443 processMs=20 totalMs=21
+09-08 17:55:27.534 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1444 processMs=20 totalMs=20
+09-08 17:55:27.574 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1445 processMs=20 totalMs=20
+09-08 17:55:27.600 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1446 processMs=20 totalMs=20
+09-08 17:55:27.635 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1447 processMs=20 totalMs=20
+09-08 17:55:27.669 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1448 processMs=20 totalMs=21
+09-08 17:55:27.701 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1449 processMs=20 totalMs=20
+09-08 17:55:27.734 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1450 processMs=20 totalMs=20
+09-08 17:55:27.768 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1451 processMs=20 totalMs=20
+09-08 17:55:27.806 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1452 processMs=22 totalMs=23
+09-08 17:55:27.836 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1453 processMs=20 totalMs=21
+09-08 17:55:27.869 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1454 processMs=20 totalMs=21
+09-08 17:55:27.901 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1455 processMs=20 totalMs=20
+09-08 17:55:27.941 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1456 processMs=20 totalMs=20
+09-08 17:55:27.971 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1457 processMs=20 totalMs=20
+09-08 17:55:28.001 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1458 processMs=19 totalMs=20
+09-08 17:55:28.036 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1459 processMs=21 totalMs=22
+09-08 17:55:28.069 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1460 processMs=20 totalMs=20
+09-08 17:55:28.101 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1461 processMs=20 totalMs=21
+09-08 17:55:28.140 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1462 processMs=20 totalMs=21
+09-08 17:55:28.167 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1463 processMs=20 totalMs=20
+09-08 17:55:28.202 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1464 processMs=20 totalMs=20
+09-08 17:55:28.237 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1465 processMs=19 totalMs=20
+09-08 17:55:28.274 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1466 processMs=22 totalMs=23
+09-08 17:55:28.300 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1467 processMs=20 totalMs=20
+09-08 17:55:28.334 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1468 processMs=20 totalMs=21
+09-08 17:55:28.367 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1469 processMs=19 totalMs=20
+09-08 17:55:28.401 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1470 processMs=20 totalMs=20
+09-08 17:55:28.439 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1471 processMs=21 totalMs=21
+09-08 17:55:28.474 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1472 processMs=20 totalMs=21
+09-08 17:55:28.501 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1473 processMs=20 totalMs=20
+09-08 17:55:28.535 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1474 processMs=20 totalMs=20
+09-08 17:55:28.568 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1475 processMs=20 totalMs=21
+09-08 17:55:28.601 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1476 processMs=19 totalMs=20
+09-08 17:55:28.634 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1477 processMs=20 totalMs=20
+09-08 17:55:28.670 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1478 processMs=22 totalMs=22
+09-08 17:55:28.704 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1479 processMs=20 totalMs=20
+09-08 17:55:28.735 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1480 processMs=20 totalMs=21
+09-08 17:55:28.763  1410  1410 I adbd    : adbd service requested 'shell,v2,TERM=xterm-256color,raw:pidof com.p4pilot'
+09-08 17:55:28.769 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1481 processMs=20 totalMs=21
+09-08 17:55:28.806 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1482 processMs=26 totalMs=26
+09-08 17:55:28.835 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1483 processMs=24 totalMs=24
+09-08 17:55:28.870 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1484 processMs=21 totalMs=21
+09-08 17:55:28.902 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1485 processMs=20 totalMs=20
+09-08 17:55:28.939 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1486 processMs=19 totalMs=19
+09-08 17:55:28.968 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1487 processMs=20 totalMs=20
+09-08 17:55:29.001 21490 21521 I System.out: P4Pilot Step54 PROCESSED frame=1488 processMs=20 totalMs=21
+
+============================================================
+Step55-CRASH-1 RESULTS
+============================================================
+INITIAL_PID=21490
+FINAL_PID=21490
+EXIT_SEC=
+FATAL_COUNT=0
+P4PILOT_PROCESS_CRASH_COUNT=0
+JAVA_EXCEPTION_CONTEXT_COUNT=0
+CRASH_CAPTURE=NO_REPRO
+
+Step55-CRASH-1 TEST_STATUS=NO_CRASH_REPRODUCED
+
+============================================================
+Step55-CRASH-1 result sync
+TEST_STATUS=UNKNOWN
+============================================================
