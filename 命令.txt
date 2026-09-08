@@ -996,3 +996,61 @@ ANDROID_SDK_ROOT=/usr/local/share/android-commandlinetools
 ============================================================
 Step 08 环境准备完成
 ============================================================
+
+============================================================
+P4Pilot Step 09 - Gradle 最终环境确认
+Time: 2026-09-08 15:49:50 +0800
+============================================================
+
+############################
+# Gradle
+############################
+/usr/local/bin/gradle
+
+------------------------------------------------------------
+Gradle 9.7.1
+------------------------------------------------------------
+
+Build time:    2026-08-19 14:16:09 UTC
+Revision:      92f0512e7f06d84621afba191f75e265363890cf
+
+Kotlin:        2.4.0
+Groovy:        4.0.32
+Ant:           Apache Ant(TM) version 1.10.17 compiled on April 6 2026
+Launcher JVM:  26.0.2.1 (Homebrew 26.0.2.1)
+Daemon JVM:    /usr/local/Cellar/openjdk/26.0.2.1/libexec/openjdk.jdk/Contents/Home (no Daemon JVM specified, using current Java home)
+OS:            Mac OS X 26.5.1 x86_64
+
+
+############################
+# Java
+############################
+/usr/local/bin/java
+openjdk version "17.0.18" 2026-01-20
+OpenJDK Runtime Environment Homebrew (build 17.0.18+0)
+OpenJDK 64-Bit Server VM Homebrew (build 17.0.18+0, mixed mode, sharing)
+JAVA_HOME=
+
+############################
+# Android SDK
+############################
+ANDROID_SDK_ROOT=/usr/local/share/android-commandlinetools
+ANDROID_HOME=/usr/local/share/android-commandlinetools
+-rw-r--r--  1 luojingyao  admin    26M  9月  8 15:17 /usr/local/share/android-commandlinetools/platforms/android-33/android.jar
+-rwxr-xr-x  1 luojingyao  admin   9.8M  9月  8 15:17 /usr/local/share/android-commandlinetools/build-tools/34.0.0/aapt2
+-rwxr-xr-x  1 luojingyao  admin   2.9K  9月  8 15:17 /usr/local/share/android-commandlinetools/build-tools/34.0.0/apksigner
+
+############################
+# ADB / Pixel
+############################
+List of devices attached
+9A181FFBA00072         device 20-6 product:coral model:Pixel_4_XL device:coral transport_id:3
+
+coral
+13
+33
+arm64-v8a
+
+============================================================
+Step 09 完成
+============================================================
