@@ -7558,3 +7558,23 @@ u0_a256      18516  1056 14530252 140796 0                  0 S com.p4pilot
 ============================================================
 P4Pilot Step54 测试阶段结束
 ============================================================
+
+============================================================
+P4Pilot Step 55 - 60秒 Camera2 持续稳定性测试
+Time: 2026-09-09 00:20:30 +0800
+============================================================
+
+>>> Git baseline
+05bee641bd97416dca0772bc61d28d51312d1ed4
+
+>>> yuv420ToBitmap 方法数量
+371:                                            yuv420ToBitmapFromCopiedPlanes(
+682:    private android.graphics.Bitmap yuv420ToBitmapFromCopiedPlanes(
+820:private android.graphics.Bitmap yuv420ToBitmap(Image image) {
+yuv420ToBitmap_COUNT=2
+ERROR: yuv420ToBitmap 方法数量不是 1
+
+Saving session...
+...copying shared history...
+...saving history...truncating history files...
+...completed.
