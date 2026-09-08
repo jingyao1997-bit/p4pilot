@@ -1100,3 +1100,1444 @@ build-error: 0 (30 days)
 ============================================================
 Step 10 完成
 ============================================================
+
+============================================================
+P4Pilot Step 11 - 创建 Gradle Wrapper
+Time: 2026-09-08 15:59:55 +0800
+============================================================
+
+>>> Gradle:
+/usr/local/bin/gradle
+
+------------------------------------------------------------
+Gradle 9.7.1
+------------------------------------------------------------
+
+Build time:    2026-08-19 14:16:09 UTC
+Revision:      92f0512e7f06d84621afba191f75e265363890cf
+
+Kotlin:        2.4.0
+Groovy:        4.0.32
+Ant:           Apache Ant(TM) version 1.10.17 compiled on April 6 2026
+Launcher JVM:  26.0.2.1 (Homebrew 26.0.2.1)
+Daemon JVM:    /usr/local/Cellar/openjdk/26.0.2.1/libexec/openjdk.jdk/Contents/Home (no Daemon JVM specified, using current Java home)
+OS:            Mac OS X 26.5.1 x86_64
+
+
+>>> Java:
+openjdk version "17.0.18" 2026-01-20
+OpenJDK Runtime Environment Homebrew (build 17.0.18+0)
+OpenJDK 64-Bit Server VM Homebrew (build 17.0.18+0, mixed mode, sharing)
+
+>>> 创建 Wrapper:
+Starting a Gradle Daemon (subsequent builds will be faster)
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Directory '/Users/luojingyao/p4pilot' does not contain a Gradle build.
+
+A Gradle build's root directory should contain one of the possible settings files: settings.gradle, settings.gradle.kts, settings.gradle.dcl. It may also contain one of the possible build files: build.gradle, build.gradle.kts, build.gradle.dcl.
+
+To create a new Gradle build in this directory run 'gradle init'
+
+For more information about the 'init' task, please refer to https://docs.gradle.org/9.7.1/userguide/build_init_plugin.html in the Gradle documentation.
+
+For more details on creating a Gradle build, please refer to https://docs.gradle.org/9.7.1/userguide/tutorial_using_tasks.html in the Gradle documentation.
+
+* Try:
+> Run gradle init to create a new Gradle build in this directory.
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 2s
+
+>>> Wrapper 文件:
+zsh: unknown file attribute:  
+
+>>> Wrapper 版本:
+zsh: no such file or directory: ./gradlew
+
+============================================================
+Step 11 完成
+============================================================
+
+============================================================
+P4Pilot Step 11A - Git 与 Gradle 状态诊断
+Time: 2026-09-08 16:29:04 +0800
+============================================================
+
+>>> Git remote:
+origin	https://github.com/jingyao1997-bit/p4pilot.git (fetch)
+origin	https://github.com/jingyao1997-bit/p4pilot.git (push)
+
+>>> Git branch:
+* main 7662751 [origin/main: 领先 5] docs: record Step 10 Gradle version
+
+>>> Git status:
+位于分支 main
+您的分支领先 'origin/main' 共 5 个提交。
+  （使用 "git push" 来发布您的本地提交）
+
+尚未暂存以备提交的变更：
+  （使用 "git add <文件>..." 更新要提交的内容）
+  （使用 "git restore <文件>..." 丢弃工作区的改动）
+	修改：     "\345\221\275\344\273\244.txt"
+
+修改尚未加入提交（使用 "git add" 和/或 "git commit -a"）
+
+>>> Git log -10:
+7662751 (HEAD -> main) docs: record Step 10 Gradle version
+597c318 docs: record Step 09 Gradle final environment
+614d4fc docs: record Step 08 Gradle installation
+2585e7f docs: record Step 07 Android project build toolchain check
+e31393c docs: record Step 07 Android project build toolchain check
+46c0632 (origin/main, origin/HEAD) docs: record Step 06 project and Android runtime check
+2b28e25 docs: record Step 05 Android build chain check
+9e26ac1 Step 04: sync experiment log
+eeb9e31 Step 04: configure Android SDK 33
+d78448d Step 03: install Android command line tools
+
+>>> Gradle:
+/usr/local/bin/gradle
+
+------------------------------------------------------------
+Gradle 9.7.1
+------------------------------------------------------------
+
+Build time:    2026-08-19 14:16:09 UTC
+Revision:      92f0512e7f06d84621afba191f75e265363890cf
+
+Kotlin:        2.4.0
+Groovy:        4.0.32
+Ant:           Apache Ant(TM) version 1.10.17 compiled on April 6 2026
+Launcher JVM:  26.0.2.1 (Homebrew 26.0.2.1)
+Daemon JVM:    /usr/local/Cellar/openjdk/26.0.2.1/libexec/openjdk.jdk/Contents/Home (no Daemon JVM specified, using current Java home)
+OS:            Mac OS X 26.5.1 x86_64
+
+
+>>> Wrapper files:
+zsh: unknown file attribute:  
+
+>>> 命令.txt 最后 80 行:
+For more information about the 'init' task, please refer to https://docs.gradle.org/9.7.1/userguide/build_init_plugin.html in the Gradle documentation.
+
+For more details on creating a Gradle build, please refer to https://docs.gradle.org/9.7.1/userguide/tutorial_using_tasks.html in the Gradle documentation.
+
+* Try:
+> Run gradle init to create a new Gradle build in this directory.
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 2s
+
+>>> Wrapper 文件:
+zsh: unknown file attribute:  
+
+>>> Wrapper 版本:
+zsh: no such file or directory: ./gradlew
+
+============================================================
+Step 11 完成
+============================================================
+
+============================================================
+P4Pilot Step 11A - Git 与 Gradle 状态诊断
+Time: 2026-09-08 16:29:04 +0800
+============================================================
+
+>>> Git remote:
+origin	https://github.com/jingyao1997-bit/p4pilot.git (fetch)
+origin	https://github.com/jingyao1997-bit/p4pilot.git (push)
+
+>>> Git branch:
+* main 7662751 [origin/main: 领先 5] docs: record Step 10 Gradle version
+
+>>> Git status:
+位于分支 main
+您的分支领先 'origin/main' 共 5 个提交。
+  （使用 "git push" 来发布您的本地提交）
+
+尚未暂存以备提交的变更：
+  （使用 "git add <文件>..." 更新要提交的内容）
+  （使用 "git restore <文件>..." 丢弃工作区的改动）
+	修改：     "\345\221\275\344\273\244.txt"
+
+修改尚未加入提交（使用 "git add" 和/或 "git commit -a"）
+
+>>> Git log -10:
+7662751 (HEAD -> main) docs: record Step 10 Gradle version
+597c318 docs: record Step 09 Gradle final environment
+614d4fc docs: record Step 08 Gradle installation
+2585e7f docs: record Step 07 Android project build toolchain check
+e31393c docs: record Step 07 Android project build toolchain check
+46c0632 (origin/main, origin/HEAD) docs: record Step 06 project and Android runtime check
+2b28e25 docs: record Step 05 Android build chain check
+9e26ac1 Step 04: sync experiment log
+eeb9e31 Step 04: configure Android SDK 33
+d78448d Step 03: install Android command line tools
+
+>>> Gradle:
+/usr/local/bin/gradle
+
+------------------------------------------------------------
+Gradle 9.7.1
+------------------------------------------------------------
+
+Build time:    2026-08-19 14:16:09 UTC
+Revision:      92f0512e7f06d84621afba191f75e265363890cf
+
+Kotlin:        2.4.0
+Groovy:        4.0.32
+Ant:           Apache Ant(TM) version 1.10.17 compiled on April 6 2026
+Launcher JVM:  26.0.2.1 (Homebrew 26.0.2.1)
+Daemon JVM:    /usr/local/Cellar/openjdk/26.0.2.1/libexec/openjdk.jdk/Contents/Home (no Daemon JVM specified, using current Java home)
+OS:            Mac OS X 26.5.1 x86_64
+
+
+>>> Wrapper files:
+zsh: unknown file attribute:  
+
+>>> 命令.txt 最后 80 行:
+
+============================================================
+Step 11A 完成
+============================================================
+
+============================================================
+P4Pilot Step 12 - 创建 Android 工程骨架
+Time: 2026-09-08 16:30:31 +0800
+============================================================
+
+>>> 当前目录:
+/Users/luojingyao/p4pilot
+
+>>> 当前文件:
+./sensor.txt
+./camera.txt
+./命令.txt
+./location.txt
+
+>>> 创建 Android 工程目录
+
+>>> 工程文件:
+./app/build.gradle
+./app/src/main/AndroidManifest.xml
+./build.gradle
+./camera.txt
+./location.txt
+./sensor.txt
+./settings.gradle
+./命令.txt
+
+>>> settings.gradle:
+pluginManagement {
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+rootProject.name = "P4Pilot"
+include(":app")
+
+>>> build.gradle:
+plugins {
+    id 'com.android.application' version '8.13.0' apply false
+}
+
+>>> app/build.gradle:
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.p4pilot'
+    compileSdk 33
+
+    defaultConfig {
+        applicationId 'com.p4pilot'
+        minSdk 26
+        targetSdk 33
+        versionCode 1
+        versionName '0.1.0'
+    }
+}
+
+============================================================
+Step 12 完成
+============================================================
+
+============================================================
+P4Pilot Step 13 - 生成 Gradle Wrapper
+Time: 2026-09-08 16:31:16 +0800
+============================================================
+
+>>> Gradle:
+
+------------------------------------------------------------
+Gradle 9.7.1
+------------------------------------------------------------
+
+Build time:    2026-08-19 14:16:09 UTC
+Revision:      92f0512e7f06d84621afba191f75e265363890cf
+
+Kotlin:        2.4.0
+Groovy:        4.0.32
+Ant:           Apache Ant(TM) version 1.10.17 compiled on April 6 2026
+Launcher JVM:  26.0.2.1 (Homebrew 26.0.2.1)
+Daemon JVM:    /usr/local/Cellar/openjdk/26.0.2.1/libexec/openjdk.jdk/Contents/Home (no Daemon JVM specified, using current Java home)
+OS:            Mac OS X 26.5.1 x86_64
+
+
+>>> Android 工程:
+./app/build.gradle
+./build.gradle
+./camera.txt
+./location.txt
+./sensor.txt
+./settings.gradle
+./命令.txt
+
+>>> 生成 Wrapper:
+
+FAILURE: Build failed with an exception.
+
+* Where:
+Build file '/Users/luojingyao/p4pilot/app/build.gradle' line: 2
+
+* What went wrong:
+An exception occurred applying plugin request [id: 'com.android.application']
+> Failed to apply plugin 'com.android.internal.application'.
+   > Failed to create service 'com.android.build.gradle.internal.errors.AndroidProblemReporterProvider_d6d624c6-44e7-4335-868a-81e279d100c6'.
+      > Could not create an instance of type com.android.build.gradle.internal.errors.AndroidProblemReporterProvider.
+         > Could not create service of type InternalProblems using ProblemsBuildTreeServices.createInternalProblems().
+            > Plugin 'com.android.internal.application' relies on 'org.gradle.api.problems.internal.InternalProblems', a Gradle internal API that was removed in Gradle 9.6.0. Update the plugin to a version that no longer uses Gradle internal APIs, or use Gradle 9.5. For more information, please refer to https://docs.gradle.org/9.7.1/userguide/upgrading_version_9.html#agp_8x_incompatible in the Gradle documentation.
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights from a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 1m 9s
+
+>>> Wrapper 文件:
+
+>>> Wrapper 版本:
+zsh: no such file or directory: ./gradlew
+
+============================================================
+Step 13 完成
+============================================================
+
+============================================================
+P4Pilot Step 13A - Gradle Wrapper 实际生成结果检查
+Time: 2026-09-08 16:33:40 +0800
+============================================================
+
+>>> Gradle Wrapper 文件:
+
+>>> 工程文件:
+./app/build.gradle
+./app/src/main/AndroidManifest.xml
+./build.gradle
+./camera.txt
+./location.txt
+./sensor.txt
+./settings.gradle
+./命令.txt
+
+>>> Gradle Wrapper 目录:
+ls: gradle: No such file or directory
+ls: gradle/wrapper: No such file or directory
+
+>>> gradlew:
+ls: gradlew: No such file or directory
+
+>>> git status:
+ M "\345\221\275\344\273\244.txt"
+?? .gradle/
+?? app/
+?? build.gradle
+?? settings.gradle
+
+============================================================
+Step 13A 完成
+============================================================
+
+============================================================
+P4Pilot Step 14 - 精确诊断 Gradle Wrapper
+Time: 2026-09-08 16:34:35 +0800
+============================================================
+
+>>> 当前 Java:
+openjdk version "17.0.18" 2026-01-20
+OpenJDK Runtime Environment Homebrew (build 17.0.18+0)
+OpenJDK 64-Bit Server VM Homebrew (build 17.0.18+0, mixed mode, sharing)
+
+>>> 查找 JDK 17:
+Matching Java Virtual Machines (1):
+    1.8.501.08 (x86_64) "Oracle Corporation" - "Java" /Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home
+/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home
+
+>>> JDK 17 路径:
+/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home
+
+>>> 设置 JAVA_HOME:
+JAVA_HOME=/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home
+
+>>> Gradle JVM:
+
+------------------------------------------------------------
+Gradle 9.7.1
+------------------------------------------------------------
+
+Build time:    2026-08-19 14:16:09 UTC
+Revision:      92f0512e7f06d84621afba191f75e265363890cf
+
+Kotlin:        2.4.0
+Groovy:        4.0.32
+Ant:           Apache Ant(TM) version 1.10.17 compiled on April 6 2026
+Launcher JVM:  1.8.0_501 (Oracle Corporation 25.501-b08)
+Daemon JVM:    /Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home (no Daemon JVM specified, using current Java home)
+OS:            Mac OS X 26.5.1 x86_64
+
+
+>>> Android 工程:
+./app/build.gradle
+./app/src/main/AndroidManifest.xml
+./build.gradle
+./camera.txt
+./location.txt
+./sensor.txt
+./settings.gradle
+./命令.txt
+
+>>> 执行 Gradle Wrapper:
+Starting a Gradle Daemon, 1 incompatible Daemon could not be reused, use --status for details
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Gradle requires JVM 17 or later to run. Your build is currently configured to use JVM 8.
+
+* Try:
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights from a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+* Exception is:
+org.gradle.internal.jvm.UnsupportedJavaRuntimeException: Gradle requires JVM 17 or later to run. Your build is currently configured to use JVM 8.
+	at org.gradle.internal.jvm.UnsupportedJavaRuntimeException.assertIsSupportedDaemonJvmVersion(UnsupportedJavaRuntimeException.java:54)
+	at org.gradle.launcher.daemon.client.DefaultDaemonStarter.startDaemon(DefaultDaemonStarter.java:135)
+	at org.gradle.launcher.daemon.client.DefaultDaemonConnector.doStartDaemon(DefaultDaemonConnector.java:219)
+	at org.gradle.launcher.daemon.client.DefaultDaemonConnector.startDaemon(DefaultDaemonConnector.java:213)
+	at org.gradle.launcher.daemon.client.DaemonClient.execute(DaemonClient.java:169)
+	at org.gradle.launcher.daemon.client.DaemonClient.execute(DaemonClient.java:97)
+	at org.gradle.launcher.cli.RunBuildAction.run(RunBuildAction.java:56)
+	at org.gradle.internal.Actions$RunnableActionAdapter.execute(Actions.java:167)
+	at org.gradle.launcher.cli.DefaultCommandLineActionFactory$ParseAndBuildAction.execute(DefaultCommandLineActionFactory.java:276)
+	at org.gradle.launcher.cli.DefaultCommandLineActionFactory$ParseAndBuildAction.execute(DefaultCommandLineActionFactory.java:240)
+	at org.gradle.launcher.cli.DebugLoggerWarningAction.execute(DebugLoggerWarningAction.java:74)
+	at org.gradle.launcher.cli.DebugLoggerWarningAction.execute(DebugLoggerWarningAction.java:30)
+	at org.gradle.launcher.cli.WelcomeMessageAction.execute(WelcomeMessageAction.java:97)
+	at org.gradle.launcher.cli.WelcomeMessageAction.execute(WelcomeMessageAction.java:40)
+	at org.gradle.launcher.cli.NativeServicesInitializingAction.execute(NativeServicesInitializingAction.java:50)
+	at org.gradle.launcher.cli.NativeServicesInitializingAction.execute(NativeServicesInitializingAction.java:27)
+	at org.gradle.launcher.cli.ExceptionReportingAction.execute(ExceptionReportingAction.java:41)
+	at org.gradle.launcher.cli.ExceptionReportingAction.execute(ExceptionReportingAction.java:26)
+	at org.gradle.launcher.cli.DefaultCommandLineActionFactory$WithLogging.execute(DefaultCommandLineActionFactory.java:389)
+	at org.gradle.launcher.Main.doAction(Main.java:35)
+	at org.gradle.launcher.bootstrap.EntryPoint.run(EntryPoint.java:53)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.gradle.launcher.bootstrap.ProcessBootstrap.runNoExit(ProcessBootstrap.java:72)
+	at org.gradle.launcher.bootstrap.ProcessBootstrap.run(ProcessBootstrap.java:39)
+	at org.gradle.launcher.GradleMain.main(GradleMain.java:26)
+
+
+>>> Wrapper 生成结果:
+
+>>> gradlew:
+ls: gradlew: No such file or directory
+
+============================================================
+Step 14 完成
+============================================================
+
+============================================================
+P4Pilot Step 15 - 修正 JDK 17 并生成 Gradle Wrapper
+Time: 2026-09-08 16:35:49 +0800
+============================================================
+
+>>> Homebrew OpenJDK:
+/usr/local/opt/openjdk
+/usr/local/opt/openjdk@17
+
+>>> JDK 目录:
+lrwxr-xr-x  1 luojingyao  admin  26  9月  8 15:38 /usr/local/opt/openjdk -> ../Cellar/openjdk/26.0.2.1
+lrwxr-xr-x  1 luojingyao  admin  28  3月 13 13:50 /usr/local/opt/openjdk@17 -> ../Cellar/openjdk@17/17.0.18
+lrwxr-xr-x  1 luojingyao  admin  26  9月  8 15:38 /usr/local/opt/openjdk@26 -> ../Cellar/openjdk/26.0.2.1
+drwxr-xr-x  4 luojingyao  admin  128  9月  8 15:38 /usr/local/Cellar/openjdk
+drwxr-xr-x  3 luojingyao  admin   96  3月 13 13:50 /usr/local/Cellar/openjdk@17
+
+>>> 查找 Java 17:
+openjdk version "17.0.18" 2026-01-20
+
+>>> 设置真正的 Homebrew JDK:
+JAVA_HOME=/usr/local/opt/openjdk/libexec/openjdk.jdk/Contents/Home
+
+>>> JAVA_HOME/bin/java:
+openjdk version "26.0.2.1" 2026-08-18
+OpenJDK Runtime Environment Homebrew (build 26.0.2.1)
+OpenJDK 64-Bit Server VM Homebrew (build 26.0.2.1, mixed mode, sharing)
+
+>>> JAVA_HOME/bin/javac:
+javac 26.0.2.1
+
+>>> Gradle JVM:
+
+------------------------------------------------------------
+Gradle 9.7.1
+------------------------------------------------------------
+
+Build time:    2026-08-19 14:16:09 UTC
+Revision:      92f0512e7f06d84621afba191f75e265363890cf
+
+Kotlin:        2.4.0
+Groovy:        4.0.32
+Ant:           Apache Ant(TM) version 1.10.17 compiled on April 6 2026
+Launcher JVM:  26.0.2.1 (Homebrew 26.0.2.1)
+Daemon JVM:    /usr/local/Cellar/openjdk/26.0.2.1/libexec/openjdk.jdk/Contents/Home (no Daemon JVM specified, using current Java home)
+OS:            Mac OS X 26.5.1 x86_64
+
+
+>>> 生成 Gradle Wrapper:
+
+FAILURE: Build failed with an exception.
+
+* Where:
+Build file '/Users/luojingyao/p4pilot/app/build.gradle' line: 2
+
+* What went wrong:
+An exception occurred applying plugin request [id: 'com.android.application']
+> Failed to apply plugin 'com.android.internal.application'.
+   > Failed to create service 'com.android.build.gradle.internal.errors.AndroidProblemReporterProvider_d6d624c6-44e7-4335-868a-81e279d100c6'.
+      > Could not create an instance of type com.android.build.gradle.internal.errors.AndroidProblemReporterProvider.
+         > Could not create service of type InternalProblems using ProblemsBuildTreeServices.createInternalProblems().
+            > Plugin 'com.android.internal.application' relies on 'org.gradle.api.problems.internal.InternalProblems', a Gradle internal API that was removed in Gradle 9.6.0. Update the plugin to a version that no longer uses Gradle internal APIs, or use Gradle 9.5. For more information, please refer to https://docs.gradle.org/9.7.1/userguide/upgrading_version_9.html#agp_8x_incompatible in the Gradle documentation.
+
+* Try:
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights from a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+* Exception is:
+org.gradle.api.plugins.InvalidPluginException: An exception occurred applying plugin request [id: 'com.android.application']
+	at org.gradle.plugin.use.internal.DefaultPluginRequestApplicator.exceptionOccurred(DefaultPluginRequestApplicator.java:184)
+	at org.gradle.plugin.use.internal.DefaultPluginRequestApplicator$ApplyAction.apply(DefaultPluginRequestApplicator.java:165)
+	at org.gradle.plugin.use.internal.DefaultPluginRequestApplicator.lambda$applyPlugins$1(DefaultPluginRequestApplicator.java:135)
+	at org.gradle.plugin.use.internal.DefaultPluginRequestApplicator.applyPlugins(DefaultPluginRequestApplicator.java:135)
+	at org.gradle.configuration.DefaultScriptPluginFactory$ScriptPluginImpl.apply(DefaultScriptPluginFactory.java:123)
+	at org.gradle.configuration.BuildOperationScriptPlugin$1.run(BuildOperationScriptPlugin.java:68)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$1.execute(DefaultBuildOperationRunner.java:30)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$1.execute(DefaultBuildOperationRunner.java:27)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:67)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:60)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:167)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:60)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.run(DefaultBuildOperationRunner.java:48)
+	at org.gradle.configuration.BuildOperationScriptPlugin.lambda$apply$0(BuildOperationScriptPlugin.java:65)
+	at org.gradle.internal.code.DefaultUserCodeApplicationContext.apply(DefaultUserCodeApplicationContext.java:44)
+	at org.gradle.configuration.BuildOperationScriptPlugin.apply(BuildOperationScriptPlugin.java:65)
+	at org.gradle.api.internal.project.DefaultProjectState.lambda$applyToMutableState$0(DefaultProjectState.java:241)
+	at org.gradle.api.internal.project.DefaultProjectState.lambda$fromMutableState$0(DefaultProjectState.java:248)
+	at org.gradle.api.internal.project.DefaultProjectState.runWithModelLock(DefaultProjectState.java:271)
+	at org.gradle.api.internal.project.DefaultProjectState.fromMutableState(DefaultProjectState.java:248)
+	at org.gradle.api.internal.project.DefaultProjectState.applyToMutableState(DefaultProjectState.java:240)
+	at org.gradle.configuration.project.BuildScriptProcessor.execute(BuildScriptProcessor.java:46)
+	at org.gradle.configuration.project.BuildScriptProcessor.execute(BuildScriptProcessor.java:27)
+	at org.gradle.configuration.project.ConfigureActionsProjectEvaluator.evaluate(ConfigureActionsProjectEvaluator.java:35)
+	at org.gradle.configuration.project.LifecycleProjectEvaluator$EvaluateProject.lambda$run$0(LifecycleProjectEvaluator.java:109)
+	at org.gradle.api.internal.project.DefaultProjectState.lambda$applyToMutableState$0(DefaultProjectState.java:241)
+	at org.gradle.api.internal.project.DefaultProjectState.lambda$fromMutableState$0(DefaultProjectState.java:248)
+	at org.gradle.api.internal.project.DefaultProjectState.runWithModelLock(DefaultProjectState.java:271)
+	at org.gradle.api.internal.project.DefaultProjectState.fromMutableState(DefaultProjectState.java:248)
+	at org.gradle.api.internal.project.DefaultProjectState.applyToMutableState(DefaultProjectState.java:240)
+	at org.gradle.configuration.project.LifecycleProjectEvaluator$EvaluateProject.run(LifecycleProjectEvaluator.java:100)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$1.execute(DefaultBuildOperationRunner.java:30)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$1.execute(DefaultBuildOperationRunner.java:27)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:67)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:60)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:167)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:60)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.run(DefaultBuildOperationRunner.java:48)
+	at org.gradle.configuration.project.LifecycleProjectEvaluator.evaluate(LifecycleProjectEvaluator.java:72)
+	at org.gradle.api.internal.project.DefaultProject.evaluateUnchecked(DefaultProject.java:828)
+	at org.gradle.api.internal.project.ProjectLifecycleController.lambda$ensureSelfConfigured$1(ProjectLifecycleController.java:98)
+	at org.gradle.api.internal.project.DefaultProjectState.lambda$withProjectLock$0(DefaultProjectState.java:253)
+	at org.gradle.internal.work.DefaultWorkerLeaseService.lambda$runAndReleaseLocks$0(DefaultWorkerLeaseService.java:302)
+	at org.gradle.internal.work.ResourceLockStatistics$1.measure(ResourceLockStatistics.java:43)
+	at org.gradle.internal.work.DefaultWorkerLeaseService.runAndReleaseLocks(DefaultWorkerLeaseService.java:300)
+	at org.gradle.internal.work.DefaultWorkerLeaseService.withLocksAcquired(DefaultWorkerLeaseService.java:296)
+	at org.gradle.internal.work.DefaultWorkerLeaseService.lambda$withReplacedLocks$0(DefaultWorkerLeaseService.java:452)
+	at org.gradle.internal.work.DefaultWorkerLeaseService.withoutLocks(DefaultWorkerLeaseService.java:374)
+	at org.gradle.internal.work.DefaultWorkerLeaseService.withReplacedLocks(DefaultWorkerLeaseService.java:451)
+	at org.gradle.api.internal.project.DefaultProjectState.runWithModelLock(DefaultProjectState.java:276)
+	at org.gradle.api.internal.project.DefaultProjectState.withProjectLock(DefaultProjectState.java:252)
+	at org.gradle.api.internal.project.ProjectLifecycleController.lambda$ensureSelfConfigured$0(ProjectLifecycleController.java:98)
+	at org.gradle.internal.model.StateTransitionController.lambda$doTransition$0(StateTransitionController.java:313)
+	at org.gradle.internal.model.StateTransitionController.doTransition(StateTransitionController.java:324)
+	at org.gradle.internal.model.StateTransitionController.doTransition(StateTransitionController.java:312)
+	at org.gradle.internal.model.StateTransitionController.lambda$maybeTransitionIfNotCurrentlyTransitioning$0(StateTransitionController.java:257)
+	at org.gradle.internal.work.DefaultSynchronizer.withLock(DefaultSynchronizer.java:35)
+	at org.gradle.internal.model.StateTransitionController.maybeTransitionIfNotCurrentlyTransitioning(StateTransitionController.java:253)
+	at org.gradle.api.internal.project.ProjectLifecycleController.ensureSelfConfigured(ProjectLifecycleController.java:98)
+	at org.gradle.api.internal.project.DefaultProjectState.ensureConfigured(DefaultProjectState.java:209)
+	at org.gradle.execution.TaskPathProjectEvaluator.configureHierarchy(TaskPathProjectEvaluator.java:78)
+	at org.gradle.configuration.DefaultProjectsPreparer.prepareProjects(DefaultProjectsPreparer.java:52)
+	at org.gradle.configuration.BuildTreePreparingProjectsPreparer.prepareProjects(BuildTreePreparingProjectsPreparer.java:65)
+	at org.gradle.configuration.BuildOperationFiringProjectsPreparer$ConfigureBuild.run(BuildOperationFiringProjectsPreparer.java:52)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$1.execute(DefaultBuildOperationRunner.java:30)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$1.execute(DefaultBuildOperationRunner.java:27)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:67)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:60)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:167)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:60)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.run(DefaultBuildOperationRunner.java:48)
+	at org.gradle.configuration.BuildOperationFiringProjectsPreparer.prepareProjects(BuildOperationFiringProjectsPreparer.java:40)
+	at org.gradle.initialization.VintageBuildModelController.lambda$prepareProjects$0(VintageBuildModelController.java:83)
+	at org.gradle.internal.model.StateTransitionController.lambda$doTransition$0(StateTransitionController.java:313)
+	at org.gradle.internal.model.StateTransitionController.doTransition(StateTransitionController.java:324)
+	at org.gradle.internal.model.StateTransitionController.doTransition(StateTransitionController.java:312)
+	at org.gradle.internal.model.StateTransitionController.lambda$transitionIfNotPreviously$0(StateTransitionController.java:271)
+	at org.gradle.internal.work.DefaultSynchronizer.withLock(DefaultSynchronizer.java:35)
+	at org.gradle.internal.model.StateTransitionController.transitionIfNotPreviously(StateTransitionController.java:267)
+	at org.gradle.initialization.VintageBuildModelController.prepareProjects(VintageBuildModelController.java:83)
+	at org.gradle.initialization.VintageBuildModelController.prepareToScheduleTasks(VintageBuildModelController.java:70)
+	at org.gradle.internal.build.DefaultBuildLifecycleController.lambda$prepareToScheduleTasks$0(DefaultBuildLifecycleController.java:185)
+	at org.gradle.internal.model.StateTransitionController.lambda$doTransition$0(StateTransitionController.java:313)
+	at org.gradle.internal.model.StateTransitionController.doTransition(StateTransitionController.java:324)
+	at org.gradle.internal.model.StateTransitionController.doTransition(StateTransitionController.java:312)
+	at org.gradle.internal.model.StateTransitionController.lambda$maybeTransition$0(StateTransitionController.java:248)
+	at org.gradle.internal.work.DefaultSynchronizer.withLock(DefaultSynchronizer.java:35)
+	at org.gradle.internal.model.StateTransitionController.maybeTransition(StateTransitionController.java:244)
+	at org.gradle.internal.build.DefaultBuildLifecycleController.prepareToScheduleTasks(DefaultBuildLifecycleController.java:183)
+	at org.gradle.internal.buildtree.DefaultBuildTreeWorkPreparer.scheduleRequestedTasks(DefaultBuildTreeWorkPreparer.java:35)
+	at org.gradle.internal.cc.impl.barrier.BarrierAwareBuildTreeWorkPreparer.scheduleRequestedTasks$lambda$0(BarrierAwareBuildTreeWorkPreparer.kt:34)
+	at org.gradle.internal.cc.impl.barrier.VintageConfigurationTimeActionRunner.runConfigurationTimeAction(VintageConfigurationTimeActionRunner.kt:48)
+	at org.gradle.internal.cc.impl.barrier.BarrierAwareBuildTreeWorkPreparer.scheduleRequestedTasks(BarrierAwareBuildTreeWorkPreparer.kt:33)
+	at org.gradle.internal.cc.impl.VintageBuildTreeWorkController$scheduleAndRunRequestedTasks$1$finalizedGraph$1.call(VintageBuildTreeWorkController.kt:37)
+	at org.gradle.internal.cc.impl.VintageBuildTreeWorkController$scheduleAndRunRequestedTasks$1$finalizedGraph$1.call(VintageBuildTreeWorkController.kt:37)
+	at org.gradle.internal.Try.ofFailable(Try.java:46)
+	at org.gradle.internal.cc.impl.VintageBuildTreeWorkController$scheduleAndRunRequestedTasks$1.apply(VintageBuildTreeWorkController.kt:37)
+	at org.gradle.internal.cc.impl.VintageBuildTreeWorkController$scheduleAndRunRequestedTasks$1.apply(VintageBuildTreeWorkController.kt:36)
+	at org.gradle.composite.internal.DefaultIncludedBuildTaskGraph.withNewWorkGraph(DefaultIncludedBuildTaskGraph.java:115)
+	at org.gradle.internal.cc.impl.VintageBuildTreeWorkController.scheduleAndRunRequestedTasks(VintageBuildTreeWorkController.kt:36)
+	at org.gradle.internal.buildtree.DefaultBuildTreeLifecycleController.lambda$scheduleAndRunTasks$0(DefaultBuildTreeLifecycleController.java:80)
+	at org.gradle.internal.buildtree.DefaultBuildTreeLifecycleController.lambda$runBuild$0(DefaultBuildTreeLifecycleController.java:166)
+	at org.gradle.internal.model.StateTransitionController.lambda$transition$2(StateTransitionController.java:227)
+	at org.gradle.internal.model.StateTransitionController.doTransition(StateTransitionController.java:324)
+	at org.gradle.internal.model.StateTransitionController.lambda$transition$1(StateTransitionController.java:227)
+	at org.gradle.internal.work.DefaultSynchronizer.withLock(DefaultSynchronizer.java:45)
+	at org.gradle.internal.model.StateTransitionController.transition(StateTransitionController.java:227)
+	at org.gradle.internal.buildtree.DefaultBuildTreeLifecycleController.runBuild(DefaultBuildTreeLifecycleController.java:163)
+	at org.gradle.internal.buildtree.DefaultBuildTreeLifecycleController.scheduleAndRunTasks(DefaultBuildTreeLifecycleController.java:80)
+	at org.gradle.internal.buildtree.DefaultBuildTreeLifecycleController.scheduleAndRunTasks(DefaultBuildTreeLifecycleController.java:75)
+	at org.gradle.tooling.internal.provider.ExecuteBuildActionRunner.run(ExecuteBuildActionRunner.java:31)
+	at org.gradle.launcher.exec.ChainingBuildActionRunner.run(ChainingBuildActionRunner.java:35)
+	at org.gradle.internal.buildtree.ProblemReportingBuildActionRunner.run(ProblemReportingBuildActionRunner.java:55)
+	at org.gradle.launcher.exec.BuildOutcomeReportingBuildActionRunner.run(BuildOutcomeReportingBuildActionRunner.java:83)
+	at org.gradle.tooling.internal.provider.FileSystemWatchingBuildActionRunner.run(FileSystemWatchingBuildActionRunner.java:118)
+	at org.gradle.launcher.exec.BuildCompletionNotifyingBuildActionRunner.run(BuildCompletionNotifyingBuildActionRunner.java:64)
+	at org.gradle.launcher.exec.RootBuildLifecycleBuildActionExecutor.lambda$execute$0(RootBuildLifecycleBuildActionExecutor.java:97)
+	at org.gradle.composite.internal.DefaultRootBuildState.run(DefaultRootBuildState.java:119)
+	at org.gradle.launcher.exec.RootBuildLifecycleBuildActionExecutor.execute(RootBuildLifecycleBuildActionExecutor.java:97)
+	at org.gradle.launcher.exec.DefaultBuildTreeActionExecutor.runBuildTreeLifecycle(DefaultBuildTreeActionExecutor.java:126)
+	at org.gradle.launcher.exec.DefaultBuildTreeActionExecutor.access$100(DefaultBuildTreeActionExecutor.java:52)
+	at org.gradle.launcher.exec.DefaultBuildTreeActionExecutor$2.call(DefaultBuildTreeActionExecutor.java:98)
+	at org.gradle.launcher.exec.DefaultBuildTreeActionExecutor$2.call(DefaultBuildTreeActionExecutor.java:94)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:210)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:205)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:67)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:60)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:167)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:60)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:54)
+	at org.gradle.launcher.exec.DefaultBuildTreeActionExecutor.runAsBuildOperation(DefaultBuildTreeActionExecutor.java:94)
+	at org.gradle.launcher.exec.DefaultBuildTreeActionExecutor.lambda$runBuildTreeAction$0(DefaultBuildTreeActionExecutor.java:88)
+	at org.gradle.internal.work.DefaultWorkerLeaseService.lambda$runAndReleaseLocks$0(DefaultWorkerLeaseService.java:302)
+	at org.gradle.internal.work.ResourceLockStatistics$1.measure(ResourceLockStatistics.java:43)
+	at org.gradle.internal.work.DefaultWorkerLeaseService.runAndReleaseLocks(DefaultWorkerLeaseService.java:300)
+	at org.gradle.internal.work.DefaultWorkerLeaseService.withLocksAcquired(DefaultWorkerLeaseService.java:296)
+	at org.gradle.internal.work.DefaultWorkerLeaseService.withLocks(DefaultWorkerLeaseService.java:288)
+	at org.gradle.internal.work.DefaultWorkerLeaseService.runAsWorkerThread(DefaultWorkerLeaseService.java:131)
+	at org.gradle.launcher.exec.DefaultBuildTreeActionExecutor.runBuildTreeAction(DefaultBuildTreeActionExecutor.java:88)
+	at org.gradle.tooling.internal.provider.continuous.ContinuousBuildActionExecutor.execute(ContinuousBuildActionExecutor.java:111)
+	at org.gradle.tooling.internal.provider.SubscribableBuildActionExecutor.execute(SubscribableBuildActionExecutor.java:64)
+	at org.gradle.internal.session.DefaultBuildSessionContext.execute(DefaultBuildSessionContext.java:46)
+	at org.gradle.internal.buildprocess.execution.BuildSessionLifecycleBuildActionExecutor$ActionImpl.apply(BuildSessionLifecycleBuildActionExecutor.java:106)
+	at org.gradle.internal.buildprocess.execution.BuildSessionLifecycleBuildActionExecutor$ActionImpl.apply(BuildSessionLifecycleBuildActionExecutor.java:94)
+	at org.gradle.internal.session.BuildSessionState.run(BuildSessionState.java:73)
+	at org.gradle.internal.buildprocess.execution.BuildSessionLifecycleBuildActionExecutor.execute(BuildSessionLifecycleBuildActionExecutor.java:67)
+	at org.gradle.internal.buildprocess.execution.BuildSessionLifecycleBuildActionExecutor.execute(BuildSessionLifecycleBuildActionExecutor.java:45)
+	at org.gradle.internal.buildprocess.execution.StartParamsValidatingActionExecutor.execute(StartParamsValidatingActionExecutor.java:57)
+	at org.gradle.internal.buildprocess.execution.StartParamsValidatingActionExecutor.execute(StartParamsValidatingActionExecutor.java:32)
+	at org.gradle.internal.buildprocess.execution.SessionFailureReportingActionExecutor.execute(SessionFailureReportingActionExecutor.java:51)
+	at org.gradle.internal.buildprocess.execution.SessionFailureReportingActionExecutor.execute(SessionFailureReportingActionExecutor.java:39)
+	at org.gradle.internal.buildprocess.execution.SetupLoggingActionExecutor.execute(SetupLoggingActionExecutor.java:47)
+	at org.gradle.internal.buildprocess.execution.SetupLoggingActionExecutor.execute(SetupLoggingActionExecutor.java:31)
+	at org.gradle.launcher.daemon.server.exec.ExecuteBuild.doBuild(ExecuteBuild.java:70)
+	at org.gradle.launcher.daemon.server.exec.BuildCommandOnly.execute(BuildCommandOnly.java:37)
+	at org.gradle.launcher.daemon.server.api.DaemonCommandExecution.proceed(DaemonCommandExecution.java:104)
+	at org.gradle.launcher.daemon.server.exec.WatchForDisconnection.execute(WatchForDisconnection.java:39)
+	at org.gradle.launcher.daemon.server.api.DaemonCommandExecution.proceed(DaemonCommandExecution.java:104)
+	at org.gradle.launcher.daemon.server.exec.ResetDeprecationLogger.execute(ResetDeprecationLogger.java:29)
+	at org.gradle.launcher.daemon.server.api.DaemonCommandExecution.proceed(DaemonCommandExecution.java:104)
+	at org.gradle.launcher.daemon.server.exec.RequestStopIfSingleUsedDaemon.execute(RequestStopIfSingleUsedDaemon.java:35)
+	at org.gradle.launcher.daemon.server.api.DaemonCommandExecution.proceed(DaemonCommandExecution.java:104)
+	at org.gradle.launcher.daemon.server.exec.ForwardClientInput.lambda$execute$0(ForwardClientInput.java:40)
+	at org.gradle.internal.daemon.clientinput.ClientInputForwarder.forwardInput(ClientInputForwarder.java:80)
+	at org.gradle.launcher.daemon.server.exec.ForwardClientInput.execute(ForwardClientInput.java:37)
+	at org.gradle.launcher.daemon.server.api.DaemonCommandExecution.proceed(DaemonCommandExecution.java:104)
+	at org.gradle.launcher.daemon.server.exec.LogAndCheckHealth.execute(LogAndCheckHealth.java:64)
+	at org.gradle.launcher.daemon.server.api.DaemonCommandExecution.proceed(DaemonCommandExecution.java:104)
+	at org.gradle.launcher.daemon.server.exec.ApplyClientEnvironmentVariables.doBuild(ApplyClientEnvironmentVariables.java:80)
+	at org.gradle.launcher.daemon.server.exec.BuildCommandOnly.execute(BuildCommandOnly.java:37)
+	at org.gradle.launcher.daemon.server.api.DaemonCommandExecution.proceed(DaemonCommandExecution.java:104)
+	at org.gradle.launcher.daemon.server.exec.LogToClient.doBuild(LogToClient.java:63)
+	at org.gradle.launcher.daemon.server.exec.BuildCommandOnly.execute(BuildCommandOnly.java:37)
+	at org.gradle.launcher.daemon.server.api.DaemonCommandExecution.proceed(DaemonCommandExecution.java:104)
+	at org.gradle.launcher.daemon.server.exec.EstablishBuildEnvironment.doBuild(EstablishBuildEnvironment.java:74)
+	at org.gradle.launcher.daemon.server.exec.BuildCommandOnly.execute(BuildCommandOnly.java:37)
+	at org.gradle.launcher.daemon.server.api.DaemonCommandExecution.proceed(DaemonCommandExecution.java:104)
+	at org.gradle.launcher.daemon.server.exec.StartBuildOrRespondWithBusy$1.run(StartBuildOrRespondWithBusy.java:52)
+	at org.gradle.launcher.daemon.server.DaemonStateCoordinator.lambda$runCommand$0(DaemonStateCoordinator.java:321)
+	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:65)
+	at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:47)
+Caused by: org.gradle.api.internal.plugins.PluginApplicationException: Failed to apply plugin 'com.android.internal.application'.
+	at org.gradle.api.internal.plugins.DefaultPluginManager.doApply(DefaultPluginManager.java:177)
+	at org.gradle.api.internal.plugins.DefaultPluginManager.apply(DefaultPluginManager.java:148)
+	at org.gradle.api.internal.plugins.DefaultObjectConfigurationAction.applyType(DefaultObjectConfigurationAction.java:162)
+	at org.gradle.api.internal.plugins.DefaultObjectConfigurationAction.access$200(DefaultObjectConfigurationAction.java:44)
+	at org.gradle.api.internal.plugins.DefaultObjectConfigurationAction$3.run(DefaultObjectConfigurationAction.java:99)
+	at org.gradle.api.internal.plugins.DefaultObjectConfigurationAction.execute(DefaultObjectConfigurationAction.java:185)
+	at org.gradle.api.internal.project.AbstractPluginAware.apply(AbstractPluginAware.java:49)
+	at org.gradle.api.internal.project.DefaultProject.apply(DefaultProject.java:1532)
+	at com.android.build.gradle.AppPlugin.apply(AppPlugin.kt:28)
+	at com.android.build.gradle.AppPlugin.apply(AppPlugin.kt:24)
+	at org.gradle.api.internal.plugins.ImperativeOnlyPluginTarget.applyImperative(ImperativeOnlyPluginTarget.java:54)
+	at org.gradle.api.internal.plugins.RuleBasedPluginTarget.applyImperative(RuleBasedPluginTarget.java:50)
+	at org.gradle.api.internal.plugins.DefaultPluginManager.addPlugin(DefaultPluginManager.java:191)
+	at org.gradle.api.internal.plugins.DefaultPluginManager.access$200(DefaultPluginManager.java:53)
+	at org.gradle.api.internal.plugins.DefaultPluginManager$AddPluginBuildOperation.run(DefaultPluginManager.java:286)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$1.execute(DefaultBuildOperationRunner.java:30)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$1.execute(DefaultBuildOperationRunner.java:27)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:67)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:60)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:167)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:60)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.run(DefaultBuildOperationRunner.java:48)
+	at org.gradle.api.internal.plugins.DefaultPluginManager.lambda$doApply$0(DefaultPluginManager.java:170)
+	at org.gradle.internal.code.DefaultUserCodeApplicationContext.apply(DefaultUserCodeApplicationContext.java:44)
+	at org.gradle.api.internal.plugins.DefaultPluginManager.doApply(DefaultPluginManager.java:169)
+	at org.gradle.api.internal.plugins.DefaultPluginManager.apply(DefaultPluginManager.java:139)
+	at org.gradle.plugin.use.resolve.internal.ClassPathPluginResolution.applyTo(ClassPathPluginResolution.java:49)
+	at org.gradle.plugin.use.internal.DefaultPluginRequestApplicator$ApplyAction.apply(DefaultPluginRequestApplicator.java:161)
+	... 179 more
+Caused by: org.gradle.api.services.internal.ServiceLifecycleException: Failed to create service 'com.android.build.gradle.internal.errors.AndroidProblemReporterProvider_d6d624c6-44e7-4335-868a-81e279d100c6'.
+	at org.gradle.api.services.internal.RegisteredBuildServiceProvider.instantiationException(RegisteredBuildServiceProvider.java:164)
+	at org.gradle.api.services.internal.RegisteredBuildServiceProvider.instantiate(RegisteredBuildServiceProvider.java:159)
+	at org.gradle.api.services.internal.RegisteredBuildServiceProvider.getInstance(RegisteredBuildServiceProvider.java:144)
+	at org.gradle.api.services.internal.RegisteredBuildServiceProvider.calculateOwnValue(RegisteredBuildServiceProvider.java:137)
+	at org.gradle.api.internal.provider.AbstractMinimalProvider.calculateOwnPresentValue(AbstractMinimalProvider.java:80)
+	at org.gradle.api.internal.provider.AbstractMinimalProvider.get(AbstractMinimalProvider.java:100)
+	at com.android.build.gradle.internal.plugins.AndroidPluginBaseServices$syncIssueReporter$2$1.invoke(AndroidPluginBaseServices.kt:87)
+	at com.android.build.gradle.internal.plugins.AndroidPluginBaseServices$syncIssueReporter$2$1.invoke(AndroidPluginBaseServices.kt:82)
+	at com.android.build.gradle.internal.plugins.AndroidPluginBaseServices.withProject(AndroidPluginBaseServices.kt:348)
+	at com.android.build.gradle.internal.plugins.AndroidPluginBaseServices$syncIssueReporter$2.invoke(AndroidPluginBaseServices.kt:82)
+	at com.android.build.gradle.internal.plugins.AndroidPluginBaseServices$syncIssueReporter$2.invoke(AndroidPluginBaseServices.kt:81)
+	at kotlin.SynchronizedLazyImpl.getValue(LazyJVM.kt:86)
+	at com.android.build.gradle.internal.plugins.AndroidPluginBaseServices.getSyncIssueReporter(AndroidPluginBaseServices.kt:81)
+	at com.android.build.gradle.internal.plugins.AndroidPluginBaseServices$projectServices$2$1.invoke(AndroidPluginBaseServices.kt:99)
+	at com.android.build.gradle.internal.plugins.AndroidPluginBaseServices$projectServices$2$1.invoke(AndroidPluginBaseServices.kt:96)
+	at com.android.build.gradle.internal.plugins.AndroidPluginBaseServices.withProject(AndroidPluginBaseServices.kt:348)
+	at com.android.build.gradle.internal.plugins.AndroidPluginBaseServices$projectServices$2.invoke(AndroidPluginBaseServices.kt:96)
+	at com.android.build.gradle.internal.plugins.AndroidPluginBaseServices$projectServices$2.invoke(AndroidPluginBaseServices.kt:95)
+	at kotlin.SynchronizedLazyImpl.getValue(LazyJVM.kt:86)
+	at com.android.build.gradle.internal.plugins.AndroidPluginBaseServices.getProjectServices(AndroidPluginBaseServices.kt:95)
+	at com.android.build.gradle.internal.plugins.AndroidPluginBaseServices.applyBaseServices(AndroidPluginBaseServices.kt:140)
+	at com.android.build.gradle.internal.plugins.BasePlugin$apply$1.run(BasePlugin.kt:358)
+	at com.android.build.gradle.internal.crash.CrashReporting.runAction(crash_reporting.kt:27)
+	at com.android.build.gradle.internal.plugins.BasePlugin.apply(BasePlugin.kt:357)
+	at com.android.build.gradle.internal.plugins.BasePlugin.apply(BasePlugin.kt:130)
+	at org.gradle.api.internal.plugins.ImperativeOnlyPluginTarget.applyImperative(ImperativeOnlyPluginTarget.java:54)
+	at org.gradle.api.internal.plugins.RuleBasedPluginTarget.applyImperative(RuleBasedPluginTarget.java:50)
+	at org.gradle.api.internal.plugins.DefaultPluginManager.addPlugin(DefaultPluginManager.java:191)
+	at org.gradle.api.internal.plugins.DefaultPluginManager.access$200(DefaultPluginManager.java:53)
+	at org.gradle.api.internal.plugins.DefaultPluginManager$AddPluginBuildOperation.run(DefaultPluginManager.java:286)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$1.execute(DefaultBuildOperationRunner.java:30)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$1.execute(DefaultBuildOperationRunner.java:27)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:67)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:60)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:167)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:60)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.run(DefaultBuildOperationRunner.java:48)
+	at org.gradle.api.internal.plugins.DefaultPluginManager.lambda$doApply$0(DefaultPluginManager.java:170)
+	at org.gradle.internal.code.DefaultUserCodeApplicationContext.apply(DefaultUserCodeApplicationContext.java:44)
+	at org.gradle.api.internal.plugins.DefaultPluginManager.doApply(DefaultPluginManager.java:169)
+	... 206 more
+Caused by: org.gradle.api.reflect.ObjectInstantiationException: Could not create an instance of type com.android.build.gradle.internal.errors.AndroidProblemReporterProvider.
+	at org.gradle.internal.instantiation.generator.DependencyInjectingInstantiator.doCreate(DependencyInjectingInstantiator.java:67)
+	at org.gradle.internal.instantiation.generator.DependencyInjectingInstantiator.newInstance(DependencyInjectingInstantiator.java:53)
+	at org.gradle.api.services.internal.RegisteredBuildServiceProvider.instantiate(RegisteredBuildServiceProvider.java:168)
+	at org.gradle.api.services.internal.RegisteredBuildServiceProvider.instantiate(RegisteredBuildServiceProvider.java:157)
+	... 244 more
+Caused by: org.gradle.internal.service.ServiceCreationException: Could not create service of type InternalProblems using ProblemsBuildTreeServices.createInternalProblems().
+	at org.gradle.internal.service.DefaultServiceRegistry$FactoryMethodService.invokeMethod(DefaultServiceRegistry.java:911)
+	at org.gradle.internal.service.DefaultServiceRegistry$FactoryService.createServiceInstance(DefaultServiceRegistry.java:807)
+	at org.gradle.internal.service.DefaultServiceRegistry$FactoryMethodService.createServiceInstance(DefaultServiceRegistry.java:929)
+	at org.gradle.internal.service.DefaultServiceRegistry$ManagedObjectServiceProvider.getInstance(DefaultServiceRegistry.java:600)
+	at org.gradle.internal.service.DefaultServiceRegistry$SingletonService.get(DefaultServiceRegistry.java:675)
+	at org.gradle.internal.service.DefaultServiceRegistry.find(DefaultServiceRegistry.java:345)
+	at org.gradle.internal.isolated.IsolationScheme$ServicesForIsolatedObject.find(IsolationScheme.java:138)
+	at org.gradle.internal.instantiation.generator.DependencyInjectingInstantiator.addServicesToParameters(DependencyInjectingInstantiator.java:180)
+	at org.gradle.internal.instantiation.generator.DependencyInjectingInstantiator.convertParameters(DependencyInjectingInstantiator.java:119)
+	at org.gradle.internal.instantiation.generator.DependencyInjectingInstantiator.doCreate(DependencyInjectingInstantiator.java:60)
+	... 247 more
+Caused by: org.gradle.api.GradleException: Plugin 'com.android.internal.application' relies on 'org.gradle.api.problems.internal.InternalProblems', a Gradle internal API that was removed in Gradle 9.6.0. Update the plugin to a version that no longer uses Gradle internal APIs, or use Gradle 9.5. For more information, please refer to https://docs.gradle.org/9.7.1/userguide/upgrading_version_9.html#agp_8x_incompatible in the Gradle documentation.
+	at org.gradle.problems.internal.services.ProblemsBuildTreeServices.createInternalProblems(ProblemsBuildTreeServices.java:150)
+	at org.gradle.internal.reflect.JavaMethod.invoke(JavaMethod.java:125)
+	at org.gradle.internal.service.ReflectionBasedServiceMethod.invoke(ReflectionBasedServiceMethod.java:36)
+	at org.gradle.internal.service.DefaultServiceRegistry$FactoryMethodService.invokeMethod(DefaultServiceRegistry.java:909)
+	... 256 more
+
+
+BUILD FAILED in 878ms
+
+>>> Wrapper 文件:
+
+>>> Wrapper 版本:
+zsh: no such file or directory: ./gradlew
+
+============================================================
+Step 15 完成
+============================================================
+============================================================
+P4Pilot Step 16 - 固定 JDK 17 / Gradle 8.13
+Time: 2026-09-08 16:37:30 +0800
+============================================================
+
+>>> Homebrew JDK 17:
+lrwxr-xr-x  1 luojingyao  admin  28  3月 13 13:50 /usr/local/opt/openjdk@17 -> ../Cellar/openjdk@17/17.0.18
+drwxr-xr-x  11 luojingyao  admin  352  1月 15  2026 /usr/local/opt/openjdk@17/libexec/openjdk.jdk/Contents/Home
+
+>>> 设置 JDK 17:
+JAVA_HOME=/usr/local/opt/openjdk@17/libexec/openjdk.jdk/Contents/Home
+
+>>> Java:
+openjdk version "17.0.18" 2026-01-20
+OpenJDK Runtime Environment Homebrew (build 17.0.18+0)
+OpenJDK 64-Bit Server VM Homebrew (build 17.0.18+0, mixed mode, sharing)
+
+>>> javac:
+javac 17.0.18
+
+>>> 安装 Gradle 8.13:
+gradle 9.7.1
+
+>>> 下载 Gradle 8.13:
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100   169  100   169    0     0    217      0 --:--:-- --:--:-- --:--:--   217100   169  100   169    0     0    217      0 --:--:-- --:--:-- --:--:--   217
+  0     0    0     0    0     0      0      0 --:--:--  0:00:02 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:03 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:04 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:05 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:06 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:07 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:08 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:09 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:10 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:11 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:12 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:13 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:14 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:15 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:16 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:17 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:18 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:19 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:20 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:21 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:22 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:23 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:24 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:25 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:26 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:27 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:28 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:29 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:30 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:31 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:32 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:33 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:34 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:35 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:36 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:37 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:38 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:39 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:40 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:41 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:42 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:43 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:44 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:45 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:46 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:47 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:48 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:49 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:50 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:51 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:52 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:53 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:54 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:55 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:56 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:57 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:58 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:59 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:00 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:01 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:02 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:03 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:04 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:05 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:06 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:07 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:08 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:09 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:10 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:11 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:12 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:13 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:14 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:15 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:16 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:17 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:18 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:19 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:20 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:21 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:22 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:23 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:24 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:25 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:26 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:27 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:28 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:29 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:30 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:31 --:--:--     0============================================================
+P4Pilot Step 16 - 固定 JDK 17 / Gradle 8.13
+Time: 2026-09-08 16:39:09 +0800
+============================================================
+
+>>> Homebrew JDK 17:
+lrwxr-xr-x  1 luojingyao  admin  28  3月 13 13:50 /usr/local/opt/openjdk@17 -> ../Cellar/openjdk@17/17.0.18
+drwxr-xr-x  11 luojingyao  admin  352  1月 15  2026 /usr/local/opt/openjdk@17/libexec/openjdk.jdk/Contents/Home
+
+>>> 设置 JDK 17:
+JAVA_HOME=/usr/local/opt/openjdk@17/libexec/openjdk.jdk/Contents/Home
+
+>>> Java:
+openjdk version "17.0.18" 2026-01-20
+OpenJDK Runtime Environment Homebrew (build 17.0.18+0)
+OpenJDK 64-Bit Server VM Homebrew (build 17.0.18+0, mixed mode, sharing)
+
+>>> javac:
+javac 17.0.18
+
+>>> 安装 Gradle 8.13:
+gradle 9.7.1
+
+>>> 下载 Gradle 8.13:
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100   169  100   169    0     0    191      0 --:--:-- --:--:-- --:--:--   191
+  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:02 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:02 --:--:--     0
+  0  130M    0     0    0     0      0      0 --:--:--  0:00:03 --:--:--     0  0  130M    0  351k    0     0  83780      0  0:27:15  0:00:04  0:27:11  383k  0  130M    0 1142k    0     0   212k      0  0:10:28  0:00:05  0:10:23  576k  3  130M    3 4635k    0     0   721k      0  0:03:05  0:00:06  0:02:59 1526k  7  130M    7 10.3M    0     0  1424k      0  0:01:33  0:00:07  0:01:26 2615k 11  130M   11 15.6M    0     0  1901k      0  0:01:10  0:00:08  0:01:02 3180k 16  130M   16 21.1M    0     0  2254k      0  0:00:59  0:00:09  0:00:50 4020k 17  130M   17 22.4M    0     0  2225k      0  0:01:00  0:00:10  0:00:50 4394k 21  130M   21 28.6M    0     0  2591k      0  0:00:51  0:00:11  0:00:40 5037k 26  130M   26 34.8M    0     0  2847k      0  0:00:46  0:00:12  0:00:34 4917k 30  130M   30 39.7M    0     0  3028k      0  0:00:44  0:00:13  0:00:31 4912k 34  130M   34 45.0M    0     0  3171k      0  0:00:42  0:00:14  0:00:28 4955k 38  130M   38 50.1M    0     0  3350k      0  0:00:39  0:00:15  0:00:24 5681k 39  130M   39 51.0M    0     0  3201k      0  0:00:41  0:00:16  0:00:25 4584k 43  130M   43 57.1M    0     0  3380k      0  0:00:39  0:00:17  0:00:22 4778k 44  130M   44 58.0M    0     0  3207k      0  0:00:41  0:00:18  0:00:23 3681k 49  130M   49 65.2M    0     0  3455k      0  0:00:38  0:00:19  0:00:19 4312k 53  130M   53 70.4M    0     0  3513k      0  0:00:38  0:00:20  0:00:18 3993k 59  130M   59 77.2M    0     0  3690k      0  0:00:36  0:00:21  0:00:15 5251k 61  130M   61 80.5M    0     0  3691k      0  0:00:36  0:00:22  0:00:14 4763k 62  130M   62 81.8M    0     0  3596k      0  0:00:37  0:00:23  0:00:14 5105k 63  130M   63 83.1M    0     0  3499k      0  0:00:38  0:00:24  0:00:14 3672k 64  130M   64 84.2M    0     0  3401k      0  0:00:39  0:00:25  0:00:14 2925k 65  130M   65 85.5M    0     0  3313k      0  0:00:40  0:00:26  0:00:14 1692k 66  130M   66 86.9M    0     0  3252k      0  0:00:41  0:00:27  0:00:14 1297k 67  130M   67 88.0M    0     0  3183k      0  0:00:42  0:00:28  0:00:14 1271k 68  130M   68 89.3M    0     0  3110k      0  0:00:43  0:00:29  0:00:14 1249k 69  130M   69 90.4M    0     0  3049k      0  0:00:43  0:00:30  0:00:13 1264k 70  130M   70 91.6M    0     0  2988k      0  0:00:44  0:00:31  0:00:13 1256k 72  130M   72 95.1M    0     0  3011k      0  0:00:44  0:00:32  0:00:12 1683k 80  130M   80  105M    0     0  3226k      0  0:00:41  0:00:33  0:00:08 3466k 87  130M   87  114M    0     0  3380k      0  0:00:39  0:00:34  0:00:05 4881k 92  130M   92  120M    0     0  3491k      0  0:00:38  0:00:35  0:00:03 6156k100  130M  100  130M    0     0  3695k      0  0:00:36  0:00:36 --:--:-- 8318k
+
+>>> 解压 Gradle 8.13:
+
+>>> Gradle 8.13:
+
+Welcome to Gradle 8.13!
+
+Here are the highlights of this release:
+ - Daemon JVM auto-provisioning
+ - Enhancements for Scala plugin and JUnit testing
+ - Improvements for build authors and plugin developers
+
+For more details see https://docs.gradle.org/8.13/release-notes.html
+
+
+------------------------------------------------------------
+Gradle 8.13
+------------------------------------------------------------
+
+Build time:    2025-02-25 09:22:14 UTC
+Revision:      073314332697ba45c16c0a0ce1891fa6794179ff
+
+Kotlin:        2.0.21
+Groovy:        3.0.22
+Ant:           Apache Ant(TM) version 1.10.15 compiled on August 25 2024
+Launcher JVM:  17.0.18 (Homebrew 17.0.18+0)
+Daemon JVM:    /usr/local/Cellar/openjdk@17/17.0.18/libexec/openjdk.jdk/Contents/Home (no JDK specified, using current Java home)
+OS:            Mac OS X 26.5.1 x86_64
+
+
+>>> 生成 Gradle Wrapper 8.13:
+Starting a Gradle Daemon (subsequent builds will be faster)
+> Task :wrapper
+
+[Incubating] Problems report is available at: file:///Users/luojingyao/p4pilot/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.13/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 23s
+1 actionable task: 1 executed
+
+>>> Wrapper 文件:
+./gradle/wrapper/gradle-wrapper.jar
+./gradle/wrapper/gradle-wrapper.properties
+./gradlew
+./gradlew.bat
+
+>>> gradlew 权限:
+-rwxr-xr-x  1 luojingyao  staff  8752  9月  8 16:40 gradlew
+
+>>> Wrapper 版本:
+Downloading https://services.gradle.org/distributions/gradle-8.13-bin.zip
+.............10%.............20%.............30%.............40%.............50%.............60%.............70%.............80%.............90%.............100%
+
+------------------------------------------------------------
+Gradle 8.13
+------------------------------------------------------------
+
+Build time:    2025-02-25 09:22:14 UTC
+Revision:      073314332697ba45c16c0a0ce1891fa6794179ff
+
+Kotlin:        2.0.21
+Groovy:        3.0.22
+Ant:           Apache Ant(TM) version 1.10.15 compiled on August 25 2024
+Launcher JVM:  17.0.18 (Homebrew 17.0.18+0)
+Daemon JVM:    /usr/local/Cellar/openjdk@17/17.0.18/libexec/openjdk.jdk/Contents/Home (no JDK specified, using current Java home)
+OS:            Mac OS X 26.5.1 x86_64
+
+
+============================================================
+Step 16 完成
+============================================================
+============================================================
+P4Pilot Step 17 - 检查 Step 16 实际结果
+Time: 2026-09-08 16:41:42 +0800
+============================================================
+
+>>> Step 16 记录:
+1959-
+1960->>> 安装 Gradle 8.13:
+1961-gradle 9.7.1
+1962-
+1963->>> 下载 Gradle 8.13:
+1964-  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+1965-                                 Dload  Upload   Total   Spent    Left  Speed
+1966-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100   169  100   169    0     0    217      0 --:--:-- --:--:-- --:--:--   217100   169  100   169    0     0    217      0 --:--:-- --:--:-- --:--:--   217
+1967-  0     0    0     0    0     0      0      0 --:--:--  0:00:02 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:03 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:04 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:05 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:06 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:07 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:08 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:09 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:10 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:11 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:12 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:13 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:14 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:15 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:16 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:17 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:18 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:19 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:20 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:21 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:22 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:23 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:24 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:25 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:26 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:27 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:28 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:29 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:30 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:31 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:32 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:33 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:34 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:35 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:36 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:37 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:38 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:39 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:40 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:41 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:42 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:43 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:44 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:45 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:46 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:47 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:48 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:49 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:50 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:51 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:52 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:53 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:54 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:55 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:56 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:57 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:58 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:59 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:00 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:01 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:02 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:03 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:04 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:05 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:06 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:07 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:08 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:09 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:10 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:11 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:12 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:13 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:14 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:15 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:16 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:17 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:18 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:19 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:20 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:21 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:22 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:23 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:24 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:25 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:26 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:27 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:28 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:29 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:30 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:31 --:--:--     0============================================================
+1968:P4Pilot Step 16 - 固定 JDK 17 / Gradle 8.13
+1969-Time: 2026-09-08 16:39:09 +0800
+1970-============================================================
+1971-
+1972->>> Homebrew JDK 17:
+1973-lrwxr-xr-x  1 luojingyao  admin  28  3月 13 13:50 /usr/local/opt/openjdk@17 -> ../Cellar/openjdk@17/17.0.18
+1974-drwxr-xr-x  11 luojingyao  admin  352  1月 15  2026 /usr/local/opt/openjdk@17/libexec/openjdk.jdk/Contents/Home
+1975-
+1976->>> 设置 JDK 17:
+1977-JAVA_HOME=/usr/local/opt/openjdk@17/libexec/openjdk.jdk/Contents/Home
+1978-
+1979->>> Java:
+1980-openjdk version "17.0.18" 2026-01-20
+1981-OpenJDK Runtime Environment Homebrew (build 17.0.18+0)
+1982-OpenJDK 64-Bit Server VM Homebrew (build 17.0.18+0, mixed mode, sharing)
+1983-
+1984->>> javac:
+1985-javac 17.0.18
+1986-
+1987->>> 安装 Gradle 8.13:
+1988-gradle 9.7.1
+1989-
+1990->>> 下载 Gradle 8.13:
+1991-  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+1992-                                 Dload  Upload   Total   Spent    Left  Speed
+1993-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100   169  100   169    0     0    191      0 --:--:-- --:--:-- --:--:--   191
+1994-  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:02 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:02 --:--:--     0
+1995-  0  130M    0     0    0     0      0      0 --:--:--  0:00:03 --:--:--     0  0  130M    0  351k    0     0  83780      0  0:27:15  0:00:04  0:27:11  383k  0  130M    0 1142k    0     0   212k      0  0:10:28  0:00:05  0:10:23  576k  3  130M    3 4635k    0     0   721k      0  0:03:05  0:00:06  0:02:59 1526k  7  130M    7 10.3M    0     0  1424k      0  0:01:33  0:00:07  0:01:26 2615k 11  130M   11 15.6M    0     0  1901k      0  0:01:10  0:00:08  0:01:02 3180k 16  130M   16 21.1M    0     0  2254k      0  0:00:59  0:00:09  0:00:50 4020k 17  130M   17 22.4M    0     0  2225k      0  0:01:00  0:00:10  0:00:50 4394k 21  130M   21 28.6M    0     0  2591k      0  0:00:51  0:00:11  0:00:40 5037k 26  130M   26 34.8M    0     0  2847k      0  0:00:46  0:00:12  0:00:34 4917k 30  130M   30 39.7M    0     0  3028k      0  0:00:44  0:00:13  0:00:31 4912k 34  130M   34 45.0M    0     0  3171k      0  0:00:42  0:00:14  0:00:28 4955k 38  130M   38 50.1M    0     0  3350k      0  0:00:39  0:00:15  0:00:24 5681k 39  130M   39 51.0M    0     0  3201k      0  0:00:41  0:00:16  0:00:25 4584k 43  130M   43 57.1M    0     0  3380k      0  0:00:39  0:00:17  0:00:22 4778k 44  130M   44 58.0M    0     0  3207k      0  0:00:41  0:00:18  0:00:23 3681k 49  130M   49 65.2M    0     0  3455k      0  0:00:38  0:00:19  0:00:19 4312k 53  130M   53 70.4M    0     0  3513k      0  0:00:38  0:00:20  0:00:18 3993k 59  130M   59 77.2M    0     0  3690k      0  0:00:36  0:00:21  0:00:15 5251k 61  130M   61 80.5M    0     0  3691k      0  0:00:36  0:00:22  0:00:14 4763k 62  130M   62 81.8M    0     0  3596k      0  0:00:37  0:00:23  0:00:14 5105k 63  130M   63 83.1M    0     0  3499k      0  0:00:38  0:00:24  0:00:14 3672k 64  130M   64 84.2M    0     0  3401k      0  0:00:39  0:00:25  0:00:14 2925k 65  130M   65 85.5M    0     0  3313k      0  0:00:40  0:00:26  0:00:14 1692k 66  130M   66 86.9M    0     0  3252k      0  0:00:41  0:00:27  0:00:14 1297k 67  130M   67 88.0M    0     0  3183k      0  0:00:42  0:00:28  0:00:14 1271k 68  130M   68 89.3M    0     0  3110k      0  0:00:43  0:00:29  0:00:14 1249k 69  130M   69 90.4M    0     0  3049k      0  0:00:43  0:00:30  0:00:13 1264k 70  130M   70 91.6M    0     0  2988k      0  0:00:44  0:00:31  0:00:13 1256k 72  130M   72 95.1M    0     0  3011k      0  0:00:44  0:00:32  0:00:12 1683k 80  130M   80  105M    0     0  3226k      0  0:00:41  0:00:33  0:00:08 3466k 87  130M   87  114M    0     0  3380k      0  0:00:39  0:00:34  0:00:05 4881k 92  130M   92  120M    0     0  3491k      0  0:00:38  0:00:35  0:00:03 6156k100  130M  100  130M    0     0  3695k      0  0:00:36  0:00:36 --:--:-- 8318k
+1996-
+1997->>> 解压 Gradle 8.13:
+1998-
+1999->>> Gradle 8.13:
+2000-
+2001-Welcome to Gradle 8.13!
+2002-
+2003-Here are the highlights of this release:
+2004- - Daemon JVM auto-provisioning
+2005- - Enhancements for Scala plugin and JUnit testing
+2006- - Improvements for build authors and plugin developers
+2007-
+2008-For more details see https://docs.gradle.org/8.13/release-notes.html
+2009-
+2010-
+2011-------------------------------------------------------------
+2012-Gradle 8.13
+2013-------------------------------------------------------------
+2014-
+2015-Build time:    2025-02-25 09:22:14 UTC
+2016-Revision:      073314332697ba45c16c0a0ce1891fa6794179ff
+2017-
+2018-Kotlin:        2.0.21
+2019-Groovy:        3.0.22
+2020-Ant:           Apache Ant(TM) version 1.10.15 compiled on August 25 2024
+2021-Launcher JVM:  17.0.18 (Homebrew 17.0.18+0)
+2022-Daemon JVM:    /usr/local/Cellar/openjdk@17/17.0.18/libexec/openjdk.jdk/Contents/Home (no JDK specified, using current Java home)
+2023-OS:            Mac OS X 26.5.1 x86_64
+2024-
+2025-
+2026->>> 生成 Gradle Wrapper 8.13:
+2027-Starting a Gradle Daemon (subsequent builds will be faster)
+2028-> Task :wrapper
+2029-
+2030-[Incubating] Problems report is available at: file:///Users/luojingyao/p4pilot/build/reports/problems/problems-report.html
+2031-
+2032-Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+2033-
+2034-You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+2035-
+2036-For more on this, please refer to https://docs.gradle.org/8.13/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+2037-
+2038-BUILD SUCCESSFUL in 23s
+2039-1 actionable task: 1 executed
+2040-
+2041->>> Wrapper 文件:
+2042-./gradle/wrapper/gradle-wrapper.jar
+2043-./gradle/wrapper/gradle-wrapper.properties
+2044-./gradlew
+2045-./gradlew.bat
+2046-
+2047->>> gradlew 权限:
+2048--rwxr-xr-x  1 luojingyao  staff  8752  9月  8 16:40 gradlew
+2049-
+2050->>> Wrapper 版本:
+2051-Downloading https://services.gradle.org/distributions/gradle-8.13-bin.zip
+2052-.............10%.............20%.............30%.............40%.............50%.............60%.............70%.............80%.............90%.............100%
+2053-
+2054-------------------------------------------------------------
+2055-Gradle 8.13
+2056-------------------------------------------------------------
+2057-
+2058-Build time:    2025-02-25 09:22:14 UTC
+2059-Revision:      073314332697ba45c16c0a0ce1891fa6794179ff
+2060-
+2061-Kotlin:        2.0.21
+2062-Groovy:        3.0.22
+2063-Ant:           Apache Ant(TM) version 1.10.15 compiled on August 25 2024
+2064-Launcher JVM:  17.0.18 (Homebrew 17.0.18+0)
+2065-Daemon JVM:    /usr/local/Cellar/openjdk@17/17.0.18/libexec/openjdk.jdk/Contents/Home (no JDK specified, using current Java home)
+2066-OS:            Mac OS X 26.5.1 x86_64
+2067-
+2068-
+
+>>> Gradle Wrapper 文件:
+./gradle/wrapper/gradle-wrapper.jar
+./gradle/wrapper/gradle-wrapper.properties
+./gradlew
+./gradlew.bat
+
+>>> gradlew:
+-rwxr-xr-x  1 luojingyao  staff  8752  9月  8 16:40 ./gradlew
+
+>>> wrapper 配置:
+distributionBase=GRADLE_USER_HOME
+distributionPath=wrapper/dists
+distributionUrl=https\://services.gradle.org/distributions/gradle-8.13-bin.zip
+networkTimeout=10000
+validateDistributionUrl=true
+zipStoreBase=GRADLE_USER_HOME
+zipStorePath=wrapper/dists
+
+>>> 当前 Git 状态:
+ M "\345\221\275\344\273\244.txt"
+?? .gradle/
+?? app/
+?? build.gradle
+?? build/
+?? gradle/
+?? gradlew
+?? gradlew.bat
+?? settings.gradle
+
+============================================================
+Step 17 完成
+============================================================
+============================================================
+P4Pilot Step 18 - Git 状态与远端同步诊断
+Time: 2026-09-08 16:42:16 +0800
+============================================================
+
+>>> Git 状态:
+ M "\345\221\275\344\273\244.txt"
+?? .gradle/
+?? app/
+?? build.gradle
+?? build/
+?? gradle/
+?? gradlew
+?? gradlew.bat
+?? settings.gradle
+
+>>> 当前分支:
+main
+
+>>> 本地 HEAD:
+7662751 docs: record Step 10 Gradle version
+
+>>> origin/main:
+46c0632125873d38e46fd2d46f793960d6ea4b38
+
+>>> 本地领先/落后:
+0	5
+
+>>> 未提交文件:
+ M "\345\221\275\344\273\244.txt"
+?? .gradle/
+?? app/
+?? build.gradle
+?? build/
+?? gradle/
+?? gradlew
+?? gradlew.bat
+?? settings.gradle
+
+============================================================
+Step 18 完成
+============================================================
+P4Pilot Step 19 - 远端与本地提交关系检查
+============================================================
+
+>>> Git fetch:
+来自 https://github.com/jingyao1997-bit/p4pilot
+   46c0632..e41ba2a  main       -> origin/main
+
+>>> 本地 HEAD:
+7662751 docs: record Step 10 Gradle version
+
+>>> origin/main:
+e41ba2a Add files via upload
+
+>>> 远端有而本地没有的 5 个提交:
+e41ba2a Add files via upload
+70d2a61 Add files via upload
+b1a7609 Add files via upload
+76b0d3a Add files via upload
+8aeb52f Add files via upload
+
+>>> 本地有而远端没有的提交:
+7662751 docs: record Step 10 Gradle version
+597c318 docs: record Step 09 Gradle final environment
+614d4fc docs: record Step 08 Gradle installation
+2585e7f docs: record Step 07 Android project build toolchain check
+e31393c docs: record Step 07 Android project build toolchain check
+
+>>> 提交关系图:
+* e41ba2a (origin/main, origin/HEAD) Add files via upload
+* 70d2a61 Add files via upload
+* b1a7609 Add files via upload
+* 76b0d3a Add files via upload
+* 8aeb52f Add files via upload
+| * 7662751 (HEAD -> main) docs: record Step 10 Gradle version
+| * 597c318 docs: record Step 09 Gradle final environment
+| * 614d4fc docs: record Step 08 Gradle installation
+| * 2585e7f docs: record Step 07 Android project build toolchain check
+| * e31393c docs: record Step 07 Android project build toolchain check
+|/  
+* 46c0632 docs: record Step 06 project and Android runtime check
+* 2b28e25 docs: record Step 05 Android build chain check
+
+>>> 当前文件状态:
+ M "\345\221\275\344\273\244.txt"
+?? .gradle/
+?? app/
+?? build.gradle
+?? build/
+?? gradle/
+?? gradlew
+?? gradlew.bat
+?? settings.gradle
+P4Pilot Step 20 - 分叉提交内容检查
+============================================================
+
+>>> 共同祖先:
+46c0632125873d38e46fd2d46f793960d6ea4b38
+
+>>> 远端 5 个提交涉及的文件:
+M	"\345\221\275\344\273\244.txt"
+
+>>> 本地 5 个提交涉及的文件:
+M	"\345\221\275\344\273\244.txt"
+
+>>> 双方提交的统计:
+--- REMOTE ---
+ "\345\221\275\344\273\244.txt" | 493 +++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 493 insertions(+)
+
+--- LOCAL ---
+ "\345\221\275\344\273\244.txt" | 431 +++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 431 insertions(+)
+
+>>> 当前未提交工程文件:
+ M "\345\221\275\344\273\244.txt"
+?? .gradle/
+?? app/
+?? build.gradle
+?? build/
+?? gradle/
+?? gradlew
+?? gradlew.bat
+?? settings.gradle
+P4Pilot Step 21 - 命令.txt 双方内容检查
+============================================================
+
+>>> 共同祖先版本:
+package:com.google.android.apps.googlevoice
+package:com.google.android.verifier
+package:com.google.android.apps.docs.editors.docs
+package:dev.bluehouse.enablevolte
+package:im.angry.easyeuicc
+package:com.google.android.apps.magazines
+package:com.google.android.apps.walletnfcrel
+package:com.google.android.apps.chromecast.app
+package:com.google.android.apps.podcasts
+package:com.google.android.apps.subscriptions.red
+
+############################
+# 10. Root
+############################
+uid=0(root) gid=0(root) groups=0(root) context=u:r:magisk:s0
+Enforcing
+
+============================================================
+Step 06 检查完成
+============================================================
+
+>>> 远端 origin/main 版本最后 30 行:
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Directory '/Users/luojingyao/p4pilot' does not contain a Gradle build.
+
+A Gradle build's root directory should contain one of the possible settings files: settings.gradle, settings.gradle.kts, settings.gradle.dcl. It may also contain one of the possible build files: build.gradle, build.gradle.kts, build.gradle.dcl.
+
+To create a new Gradle build in this directory run 'gradle init'
+
+For more information about the 'init' task, please refer to https://docs.gradle.org/9.7.1/userguide/build_init_plugin.html in the Gradle documentation.
+
+For more details on creating a Gradle build, please refer to https://docs.gradle.org/9.7.1/userguide/tutorial_using_tasks.html in the Gradle documentation.
+
+* Try:
+> Run gradle init to create a new Gradle build in this directory.
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 2s
+
+>>> Wrapper 文件:
+zsh: unknown file attribute:  
+
+>>> Wrapper 版本:
+zsh: no such file or directory: ./gradlew
+
+============================================================
+Step 11 完成
+============================================================
+
+>>> 本地 HEAD 版本最后 30 行:
+
+Kotlin:        2.4.0
+Groovy:        4.0.32
+Ant:           Apache Ant(TM) version 1.10.17 compiled on April 6 2026
+Launcher JVM:  26.0.2.1 (Homebrew 26.0.2.1)
+Daemon JVM:    /usr/local/Cellar/openjdk/26.0.2.1/libexec/openjdk.jdk/Contents/Home (no Daemon JVM specified, using current Java home)
+OS:            Mac OS X 26.5.1 x86_64
+
+
+brew info gradle:
+==> gradle: stable 9.7.1 (bottled)
+Open-source build automation tool based on the Groovy and Kotlin DSL
+https://www.gradle.org/
+Aliases: gradle@9
+Installed (on request)
+From: https://github.com/Homebrew/homebrew-core/blob/HEAD/Formula/g/gradle.rb
+License: Apache-2.0
+==> Installed Versions
+gradle 9.7.1 (11,584 files, 208.3MB) [Linked]
+==> Dependencies
+Required (2): gradle-completion, openjdk
+Recursive Runtime (31): all installed ✔
+==> Analytics
+install: 26,847 (30 days), 74,736 (90 days), 307,777 (365 days)
+install-on-request: 26,513 (30 days), 73,741 (90 days), 304,396 (365 days)
+build-error: 0 (30 days)
+
+============================================================
+Step 10 完成
+============================================================
+
+>>> 当前工作区命令.txt最后 50 行:
+> Run gradle init to create a new Gradle build in this directory.
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 2s
+
+>>> Wrapper 文件:
+zsh: unknown file attribute:  
+
+>>> Wrapper 版本:
+zsh: no such file or directory: ./gradlew
+
+============================================================
+Step 11 完成
+============================================================
+
+>>> 本地 HEAD 版本最后 30 行:
+
+Kotlin:        2.4.0
+Groovy:        4.0.32
+Ant:           Apache Ant(TM) version 1.10.17 compiled on April 6 2026
+Launcher JVM:  26.0.2.1 (Homebrew 26.0.2.1)
+Daemon JVM:    /usr/local/Cellar/openjdk/26.0.2.1/libexec/openjdk.jdk/Contents/Home (no Daemon JVM specified, using current Java home)
+OS:            Mac OS X 26.5.1 x86_64
+
+
+brew info gradle:
+==> gradle: stable 9.7.1 (bottled)
+Open-source build automation tool based on the Groovy and Kotlin DSL
+https://www.gradle.org/
+Aliases: gradle@9
+Installed (on request)
+From: https://github.com/Homebrew/homebrew-core/blob/HEAD/Formula/g/gradle.rb
+License: Apache-2.0
+==> Installed Versions
+gradle 9.7.1 (11,584 files, 208.3MB) [Linked]
+==> Dependencies
+Required (2): gradle-completion, openjdk
+Recursive Runtime (31): all installed ✔
+==> Analytics
+install: 26,847 (30 days), 74,736 (90 days), 307,777 (365 days)
+install-on-request: 26,513 (30 days), 73,741 (90 days), 304,396 (365 days)
+build-error: 0 (30 days)
+
+============================================================
+Step 10 完成
+============================================================
+
+>>> 当前工作区命令.txt最后 50 行:
+P4Pilot Step 22 - Android 工程本地安全提交
+============================================================
+
+>>> 创建 .gitignore:
+
+>>> Git 状态:
+ M "\345\221\275\344\273\244.txt"
+?? .gitignore
+?? app/
+?? build.gradle
+?? gradle/
+?? gradlew
+?? gradlew.bat
+?? settings.gradle
+
+>>> 添加 Android 工程及 .gitignore:
+
+>>> 暂存区:
+A  .gitignore
+A  app/build.gradle
+A  app/src/main/AndroidManifest.xml
+A  app/src/main/java/com/p4pilot/MainActivity.java
+A  app/src/main/res/values/styles.xml
+A  build.gradle
+A  gradle/wrapper/gradle-wrapper.jar
+A  gradle/wrapper/gradle-wrapper.properties
+A  gradlew
+A  gradlew.bat
+A  settings.gradle
+ M "\345\221\275\344\273\244.txt"
+
+>>> 创建本地安全提交:
+[main f1384af] feat: add P4Pilot Android project skeleton
+ 11 files changed, 445 insertions(+)
+ create mode 100644 .gitignore
+ create mode 100644 app/build.gradle
+ create mode 100644 app/src/main/AndroidManifest.xml
+ create mode 100644 app/src/main/java/com/p4pilot/MainActivity.java
+ create mode 100644 app/src/main/res/values/styles.xml
+ create mode 100644 build.gradle
+ create mode 100644 gradle/wrapper/gradle-wrapper.jar
+ create mode 100644 gradle/wrapper/gradle-wrapper.properties
+ create mode 100755 gradlew
+ create mode 100644 gradlew.bat
+ create mode 100644 settings.gradle
+
+>>> 最新提交:
+f1384af feat: add P4Pilot Android project skeleton
+
+>>> 最终状态:
+ M "\345\221\275\344\273\244.txt"
+P4Pilot Step 23 - 保存本地命令记录
+============================================================
+
+>>> 当前状态:
+ M "\345\221\275\344\273\244.txt"
+
+>>> 提交命令.txt:
