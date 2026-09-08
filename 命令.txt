@@ -24891,3 +24891,44 @@ Step55-CRASH-2 TEST_STATUS=NO_CRASH_REPRODUCED
 Step55-CRASH-2 result sync
 TEST_STATUS=NO_CRASH_REPRODUCED
 ============================================================
+[main 4678cc5] test: capture Step55 crash stack
+ 1 file changed, 841 insertions(+)
+To https://github.com/jingyao1997-bit/p4pilot.git
+   aa9a2ab..4678cc5  main -> main
+来自 https://github.com/jingyao1997-bit/p4pilot
+ * branch            main       -> FETCH_HEAD
+LOCAL       : 4678cc581866f2dadf8c5a3669abef2fae9d7707
+origin/main : 4678cc581866f2dadf8c5a3669abef2fae9d7707
+REAL REMOTE : 4678cc581866f2dadf8c5a3669abef2fae9d7707
+RESULT_SYNC=PASS
+Step55-CRASH-2 COMPLETE
+============================================================
+P4Pilot FORCE SYNC
+============================================================
+位于分支 main
+您的分支与上游分支 'origin/main' 一致。
+
+尚未暂存以备提交的变更：
+  （使用 "git add <文件>..." 更新要提交的内容）
+  （使用 "git restore <文件>..." 丢弃工作区的改动）
+	修改：     "\345\221\275\344\273\244.txt"
+
+修改尚未加入提交（使用 "git add" 和/或 "git commit -a"）
+4678cc5 test: capture Step55 crash stack
+aa9a2ab test: capture Step55 crash diagnostics
+04f12ee test: record Step55-R5 failure
+8d8a25f test: record Step55-R4 ImageReader failure
+e763287 fix: remove duplicate onDestroy method
+
+>>> FORCE PUSH WITH LEASE
+Everything up-to-date
+
+>>> FETCH
+来自 https://github.com/jingyao1997-bit/p4pilot
+ * branch            main       -> FETCH_HEAD
+
+LOCAL       : 4678cc581866f2dadf8c5a3669abef2fae9d7707
+origin/main : 4678cc581866f2dadf8c5a3669abef2fae9d7707
+REAL REMOTE : 4678cc581866f2dadf8c5a3669abef2fae9d7707
+
+FORCE_SYNC=PASS
