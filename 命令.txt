@@ -25727,3 +25727,141 @@ Step55-MEM-FIX-1 PASS
 Step55-MEM-FIX-1 result sync
 TEST_STATUS=PASS
 ============================================================
+[main e7dd76b] fix: bound Camera2 processing backlog
+ 2 files changed, 298 insertions(+)
+To https://github.com/jingyao1997-bit/p4pilot.git
+   389f203..e7dd76b  main -> main
+来自 https://github.com/jingyao1997-bit/p4pilot
+ * branch            main       -> FETCH_HEAD
+LOCAL       : e7dd76b19dbb93b4882380ded1ed20d65fbafe53
+origin/main : e7dd76b19dbb93b4882380ded1ed20d65fbafe53
+REAL REMOTE : e7dd76b19dbb93b4882380ded1ed20d65fbafe53
+RESULT_SYNC=PASS
+Step55-MEM-FIX-1 COMPLETE
+
+============================================================
+P4Pilot Step56-CLEANUP-1
+Goal: remove legacy first-frame JPEG self-test
+DATE=2026-09-09 08:26:18
+============================================================
+
+>>> HEAD
+e7dd76b19dbb93b4882380ded1ed20d65fbafe53
+
+>>> Remove legacy JPEG self-test
+SELFTEST_START_FOUND=True
+PROCESS_TIMER_FOUND=True
+LEGACY_JPEG_SELFTEST_REMOVED=YES
+
+JPEG_TEST_COUNT=0
+DECODE_OK_COUNT=0
+BACKPRESSURE_COUNT=1
+PROCESS_POST_COUNT=1
+SOURCE_SANITY=PASS
+
+>>> Build
+> Task :app:clean
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preDebugBuild UP-TO-DATE
+> Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
+> Task :app:javaPreCompileDebug
+> Task :app:checkDebugAarMetadata
+> Task :app:processDebugNavigationResources
+> Task :app:compileDebugNavigationResources
+> Task :app:generateDebugResValues
+> Task :app:mapDebugSourceSetPaths
+> Task :app:generateDebugResources
+> Task :app:mergeDebugResources
+> Task :app:packageDebugResources
+> Task :app:createDebugCompatibleScreenManifests
+> Task :app:extractDeepLinksDebug
+> Task :app:parseDebugLocalResources
+> Task :app:processDebugMainManifest
+> Task :app:processDebugManifest
+> Task :app:mergeDebugShaders
+> Task :app:compileDebugShaders NO-SOURCE
+> Task :app:processDebugManifestForPackage
+> Task :app:generateDebugAssets UP-TO-DATE
+> Task :app:mergeDebugAssets
+> Task :app:compressDebugAssets
+> Task :app:processDebugJavaRes NO-SOURCE
+> Task :app:checkDebugDuplicateClasses
+> Task :app:desugarDebugFileDependencies
+> Task :app:mergeDebugJavaResource
+> Task :app:mergeExtDexDebug
+> Task :app:mergeDebugJniLibFolders
+> Task :app:mergeDebugNativeLibs NO-SOURCE
+> Task :app:stripDebugDebugSymbols NO-SOURCE
+> Task :app:mergeLibDexDebug
+> Task :app:validateSigningDebug
+> Task :app:writeDebugAppMetadata
+> Task :app:writeDebugSigningConfigVersions
+> Task :app:processDebugResources
+
+> Task :app:compileDebugJavaWithJavac
+注: /Users/luojingyao/p4pilot/app/src/main/java/com/p4pilot/MainActivity.java使用或覆盖了已过时的 API。
+注: 有关详细信息, 请使用 -Xlint:deprecation 重新编译。
+
+> Task :app:dexBuilderDebug
+> Task :app:mergeProjectDexDebug
+> Task :app:packageDebug
+> Task :app:createDebugApkListingFileRedirect
+> Task :app:assembleDebug
+
+[Incubating] Problems report is available at: file:///Users/luojingyao/p4pilot/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.13/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 2s
+34 actionable tasks: 34 executed
+BUILD=PASS
+DEVICE_STATE=device
+Performing Streamed Install
+Success
+  bash arg: -p
+  bash arg: com.p4pilot
+  bash arg: -c
+  bash arg: android.intent.category.LAUNCHER
+  bash arg: 1
+args: [-p, com.p4pilot, -c, android.intent.category.LAUNCHER, 1]
+ arg: "-p"
+ arg: "com.p4pilot"
+ arg: "-c"
+ arg: "android.intent.category.LAUNCHER"
+ arg: "1"
+data="com.p4pilot"
+data="android.intent.category.LAUNCHER"
+Events injected: 1
+## Network stats: elapsed time=92ms (0ms mobile, 0ms wifi, 92ms not connected)
+INITIAL_PID=18305
+CHECKPOINT_SEC=10 PID=18305
+CHECKPOINT_SEC=20 PID=18305
+CHECKPOINT_SEC=30 PID=18305
+CHECKPOINT_SEC=40 PID=18305
+CHECKPOINT_SEC=50 PID=18305
+CHECKPOINT_SEC=60 PID=18305
+
+============================================================
+Step56-CLEANUP-1 RESULTS
+============================================================
+INITIAL_PID=18305
+FINAL_PID=18305
+FIRST_FRAME_COUNT=1
+PROCESSED_COUNT=1898
+OOM_COUNT=0
+FATAL_COUNT=0
+PROCESS_ERROR_COUNT=0
+YUV_COPY_ERROR_COUNT=0
+LEGACY_JPEG_RUNTIME_COUNT=0
+
+Step56-CLEANUP-1 TEST_STATUS=PASS
+Step56-CLEANUP-1 PASS
+
+============================================================
+Step56-CLEANUP-1 result sync
+TEST_STATUS=PASS
+============================================================

@@ -421,63 +421,11 @@ public class MainActivity extends Activity {
                                     processedCount++;
                                     savedCount++;
 
-                                    if (currentFrame == 1) {
-
-                                        System.out.println(
-                                                "P4Pilot Step54 BITMAP_OK width=" +
-                                                bitmap.getWidth() +
-                                                " height=" +
-                                                bitmap.getHeight()
-                                        );
-
-                                        File testFile =
-                                                new File(
-                                                        outputDir,
-                                                        "step53_test.jpg"
-                                                );
-
-                                        FileOutputStream fos =
-                                                new FileOutputStream(
-                                                        testFile
-                                                );
-
-                                        bitmap.compress(
-                                                android.graphics.Bitmap
-                                                        .CompressFormat.JPEG,
-                                                90,
-                                                fos
-                                        );
-
-                                        fos.flush();
-                                        fos.close();
-
-                                        android.graphics.Bitmap decoded =
-                                                android.graphics.BitmapFactory
-                                                        .decodeFile(
-                                                                testFile
-                                                                        .getAbsolutePath()
-                                                        );
-
-                                        if (decoded != null) {
-
-                                            System.out.println(
-                                                    "P4Pilot Step54 JPEG_DECODE_OK"
-                                            );
-
-                                            System.out.println(
-                                                    "P4Pilot Step54 JPEG_PATH=" +
-                                                    testFile.getAbsolutePath()
-                                            );
-
-                                            decoded.recycle();
-
-                                        } else {
-
-                                            System.err.println(
-                                                    "P4Pilot Step54 JPEG_DECODE_FAIL"
-                                            );
-                                        }
-                                    }
+                                    /*
+                                     * Step56:
+                                     * Legacy Step53 JPEG write/decode
+                                     * self-test removed from realtime path.
+                                     */
 
                                     long processElapsed =
                                             System.currentTimeMillis() -
