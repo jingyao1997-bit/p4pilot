@@ -26023,3 +26023,55 @@ Step56-CLEANUP-2 PASS
 Step56-CLEANUP-2 result sync
 TEST_STATUS=PASS
 ============================================================
+[main 390ea29] refactor: remove legacy Camera2 JPEG helpers
+ 2 files changed, 158 insertions(+), 443 deletions(-)
+To https://github.com/jingyao1997-bit/p4pilot.git
+ ! [rejected]        main -> main (stale info)
+错误：无法推送一些引用到 'https://github.com/jingyao1997-bit/p4pilot.git'
+来自 https://github.com/jingyao1997-bit/p4pilot
+ * branch            main       -> FETCH_HEAD
+   54522c7..062003f  main       -> origin/main
+LOCAL       : 390ea29f940901fc6a898978ed474ff54e012585
+origin/main : 062003ff034d57c32177707264e3cde757af24fe
+REAL REMOTE : 062003ff034d57c32177707264e3cde757af24fe
+RESULT_SYNC=PASS
+Step56-CLEANUP-2 COMPLETE
+
+============================================================
+P4Pilot Step56-SYNC-REPAIR-1
+Goal: safely replace redundant manual-upload remote commit
+DATE=2026-09-09 08:51:24
+============================================================
+
+>>> Fetch real remote
+来自 https://github.com/jingyao1997-bit/p4pilot
+ * branch            main       -> FETCH_HEAD
+
+>>> Current graph
+* 390ea29 (HEAD -> main) refactor: remove legacy Camera2 JPEG helpers
+| * 062003f (origin/main, origin/HEAD) Add files via upload
+|/  
+* 54522c7 refactor: remove legacy JPEG camera self-test
+* e7dd76b fix: bound Camera2 processing backlog
+* 389f203 test: inspect processing queue structure
+* 3be9fc1 test: inspect Step55 memory backlog
+* fe8f06e chore: record force sync verification
+* 4678cc5 test: capture Step55 crash stack
+
+LOCAL_BEFORE       : 390ea29f940901fc6a898978ed474ff54e012585
+origin/main BEFORE : 062003ff034d57c32177707264e3cde757af24fe
+REAL REMOTE BEFORE : 062003ff034d57c32177707264e3cde757af24fe
+
+>>> Verify Step56 cleanup commit exists
+STEP56_CLEANUP_COMMIT=FOUND
+
+>>> Verify source is clean
+LEGACY_SAVE_COUNT=0
+LEGACY_BITMAP_COUNT=0
+OUTPUT_DIR_COUNT=0
+STEP41_COUNT=0
+ACTIVE_CONVERTER_COUNT=2
+BACKPRESSURE_COUNT=1
+SOURCE_SANITY=PASS
+
+>>> Preserve current 命令.txt
