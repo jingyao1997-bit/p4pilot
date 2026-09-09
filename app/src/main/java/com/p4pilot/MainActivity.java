@@ -61,6 +61,74 @@ public class MainActivity extends Activity {
      */
     private CameraFrameConsumer cameraFrameConsumer;
 
+    /*
+     * Step62 Camera2 timing state.
+     *
+     * Image.getTimestamp() is SENSOR_TIMESTAMP (SOF).
+     * SENSOR_ROLLING_SHUTTER_SKEW is the HAL-reported frame
+     * readout time used to derive VisionIPC EOF.
+     */
+    private volatile int cameraTimestampSource =
+            CameraMetadata.SENSOR_INFO_TIMESTAMP_SOURCE_UNKNOWN;
+
+    private volatile long latestRollingShutterSkewNs = 0L;
+    private volatile int timingDropCount = 0;
+    private volatile boolean timingMetadataLogged = false;
+
+    private final CameraCaptureSession.CaptureCallback
+            cameraTimingCallback =
+            new CameraCaptureSession.CaptureCallback() {
+
+                @Override
+                public void onCaptureCompleted(
+                        CameraCaptureSession captureSession,
+                        CaptureRequest captureRequest,
+                        TotalCaptureResult result) {
+
+                    Long sensorTimestampNs =
+                            result.get(
+                                    CaptureResult.SENSOR_TIMESTAMP
+                            );
+
+                    Long rollingShutterSkewNs =
+                            result.get(
+                                    CaptureResult
+                                            .SENSOR_ROLLING_SHUTTER_SKEW
+                            );
+
+                    if (sensorTimestampNs == null ||
+                            rollingShutterSkewNs == null ||
+                            sensorTimestampNs <= 0 ||
+                            rollingShutterSkewNs <= 0) {
+                        return;
+                    }
+
+                    latestRollingShutterSkewNs =
+                            rollingShutterSkewNs;
+
+                    if (!timingMetadataLogged) {
+
+                        timingMetadataLogged = true;
+
+                        System.out.println(
+                                "P4Pilot Step62 " +
+                                "CAMERA_TIMING_META source=" +
+                                cameraTimestampSource +
+                                " sensorTimestampNs=" +
+                                sensorTimestampNs +
+                                " readoutNs=" +
+                                rollingShutterSkewNs +
+                                " elapsedRealtimeDeltaNs=" +
+                                (
+                                        android.os.SystemClock
+                                                .elapsedRealtimeNanos() -
+                                        sensorTimestampNs
+                                )
+                        );
+                    }
+                }
+            };
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -151,6 +219,23 @@ public class MainActivity extends Activity {
             CameraCharacteristics c =
                     manager.getCameraCharacteristics(cameraId);
 
+            Integer timestampSource =
+                    c.get(
+                            CameraCharacteristics
+                                    .SENSOR_INFO_TIMESTAMP_SOURCE
+                    );
+
+            cameraTimestampSource =
+                    timestampSource != null
+                            ? timestampSource
+                            : CameraMetadata
+                                    .SENSOR_INFO_TIMESTAMP_SOURCE_UNKNOWN;
+
+            System.out.println(
+                    "P4Pilot Step62 CAMERA_TIMESTAMP_SOURCE=" +
+                    cameraTimestampSource
+            );
+
             android.util.Size[] sizes =
                     c.get(
                             CameraCharacteristics
@@ -240,6 +325,48 @@ public class MainActivity extends Activity {
                                 return;
                             }
                             
+                            final long timestampSofNs =
+                                    image.getTimestamp();
+
+                            final long readoutNs =
+                                    latestRollingShutterSkewNs;
+
+                            /*
+                             * REALTIME is required so camera timestamps share
+                             * the elapsedRealtimeNanos() timebase used by other
+                             * Android sensor subsystems.
+                             *
+                             * Capture-result and Image callbacks have no ordering
+                             * guarantee. Warm-up frames are therefore dropped until
+                             * the first valid HAL readout time has arrived; the fixed
+                             * repeating sensor mode then uses the latest reported skew.
+                             */
+                            if (cameraTimestampSource !=
+                                    CameraMetadata
+                                            .SENSOR_INFO_TIMESTAMP_SOURCE_REALTIME ||
+                                    readoutNs <= 0) {
+
+                                timingDropCount++;
+
+                                if (timingDropCount <= 5 ||
+                                        timingDropCount % 30 == 0) {
+
+                                    System.out.println(
+                                            "P4Pilot Step62 TIMING_DROP count=" +
+                                            timingDropCount +
+                                            " source=" +
+                                            cameraTimestampSource +
+                                            " readoutNs=" +
+                                            readoutNs
+                                    );
+                                }
+
+                                return;
+                            }
+
+                            final long timestampEofNs =
+                                    timestampSofNs + readoutNs;
+
                             final byte[] yData;
                             final byte[] uData;
                             final byte[] vData;
@@ -341,9 +468,6 @@ public class MainActivity extends Activity {
                              * finally{} below releases the Camera2 buffer.
                              */
 
-                            final long sensorTimestampNs =
-                                    image.getTimestamp();
-
                             final long frameTimestamp =
                                     now;
 
@@ -431,7 +555,8 @@ public class MainActivity extends Activity {
                                                     currentFrame,
                                                     w,
                                                     h,
-                                                    sensorTimestampNs,
+                                                    timestampSofNs,
+                                                    timestampEofNs,
                                                     frameTimestamp,
                                                     nv12
                                             );
@@ -596,7 +721,7 @@ manager.openCamera(
                                                             .setRepeatingRequest(
                                                                     request
                                                                             .build(),
-                                                                    null,
+                                                                    cameraTimingCallback,
                                                                     cameraHandler
                                                             );
 

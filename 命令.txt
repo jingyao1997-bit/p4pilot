@@ -28112,3 +28112,209 @@ Step62-CAMERA-TIMING-1 TEST_STATUS=FAIL
 >>> Restore Step61 source
 
 >>> Commit
+[main 56c14da] test: record Step62 camera timing failure
+ 1 file changed, 44 insertions(+)
+
+>>> Push
+To https://github.com/jingyao1997-bit/p4pilot.git
+   c8e4948..56c14da  HEAD -> main
+来自 https://github.com/jingyao1997-bit/p4pilot
+ * branch            main       -> FETCH_HEAD
+LOCAL       : 56c14da73fd7366fbb72744f9b76061cb6bd0ac4
+origin/main : 56c14da73fd7366fbb72744f9b76061cb6bd0ac4
+REAL REMOTE : 56c14da73fd7366fbb72744f9b76061cb6bd0ac4
+RESULT_SYNC=PASS
+Step62-CAMERA-TIMING-1 COMPLETE
+
+============================================================
+P4Pilot Step62-CAMERA-TIMING-VERIFIED-1
+Goal: Camera2 SOF + HAL readout -> VisionIPC SOF/EOF
+DATE=2026-09-09 14:00:38
+============================================================
+
+>>> Git baseline
+来自 https://github.com/jingyao1997-bit/p4pilot
+ * branch            main       -> FETCH_HEAD
+LOCAL_BASE=56c14da73fd7366fbb72744f9b76061cb6bd0ac4
+origin/main=56c14da73fd7366fbb72744f9b76061cb6bd0ac4
+REAL_REMOTE=56c14da73fd7366fbb72744f9b76061cb6bd0ac4
+
+>>> Exact uploaded-source verification
+/Users/luojingyao/Downloads/p4pilot_step62_verified.sh: line 80: declare: -A: invalid option
+declare: usage: declare [-afFirtx] [-p] [name[=value] ...]
+/Users/luojingyao/Downloads/p4pilot_step62_verified.sh: line 81: app: unbound variable
+
+============================================================
+P4Pilot Step62-CAMERA-TIMING-VERIFIED-1
+Goal: Camera2 SOF + HAL readout -> VisionIPC SOF/EOF
+DATE=2026-09-09 14:03:36
+============================================================
+
+>>> Git baseline
+来自 https://github.com/jingyao1997-bit/p4pilot
+ * branch            main       -> FETCH_HEAD
+LOCAL_BASE=56c14da73fd7366fbb72744f9b76061cb6bd0ac4
+origin/main=56c14da73fd7366fbb72744f9b76061cb6bd0ac4
+REAL_REMOTE=56c14da73fd7366fbb72744f9b76061cb6bd0ac4
+
+>>> Exact uploaded-source verification
+SOURCE_SHA app/src/main/java/com/p4pilot/MainActivity.java 0ec794a636dc77f30325289c38376c745b9ab1d79a0a69ba81f46cc4216ef31a
+SOURCE_SHA app/src/main/java/com/p4pilot/CameraFrame.java 01c54c3deda4f06e815c5bdc1cf4829f3c4974601d5d91c8c2f9ecde854721b1
+SOURCE_SHA app/src/main/java/com/p4pilot/OpenpilotFrameConsumer.java 1a0fee9c53c9dd9f36b476454199fa12a3369e1ad95cc542fe4cae1b1c07ff42
+SOURCE_SHA app/src/main/cpp/openpilot_frame_bridge.cpp 28ec68cbbde8381ca47b0a0f00e1275492e4fa87b7d00de0373bfe6172137583
+SOURCE_LOCK=PASS
+
+>>> git apply --check
+PATCH_CHECK=PASS
+
+>>> Source sanity
+SOF_GETTER_COUNT=1
+EOF_GETTER_COUNT=1
+TIMING_CALLBACK_COUNT=2
+SKEW_COUNT=2
+REALTIME_COUNT=1
+TIMING_FRAME_MARKER_COUNT=1
+VIPC_TIMING_MARKER_COUNT=1
+OLD_NATIVE_TS_COUNT=0
+OLD_FRAME_GETTER_COUNT=0
+NV12_COUNT=2
+BACKPRESSURE_COUNT=1
+VISIONIPC_SERVER_COUNT=2
+VISIONIPC_CLIENT_COUNT=2
+SOURCE_STATUS=PASS
+
+>>> Build
+Starting a Gradle Daemon (subsequent builds will be faster)
+Warning: SDK processing. This version only understands SDK XML versions up to 3 but an SDK XML file of version 4 was encountered. This can happen if you use versions of Android Studio and the command-line tools that were released at different times.
+
+> Task :app:externalNativeBuildCleanDebug
+Clean p4pilot_bridge-armeabi-v7a
+Clean p4pilot_bridge-arm64-v8a
+Clean p4pilot_bridge-x86
+Clean p4pilot_bridge-x86_64
+
+> Task :app:externalNativeBuildCleanRelease
+> Task :app:clean
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preDebugBuild UP-TO-DATE
+> Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
+> Task :app:checkDebugAarMetadata
+> Task :app:javaPreCompileDebug
+> Task :app:processDebugNavigationResources
+> Task :app:generateDebugResValues
+> Task :app:compileDebugNavigationResources
+> Task :app:mapDebugSourceSetPaths
+> Task :app:generateDebugResources
+> Task :app:packageDebugResources
+> Task :app:createDebugCompatibleScreenManifests
+> Task :app:extractDeepLinksDebug
+> Task :app:parseDebugLocalResources
+> Task :app:processDebugMainManifest
+> Task :app:mergeDebugResources
+> Task :app:processDebugManifest
+> Task :app:mergeDebugShaders
+> Task :app:compileDebugShaders NO-SOURCE
+> Task :app:generateDebugAssets UP-TO-DATE
+> Task :app:mergeDebugAssets
+> Task :app:compressDebugAssets
+> Task :app:processDebugJavaRes NO-SOURCE
+> Task :app:processDebugManifestForPackage
+> Task :app:desugarDebugFileDependencies
+> Task :app:checkDebugDuplicateClasses
+> Task :app:mergeExtDexDebug
+> Task :app:mergeLibDexDebug
+> Task :app:mergeDebugJavaResource
+> Task :app:configureCMakeDebug[arm64-v8a]
+> Task :app:processDebugResources
+> Task :app:buildCMakeDebug[arm64-v8a]
+
+> Task :app:compileDebugJavaWithJavac
+注: /Users/luojingyao/p4pilot/app/src/main/java/com/p4pilot/MainActivity.java使用或覆盖了已过时的 API。
+注: 有关详细信息, 请使用 -Xlint:deprecation 重新编译。
+
+> Task :app:dexBuilderDebug
+> Task :app:configureCMakeDebug[armeabi-v7a]
+> Task :app:mergeProjectDexDebug
+> Task :app:buildCMakeDebug[armeabi-v7a]
+> Task :app:configureCMakeDebug[x86]
+> Task :app:buildCMakeDebug[x86]
+> Task :app:configureCMakeDebug[x86_64]
+> Task :app:buildCMakeDebug[x86_64]
+> Task :app:mergeDebugJniLibFolders
+> Task :app:mergeDebugNativeLibs
+> Task :app:validateSigningDebug
+> Task :app:writeDebugAppMetadata
+> Task :app:writeDebugSigningConfigVersions
+> Task :app:stripDebugDebugSymbols
+> Task :app:packageDebug
+> Task :app:createDebugApkListingFileRedirect
+> Task :app:assembleDebug
+
+[Incubating] Problems report is available at: file:///Users/luojingyao/p4pilot/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.13/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 32s
+46 actionable tasks: 46 executed
+BUILD=PASS
+
+>>> Device
+DEVICE_STATE=device
+Performing Streamed Install
+Success
+INSTALL=PASS
+  bash arg: -p
+  bash arg: com.p4pilot
+  bash arg: -c
+  bash arg: android.intent.category.LAUNCHER
+  bash arg: 1
+args: [-p, com.p4pilot, -c, android.intent.category.LAUNCHER, 1]
+ arg: "-p"
+ arg: "com.p4pilot"
+ arg: "-c"
+ arg: "android.intent.category.LAUNCHER"
+ arg: "1"
+data="com.p4pilot"
+data="android.intent.category.LAUNCHER"
+Events injected: 1
+## Network stats: elapsed time=37ms (0ms mobile, 0ms wifi, 37ms not connected)
+INITIAL_PID=9295
+CHECKPOINT_SEC=10 PID=9295
+CHECKPOINT_SEC=20 PID=9295
+
+============================================================
+Step62-CAMERA-TIMING-VERIFIED-1 RESULTS
+============================================================
+INITIAL_PID=9295
+FINAL_PID=9295
+SOURCE_REALTIME_COUNT=1
+META_COUNT=1
+JAVA_TIMING_COUNT=1
+NATIVE_TIMING_COUNT=1
+SERVER_OK_COUNT=1
+CLIENT_OK_COUNT=1
+PROCESSED_COUNT=663
+TIMING_DROP_COUNT=2
+READOUT_NS=32212173
+VIPC_ERROR_COUNT=0
+PROCESS_ERROR_COUNT=0
+YUV_COPY_ERROR_COUNT=0
+OOM_COUNT=0
+FATAL_COUNT=0
+
+>>> Camera timing metadata
+09-09 07:04:20.897  9295  9345 I System.out: P4Pilot Step62 CAMERA_TIMING_META source=1 sensorTimestampNs=124666428846899 readoutNs=32212173 elapsedRealtimeDeltaNs=120954644
+
+>>> Java timing frame
+09-09 07:04:21.023  9295  9346 I System.out: P4Pilot Step62 TIMING_FRAME_OK frame=1 sofNs=124666528806899 eofNs=124666561019072 readoutNs=32212173
+
+>>> VisionIPC timing frame
+09-09 07:04:21.048  9295  9430 I P4PilotNative: P4Pilot Step62 VIPC_TIMING_OK frame=3 sofNs=124666628766899 eofNs=124666660979072 readoutNs=32212173
+
+Step62-CAMERA-TIMING-VERIFIED-1 TEST_STATUS=PASS
+
+>>> Commit result

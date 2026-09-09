@@ -18,7 +18,8 @@ public final class OpenpilotFrameConsumer
             int frameId,
             int width,
             int height,
-            long sensorTimestampNs);
+            long timestampSofNs,
+            long timestampEofNs);
 
     public OpenpilotFrameConsumer(
             String appCacheDirectory) {
@@ -50,7 +51,8 @@ public final class OpenpilotFrameConsumer
                         frame.getFrameId(),
                         frame.getWidth(),
                         frame.getHeight(),
-                        frame.getSensorTimestampNs()
+                        frame.getTimestampSofNs(),
+                        frame.getTimestampEofNs()
                 );
 
         if (!accepted) {
@@ -64,13 +66,17 @@ public final class OpenpilotFrameConsumer
         if (frame.getFrameId() == 1) {
 
             System.out.println(
-                    "P4Pilot Step61 " +
-                    "FRAME_TO_VISIONIPC_OK frame=" +
+                    "P4Pilot Step62 TIMING_FRAME_OK frame=" +
                     frame.getFrameId() +
-                    " bytes=" +
-                    frame.getNv12().length +
-                    " sensorTsNs=" +
-                    frame.getSensorTimestampNs()
+                    " sofNs=" +
+                    frame.getTimestampSofNs() +
+                    " eofNs=" +
+                    frame.getTimestampEofNs() +
+                    " readoutNs=" +
+                    (
+                            frame.getTimestampEofNs() -
+                            frame.getTimestampSofNs()
+                    )
             );
         }
     }

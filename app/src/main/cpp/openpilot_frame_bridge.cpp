@@ -238,7 +238,8 @@ void start_native_client_test() {
 
       if (!extra.valid ||
           extra.timestamp_sof == 0 ||
-          extra.timestamp_eof == 0) {
+          extra.timestamp_eof <=
+              extra.timestamp_sof) {
 
         log_error(
             "client timestamp metadata invalid"
@@ -302,6 +303,25 @@ void start_native_client_test() {
           ),
           static_cast<unsigned>(
               bytes[uv_offset + 1]
+          )
+      );
+
+      __android_log_print(
+          ANDROID_LOG_INFO,
+          TAG,
+          "P4Pilot Step62 VIPC_TIMING_OK "
+          "frame=%u sofNs=%llu eofNs=%llu "
+          "readoutNs=%llu",
+          extra.frame_id,
+          static_cast<unsigned long long>(
+              extra.timestamp_sof
+          ),
+          static_cast<unsigned long long>(
+              extra.timestamp_eof
+          ),
+          static_cast<unsigned long long>(
+              extra.timestamp_eof -
+              extra.timestamp_sof
           )
       );
 
@@ -481,7 +501,8 @@ Java_com_p4pilot_OpenpilotFrameConsumer_nativePushFrame(
     jint frame_id,
     jint width,
     jint height,
-    jlong sensor_timestamp_ns) {
+    jlong timestamp_sof_ns,
+    jlong timestamp_eof_ns) {
 
   if (nv12 == nullptr) {
 
@@ -492,10 +513,11 @@ Java_com_p4pilot_OpenpilotFrameConsumer_nativePushFrame(
     return JNI_FALSE;
   }
 
-  if (sensor_timestamp_ns <= 0) {
+  if (timestamp_sof_ns <= 0 ||
+      timestamp_eof_ns <= timestamp_sof_ns) {
 
     log_error(
-        "invalid sensor timestamp"
+        "invalid camera SOF/EOF timestamps"
     );
 
     return JNI_FALSE;
@@ -590,19 +612,14 @@ Java_com_p4pilot_OpenpilotFrameConsumer_nativePushFrame(
           frame_id
       );
 
-  /*
-   * Camera2 currently gives P4Pilot one sensor timestamp
-   * per frame. Until separate SOF/EOF timing is available,
-   * use the same monotonic camera timestamp for both fields.
-   */
   extra.timestamp_sof =
       static_cast<uint64_t>(
-          sensor_timestamp_ns
+          timestamp_sof_ns
       );
 
   extra.timestamp_eof =
       static_cast<uint64_t>(
-          sensor_timestamp_ns
+          timestamp_eof_ns
       );
 
   extra.valid = true;
@@ -634,12 +651,15 @@ Java_com_p4pilot_OpenpilotFrameConsumer_nativePushFrame(
         TAG,
         "P4Pilot Step61 VIPC_SEND_OK "
         "stream=0 frame=%d "
-        "bytes=%d timestamp=%lld "
+        "bytes=%d sofNs=%lld eofNs=%lld "
         "y0=%u u0=%u v0=%u",
         frame_id,
         actual_size,
         static_cast<long long>(
-            sensor_timestamp_ns
+            timestamp_sof_ns
+        ),
+        static_cast<long long>(
+            timestamp_eof_ns
         ),
         static_cast<unsigned>(
             bytes[0]

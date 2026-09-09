@@ -1,10 +1,18 @@
 package com.p4pilot;
 
 /*
- * Stable camera-frame boundary for future openpilot integration.
+ * Stable camera-frame boundary for openpilot integration.
  *
  * The frame payload is NV12:
- *   Y plane first, followed by interleaved VU chroma.
+ *   Y plane first, followed by interleaved UV chroma.
+ *
+ * timestampSofNs:
+ *   Camera2 Image timestamp / SENSOR_TIMESTAMP.
+ *   This is the start of exposure of the first sensor row.
+ *
+ * timestampEofNs:
+ *   timestampSofNs + SENSOR_ROLLING_SHUTTER_SKEW.
+ *   For a typical rolling-shutter sensor this is the frame readout time.
  */
 public final class CameraFrame {
 
@@ -12,11 +20,8 @@ public final class CameraFrame {
     private final int width;
     private final int height;
 
-    /*
-     * Timestamp supplied by Camera2 Image.
-     * Unit: nanoseconds.
-     */
-    private final long sensorTimestampNs;
+    private final long timestampSofNs;
+    private final long timestampEofNs;
 
     /*
      * Host-side time when the frame entered our Java pipeline.
@@ -30,19 +35,36 @@ public final class CameraFrame {
             int frameId,
             int width,
             int height,
-            long sensorTimestampNs,
+            long timestampSofNs,
+            long timestampEofNs,
             long receivedTimestampMs,
             byte[] nv12) {
 
-        if (width <= 0 || height <= 0) {
+        if (frameId <= 0) {
+            throw new IllegalArgumentException(
+                    "Invalid frameId"
+            );
+        }
+
+        if (width <= 0 ||
+                height <= 0 ||
+                (width & 1) != 0 ||
+                (height & 1) != 0) {
+
             throw new IllegalArgumentException(
                     "Invalid frame dimensions"
             );
         }
 
-        if (sensorTimestampNs <= 0) {
+        if (timestampSofNs <= 0) {
             throw new IllegalArgumentException(
-                    "Invalid sensor timestamp"
+                    "Invalid SOF timestamp"
+            );
+        }
+
+        if (timestampEofNs <= timestampSofNs) {
+            throw new IllegalArgumentException(
+                    "Invalid EOF timestamp"
             );
         }
 
@@ -67,7 +89,8 @@ public final class CameraFrame {
         this.frameId = frameId;
         this.width = width;
         this.height = height;
-        this.sensorTimestampNs = sensorTimestampNs;
+        this.timestampSofNs = timestampSofNs;
+        this.timestampEofNs = timestampEofNs;
         this.receivedTimestampMs = receivedTimestampMs;
         this.nv12 = nv12;
     }
@@ -84,8 +107,12 @@ public final class CameraFrame {
         return height;
     }
 
-    public long getSensorTimestampNs() {
-        return sensorTimestampNs;
+    public long getTimestampSofNs() {
+        return timestampSofNs;
+    }
+
+    public long getTimestampEofNs() {
+        return timestampEofNs;
     }
 
     public long getReceivedTimestampMs() {
