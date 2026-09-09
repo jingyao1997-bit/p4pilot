@@ -28068,3 +28068,47 @@ Step62-CAMERA-TIMING-1 TEST_STATUS=FAIL
 >>> Restore Step61 source
 
 >>> Commit
+[main c8e4948] test: record Step62 camera timing failure
+ 1 file changed, 38 insertions(+)
+
+>>> Push
+To https://github.com/jingyao1997-bit/p4pilot.git
+   49c7448..c8e4948  HEAD -> main
+来自 https://github.com/jingyao1997-bit/p4pilot
+ * branch            main       -> FETCH_HEAD
+LOCAL       : c8e4948cc75288cea1fdae96b30b98a6743e947f
+origin/main : c8e4948cc75288cea1fdae96b30b98a6743e947f
+REAL REMOTE : c8e4948cc75288cea1fdae96b30b98a6743e947f
+RESULT_SYNC=PASS
+Step62-CAMERA-TIMING-1 COMPLETE
+  File "<stdin>", line 21
+    new = r'''final long timestampSofNs =
+              ^^^^^
+SyntaxError: invalid syntax
+
+============================================================
+P4Pilot Step62-CAMERA-TIMING-1
+Goal: align Camera2 SOF/EOF timing with openpilot semantics
+DATE=2026-09-09 13:44:29
+============================================================
+
+>>> Git baseline
+来自 https://github.com/jingyao1997-bit/p4pilot
+ * branch            main       -> FETCH_HEAD
+LOCAL_BASE=c8e4948cc75288cea1fdae96b30b98a6743e947f
+origin/main=c8e4948cc75288cea1fdae96b30b98a6743e947f
+REAL_REMOTE=c8e4948cc75288cea1fdae96b30b98a6743e947f
+
+>>> Step61 precheck
+STEP61_PRECHECK=PASS
+
+>>> Apply Camera2/openpilot timing contract
+REPEATING_REQUEST_NULL_CALLBACK_COUNT=1
+ERROR: Image timestamp anchor count=0
+FAIL: Step62 timing patch failed
+
+Step62-CAMERA-TIMING-1 TEST_STATUS=FAIL
+
+>>> Restore Step61 source
+
+>>> Commit
