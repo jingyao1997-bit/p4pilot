@@ -26252,3 +26252,40 @@ Step57-DIRECT-YUV-1 PASS
 Step57-DIRECT-YUV-1 result sync
 TEST_STATUS=PASS
 ============================================================
+[main 4db3e24] refactor: process Camera2 frames as direct NV21
+ 2 files changed, 198 insertions(+), 48 deletions(-)
+LOCAL_BEFORE_PUSH=4db3e24137c536dc8f40329db183e4fbc263bbd5
+/tmp/p4pilot_step57_direct_yuv1.sh: line 639: EXPECTED_REMOTE: unbound variable
+
+============================================================
+P4Pilot Step57-SYNC-REPAIR-1
+Goal: preserve Step57 results and safely sync direct NV21 commit
+DATE=2026-09-09 09:07:00
+============================================================
+
+>>> Fetch authoritative remote
+来自 https://github.com/jingyao1997-bit/p4pilot
+ * branch            main       -> FETCH_HEAD
+LOCAL_BEFORE=4db3e24137c536dc8f40329db183e4fbc263bbd5
+REMOTE_EXPECTED=a378e512888e198d9e36208da90c40f9ff48436a
+REAL_REMOTE_BEFORE=a378e512888e198d9e36208da90c40f9ff48436a
+
+>>> Verify Step57 commit
+STEP57_COMMIT=FOUND
+
+>>> Verify direct NV21 source
+NV21_METHOD_COUNT=2
+JPEG_COMPRESS_COUNT=0
+BITMAP_FACTORY_COUNT=0
+NV21_MARKER_COUNT=1
+BACKPRESSURE_COUNT=1
+SOURCE_SANITY=PASS
+
+>>> Recover Step57 process timing from existing logcat
+CURRENT_PID=19327
+PROCESS_SAMPLES=3719
+PROCESS_AVG_MS=9.86
+PROCESS_P95_MS=13
+PROCESS_MAX_MS=27
+
+>>> Preserve repair log
