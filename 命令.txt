@@ -25865,3 +25865,161 @@ Step56-CLEANUP-1 PASS
 Step56-CLEANUP-1 result sync
 TEST_STATUS=PASS
 ============================================================
+[main 54522c7] refactor: remove legacy JPEG camera self-test
+ 2 files changed, 143 insertions(+), 57 deletions(-)
+To https://github.com/jingyao1997-bit/p4pilot.git
+   e7dd76b..54522c7  main -> main
+来自 https://github.com/jingyao1997-bit/p4pilot
+ * branch            main       -> FETCH_HEAD
+LOCAL       : 54522c7a1848f0d093e68a27bd2fc2a030f4b10d
+origin/main : 54522c7a1848f0d093e68a27bd2fc2a030f4b10d
+REAL REMOTE : 54522c7a1848f0d093e68a27bd2fc2a030f4b10d
+RESULT_SYNC=PASS
+Step56-CLEANUP-1 COMPLETE
+
+============================================================
+P4Pilot Step56-CLEANUP-2
+Goal: remove dead legacy Image/JPEG test code
+DATE=2026-09-09 08:34:13
+============================================================
+
+>>> HEAD
+54522c7a1848f0d093e68a27bd2fc2a030f4b10d
+
+>>> Working tree
+ M "\345\221\275\344\273\244.txt"
+
+>>> Apply dead-code cleanup
+LEGACY_METHOD_START_FOUND=True
+ONDESTROY_ANCHOR_FOUND=True
+OUTPUT_SETUP_START_FOUND=True
+OUTPUT_SETUP_END_FOUND=True
+REMOVE_COUNT[import java.io.File;]=1
+REMOVE_COUNT[import java.io.FileOutputStream;]=1
+REMOVE_COUNT[private volatile int savedCount = 0;]=1
+REMOVE_COUNT[private File outputDir;]=1
+REMOVE_COUNT[savedCount++;]=1
+DEAD_CODE_CLEANUP=APPLIED
+
+>>> Source sanity
+LEGACY_SAVE_COUNT=0
+LEGACY_BITMAP_COUNT=0
+SAVED_COUNT=0
+OUTPUT_DIR_COUNT=0
+STEP41_COUNT=0
+FILE_OUTPUT_COUNT=0
+ACTIVE_COPIED_CONVERTER_COUNT=2
+BACKPRESSURE_COUNT=1
+PROCESS_POST_COUNT=1
+ACQUIRE_LATEST_COUNT=2
+IMAGE_CLOSE_COUNT=1
+SOURCE_STATUS=PASS
+
+>>> Build
+> Task :app:clean
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preDebugBuild UP-TO-DATE
+> Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
+> Task :app:javaPreCompileDebug
+> Task :app:checkDebugAarMetadata
+> Task :app:processDebugNavigationResources
+> Task :app:compileDebugNavigationResources
+> Task :app:generateDebugResValues
+> Task :app:mapDebugSourceSetPaths
+> Task :app:generateDebugResources
+> Task :app:packageDebugResources
+> Task :app:mergeDebugResources
+> Task :app:createDebugCompatibleScreenManifests
+> Task :app:extractDeepLinksDebug
+> Task :app:parseDebugLocalResources
+> Task :app:processDebugMainManifest
+> Task :app:processDebugManifest
+> Task :app:mergeDebugShaders
+> Task :app:compileDebugShaders NO-SOURCE
+> Task :app:generateDebugAssets UP-TO-DATE
+> Task :app:mergeDebugAssets
+> Task :app:compressDebugAssets
+> Task :app:processDebugJavaRes NO-SOURCE
+> Task :app:checkDebugDuplicateClasses
+> Task :app:desugarDebugFileDependencies
+> Task :app:mergeDebugJavaResource
+> Task :app:mergeExtDexDebug
+> Task :app:mergeDebugJniLibFolders
+> Task :app:mergeDebugNativeLibs NO-SOURCE
+> Task :app:stripDebugDebugSymbols NO-SOURCE
+> Task :app:mergeLibDexDebug
+> Task :app:validateSigningDebug
+> Task :app:writeDebugAppMetadata
+> Task :app:writeDebugSigningConfigVersions
+> Task :app:processDebugManifestForPackage
+> Task :app:processDebugResources
+
+> Task :app:compileDebugJavaWithJavac
+注: /Users/luojingyao/p4pilot/app/src/main/java/com/p4pilot/MainActivity.java使用或覆盖了已过时的 API。
+注: 有关详细信息, 请使用 -Xlint:deprecation 重新编译。
+
+> Task :app:dexBuilderDebug
+> Task :app:mergeProjectDexDebug
+> Task :app:packageDebug
+> Task :app:createDebugApkListingFileRedirect
+> Task :app:assembleDebug
+
+[Incubating] Problems report is available at: file:///Users/luojingyao/p4pilot/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.13/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 3s
+34 actionable tasks: 34 executed
+BUILD=PASS
+DEVICE_STATE=device
+Performing Streamed Install
+Success
+INSTALL=PASS
+  bash arg: -p
+  bash arg: com.p4pilot
+  bash arg: -c
+  bash arg: android.intent.category.LAUNCHER
+  bash arg: 1
+args: [-p, com.p4pilot, -c, android.intent.category.LAUNCHER, 1]
+ arg: "-p"
+ arg: "com.p4pilot"
+ arg: "-c"
+ arg: "android.intent.category.LAUNCHER"
+ arg: "1"
+data="com.p4pilot"
+data="android.intent.category.LAUNCHER"
+Events injected: 1
+## Network stats: elapsed time=57ms (0ms mobile, 0ms wifi, 57ms not connected)
+INITIAL_PID=18711
+CHECKPOINT_SEC=10 PID=18711
+CHECKPOINT_SEC=20 PID=18711
+CHECKPOINT_SEC=30 PID=18711
+CHECKPOINT_SEC=40 PID=18711
+CHECKPOINT_SEC=50 PID=18711
+CHECKPOINT_SEC=60 PID=18711
+
+============================================================
+Step56-CLEANUP-2 RESULTS
+============================================================
+INITIAL_PID=18711
+FINAL_PID=18711
+FIRST_FRAME_COUNT=1
+PROCESSED_COUNT=1778
+DROPPED_BUSY_COUNT=9
+OOM_COUNT=0
+FATAL_COUNT=0
+PROCESS_ERROR_COUNT=0
+YUV_COPY_ERROR_COUNT=0
+LEGACY_RUNTIME_COUNT=0
+
+Step56-CLEANUP-2 TEST_STATUS=PASS
+Step56-CLEANUP-2 PASS
+
+============================================================
+Step56-CLEANUP-2 result sync
+TEST_STATUS=PASS
+============================================================
