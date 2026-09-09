@@ -27885,3 +27885,82 @@ FATAL_COUNT=0
 Step61-VISIONIPC-ANDROID-1 TEST_STATUS=PASS
 
 >>> Commit result
+[main 85d1b74] feat: publish camera frames through Android VisionIPC
+ 44 files changed, 5082 insertions(+), 144 deletions(-)
+ create mode 100644 app/src/main/cpp/third_party/msgq_upstream/P4PILOT_UPSTREAM.txt
+ create mode 100644 app/src/main/cpp/third_party/msgq_upstream/msgq/.gitignore
+ create mode 100644 app/src/main/cpp/third_party/msgq_upstream/msgq/__init__.py
+ create mode 100644 app/src/main/cpp/third_party/msgq_upstream/msgq/event.cc
+ create mode 100644 app/src/main/cpp/third_party/msgq_upstream/msgq/event.h
+ create mode 100644 app/src/main/cpp/third_party/msgq_upstream/msgq/impl_fake.cc
+ create mode 100644 app/src/main/cpp/third_party/msgq_upstream/msgq/impl_fake.h
+ create mode 100644 app/src/main/cpp/third_party/msgq_upstream/msgq/impl_msgq.cc
+ create mode 100644 app/src/main/cpp/third_party/msgq_upstream/msgq/impl_msgq.h
+ create mode 100644 app/src/main/cpp/third_party/msgq_upstream/msgq/ipc.cc
+ create mode 100644 app/src/main/cpp/third_party/msgq_upstream/msgq/ipc.h
+ create mode 100644 app/src/main/cpp/third_party/msgq_upstream/msgq/ipc.pxd
+ create mode 100644 app/src/main/cpp/third_party/msgq_upstream/msgq/ipc_pyx.pyx
+ create mode 100644 app/src/main/cpp/third_party/msgq_upstream/msgq/logger/logger.h
+ create mode 100644 app/src/main/cpp/third_party/msgq_upstream/msgq/msgq.cc
+ create mode 100644 app/src/main/cpp/third_party/msgq_upstream/msgq/msgq.h
+ create mode 100644 app/src/main/cpp/third_party/msgq_upstream/msgq/msgq_tests.cc
+ create mode 100644 app/src/main/cpp/third_party/msgq_upstream/msgq/test_runner.h
+ create mode 100644 app/src/main/cpp/third_party/msgq_upstream/msgq/tests/__init__.py
+ create mode 100644 app/src/main/cpp/third_party/msgq_upstream/msgq/tests/test_fake.py
+ create mode 100644 app/src/main/cpp/third_party/msgq_upstream/msgq/tests/test_messaging.py
+ create mode 100644 app/src/main/cpp/third_party/msgq_upstream/msgq/tests/test_poller.py
+ create mode 100644 app/src/main/cpp/third_party/msgq_upstream/msgq/visionipc/.gitignore
+ create mode 100644 app/src/main/cpp/third_party/msgq_upstream/msgq/visionipc/__init__.py
+ create mode 100644 app/src/main/cpp/third_party/msgq_upstream/msgq/visionipc/tests/__init__.py
+ create mode 100644 app/src/main/cpp/third_party/msgq_upstream/msgq/visionipc/tests/test_visionipc.py
+ create mode 100644 app/src/main/cpp/third_party/msgq_upstream/msgq/visionipc/visionbuf.cc
+ create mode 100644 app/src/main/cpp/third_party/msgq_upstream/msgq/visionipc/visionbuf.h
+ create mode 100644 app/src/main/cpp/third_party/msgq_upstream/msgq/visionipc/visionbuf_ion.cc
+ create mode 100644 app/src/main/cpp/third_party/msgq_upstream/msgq/visionipc/visionipc.cc
+ create mode 100644 app/src/main/cpp/third_party/msgq_upstream/msgq/visionipc/visionipc.h
+ create mode 100644 app/src/main/cpp/third_party/msgq_upstream/msgq/visionipc/visionipc.pxd
+ create mode 100644 app/src/main/cpp/third_party/msgq_upstream/msgq/visionipc/visionipc_client.cc
+ create mode 100644 app/src/main/cpp/third_party/msgq_upstream/msgq/visionipc/visionipc_client.h
+ create mode 100644 app/src/main/cpp/third_party/msgq_upstream/msgq/visionipc/visionipc_pyx.pxd
+ create mode 100644 app/src/main/cpp/third_party/msgq_upstream/msgq/visionipc/visionipc_pyx.pyx
+ create mode 100644 app/src/main/cpp/third_party/msgq_upstream/msgq/visionipc/visionipc_server.cc
+ create mode 100644 app/src/main/cpp/third_party/msgq_upstream/msgq/visionipc/visionipc_server.h
+ create mode 100644 app/src/main/cpp/visionbuf_android.cpp
+
+>>> Push
+To https://github.com/jingyao1997-bit/p4pilot.git
+   d8e8835..85d1b74  HEAD -> main
+来自 https://github.com/jingyao1997-bit/p4pilot
+ * branch            main       -> FETCH_HEAD
+LOCAL       : 85d1b742c2aab0d7dcee9d4f142f2a4f766d9169
+origin/main : 85d1b742c2aab0d7dcee9d4f142f2a4f766d9169
+REAL REMOTE : 85d1b742c2aab0d7dcee9d4f142f2a4f766d9169
+RESULT_SYNC=PASS
+Step61-VISIONIPC-ANDROID-1 COMPLETE
+
+============================================================
+P4Pilot Step62-CAMERA-TIMING-1
+Goal: align Camera2 SOF/EOF timing with openpilot semantics
+DATE=2026-09-09 11:53:00
+============================================================
+
+>>> Git baseline
+来自 https://github.com/jingyao1997-bit/p4pilot
+ * branch            main       -> FETCH_HEAD
+LOCAL_BASE=85d1b742c2aab0d7dcee9d4f142f2a4f766d9169
+origin/main=85d1b742c2aab0d7dcee9d4f142f2a4f766d9169
+REAL_REMOTE=85d1b742c2aab0d7dcee9d4f142f2a4f766d9169
+
+>>> Step61 precheck
+STEP61_PRECHECK=PASS
+
+>>> Apply Camera2/openpilot timing contract
+REPEATING_REQUEST_NULL_CALLBACK_COUNT=0
+ERROR: repeating request callback anchor mismatch
+FAIL: Step62 timing patch failed
+
+Step62-CAMERA-TIMING-1 TEST_STATUS=FAIL
+
+>>> Restore Step61 source
+
+>>> Commit
