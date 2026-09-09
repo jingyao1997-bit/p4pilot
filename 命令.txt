@@ -26511,3 +26511,51 @@ FATAL_COUNT=0
 Step58-FRAME-INTERFACE-1 TEST_STATUS=PASS
 
 >>> Commit result immediately
+[main ede390a] refactor: add camera frame consumer interface
+ 4 files changed, 290 insertions(+)
+ create mode 100644 app/src/main/java/com/p4pilot/CameraFrame.java
+ create mode 100644 app/src/main/java/com/p4pilot/CameraFrameConsumer.java
+
+>>> Push
+To https://github.com/jingyao1997-bit/p4pilot.git
+   084ed54..ede390a  HEAD -> main
+来自 https://github.com/jingyao1997-bit/p4pilot
+ * branch            main       -> FETCH_HEAD
+LOCAL       : ede390a4b63a98e9624cc67c87acf5ac41d377a4
+origin/main : ede390a4b63a98e9624cc67c87acf5ac41d377a4
+REAL REMOTE : ede390a4b63a98e9624cc67c87acf5ac41d377a4
+RESULT_SYNC=PASS
+Step58-FRAME-INTERFACE-1 COMPLETE
+
+============================================================
+P4Pilot Step59-NV12-ALIGN-1
+Goal: align camera frame format with openpilot NV12
+DATE=2026-09-09 09:23:58
+============================================================
+
+>>> Git baseline
+来自 https://github.com/jingyao1997-bit/p4pilot
+ * branch            main       -> FETCH_HEAD
+LOCAL_BASE=ede390a4b63a98e9624cc67c87acf5ac41d377a4
+origin/main=ede390a4b63a98e9624cc67c87acf5ac41d377a4
+REAL_REMOTE=ede390a4b63a98e9624cc67c87acf5ac41d377a4
+
+>>> Step58 interface precheck
+OLD_NV21_METHOD_REF_COUNT=2
+NV12_PATCH=APPLIED
+
+>>> Source sanity
+NV12_METHOD_COUNT=2
+OLD_NV21_COUNT=app/src/main/java/com/p4pilot/MainActivity.java:1
+app/src/main/java/com/p4pilot/CameraFrame.java:0
+GET_NV12_COUNT=2
+NV12_MARKER_COUNT=1
+JPEG_COUNT=0
+BACKPRESSURE_COUNT=1
+CONSUMER_CALL_COUNT=1
+SENSOR_TS_COUNT=1
+/tmp/p4pilot_step59_nv12.sh: line 448: [: app/src/main/java/com/p4pilot/MainActivity.java:1
+app/src/main/java/com/p4pilot/CameraFrame.java:0: integer expression expected
+FAIL: legacy NV21 remains
+
+Step59-NV12-ALIGN-1 TEST_STATUS=FAIL
