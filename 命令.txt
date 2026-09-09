@@ -28318,3 +28318,58 @@ FATAL_COUNT=0
 Step62-CAMERA-TIMING-VERIFIED-1 TEST_STATUS=PASS
 
 >>> Commit result
+[main 041ed28] feat: align camera SOF EOF timing
+ 5 files changed, 424 insertions(+), 40 deletions(-)
+
+>>> Push
+To https://github.com/jingyao1997-bit/p4pilot.git
+   56c14da..041ed28  HEAD -> main
+来自 https://github.com/jingyao1997-bit/p4pilot
+ * branch            main       -> FETCH_HEAD
+LOCAL       : 041ed2831c4b0fb01aa6eefba4e018498250f13c
+origin/main : 041ed2831c4b0fb01aa6eefba4e018498250f13c
+REAL REMOTE : 041ed2831c4b0fb01aa6eefba4e018498250f13c
+RESULT_SYNC=PASS
+Step62-CAMERA-TIMING-VERIFIED-1 COMPLETE
+
+============================================================
+P4Pilot Step63-CEREAL-CAMERA-STATE-1
+Goal: publish narrowRoadCameraState aligned with VisionIPC
+DATE=2026-09-09 14:43:45
+============================================================
+
+>>> Git baseline
+来自 https://github.com/jingyao1997-bit/p4pilot
+ * branch            main       -> FETCH_HEAD
+LOCAL_BASE=041ed2831c4b0fb01aa6eefba4e018498250f13c
+origin/main=041ed2831c4b0fb01aa6eefba4e018498250f13c
+REAL_REMOTE=041ed2831c4b0fb01aa6eefba4e018498250f13c
+
+>>> Step62 source lock
+BRIDGE_SHA=2fca2766d38ef24ac7e7d855e5593adcc876432ac3914e2fee239a62e08fc73a
+CMAKE_SHA=f74fc5f00259690f6728c831c981c46b9d1e2e330e36288962e8e9c6277ae94d
+
+>>> Resolve pinned openpilot contract
+OPENPILOT_SHA=ef769c173d9d5034114280f0b98a351c80ebcc3e
+MSGQ_SHA=0e266c1dbcf7328beee3e57b4a8688555387c877
+git-lfs filter-process: git-lfs: command not found
+致命错误：远端意外挂断了
+FAIL: checkout pinned openpilot failed
+
+>>> Generate exact pinned Cereal C++
+
+>>> Vendor exact Cereal + Cap'n Proto runtime
+
+>>> Integrate Step63 source
+
+>>> Source sanity
+
+>>> Build
+
+>>> Device
+
+Step63-CEREAL-CAMERA-STATE-1 TEST_STATUS=FAIL
+
+>>> Restore Step62 source after failure
+
+>>> Commit result
