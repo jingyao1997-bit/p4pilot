@@ -3,7 +3,7 @@ package com.p4pilot;
 /*
  * Stable camera-frame boundary for future openpilot integration.
  *
- * The frame payload is NV21:
+ * The frame payload is NV12:
  *   Y plane first, followed by interleaved VU chroma.
  */
 public final class CameraFrame {
@@ -24,7 +24,7 @@ public final class CameraFrame {
      */
     private final long receivedTimestampMs;
 
-    private final byte[] nv21;
+    private final byte[] nv12;
 
     public CameraFrame(
             int frameId,
@@ -32,7 +32,7 @@ public final class CameraFrame {
             int height,
             long sensorTimestampNs,
             long receivedTimestampMs,
-            byte[] nv21) {
+            byte[] nv12) {
 
         if (width <= 0 || height <= 0) {
             throw new IllegalArgumentException(
@@ -46,19 +46,19 @@ public final class CameraFrame {
             );
         }
 
-        if (nv21 == null) {
+        if (nv12 == null) {
             throw new IllegalArgumentException(
-                    "NV21 payload is null"
+                    "NV12 payload is null"
             );
         }
 
         int expected =
                 width * height * 3 / 2;
 
-        if (nv21.length != expected) {
+        if (nv12.length != expected) {
             throw new IllegalArgumentException(
-                    "NV21 size=" +
-                    nv21.length +
+                    "NV12 size=" +
+                    nv12.length +
                     " expected=" +
                     expected
             );
@@ -69,7 +69,7 @@ public final class CameraFrame {
         this.height = height;
         this.sensorTimestampNs = sensorTimestampNs;
         this.receivedTimestampMs = receivedTimestampMs;
-        this.nv21 = nv21;
+        this.nv12 = nv12;
     }
 
     public int getFrameId() {
@@ -92,7 +92,7 @@ public final class CameraFrame {
         return receivedTimestampMs;
     }
 
-    public byte[] getNv21() {
-        return nv21;
+    public byte[] getNv12() {
+        return nv12;
     }
 }

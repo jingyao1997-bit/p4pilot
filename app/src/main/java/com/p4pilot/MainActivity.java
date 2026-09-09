@@ -33,7 +33,7 @@ public class MainActivity extends Activity {
      *   ImageReader callback and Camera2 callbacks.
      *
      * processingThread:
-     *   Copied YUV -> NV21 processing work.
+     *   Copied YUV -> NV12 processing work.
      *
      * ImageReader Image objects NEVER leave cameraThread.
      */
@@ -66,7 +66,7 @@ public class MainActivity extends Activity {
                             "P4Pilot Step58 FRAME_CONSUMER_OK frame=" +
                             frame.getFrameId() +
                             " bytes=" +
-                            frame.getNv21().length +
+                            frame.getNv12().length +
                             " sensorTsNs=" +
                             frame.getSensorTimestampNs() +
                             " receivedTsMs=" +
@@ -395,8 +395,8 @@ public class MainActivity extends Activity {
                                      * performed outside ImageReader callback.
                                      */
 
-                                    byte[] nv21 =
-                                            yuv420ToNv21FromCopiedPlanes(
+                                    byte[] nv12 =
+                                            yuv420ToNv12FromCopiedPlanes(
                                                     w,
                                                     h,
                                                     yData,
@@ -410,24 +410,28 @@ public class MainActivity extends Activity {
                                                     vPixelStride
                                             );
 
-                                    int expectedNv21Bytes =
+                                    int expectedNv12Bytes =
                                             w * h * 3 / 2;
 
-                                    if (nv21.length != expectedNv21Bytes) {
+                                    if (nv12.length != expectedNv12Bytes) {
                                         throw new IllegalStateException(
-                                                "NV21 length mismatch: " +
-                                                nv21.length +
+                                                "NV12 length mismatch: " +
+                                                nv12.length +
                                                 " expected=" +
-                                                expectedNv21Bytes
+                                                expectedNv12Bytes
                                         );
                                     }
 
                                     if (currentFrame == 1) {
                                         System.out.println(
-                                                "P4Pilot Step57 NV21_OK bytes=" +
-                                                nv21.length +
+                                                "P4Pilot Step59 NV12_OK bytes=" +
+                                                nv12.length +
                                                 " y0=" +
-                                                (nv21[0] & 0xff)
+                                                (nv12[0] & 0xff) +
+                                                " u0=" +
+                                                (nv12[w * h] & 0xff) +
+                                                " v0=" +
+                                                (nv12[w * h + 1] & 0xff)
                                         );
                                     }
 
@@ -438,7 +442,7 @@ public class MainActivity extends Activity {
                                                     h,
                                                     sensorTimestampNs,
                                                     frameTimestamp,
-                                                    nv21
+                                                    nv12
                                             );
 
                                     cameraFrameConsumer.onFrame(
@@ -678,7 +682,7 @@ manager.openCamera(
     }
 
     
-    private byte[] yuv420ToNv21FromCopiedPlanes(
+    private byte[] yuv420ToNv12FromCopiedPlanes(
             int width,
             int height,
             byte[] yData,
@@ -691,92 +695,128 @@ manager.openCamera(
             int vRowStride,
             int vPixelStride) {
 
-        byte[] nv21 =
+        if ((width & 1) != 0 ||
+                (height & 1) != 0) {
+            throw new IllegalArgumentException(
+                    "NV12 requires even dimensions"
+            );
+        }
+
+        int frameSize =
+                width * height;
+
+        byte[] nv12 =
                 new byte[
-                        width * height +
-                        (width * height) / 2
+                        frameSize +
+                        frameSize / 2
                 ];
 
         int outputIndex = 0;
 
-        for (int row = 0; row < height; row++) {
+        /*
+         * Y plane.
+         */
+        for (int row = 0;
+                row < height;
+                row++) {
 
-            int rowOffset =
+            int rowBase =
                     row * yRowStride;
 
-            for (int col = 0; col < width; col++) {
+            for (int col = 0;
+                    col < width;
+                    col++) {
 
-                int index =
-                        rowOffset +
+                int sourceIndex =
+                        rowBase +
                         col * yPixelStride;
 
-                if (index < 0 || index >= yData.length) {
-                    throw new IllegalArgumentException(
-                            "Y index out of range: " + index +
-                            " / " + yData.length
+                if (sourceIndex < 0 ||
+                        sourceIndex >= yData.length) {
+
+                    throw new IllegalStateException(
+                            "Y index out of range: " +
+                            sourceIndex
                     );
                 }
 
-                nv21[outputIndex++] =
-                        yData[index];
+                nv12[outputIndex++] =
+                        yData[sourceIndex];
             }
         }
+
+        /*
+         * NV12 chroma:
+         *
+         *   U V U V U V ...
+         *
+         * NV12 chroma ordering is U V U V.
+         * The previous V U ordering is intentionally not used here.
+         */
+        int chromaWidth =
+                width / 2;
 
         int chromaHeight =
                 height / 2;
 
-        int chromaWidth =
-                width / 2;
-
         for (int row = 0;
-             row < chromaHeight;
-             row++) {
+                row < chromaHeight;
+                row++) {
 
-            int uRowOffset =
+            int uRowBase =
                     row * uRowStride;
 
-            int vRowOffset =
+            int vRowBase =
                     row * vRowStride;
 
             for (int col = 0;
-                 col < chromaWidth;
-                 col++) {
+                    col < chromaWidth;
+                    col++) {
 
                 int uIndex =
-                        uRowOffset +
+                        uRowBase +
                         col * uPixelStride;
 
                 int vIndex =
-                        vRowOffset +
+                        vRowBase +
                         col * vPixelStride;
 
                 if (uIndex < 0 ||
-                    uIndex >= uData.length ||
-                    vIndex < 0 ||
-                    vIndex >= vData.length) {
+                        uIndex >= uData.length) {
 
-                    throw new IllegalArgumentException(
-                            "UV index out of range: U=" +
-                            uIndex +
-                            "/" +
-                            uData.length +
-                            " V=" +
-                            vIndex +
-                            "/" +
-                            vData.length
+                    throw new IllegalStateException(
+                            "U index out of range: " +
+                            uIndex
                     );
                 }
 
-                nv21[outputIndex++] =
-                        vData[vIndex];
+                if (vIndex < 0 ||
+                        vIndex >= vData.length) {
 
-                nv21[outputIndex++] =
+                    throw new IllegalStateException(
+                            "V index out of range: " +
+                            vIndex
+                    );
+                }
+
+                nv12[outputIndex++] =
                         uData[uIndex];
+
+                nv12[outputIndex++] =
+                        vData[vIndex];
             }
         }
 
-        return nv21;
+        if (outputIndex != nv12.length) {
+            throw new IllegalStateException(
+                    "NV12 output size=" +
+                    outputIndex +
+                    " expected=" +
+                    nv12.length
+            );
+        }
 
+        return nv12;
     }
 
     @Override

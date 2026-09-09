@@ -26559,3 +26559,195 @@ app/src/main/java/com/p4pilot/CameraFrame.java:0: integer expression expected
 FAIL: legacy NV21 remains
 
 Step59-NV12-ALIGN-1 TEST_STATUS=FAIL
+[main d66a0da] test: record Step59 NV12 failure
+ 1 file changed, 48 insertions(+)
+
+>>> Push
+To https://github.com/jingyao1997-bit/p4pilot.git
+   ede390a..d66a0da  HEAD -> main
+来自 https://github.com/jingyao1997-bit/p4pilot
+ * branch            main       -> FETCH_HEAD
+LOCAL       : d66a0dacf008b255105be9ff78884facbb4aab59
+origin/main : d66a0dacf008b255105be9ff78884facbb4aab59
+REAL REMOTE : d66a0dacf008b255105be9ff78884facbb4aab59
+RESULT_SYNC=PASS
+Step59-NV12-ALIGN-1 COMPLETE
+===== STEP59 FIRST FAIL =====
+21225-    0x8400000b (hdr.UsageMode) with type 0 (byte) defined in section com.google.internal
+21226-    0x8400000c (SwDenoiseEnabled) with type 0 (byte) defined in section com.google.internal
+21227-    0x8400000d (VideoSwDenoiseEnabled) with type 0 (byte) defined in section com.google.internal
+21228-
+21229-== Camera error traces (0): ==
+21230-  No camera traces collected.
+21231-
+21232-**********Dumpsys from previous open session**********
+21233-
+21234-**********End of Dumpsys from previous open session**********
+21235-
+21236->>> PASS / FAIL
+21237:FAIL: maxImages/ImageReader buffer warning detected
+21238-
+21239-Step55-R4 TEST_STATUS=FAIL
+21240-Step55-R4 FAILED — stop before commit
+21241-
+21242-============================================================
+21243-Step55-R4 FAIL log sync
+21244-============================================================
+21245-[main 8d8a25f] test: record Step55-R4 ImageReader failure
+
+===== STEP59 SOURCE SANITY =====
+> Task :app:compileDebugNavigationResources
+> Task :app:generateDebugResValues
+> Task :app:mapDebugSourceSetPaths
+--
+>>> Source sanity
+NV12_METHOD_COUNT=2
+OLD_NV21_COUNT=app/src/main/java/com/p4pilot/MainActivity.java:1
+app/src/main/java/com/p4pilot/CameraFrame.java:0
+GET_NV12_COUNT=2
+NV12_MARKER_COUNT=1
+JPEG_COUNT=0
+BACKPRESSURE_COUNT=1
+CONSUMER_CALL_COUNT=1
+SENSOR_TS_COUNT=1
+/tmp/p4pilot_step59_nv12.sh: line 448: [: app/src/main/java/com/p4pilot/MainActivity.java:1
+app/src/main/java/com/p4pilot/CameraFrame.java:0: integer expression expected
+FAIL: legacy NV21 remains
+
+Step59-NV12-ALIGN-1 TEST_STATUS=FAIL
+[main d66a0da] test: record Step59 NV12 failure
+ 1 file changed, 48 insertions(+)
+
+>>> Push
+To https://github.com/jingyao1997-bit/p4pilot.git
+   ede390a..d66a0da  HEAD -> main
+
+============================================================
+P4Pilot Step59-NV12-ALIGN-1
+Goal: align camera frame format with openpilot NV12
+DATE=2026-09-09 09:28:26
+============================================================
+
+>>> Git baseline
+来自 https://github.com/jingyao1997-bit/p4pilot
+ * branch            main       -> FETCH_HEAD
+LOCAL_BASE=d66a0dacf008b255105be9ff78884facbb4aab59
+origin/main=d66a0dacf008b255105be9ff78884facbb4aab59
+REAL_REMOTE=d66a0dacf008b255105be9ff78884facbb4aab59
+
+>>> Step58 interface precheck
+OLD_NV21_METHOD_REF_COUNT=2
+NV12_PATCH=APPLIED
+
+>>> Source sanity
+NV12_METHOD_COUNT=2
+OLD_NV21_COUNT=0
+GET_NV12_COUNT=2
+NV12_MARKER_COUNT=1
+JPEG_COUNT=0
+BACKPRESSURE_COUNT=1
+CONSUMER_CALL_COUNT=1
+SENSOR_TS_COUNT=1
+SOURCE_STATUS=PASS
+
+>>> Build
+> Task :app:clean
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preDebugBuild UP-TO-DATE
+> Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
+> Task :app:javaPreCompileDebug
+> Task :app:checkDebugAarMetadata
+> Task :app:processDebugNavigationResources
+> Task :app:compileDebugNavigationResources
+> Task :app:generateDebugResValues
+> Task :app:mapDebugSourceSetPaths
+> Task :app:generateDebugResources
+> Task :app:mergeDebugResources
+> Task :app:packageDebugResources
+> Task :app:createDebugCompatibleScreenManifests
+> Task :app:extractDeepLinksDebug
+> Task :app:parseDebugLocalResources
+> Task :app:processDebugMainManifest
+> Task :app:processDebugManifest
+> Task :app:mergeDebugShaders
+> Task :app:compileDebugShaders NO-SOURCE
+> Task :app:generateDebugAssets UP-TO-DATE
+> Task :app:mergeDebugAssets
+> Task :app:compressDebugAssets
+> Task :app:processDebugJavaRes NO-SOURCE
+> Task :app:checkDebugDuplicateClasses
+> Task :app:processDebugManifestForPackage
+> Task :app:desugarDebugFileDependencies
+> Task :app:mergeDebugJavaResource
+> Task :app:mergeExtDexDebug
+> Task :app:mergeDebugJniLibFolders
+> Task :app:mergeDebugNativeLibs NO-SOURCE
+> Task :app:mergeLibDexDebug
+> Task :app:stripDebugDebugSymbols NO-SOURCE
+> Task :app:validateSigningDebug
+> Task :app:writeDebugAppMetadata
+> Task :app:writeDebugSigningConfigVersions
+> Task :app:processDebugResources
+
+> Task :app:compileDebugJavaWithJavac
+注: /Users/luojingyao/p4pilot/app/src/main/java/com/p4pilot/MainActivity.java使用或覆盖了已过时的 API。
+注: 有关详细信息, 请使用 -Xlint:deprecation 重新编译。
+
+> Task :app:dexBuilderDebug
+> Task :app:mergeProjectDexDebug
+> Task :app:packageDebug
+> Task :app:createDebugApkListingFileRedirect
+> Task :app:assembleDebug
+
+[Incubating] Problems report is available at: file:///Users/luojingyao/p4pilot/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.13/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 2s
+34 actionable tasks: 34 executed
+BUILD=PASS
+
+>>> Device
+DEVICE_STATE=device
+Performing Streamed Install
+Success
+  bash arg: -p
+  bash arg: com.p4pilot
+  bash arg: -c
+  bash arg: android.intent.category.LAUNCHER
+  bash arg: 1
+args: [-p, com.p4pilot, -c, android.intent.category.LAUNCHER, 1]
+ arg: "-p"
+ arg: "com.p4pilot"
+ arg: "-c"
+ arg: "android.intent.category.LAUNCHER"
+ arg: "1"
+data="com.p4pilot"
+data="android.intent.category.LAUNCHER"
+Events injected: 1
+## Network stats: elapsed time=62ms (0ms mobile, 0ms wifi, 62ms not connected)
+INITIAL_PID=20541
+CHECKPOINT_SEC=10 PID=20541
+CHECKPOINT_SEC=20 PID=20541
+
+============================================================
+Step59-NV12-ALIGN-1 RESULTS
+============================================================
+INITIAL_PID=20541
+FINAL_PID=20541
+NV12_RUNTIME_COUNT=1
+CONSUMER_RUNTIME_COUNT=1
+PROCESSED_COUNT=627
+PROCESS_ERROR_COUNT=0
+YUV_COPY_ERROR_COUNT=0
+OOM_COUNT=0
+FATAL_COUNT=0
+
+>>> First NV12 frame
+09-09 02:28:40.065 20541 20560 I System.out: P4Pilot Step59 NV12_OK bytes=1382400 y0=57 u0=113 v0=138
+
+Step59-NV12-ALIGN-1 TEST_STATUS=PASS
