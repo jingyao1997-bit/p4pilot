@@ -33,7 +33,7 @@ public class MainActivity extends Activity {
      *   ImageReader callback and Camera2 callbacks.
      *
      * processingThread:
-     *   YUV -> Bitmap -> JPEG CPU work.
+     *   Copied YUV -> NV21 processing work.
      *
      * ImageReader Image objects NEVER leave cameraThread.
      */
@@ -371,8 +371,8 @@ public class MainActivity extends Activity {
                                      * performed outside ImageReader callback.
                                      */
 
-                                    android.graphics.Bitmap bitmap =
-                                            yuv420ToBitmapFromCopiedPlanes(
+                                    byte[] nv21 =
+                                            yuv420ToNv21FromCopiedPlanes(
                                                     w,
                                                     h,
                                                     yData,
@@ -386,14 +386,25 @@ public class MainActivity extends Activity {
                                                     vPixelStride
                                             );
 
-                                    if (bitmap == null) {
+                                    int expectedNv21Bytes =
+                                            w * h * 3 / 2;
 
-                                        System.err.println(
-                                                "P4Pilot Step54 BITMAP_NULL frame=" +
-                                                currentFrame
+                                    if (nv21.length != expectedNv21Bytes) {
+                                        throw new IllegalStateException(
+                                                "NV21 length mismatch: " +
+                                                nv21.length +
+                                                " expected=" +
+                                                expectedNv21Bytes
                                         );
+                                    }
 
-                                        return;
+                                    if (currentFrame == 1) {
+                                        System.out.println(
+                                                "P4Pilot Step57 NV21_OK bytes=" +
+                                                nv21.length +
+                                                " y0=" +
+                                                (nv21[0] & 0xff)
+                                        );
                                     }
 
                                     processedCount++;
@@ -467,7 +478,6 @@ public class MainActivity extends Activity {
                                             )
                                     );
 
-                                    bitmap.recycle();
 
                                 } catch (Exception processingException) {
 
@@ -630,7 +640,7 @@ manager.openCamera(
     }
 
     
-    private android.graphics.Bitmap yuv420ToBitmapFromCopiedPlanes(
+    private byte[] yuv420ToNv21FromCopiedPlanes(
             int width,
             int height,
             byte[] yData,
@@ -727,45 +737,8 @@ manager.openCamera(
             }
         }
 
-        android.graphics.YuvImage yuv =
-                new android.graphics.YuvImage(
-                        nv21,
-                        ImageFormat.NV21,
-                        width,
-                        height,
-                        null
-                );
+        return nv21;
 
-        java.io.ByteArrayOutputStream out =
-                new java.io.ByteArrayOutputStream(
-                        width * height / 2
-                );
-
-        boolean ok =
-                yuv.compressToJpeg(
-                        new android.graphics.Rect(
-                                0,
-                                0,
-                                width,
-                                height
-                        ),
-                        90,
-                        out
-                );
-
-        if (!ok) {
-            return null;
-        }
-
-        byte[] jpeg =
-                out.toByteArray();
-
-        return android.graphics.BitmapFactory
-                .decodeByteArray(
-                        jpeg,
-                        0,
-                        jpeg.length
-                );
     }
 
     @Override

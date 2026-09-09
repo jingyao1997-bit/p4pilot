@@ -26075,3 +26075,180 @@ BACKPRESSURE_COUNT=1
 SOURCE_SANITY=PASS
 
 >>> Preserve current 命令.txt
+[main a378e51] chore: record Step56 sync repair context
+ 1 file changed, 52 insertions(+)
+
+>>> Verify remote 命令.txt is already contained locally
+REMOTE_COMMAND_BYTES=1838747
+LOCAL_COMMAND_BYTES=1845202
+REMOTE_CONTENT_PRESERVED=PASS
+
+>>> Explicit force-with-lease push
+LEASE_EXPECTED=062003ff034d57c32177707264e3cde757af24fe
+To https://github.com/jingyao1997-bit/p4pilot.git
+ + 062003f...a378e51 HEAD -> main (forced update)
+
+>>> Authoritative verification
+来自 https://github.com/jingyao1997-bit/p4pilot
+ * branch            main       -> FETCH_HEAD
+LOCAL       : a378e512888e198d9e36208da90c40f9ff48436a
+origin/main : a378e512888e198d9e36208da90c40f9ff48436a
+REAL REMOTE : a378e512888e198d9e36208da90c40f9ff48436a
+
+Step56-SYNC-REPAIR-1 TEST_STATUS=PASS
+RESULT_SYNC=PASS
+Step56-SYNC-REPAIR-1 COMPLETE
+
+============================================================
+P4Pilot Step57-DIRECT-YUV-1
+Goal: remove realtime JPEG/Bitmap conversion
+DATE=2026-09-09 08:59:01
+============================================================
+
+>>> Fetch remote baseline
+来自 https://github.com/jingyao1997-bit/p4pilot
+ * branch            main       -> FETCH_HEAD
+HEAD=a378e512888e198d9e36208da90c40f9ff48436a
+origin/main=a378e512888e198d9e36208da90c40f9ff48436a
+REAL_REMOTE=a378e512888e198d9e36208da90c40f9ff48436a
+
+>>> Apply direct NV21 patch
+PROCESSING_BLOCK_COUNT=1
+BITMAP_RECYCLE_COUNT=1
+OLD_METHOD_REF_COUNT=1
+DIRECT_NV21_PATCH=APPLIED
+
+>>> Source sanity
+NV21_METHOD_COUNT=2
+OLD_BITMAP_METHOD_COUNT=0
+JPEG_COMPRESS_COUNT=0
+BITMAP_FACTORY_COUNT=0
+YUV_IMAGE_COUNT=0
+BITMAP_COUNT=0
+NV21_OK_COUNT=1
+BACKPRESSURE_COUNT=1
+PROCESS_POST_COUNT=1
+SOURCE_STATUS=PASS
+
+>>> Build
+> Task :app:clean
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preDebugBuild UP-TO-DATE
+> Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
+> Task :app:javaPreCompileDebug
+> Task :app:checkDebugAarMetadata
+> Task :app:processDebugNavigationResources
+> Task :app:compileDebugNavigationResources
+> Task :app:generateDebugResValues
+> Task :app:mapDebugSourceSetPaths
+> Task :app:generateDebugResources
+> Task :app:mergeDebugResources
+> Task :app:packageDebugResources
+> Task :app:createDebugCompatibleScreenManifests
+> Task :app:extractDeepLinksDebug
+> Task :app:parseDebugLocalResources
+> Task :app:processDebugMainManifest
+> Task :app:processDebugManifest
+> Task :app:mergeDebugShaders
+> Task :app:compileDebugShaders NO-SOURCE
+> Task :app:generateDebugAssets UP-TO-DATE
+> Task :app:mergeDebugAssets
+> Task :app:compressDebugAssets
+> Task :app:processDebugJavaRes NO-SOURCE
+> Task :app:processDebugManifestForPackage
+> Task :app:mergeDebugJavaResource
+> Task :app:checkDebugDuplicateClasses
+> Task :app:desugarDebugFileDependencies
+> Task :app:mergeExtDexDebug
+> Task :app:mergeDebugJniLibFolders
+> Task :app:mergeDebugNativeLibs NO-SOURCE
+> Task :app:mergeLibDexDebug
+> Task :app:stripDebugDebugSymbols NO-SOURCE
+> Task :app:validateSigningDebug
+> Task :app:writeDebugAppMetadata
+> Task :app:writeDebugSigningConfigVersions
+> Task :app:processDebugResources
+
+> Task :app:compileDebugJavaWithJavac
+注: /Users/luojingyao/p4pilot/app/src/main/java/com/p4pilot/MainActivity.java使用或覆盖了已过时的 API。
+注: 有关详细信息, 请使用 -Xlint:deprecation 重新编译。
+
+> Task :app:dexBuilderDebug
+> Task :app:mergeProjectDexDebug
+> Task :app:packageDebug
+> Task :app:createDebugApkListingFileRedirect
+> Task :app:assembleDebug
+
+[Incubating] Problems report is available at: file:///Users/luojingyao/p4pilot/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.13/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 2s
+34 actionable tasks: 34 executed
+BUILD=PASS
+DEVICE_STATE=device
+Performing Streamed Install
+Success
+INSTALL=PASS
+
+>>> Launch
+  bash arg: -p
+  bash arg: com.p4pilot
+  bash arg: -c
+  bash arg: android.intent.category.LAUNCHER
+  bash arg: 1
+args: [-p, com.p4pilot, -c, android.intent.category.LAUNCHER, 1]
+ arg: "-p"
+ arg: "com.p4pilot"
+ arg: "-c"
+ arg: "android.intent.category.LAUNCHER"
+ arg: "1"
+data="com.p4pilot"
+data="android.intent.category.LAUNCHER"
+Events injected: 1
+## Network stats: elapsed time=84ms (0ms mobile, 0ms wifi, 84ms not connected)
+INITIAL_PID=19327
+
+>>> 60-second direct NV21 run
+CHECKPOINT_SEC=10 PID=19327
+CHECKPOINT_SEC=20 PID=19327
+CHECKPOINT_SEC=30 PID=19327
+CHECKPOINT_SEC=40 PID=19327
+CHECKPOINT_SEC=50 PID=19327
+CHECKPOINT_SEC=60 PID=19327
+awk: syntax error at source line 15
+ context is
+	                                        printf( >>> 
+ <<<                                             "samples=%d avgMs=%.2f maxMs=%d",
+awk: illegal statement at source line 15
+awk: illegal statement at source line 15
+
+============================================================
+Step57-DIRECT-YUV-1 RESULTS
+============================================================
+INITIAL_PID=19327
+FINAL_PID=19327
+FIRST_FRAME_COUNT=1
+NV21_RUNTIME_COUNT=1
+PROCESSED_COUNT=1823
+PROCESS_ERROR_COUNT=0
+YUV_COPY_ERROR_COUNT=0
+OOM_COUNT=0
+FATAL_COUNT=0
+JPEG_RUNTIME_COUNT=0
+PROCESS_STATS=
+
+>>> NV21 first-frame marker
+09-09 01:59:16.118 19327 19347 I System.out: P4Pilot Step57 NV21_OK bytes=1382400 y0=50
+
+Step57-DIRECT-YUV-1 TEST_STATUS=PASS
+Step57-DIRECT-YUV-1 PASS
+
+============================================================
+Step57-DIRECT-YUV-1 result sync
+TEST_STATUS=PASS
+============================================================
