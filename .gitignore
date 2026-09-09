@@ -4,3 +4,6 @@ app/build/
 *.iml
 .idea/
 .DS_Store
+
+# Android externalNativeBuild artifacts
+app/.cxx/

@@ -26976,3 +26976,345 @@ Step61-VISIONIPC-ANDROID-1 TEST_STATUS=FAIL
 >>> Restore Step60 source after failure
 
 >>> Commit result
+[main c4805f1] test: record Step61 VisionIPC failure
+ 158 files changed, 21047 insertions(+)
+ create mode 100644 app/.cxx/Debug/5k6b526g/arm64-v8a/.cmake/api/v1/query/client-agp/cache-v2
+ create mode 100644 app/.cxx/Debug/5k6b526g/arm64-v8a/.cmake/api/v1/query/client-agp/cmakeFiles-v1
+ create mode 100644 app/.cxx/Debug/5k6b526g/arm64-v8a/.cmake/api/v1/query/client-agp/codemodel-v2
+ create mode 100644 app/.cxx/Debug/5k6b526g/arm64-v8a/.cmake/api/v1/reply/cache-v2-caf4a82a1fb03b55d107.json
+ create mode 100644 app/.cxx/Debug/5k6b526g/arm64-v8a/.cmake/api/v1/reply/cmakeFiles-v1-b9e8e4241100afe2373c.json
+ create mode 100644 app/.cxx/Debug/5k6b526g/arm64-v8a/.cmake/api/v1/reply/codemodel-v2-92c7d028274e98f45b0a.json
+ create mode 100644 app/.cxx/Debug/5k6b526g/arm64-v8a/.cmake/api/v1/reply/directory-.-Debug-f5ebdc15457944623624.json
+ create mode 100644 app/.cxx/Debug/5k6b526g/arm64-v8a/.cmake/api/v1/reply/index-2026-09-09T01-36-21-0489.json
+ create mode 100644 app/.cxx/Debug/5k6b526g/arm64-v8a/.cmake/api/v1/reply/target-p4pilot_bridge-Debug-9dce22599ea060925322.json
+ create mode 100644 app/.cxx/Debug/5k6b526g/arm64-v8a/.ninja_deps
+ create mode 100644 app/.cxx/Debug/5k6b526g/arm64-v8a/.ninja_log
+ create mode 100644 app/.cxx/Debug/5k6b526g/arm64-v8a/CMakeCache.txt
+ create mode 100644 app/.cxx/Debug/5k6b526g/arm64-v8a/CMakeFiles/3.22.1-g37088a8/CMakeCCompiler.cmake
+ create mode 100644 app/.cxx/Debug/5k6b526g/arm64-v8a/CMakeFiles/3.22.1-g37088a8/CMakeCXXCompiler.cmake
+ create mode 100755 app/.cxx/Debug/5k6b526g/arm64-v8a/CMakeFiles/3.22.1-g37088a8/CMakeDetermineCompilerABI_C.bin
+ create mode 100755 app/.cxx/Debug/5k6b526g/arm64-v8a/CMakeFiles/3.22.1-g37088a8/CMakeDetermineCompilerABI_CXX.bin
+ create mode 100644 app/.cxx/Debug/5k6b526g/arm64-v8a/CMakeFiles/3.22.1-g37088a8/CMakeSystem.cmake
+ create mode 100644 app/.cxx/Debug/5k6b526g/arm64-v8a/CMakeFiles/3.22.1-g37088a8/CompilerIdC/CMakeCCompilerId.c
+ create mode 100644 app/.cxx/Debug/5k6b526g/arm64-v8a/CMakeFiles/3.22.1-g37088a8/CompilerIdC/CMakeCCompilerId.o
+ create mode 100644 app/.cxx/Debug/5k6b526g/arm64-v8a/CMakeFiles/3.22.1-g37088a8/CompilerIdCXX/CMakeCXXCompilerId.cpp
+ create mode 100644 app/.cxx/Debug/5k6b526g/arm64-v8a/CMakeFiles/3.22.1-g37088a8/CompilerIdCXX/CMakeCXXCompilerId.o
+ create mode 100644 app/.cxx/Debug/5k6b526g/arm64-v8a/CMakeFiles/CMakeOutput.log
+ create mode 100644 app/.cxx/Debug/5k6b526g/arm64-v8a/CMakeFiles/TargetDirectories.txt
+ create mode 100644 app/.cxx/Debug/5k6b526g/arm64-v8a/CMakeFiles/cmake.check_cache
+ create mode 100644 app/.cxx/Debug/5k6b526g/arm64-v8a/CMakeFiles/p4pilot_bridge.dir/openpilot_frame_bridge.cpp.o
+ create mode 100644 app/.cxx/Debug/5k6b526g/arm64-v8a/CMakeFiles/rules.ninja
+ create mode 100644 app/.cxx/Debug/5k6b526g/arm64-v8a/additional_project_files.txt
+ create mode 100644 app/.cxx/Debug/5k6b526g/arm64-v8a/android_gradle_build.json
+ create mode 100644 app/.cxx/Debug/5k6b526g/arm64-v8a/android_gradle_build_mini.json
+ create mode 100644 app/.cxx/Debug/5k6b526g/arm64-v8a/build.ninja
+ create mode 100644 app/.cxx/Debug/5k6b526g/arm64-v8a/build_file_index.txt
+ create mode 100644 app/.cxx/Debug/5k6b526g/arm64-v8a/cmake_install.cmake
+ create mode 100644 app/.cxx/Debug/5k6b526g/arm64-v8a/compile_commands.json
+ create mode 100644 app/.cxx/Debug/5k6b526g/arm64-v8a/compile_commands.json.bin
+ create mode 100644 app/.cxx/Debug/5k6b526g/arm64-v8a/configure_fingerprint.bin
+ create mode 100644 app/.cxx/Debug/5k6b526g/arm64-v8a/metadata_generation_command.txt
+ create mode 100644 app/.cxx/Debug/5k6b526g/arm64-v8a/prefab_config.json
+ create mode 100644 app/.cxx/Debug/5k6b526g/arm64-v8a/symbol_folder_index.txt
+ create mode 100644 app/.cxx/Debug/5k6b526g/armeabi-v7a/.cmake/api/v1/query/client-agp/cache-v2
+ create mode 100644 app/.cxx/Debug/5k6b526g/armeabi-v7a/.cmake/api/v1/query/client-agp/cmakeFiles-v1
+ create mode 100644 app/.cxx/Debug/5k6b526g/armeabi-v7a/.cmake/api/v1/query/client-agp/codemodel-v2
+ create mode 100644 app/.cxx/Debug/5k6b526g/armeabi-v7a/.cmake/api/v1/reply/cache-v2-4c2e304ce041c5fbbf9e.json
+ create mode 100644 app/.cxx/Debug/5k6b526g/armeabi-v7a/.cmake/api/v1/reply/cmakeFiles-v1-1332f6f4482c05c6d834.json
+ create mode 100644 app/.cxx/Debug/5k6b526g/armeabi-v7a/.cmake/api/v1/reply/codemodel-v2-d460f2588d2d00aa6534.json
+ create mode 100644 app/.cxx/Debug/5k6b526g/armeabi-v7a/.cmake/api/v1/reply/directory-.-Debug-f5ebdc15457944623624.json
+ create mode 100644 app/.cxx/Debug/5k6b526g/armeabi-v7a/.cmake/api/v1/reply/index-2026-09-09T01-36-25-0633.json
+ create mode 100644 app/.cxx/Debug/5k6b526g/armeabi-v7a/.cmake/api/v1/reply/target-p4pilot_bridge-Debug-9d5d8479946ffe085242.json
+ create mode 100644 app/.cxx/Debug/5k6b526g/armeabi-v7a/.ninja_deps
+ create mode 100644 app/.cxx/Debug/5k6b526g/armeabi-v7a/.ninja_log
+ create mode 100644 app/.cxx/Debug/5k6b526g/armeabi-v7a/CMakeCache.txt
+ create mode 100644 app/.cxx/Debug/5k6b526g/armeabi-v7a/CMakeFiles/3.22.1-g37088a8/CMakeCCompiler.cmake
+ create mode 100644 app/.cxx/Debug/5k6b526g/armeabi-v7a/CMakeFiles/3.22.1-g37088a8/CMakeCXXCompiler.cmake
+ create mode 100755 app/.cxx/Debug/5k6b526g/armeabi-v7a/CMakeFiles/3.22.1-g37088a8/CMakeDetermineCompilerABI_C.bin
+ create mode 100755 app/.cxx/Debug/5k6b526g/armeabi-v7a/CMakeFiles/3.22.1-g37088a8/CMakeDetermineCompilerABI_CXX.bin
+ create mode 100644 app/.cxx/Debug/5k6b526g/armeabi-v7a/CMakeFiles/3.22.1-g37088a8/CMakeSystem.cmake
+ create mode 100644 app/.cxx/Debug/5k6b526g/armeabi-v7a/CMakeFiles/3.22.1-g37088a8/CompilerIdC/CMakeCCompilerId.c
+ create mode 100644 app/.cxx/Debug/5k6b526g/armeabi-v7a/CMakeFiles/3.22.1-g37088a8/CompilerIdC/CMakeCCompilerId.o
+ create mode 100644 app/.cxx/Debug/5k6b526g/armeabi-v7a/CMakeFiles/3.22.1-g37088a8/CompilerIdCXX/CMakeCXXCompilerId.cpp
+ create mode 100644 app/.cxx/Debug/5k6b526g/armeabi-v7a/CMakeFiles/3.22.1-g37088a8/CompilerIdCXX/CMakeCXXCompilerId.o
+ create mode 100644 app/.cxx/Debug/5k6b526g/armeabi-v7a/CMakeFiles/CMakeOutput.log
+ create mode 100644 app/.cxx/Debug/5k6b526g/armeabi-v7a/CMakeFiles/TargetDirectories.txt
+ create mode 100644 app/.cxx/Debug/5k6b526g/armeabi-v7a/CMakeFiles/cmake.check_cache
+ create mode 100644 app/.cxx/Debug/5k6b526g/armeabi-v7a/CMakeFiles/p4pilot_bridge.dir/openpilot_frame_bridge.cpp.o
+ create mode 100644 app/.cxx/Debug/5k6b526g/armeabi-v7a/CMakeFiles/rules.ninja
+ create mode 100644 app/.cxx/Debug/5k6b526g/armeabi-v7a/additional_project_files.txt
+ create mode 100644 app/.cxx/Debug/5k6b526g/armeabi-v7a/android_gradle_build.json
+ create mode 100644 app/.cxx/Debug/5k6b526g/armeabi-v7a/android_gradle_build_mini.json
+ create mode 100644 app/.cxx/Debug/5k6b526g/armeabi-v7a/build.ninja
+ create mode 100644 app/.cxx/Debug/5k6b526g/armeabi-v7a/build_file_index.txt
+ create mode 100644 app/.cxx/Debug/5k6b526g/armeabi-v7a/cmake_install.cmake
+ create mode 100644 app/.cxx/Debug/5k6b526g/armeabi-v7a/compile_commands.json
+ create mode 100644 app/.cxx/Debug/5k6b526g/armeabi-v7a/compile_commands.json.bin
+ create mode 100644 app/.cxx/Debug/5k6b526g/armeabi-v7a/configure_fingerprint.bin
+ create mode 100644 app/.cxx/Debug/5k6b526g/armeabi-v7a/metadata_generation_command.txt
+ create mode 100644 app/.cxx/Debug/5k6b526g/armeabi-v7a/prefab_config.json
+ create mode 100644 app/.cxx/Debug/5k6b526g/armeabi-v7a/symbol_folder_index.txt
+ create mode 100644 app/.cxx/Debug/5k6b526g/hash_key.txt
+ create mode 100644 app/.cxx/Debug/5k6b526g/x86/.cmake/api/v1/query/client-agp/cache-v2
+ create mode 100644 app/.cxx/Debug/5k6b526g/x86/.cmake/api/v1/query/client-agp/cmakeFiles-v1
+ create mode 100644 app/.cxx/Debug/5k6b526g/x86/.cmake/api/v1/query/client-agp/codemodel-v2
+ create mode 100644 app/.cxx/Debug/5k6b526g/x86/.cmake/api/v1/reply/cache-v2-cd0de9b075ca589b7953.json
+ create mode 100644 app/.cxx/Debug/5k6b526g/x86/.cmake/api/v1/reply/cmakeFiles-v1-bd137764972282f319c4.json
+ create mode 100644 app/.cxx/Debug/5k6b526g/x86/.cmake/api/v1/reply/codemodel-v2-ddf7e9075de4fe88cada.json
+ create mode 100644 app/.cxx/Debug/5k6b526g/x86/.cmake/api/v1/reply/directory-.-Debug-f5ebdc15457944623624.json
+ create mode 100644 app/.cxx/Debug/5k6b526g/x86/.cmake/api/v1/reply/index-2026-09-09T01-36-29-0036.json
+ create mode 100644 app/.cxx/Debug/5k6b526g/x86/.cmake/api/v1/reply/target-p4pilot_bridge-Debug-92775b981cbba8219e27.json
+ create mode 100644 app/.cxx/Debug/5k6b526g/x86/.ninja_deps
+ create mode 100644 app/.cxx/Debug/5k6b526g/x86/.ninja_log
+ create mode 100644 app/.cxx/Debug/5k6b526g/x86/CMakeCache.txt
+ create mode 100644 app/.cxx/Debug/5k6b526g/x86/CMakeFiles/3.22.1-g37088a8/CMakeCCompiler.cmake
+ create mode 100644 app/.cxx/Debug/5k6b526g/x86/CMakeFiles/3.22.1-g37088a8/CMakeCXXCompiler.cmake
+ create mode 100755 app/.cxx/Debug/5k6b526g/x86/CMakeFiles/3.22.1-g37088a8/CMakeDetermineCompilerABI_C.bin
+ create mode 100755 app/.cxx/Debug/5k6b526g/x86/CMakeFiles/3.22.1-g37088a8/CMakeDetermineCompilerABI_CXX.bin
+ create mode 100644 app/.cxx/Debug/5k6b526g/x86/CMakeFiles/3.22.1-g37088a8/CMakeSystem.cmake
+ create mode 100644 app/.cxx/Debug/5k6b526g/x86/CMakeFiles/3.22.1-g37088a8/CompilerIdC/CMakeCCompilerId.c
+ create mode 100644 app/.cxx/Debug/5k6b526g/x86/CMakeFiles/3.22.1-g37088a8/CompilerIdC/CMakeCCompilerId.o
+ create mode 100644 app/.cxx/Debug/5k6b526g/x86/CMakeFiles/3.22.1-g37088a8/CompilerIdCXX/CMakeCXXCompilerId.cpp
+ create mode 100644 app/.cxx/Debug/5k6b526g/x86/CMakeFiles/3.22.1-g37088a8/CompilerIdCXX/CMakeCXXCompilerId.o
+ create mode 100644 app/.cxx/Debug/5k6b526g/x86/CMakeFiles/CMakeOutput.log
+ create mode 100644 app/.cxx/Debug/5k6b526g/x86/CMakeFiles/TargetDirectories.txt
+ create mode 100644 app/.cxx/Debug/5k6b526g/x86/CMakeFiles/cmake.check_cache
+ create mode 100644 app/.cxx/Debug/5k6b526g/x86/CMakeFiles/p4pilot_bridge.dir/openpilot_frame_bridge.cpp.o
+ create mode 100644 app/.cxx/Debug/5k6b526g/x86/CMakeFiles/rules.ninja
+ create mode 100644 app/.cxx/Debug/5k6b526g/x86/additional_project_files.txt
+ create mode 100644 app/.cxx/Debug/5k6b526g/x86/android_gradle_build.json
+ create mode 100644 app/.cxx/Debug/5k6b526g/x86/android_gradle_build_mini.json
+ create mode 100644 app/.cxx/Debug/5k6b526g/x86/build.ninja
+ create mode 100644 app/.cxx/Debug/5k6b526g/x86/build_file_index.txt
+ create mode 100644 app/.cxx/Debug/5k6b526g/x86/cmake_install.cmake
+ create mode 100644 app/.cxx/Debug/5k6b526g/x86/compile_commands.json
+ create mode 100644 app/.cxx/Debug/5k6b526g/x86/compile_commands.json.bin
+ create mode 100644 app/.cxx/Debug/5k6b526g/x86/configure_fingerprint.bin
+ create mode 100644 app/.cxx/Debug/5k6b526g/x86/metadata_generation_command.txt
+ create mode 100644 app/.cxx/Debug/5k6b526g/x86/prefab_config.json
+ create mode 100644 app/.cxx/Debug/5k6b526g/x86/symbol_folder_index.txt
+ create mode 100644 app/.cxx/Debug/5k6b526g/x86_64/.cmake/api/v1/query/client-agp/cache-v2
+ create mode 100644 app/.cxx/Debug/5k6b526g/x86_64/.cmake/api/v1/query/client-agp/cmakeFiles-v1
+ create mode 100644 app/.cxx/Debug/5k6b526g/x86_64/.cmake/api/v1/query/client-agp/codemodel-v2
+ create mode 100644 app/.cxx/Debug/5k6b526g/x86_64/.cmake/api/v1/reply/cache-v2-da5d5deae2528f02e277.json
+ create mode 100644 app/.cxx/Debug/5k6b526g/x86_64/.cmake/api/v1/reply/cmakeFiles-v1-0cab720893f18a160f7e.json
+ create mode 100644 app/.cxx/Debug/5k6b526g/x86_64/.cmake/api/v1/reply/codemodel-v2-6df52188916c7beb3dc8.json
+ create mode 100644 app/.cxx/Debug/5k6b526g/x86_64/.cmake/api/v1/reply/directory-.-Debug-f5ebdc15457944623624.json
+ create mode 100644 app/.cxx/Debug/5k6b526g/x86_64/.cmake/api/v1/reply/index-2026-09-09T01-36-32-0369.json
+ create mode 100644 app/.cxx/Debug/5k6b526g/x86_64/.cmake/api/v1/reply/target-p4pilot_bridge-Debug-7edbb88d51098d94e84a.json
+ create mode 100644 app/.cxx/Debug/5k6b526g/x86_64/.ninja_deps
+ create mode 100644 app/.cxx/Debug/5k6b526g/x86_64/.ninja_log
+ create mode 100644 app/.cxx/Debug/5k6b526g/x86_64/CMakeCache.txt
+ create mode 100644 app/.cxx/Debug/5k6b526g/x86_64/CMakeFiles/3.22.1-g37088a8/CMakeCCompiler.cmake
+ create mode 100644 app/.cxx/Debug/5k6b526g/x86_64/CMakeFiles/3.22.1-g37088a8/CMakeCXXCompiler.cmake
+ create mode 100755 app/.cxx/Debug/5k6b526g/x86_64/CMakeFiles/3.22.1-g37088a8/CMakeDetermineCompilerABI_C.bin
+ create mode 100755 app/.cxx/Debug/5k6b526g/x86_64/CMakeFiles/3.22.1-g37088a8/CMakeDetermineCompilerABI_CXX.bin
+ create mode 100644 app/.cxx/Debug/5k6b526g/x86_64/CMakeFiles/3.22.1-g37088a8/CMakeSystem.cmake
+ create mode 100644 app/.cxx/Debug/5k6b526g/x86_64/CMakeFiles/3.22.1-g37088a8/CompilerIdC/CMakeCCompilerId.c
+ create mode 100644 app/.cxx/Debug/5k6b526g/x86_64/CMakeFiles/3.22.1-g37088a8/CompilerIdC/CMakeCCompilerId.o
+ create mode 100644 app/.cxx/Debug/5k6b526g/x86_64/CMakeFiles/3.22.1-g37088a8/CompilerIdCXX/CMakeCXXCompilerId.cpp
+ create mode 100644 app/.cxx/Debug/5k6b526g/x86_64/CMakeFiles/3.22.1-g37088a8/CompilerIdCXX/CMakeCXXCompilerId.o
+ create mode 100644 app/.cxx/Debug/5k6b526g/x86_64/CMakeFiles/CMakeOutput.log
+ create mode 100644 app/.cxx/Debug/5k6b526g/x86_64/CMakeFiles/TargetDirectories.txt
+ create mode 100644 app/.cxx/Debug/5k6b526g/x86_64/CMakeFiles/cmake.check_cache
+ create mode 100644 app/.cxx/Debug/5k6b526g/x86_64/CMakeFiles/p4pilot_bridge.dir/openpilot_frame_bridge.cpp.o
+ create mode 100644 app/.cxx/Debug/5k6b526g/x86_64/CMakeFiles/rules.ninja
+ create mode 100644 app/.cxx/Debug/5k6b526g/x86_64/additional_project_files.txt
+ create mode 100644 app/.cxx/Debug/5k6b526g/x86_64/android_gradle_build.json
+ create mode 100644 app/.cxx/Debug/5k6b526g/x86_64/android_gradle_build_mini.json
+ create mode 100644 app/.cxx/Debug/5k6b526g/x86_64/build.ninja
+ create mode 100644 app/.cxx/Debug/5k6b526g/x86_64/build_file_index.txt
+ create mode 100644 app/.cxx/Debug/5k6b526g/x86_64/cmake_install.cmake
+ create mode 100644 app/.cxx/Debug/5k6b526g/x86_64/compile_commands.json
+ create mode 100644 app/.cxx/Debug/5k6b526g/x86_64/compile_commands.json.bin
+ create mode 100644 app/.cxx/Debug/5k6b526g/x86_64/configure_fingerprint.bin
+ create mode 100644 app/.cxx/Debug/5k6b526g/x86_64/metadata_generation_command.txt
+ create mode 100644 app/.cxx/Debug/5k6b526g/x86_64/prefab_config.json
+ create mode 100644 app/.cxx/Debug/5k6b526g/x86_64/symbol_folder_index.txt
+ create mode 100644 app/.cxx/tools/debug/arm64-v8a/compile_commands.json
+ create mode 100644 app/.cxx/tools/debug/armeabi-v7a/compile_commands.json
+ create mode 100644 app/.cxx/tools/debug/x86/compile_commands.json
+ create mode 100644 app/.cxx/tools/debug/x86_64/compile_commands.json
+
+>>> Push
+To https://github.com/jingyao1997-bit/p4pilot.git
+   9c7a97e..c4805f1  HEAD -> main
+来自 https://github.com/jingyao1997-bit/p4pilot
+ * branch            main       -> FETCH_HEAD
+LOCAL       : c4805f1aa35d8051074adb1119afece5dffe8728
+origin/main : c4805f1aa35d8051074adb1119afece5dffe8728
+REAL REMOTE : c4805f1aa35d8051074adb1119afece5dffe8728
+RESULT_SYNC=PASS
+Step61-VISIONIPC-ANDROID-1 COMPLETE
+
+============================================================
+P4Pilot Step61-REPO-CLEANUP
+DATE=2026-09-09 10:02:07
+============================================================
+
+>>> Actual Step61 result
+
+Step61-VISIONIPC-ANDROID-1 TEST_STATUS=FAIL
+
+>>> HEAD before cleanup
+c4805f1 test: record Step61 VisionIPC failure
+
+>>> Remove generated CMake artifacts from Git
+TRACKED_CXX_BEFORE=157
+rm 'app/.cxx/Debug/5k6b526g/arm64-v8a/.cmake/api/v1/query/client-agp/cache-v2'
+rm 'app/.cxx/Debug/5k6b526g/arm64-v8a/.cmake/api/v1/query/client-agp/cmakeFiles-v1'
+rm 'app/.cxx/Debug/5k6b526g/arm64-v8a/.cmake/api/v1/query/client-agp/codemodel-v2'
+rm 'app/.cxx/Debug/5k6b526g/arm64-v8a/.cmake/api/v1/reply/cache-v2-caf4a82a1fb03b55d107.json'
+rm 'app/.cxx/Debug/5k6b526g/arm64-v8a/.cmake/api/v1/reply/cmakeFiles-v1-b9e8e4241100afe2373c.json'
+rm 'app/.cxx/Debug/5k6b526g/arm64-v8a/.cmake/api/v1/reply/codemodel-v2-92c7d028274e98f45b0a.json'
+rm 'app/.cxx/Debug/5k6b526g/arm64-v8a/.cmake/api/v1/reply/directory-.-Debug-f5ebdc15457944623624.json'
+rm 'app/.cxx/Debug/5k6b526g/arm64-v8a/.cmake/api/v1/reply/index-2026-09-09T01-36-21-0489.json'
+rm 'app/.cxx/Debug/5k6b526g/arm64-v8a/.cmake/api/v1/reply/target-p4pilot_bridge-Debug-9dce22599ea060925322.json'
+rm 'app/.cxx/Debug/5k6b526g/arm64-v8a/.ninja_deps'
+rm 'app/.cxx/Debug/5k6b526g/arm64-v8a/.ninja_log'
+rm 'app/.cxx/Debug/5k6b526g/arm64-v8a/CMakeCache.txt'
+rm 'app/.cxx/Debug/5k6b526g/arm64-v8a/CMakeFiles/3.22.1-g37088a8/CMakeCCompiler.cmake'
+rm 'app/.cxx/Debug/5k6b526g/arm64-v8a/CMakeFiles/3.22.1-g37088a8/CMakeCXXCompiler.cmake'
+rm 'app/.cxx/Debug/5k6b526g/arm64-v8a/CMakeFiles/3.22.1-g37088a8/CMakeDetermineCompilerABI_C.bin'
+rm 'app/.cxx/Debug/5k6b526g/arm64-v8a/CMakeFiles/3.22.1-g37088a8/CMakeDetermineCompilerABI_CXX.bin'
+rm 'app/.cxx/Debug/5k6b526g/arm64-v8a/CMakeFiles/3.22.1-g37088a8/CMakeSystem.cmake'
+rm 'app/.cxx/Debug/5k6b526g/arm64-v8a/CMakeFiles/3.22.1-g37088a8/CompilerIdC/CMakeCCompilerId.c'
+rm 'app/.cxx/Debug/5k6b526g/arm64-v8a/CMakeFiles/3.22.1-g37088a8/CompilerIdC/CMakeCCompilerId.o'
+rm 'app/.cxx/Debug/5k6b526g/arm64-v8a/CMakeFiles/3.22.1-g37088a8/CompilerIdCXX/CMakeCXXCompilerId.cpp'
+rm 'app/.cxx/Debug/5k6b526g/arm64-v8a/CMakeFiles/3.22.1-g37088a8/CompilerIdCXX/CMakeCXXCompilerId.o'
+rm 'app/.cxx/Debug/5k6b526g/arm64-v8a/CMakeFiles/CMakeOutput.log'
+rm 'app/.cxx/Debug/5k6b526g/arm64-v8a/CMakeFiles/TargetDirectories.txt'
+rm 'app/.cxx/Debug/5k6b526g/arm64-v8a/CMakeFiles/cmake.check_cache'
+rm 'app/.cxx/Debug/5k6b526g/arm64-v8a/CMakeFiles/p4pilot_bridge.dir/openpilot_frame_bridge.cpp.o'
+rm 'app/.cxx/Debug/5k6b526g/arm64-v8a/CMakeFiles/rules.ninja'
+rm 'app/.cxx/Debug/5k6b526g/arm64-v8a/additional_project_files.txt'
+rm 'app/.cxx/Debug/5k6b526g/arm64-v8a/android_gradle_build.json'
+rm 'app/.cxx/Debug/5k6b526g/arm64-v8a/android_gradle_build_mini.json'
+rm 'app/.cxx/Debug/5k6b526g/arm64-v8a/build.ninja'
+rm 'app/.cxx/Debug/5k6b526g/arm64-v8a/build_file_index.txt'
+rm 'app/.cxx/Debug/5k6b526g/arm64-v8a/cmake_install.cmake'
+rm 'app/.cxx/Debug/5k6b526g/arm64-v8a/compile_commands.json'
+rm 'app/.cxx/Debug/5k6b526g/arm64-v8a/compile_commands.json.bin'
+rm 'app/.cxx/Debug/5k6b526g/arm64-v8a/configure_fingerprint.bin'
+rm 'app/.cxx/Debug/5k6b526g/arm64-v8a/metadata_generation_command.txt'
+rm 'app/.cxx/Debug/5k6b526g/arm64-v8a/prefab_config.json'
+rm 'app/.cxx/Debug/5k6b526g/arm64-v8a/symbol_folder_index.txt'
+rm 'app/.cxx/Debug/5k6b526g/armeabi-v7a/.cmake/api/v1/query/client-agp/cache-v2'
+rm 'app/.cxx/Debug/5k6b526g/armeabi-v7a/.cmake/api/v1/query/client-agp/cmakeFiles-v1'
+rm 'app/.cxx/Debug/5k6b526g/armeabi-v7a/.cmake/api/v1/query/client-agp/codemodel-v2'
+rm 'app/.cxx/Debug/5k6b526g/armeabi-v7a/.cmake/api/v1/reply/cache-v2-4c2e304ce041c5fbbf9e.json'
+rm 'app/.cxx/Debug/5k6b526g/armeabi-v7a/.cmake/api/v1/reply/cmakeFiles-v1-1332f6f4482c05c6d834.json'
+rm 'app/.cxx/Debug/5k6b526g/armeabi-v7a/.cmake/api/v1/reply/codemodel-v2-d460f2588d2d00aa6534.json'
+rm 'app/.cxx/Debug/5k6b526g/armeabi-v7a/.cmake/api/v1/reply/directory-.-Debug-f5ebdc15457944623624.json'
+rm 'app/.cxx/Debug/5k6b526g/armeabi-v7a/.cmake/api/v1/reply/index-2026-09-09T01-36-25-0633.json'
+rm 'app/.cxx/Debug/5k6b526g/armeabi-v7a/.cmake/api/v1/reply/target-p4pilot_bridge-Debug-9d5d8479946ffe085242.json'
+rm 'app/.cxx/Debug/5k6b526g/armeabi-v7a/.ninja_deps'
+rm 'app/.cxx/Debug/5k6b526g/armeabi-v7a/.ninja_log'
+rm 'app/.cxx/Debug/5k6b526g/armeabi-v7a/CMakeCache.txt'
+rm 'app/.cxx/Debug/5k6b526g/armeabi-v7a/CMakeFiles/3.22.1-g37088a8/CMakeCCompiler.cmake'
+rm 'app/.cxx/Debug/5k6b526g/armeabi-v7a/CMakeFiles/3.22.1-g37088a8/CMakeCXXCompiler.cmake'
+rm 'app/.cxx/Debug/5k6b526g/armeabi-v7a/CMakeFiles/3.22.1-g37088a8/CMakeDetermineCompilerABI_C.bin'
+rm 'app/.cxx/Debug/5k6b526g/armeabi-v7a/CMakeFiles/3.22.1-g37088a8/CMakeDetermineCompilerABI_CXX.bin'
+rm 'app/.cxx/Debug/5k6b526g/armeabi-v7a/CMakeFiles/3.22.1-g37088a8/CMakeSystem.cmake'
+rm 'app/.cxx/Debug/5k6b526g/armeabi-v7a/CMakeFiles/3.22.1-g37088a8/CompilerIdC/CMakeCCompilerId.c'
+rm 'app/.cxx/Debug/5k6b526g/armeabi-v7a/CMakeFiles/3.22.1-g37088a8/CompilerIdC/CMakeCCompilerId.o'
+rm 'app/.cxx/Debug/5k6b526g/armeabi-v7a/CMakeFiles/3.22.1-g37088a8/CompilerIdCXX/CMakeCXXCompilerId.cpp'
+rm 'app/.cxx/Debug/5k6b526g/armeabi-v7a/CMakeFiles/3.22.1-g37088a8/CompilerIdCXX/CMakeCXXCompilerId.o'
+rm 'app/.cxx/Debug/5k6b526g/armeabi-v7a/CMakeFiles/CMakeOutput.log'
+rm 'app/.cxx/Debug/5k6b526g/armeabi-v7a/CMakeFiles/TargetDirectories.txt'
+rm 'app/.cxx/Debug/5k6b526g/armeabi-v7a/CMakeFiles/cmake.check_cache'
+rm 'app/.cxx/Debug/5k6b526g/armeabi-v7a/CMakeFiles/p4pilot_bridge.dir/openpilot_frame_bridge.cpp.o'
+rm 'app/.cxx/Debug/5k6b526g/armeabi-v7a/CMakeFiles/rules.ninja'
+rm 'app/.cxx/Debug/5k6b526g/armeabi-v7a/additional_project_files.txt'
+rm 'app/.cxx/Debug/5k6b526g/armeabi-v7a/android_gradle_build.json'
+rm 'app/.cxx/Debug/5k6b526g/armeabi-v7a/android_gradle_build_mini.json'
+rm 'app/.cxx/Debug/5k6b526g/armeabi-v7a/build.ninja'
+rm 'app/.cxx/Debug/5k6b526g/armeabi-v7a/build_file_index.txt'
+rm 'app/.cxx/Debug/5k6b526g/armeabi-v7a/cmake_install.cmake'
+rm 'app/.cxx/Debug/5k6b526g/armeabi-v7a/compile_commands.json'
+rm 'app/.cxx/Debug/5k6b526g/armeabi-v7a/compile_commands.json.bin'
+rm 'app/.cxx/Debug/5k6b526g/armeabi-v7a/configure_fingerprint.bin'
+rm 'app/.cxx/Debug/5k6b526g/armeabi-v7a/metadata_generation_command.txt'
+rm 'app/.cxx/Debug/5k6b526g/armeabi-v7a/prefab_config.json'
+rm 'app/.cxx/Debug/5k6b526g/armeabi-v7a/symbol_folder_index.txt'
+rm 'app/.cxx/Debug/5k6b526g/hash_key.txt'
+rm 'app/.cxx/Debug/5k6b526g/x86/.cmake/api/v1/query/client-agp/cache-v2'
+rm 'app/.cxx/Debug/5k6b526g/x86/.cmake/api/v1/query/client-agp/cmakeFiles-v1'
+rm 'app/.cxx/Debug/5k6b526g/x86/.cmake/api/v1/query/client-agp/codemodel-v2'
+rm 'app/.cxx/Debug/5k6b526g/x86/.cmake/api/v1/reply/cache-v2-cd0de9b075ca589b7953.json'
+rm 'app/.cxx/Debug/5k6b526g/x86/.cmake/api/v1/reply/cmakeFiles-v1-bd137764972282f319c4.json'
+rm 'app/.cxx/Debug/5k6b526g/x86/.cmake/api/v1/reply/codemodel-v2-ddf7e9075de4fe88cada.json'
+rm 'app/.cxx/Debug/5k6b526g/x86/.cmake/api/v1/reply/directory-.-Debug-f5ebdc15457944623624.json'
+rm 'app/.cxx/Debug/5k6b526g/x86/.cmake/api/v1/reply/index-2026-09-09T01-36-29-0036.json'
+rm 'app/.cxx/Debug/5k6b526g/x86/.cmake/api/v1/reply/target-p4pilot_bridge-Debug-92775b981cbba8219e27.json'
+rm 'app/.cxx/Debug/5k6b526g/x86/.ninja_deps'
+rm 'app/.cxx/Debug/5k6b526g/x86/.ninja_log'
+rm 'app/.cxx/Debug/5k6b526g/x86/CMakeCache.txt'
+rm 'app/.cxx/Debug/5k6b526g/x86/CMakeFiles/3.22.1-g37088a8/CMakeCCompiler.cmake'
+rm 'app/.cxx/Debug/5k6b526g/x86/CMakeFiles/3.22.1-g37088a8/CMakeCXXCompiler.cmake'
+rm 'app/.cxx/Debug/5k6b526g/x86/CMakeFiles/3.22.1-g37088a8/CMakeDetermineCompilerABI_C.bin'
+rm 'app/.cxx/Debug/5k6b526g/x86/CMakeFiles/3.22.1-g37088a8/CMakeDetermineCompilerABI_CXX.bin'
+rm 'app/.cxx/Debug/5k6b526g/x86/CMakeFiles/3.22.1-g37088a8/CMakeSystem.cmake'
+rm 'app/.cxx/Debug/5k6b526g/x86/CMakeFiles/3.22.1-g37088a8/CompilerIdC/CMakeCCompilerId.c'
+rm 'app/.cxx/Debug/5k6b526g/x86/CMakeFiles/3.22.1-g37088a8/CompilerIdC/CMakeCCompilerId.o'
+rm 'app/.cxx/Debug/5k6b526g/x86/CMakeFiles/3.22.1-g37088a8/CompilerIdCXX/CMakeCXXCompilerId.cpp'
+rm 'app/.cxx/Debug/5k6b526g/x86/CMakeFiles/3.22.1-g37088a8/CompilerIdCXX/CMakeCXXCompilerId.o'
+rm 'app/.cxx/Debug/5k6b526g/x86/CMakeFiles/CMakeOutput.log'
+rm 'app/.cxx/Debug/5k6b526g/x86/CMakeFiles/TargetDirectories.txt'
+rm 'app/.cxx/Debug/5k6b526g/x86/CMakeFiles/cmake.check_cache'
+rm 'app/.cxx/Debug/5k6b526g/x86/CMakeFiles/p4pilot_bridge.dir/openpilot_frame_bridge.cpp.o'
+rm 'app/.cxx/Debug/5k6b526g/x86/CMakeFiles/rules.ninja'
+rm 'app/.cxx/Debug/5k6b526g/x86/additional_project_files.txt'
+rm 'app/.cxx/Debug/5k6b526g/x86/android_gradle_build.json'
+rm 'app/.cxx/Debug/5k6b526g/x86/android_gradle_build_mini.json'
+rm 'app/.cxx/Debug/5k6b526g/x86/build.ninja'
+rm 'app/.cxx/Debug/5k6b526g/x86/build_file_index.txt'
+rm 'app/.cxx/Debug/5k6b526g/x86/cmake_install.cmake'
+rm 'app/.cxx/Debug/5k6b526g/x86/compile_commands.json'
+rm 'app/.cxx/Debug/5k6b526g/x86/compile_commands.json.bin'
+rm 'app/.cxx/Debug/5k6b526g/x86/configure_fingerprint.bin'
+rm 'app/.cxx/Debug/5k6b526g/x86/metadata_generation_command.txt'
+rm 'app/.cxx/Debug/5k6b526g/x86/prefab_config.json'
+rm 'app/.cxx/Debug/5k6b526g/x86/symbol_folder_index.txt'
+rm 'app/.cxx/Debug/5k6b526g/x86_64/.cmake/api/v1/query/client-agp/cache-v2'
+rm 'app/.cxx/Debug/5k6b526g/x86_64/.cmake/api/v1/query/client-agp/cmakeFiles-v1'
+rm 'app/.cxx/Debug/5k6b526g/x86_64/.cmake/api/v1/query/client-agp/codemodel-v2'
+rm 'app/.cxx/Debug/5k6b526g/x86_64/.cmake/api/v1/reply/cache-v2-da5d5deae2528f02e277.json'
+rm 'app/.cxx/Debug/5k6b526g/x86_64/.cmake/api/v1/reply/cmakeFiles-v1-0cab720893f18a160f7e.json'
+rm 'app/.cxx/Debug/5k6b526g/x86_64/.cmake/api/v1/reply/codemodel-v2-6df52188916c7beb3dc8.json'
+rm 'app/.cxx/Debug/5k6b526g/x86_64/.cmake/api/v1/reply/directory-.-Debug-f5ebdc15457944623624.json'
+rm 'app/.cxx/Debug/5k6b526g/x86_64/.cmake/api/v1/reply/index-2026-09-09T01-36-32-0369.json'
+rm 'app/.cxx/Debug/5k6b526g/x86_64/.cmake/api/v1/reply/target-p4pilot_bridge-Debug-7edbb88d51098d94e84a.json'
+rm 'app/.cxx/Debug/5k6b526g/x86_64/.ninja_deps'
+rm 'app/.cxx/Debug/5k6b526g/x86_64/.ninja_log'
+rm 'app/.cxx/Debug/5k6b526g/x86_64/CMakeCache.txt'
+rm 'app/.cxx/Debug/5k6b526g/x86_64/CMakeFiles/3.22.1-g37088a8/CMakeCCompiler.cmake'
+rm 'app/.cxx/Debug/5k6b526g/x86_64/CMakeFiles/3.22.1-g37088a8/CMakeCXXCompiler.cmake'
+rm 'app/.cxx/Debug/5k6b526g/x86_64/CMakeFiles/3.22.1-g37088a8/CMakeDetermineCompilerABI_C.bin'
+rm 'app/.cxx/Debug/5k6b526g/x86_64/CMakeFiles/3.22.1-g37088a8/CMakeDetermineCompilerABI_CXX.bin'
+rm 'app/.cxx/Debug/5k6b526g/x86_64/CMakeFiles/3.22.1-g37088a8/CMakeSystem.cmake'
+rm 'app/.cxx/Debug/5k6b526g/x86_64/CMakeFiles/3.22.1-g37088a8/CompilerIdC/CMakeCCompilerId.c'
+rm 'app/.cxx/Debug/5k6b526g/x86_64/CMakeFiles/3.22.1-g37088a8/CompilerIdC/CMakeCCompilerId.o'
+rm 'app/.cxx/Debug/5k6b526g/x86_64/CMakeFiles/3.22.1-g37088a8/CompilerIdCXX/CMakeCXXCompilerId.cpp'
+rm 'app/.cxx/Debug/5k6b526g/x86_64/CMakeFiles/3.22.1-g37088a8/CompilerIdCXX/CMakeCXXCompilerId.o'
+rm 'app/.cxx/Debug/5k6b526g/x86_64/CMakeFiles/CMakeOutput.log'
+rm 'app/.cxx/Debug/5k6b526g/x86_64/CMakeFiles/TargetDirectories.txt'
+rm 'app/.cxx/Debug/5k6b526g/x86_64/CMakeFiles/cmake.check_cache'
+rm 'app/.cxx/Debug/5k6b526g/x86_64/CMakeFiles/p4pilot_bridge.dir/openpilot_frame_bridge.cpp.o'
+rm 'app/.cxx/Debug/5k6b526g/x86_64/CMakeFiles/rules.ninja'
+rm 'app/.cxx/Debug/5k6b526g/x86_64/additional_project_files.txt'
+rm 'app/.cxx/Debug/5k6b526g/x86_64/android_gradle_build.json'
+rm 'app/.cxx/Debug/5k6b526g/x86_64/android_gradle_build_mini.json'
+rm 'app/.cxx/Debug/5k6b526g/x86_64/build.ninja'
+rm 'app/.cxx/Debug/5k6b526g/x86_64/build_file_index.txt'
+rm 'app/.cxx/Debug/5k6b526g/x86_64/cmake_install.cmake'
+rm 'app/.cxx/Debug/5k6b526g/x86_64/compile_commands.json'
+rm 'app/.cxx/Debug/5k6b526g/x86_64/compile_commands.json.bin'
+rm 'app/.cxx/Debug/5k6b526g/x86_64/configure_fingerprint.bin'
+rm 'app/.cxx/Debug/5k6b526g/x86_64/metadata_generation_command.txt'
+rm 'app/.cxx/Debug/5k6b526g/x86_64/prefab_config.json'
+rm 'app/.cxx/Debug/5k6b526g/x86_64/symbol_folder_index.txt'
+rm 'app/.cxx/tools/debug/arm64-v8a/compile_commands.json'
+rm 'app/.cxx/tools/debug/armeabi-v7a/compile_commands.json'
+rm 'app/.cxx/tools/debug/x86/compile_commands.json'
+rm 'app/.cxx/tools/debug/x86_64/compile_commands.json'
