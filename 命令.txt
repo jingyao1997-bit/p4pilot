@@ -26930,3 +26930,49 @@ FATAL_COUNT=0
 09-09 02:36:38.657 20990 21018 I P4PilotNative: P4Pilot Step60 NATIVE_BRIDGE_OK frame=1 bytes=1382400 size=1280x720 sensorTsNs=108603421156175 y0=2 u0=128 v0=127
 
 Step60-OPENPILOT-NATIVE-BRIDGE-1 TEST_STATUS=PASS
+[main 9c7a97e] feat: add native openpilot camera bridge
+ 6 files changed, 427 insertions(+), 14 deletions(-)
+ create mode 100644 app/src/main/cpp/CMakeLists.txt
+ create mode 100644 app/src/main/cpp/openpilot_frame_bridge.cpp
+ create mode 100644 app/src/main/java/com/p4pilot/OpenpilotFrameConsumer.java
+
+>>> Push
+To https://github.com/jingyao1997-bit/p4pilot.git
+   f93c4e4..9c7a97e  HEAD -> main
+来自 https://github.com/jingyao1997-bit/p4pilot
+ * branch            main       -> FETCH_HEAD
+LOCAL       : 9c7a97ee9fbc3afa24a40f5e21b98d21f8eb8f86
+origin/main : 9c7a97ee9fbc3afa24a40f5e21b98d21f8eb8f86
+REAL REMOTE : 9c7a97ee9fbc3afa24a40f5e21b98d21f8eb8f86
+RESULT_SYNC=PASS
+Step60-OPENPILOT-NATIVE-BRIDGE-1 COMPLETE
+
+============================================================
+P4Pilot Step61-VISIONIPC-ANDROID-1
+Goal: real openpilot VisionIPC server + Android adaptation
+DATE=2026-09-09 09:56:50
+============================================================
+
+>>> Git baseline
+来自 https://github.com/jingyao1997-bit/p4pilot
+ * branch            main       -> FETCH_HEAD
+LOCAL_BASE=9c7a97ee9fbc3afa24a40f5e21b98d21f8eb8f86
+origin/main=9c7a97ee9fbc3afa24a40f5e21b98d21f8eb8f86
+REAL_REMOTE=9c7a97ee9fbc3afa24a40f5e21b98d21f8eb8f86
+
+>>> Step60 precheck
+STEP60_PRECHECK=PASS
+
+>>> Resolve current openpilot/msgq versions
+正克隆到 '/tmp/p4pilot_step61.Kl8wbL/openpilot'...
+OPENPILOT_SHA=1fb3edb7dd568b3ba0e304ac60d91d38a85a1b76
+OPENPILOT_MSGQ_SHA=0e266c1dbcf7328beee3e57b4a8688555387c877
+致命错误：路径 'cereal/visionipc.py' 不在 '1fb3edb7dd568b3ba0e304ac60d91d38a85a1b76' 中
+NARROW_STREAM_VALUE=
+FAIL: unexpected current narrow-road stream id: 
+
+Step61-VISIONIPC-ANDROID-1 TEST_STATUS=FAIL
+
+>>> Restore Step60 source after failure
+
+>>> Commit result

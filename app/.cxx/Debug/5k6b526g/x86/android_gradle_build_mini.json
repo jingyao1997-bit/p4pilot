@@ -1,0 +1,27 @@
+{
+  "buildFiles": [
+    "/Users/luojingyao/p4pilot/app/src/main/cpp/CMakeLists.txt"
+  ],
+  "cleanCommandsComponents": [
+    [
+      "/usr/local/share/android-commandlinetools/cmake/3.22.1/bin/ninja",
+      "-C",
+      "/Users/luojingyao/p4pilot/app/.cxx/Debug/5k6b526g/x86",
+      "clean"
+    ]
+  ],
+  "buildTargetsCommandComponents": [
+    "/usr/local/share/android-commandlinetools/cmake/3.22.1/bin/ninja",
+    "-C",
+    "/Users/luojingyao/p4pilot/app/.cxx/Debug/5k6b526g/x86",
+    "{LIST_OF_TARGETS_TO_BUILD}"
+  ],
+  "libraries": {
+    "p4pilot_bridge::@6890427a1f51a3e7e1df": {
+      "artifactName": "p4pilot_bridge",
+      "abi": "x86",
+      "output": "/Users/luojingyao/p4pilot/app/build/intermediates/cxx/Debug/5k6b526g/obj/x86/libp4pilot_bridge.so",
+      "runtimeFiles": []
+    }
+  }
+}
