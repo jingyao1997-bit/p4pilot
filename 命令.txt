@@ -27674,3 +27674,214 @@ Step61-VISIONIPC-ANDROID-1 TEST_STATUS=FAIL
 >>> Restore Step60 source after failure
 
 >>> Commit result
+[main d8e8835] test: record Step61 VisionIPC failure
+ 1 file changed, 356 insertions(+)
+
+>>> Push
+To https://github.com/jingyao1997-bit/p4pilot.git
+   a3713be..d8e8835  HEAD -> main
+来自 https://github.com/jingyao1997-bit/p4pilot
+ * branch            main       -> FETCH_HEAD
+LOCAL       : d8e88351b2e3fd7a8e88262953818e6df7d02a62
+origin/main : d8e88351b2e3fd7a8e88262953818e6df7d02a62
+REAL REMOTE : d8e88351b2e3fd7a8e88262953818e6df7d02a62
+RESULT_SYNC=PASS
+Step61-VISIONIPC-ANDROID-1 COMPLETE
+STEP61_EVENT_SCRIPT_PATCH=PASS
+
+============================================================
+P4Pilot Step61-VISIONIPC-ANDROID-1
+Goal: real openpilot VisionIPC server + Android adaptation
+DATE=2026-09-09 10:32:37
+============================================================
+
+>>> Git baseline
+来自 https://github.com/jingyao1997-bit/p4pilot
+ * branch            main       -> FETCH_HEAD
+LOCAL_BASE=d8e88351b2e3fd7a8e88262953818e6df7d02a62
+origin/main=d8e88351b2e3fd7a8e88262953818e6df7d02a62
+REAL_REMOTE=d8e88351b2e3fd7a8e88262953818e6df7d02a62
+
+>>> Step60 precheck
+STEP60_PRECHECK=PASS
+
+>>> Resolve current openpilot/msgq versions
+正克隆到 '/tmp/p4pilot_step61.oubaqA/openpilot'...
+OPENPILOT_SHA=ef769c173d9d5034114280f0b98a351c80ebcc3e
+OPENPILOT_MSGQ_SHA=0e266c1dbcf7328beee3e57b4a8688555387c877
+NARROW_STREAM_VALUE=0
+
+>>> Fetch pinned commaai/msgq
+正克隆到 '/tmp/p4pilot_step61.oubaqA/msgq'...
+HEAD 目前位于 0e266c1 Remove camera knowledge from visionipc (#701)
+ACTUAL_MSGQ_SHA=0e266c1dbcf7328beee3e57b4a8688555387c877
+
+>>> Vendor pinned msgq source
+VENDOR_STATUS=CREATED
+
+>>> Verify pinned VisionIPC API
+UPSTREAM_API_STATUS=PASS
+
+>>> Apply Android msgq/VisionIPC path adaptation
+MSGQ_PATH_PATCH_COUNT=1
+VIPC_SOCKET_PATCH_COUNT=1
+ANDROID_PATH_PATCH=PASS
+
+>>> Apply Android msgq Event adaptation
+EVENT_SHM_OPEN_ANCHOR_COUNT=1
+EVENT_SHM_NAME_ANCHOR_COUNT=1
+EVENT_FIFO_ANCHOR_COUNT=1
+EVENT_SHM_UNLINK_ANCHOR_COUNT=1
+NUL_FIX[msgq.cc]=1
+NUL_FIX[visionipc_server.cc]=1
+ANDROID_EVENT_PATCH=PASS
+STEP60_CONSUMER_FIELD_COUNT=1
+ONCREATE_SUPER_COUNT=1
+JAVA_IPC_DIR_PATCH=PASS
+
+>>> Source sanity
+PIN_FILE_COUNT=1
+NARROW_PIN_COUNT=1
+ASHARED_COUNT=1
+IPC_ENV_MSGQ_COUNT=1
+IPC_ENV_SERVER_COUNT=1
+SERVER_CLASS_COUNT=2
+CLIENT_CLASS_COUNT=2
+SERVER_MARKER_COUNT=1
+SEND_MARKER_COUNT=1
+CLIENT_MARKER_COUNT=1
+CACHE_CONSTRUCTOR_COUNT=1
+NV12_METHOD_COUNT=2
+BACKPRESSURE_COUNT=1
+SOURCE_STATUS=PASS
+
+>>> Build real VisionIPC Android library
+
+> Task :app:externalNativeBuildCleanDebug
+Clean p4pilot_bridge-armeabi-v7a
+Clean p4pilot_bridge-arm64-v8a
+Clean p4pilot_bridge-x86
+Clean p4pilot_bridge-x86_64
+
+> Task :app:externalNativeBuildCleanRelease
+> Task :app:clean
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preDebugBuild UP-TO-DATE
+> Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
+> Task :app:javaPreCompileDebug
+> Task :app:checkDebugAarMetadata
+> Task :app:processDebugNavigationResources
+> Task :app:compileDebugNavigationResources
+> Task :app:generateDebugResValues
+> Task :app:mapDebugSourceSetPaths
+> Task :app:generateDebugResources
+> Task :app:mergeDebugResources
+> Task :app:packageDebugResources
+> Task :app:createDebugCompatibleScreenManifests
+> Task :app:extractDeepLinksDebug
+> Task :app:parseDebugLocalResources
+> Task :app:processDebugMainManifest
+> Task :app:processDebugManifest
+> Task :app:mergeDebugShaders
+> Task :app:compileDebugShaders NO-SOURCE
+> Task :app:generateDebugAssets UP-TO-DATE
+> Task :app:mergeDebugAssets
+> Task :app:compressDebugAssets
+> Task :app:processDebugJavaRes NO-SOURCE
+> Task :app:checkDebugDuplicateClasses
+> Task :app:processDebugManifestForPackage
+> Task :app:mergeDebugJavaResource
+> Task :app:desugarDebugFileDependencies
+> Task :app:mergeExtDexDebug
+> Task :app:mergeLibDexDebug
+> Task :app:configureCMakeDebug[arm64-v8a]
+> Task :app:processDebugResources
+> Task :app:buildCMakeDebug[arm64-v8a]
+
+> Task :app:compileDebugJavaWithJavac
+注: /Users/luojingyao/p4pilot/app/src/main/java/com/p4pilot/MainActivity.java使用或覆盖了已过时的 API。
+注: 有关详细信息, 请使用 -Xlint:deprecation 重新编译。
+
+> Task :app:dexBuilderDebug
+> Task :app:mergeProjectDexDebug
+> Task :app:configureCMakeDebug[armeabi-v7a]
+> Task :app:buildCMakeDebug[armeabi-v7a]
+> Task :app:configureCMakeDebug[x86]
+> Task :app:buildCMakeDebug[x86]
+> Task :app:configureCMakeDebug[x86_64]
+> Task :app:buildCMakeDebug[x86_64]
+> Task :app:mergeDebugJniLibFolders
+> Task :app:validateSigningDebug
+> Task :app:writeDebugAppMetadata
+> Task :app:writeDebugSigningConfigVersions
+> Task :app:mergeDebugNativeLibs
+> Task :app:stripDebugDebugSymbols
+> Task :app:packageDebug
+> Task :app:createDebugApkListingFileRedirect
+> Task :app:assembleDebug
+
+[Incubating] Problems report is available at: file:///Users/luojingyao/p4pilot/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.13/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 18s
+46 actionable tasks: 46 executed
+BUILD=PASS
+
+>>> Device
+DEVICE_STATE=device
+Performing Streamed Install
+Success
+INSTALL=PASS
+  bash arg: -p
+  bash arg: com.p4pilot
+  bash arg: -c
+  bash arg: android.intent.category.LAUNCHER
+  bash arg: 1
+args: [-p, com.p4pilot, -c, android.intent.category.LAUNCHER, 1]
+ arg: "-p"
+ arg: "com.p4pilot"
+ arg: "-c"
+ arg: "android.intent.category.LAUNCHER"
+ arg: "1"
+data="com.p4pilot"
+data="android.intent.category.LAUNCHER"
+Events injected: 1
+## Network stats: elapsed time=43ms (0ms mobile, 0ms wifi, 43ms not connected)
+INITIAL_PID=24231
+CHECKPOINT_SEC=10 PID=24231
+CHECKPOINT_SEC=20 PID=24231
+
+============================================================
+Step61-VISIONIPC-ANDROID-1 RESULTS
+============================================================
+INITIAL_PID=24231
+FINAL_PID=24231
+ANDROID_INIT_COUNT=1
+SERVER_OK_COUNT=1
+SEND_OK_COUNT=1
+CLIENT_OK_COUNT=1
+JAVA_OK_COUNT=1
+PROCESSED_COUNT=642
+VIPC_ERROR_COUNT=0
+PROCESS_ERROR_COUNT=0
+YUV_COPY_ERROR_COUNT=0
+OOM_COUNT=0
+FATAL_COUNT=0
+
+>>> VisionIPC server
+09-09 03:33:17.585 24231 24281 I P4PilotNative: P4Pilot Step61 VIPC_SERVER_OK name=camerad stream=0 buffers=4 size=1280x720 bytes=1382400 stride=1280 uvOffset=921600 ipcDir=/data/user/0/com.p4pilot/cache/p4pilot_ipc
+
+>>> VisionIPC first send
+09-09 03:33:17.585 24231 24281 I P4PilotNative: P4Pilot Step61 VIPC_SEND_OK stream=0 frame=1 bytes=1382400 timestamp=112002731927063 y0=2 u0=128 v0=127
+
+>>> VisionIPC native self-client
+09-09 03:33:18.038 24231 24465 I P4PilotNative: P4Pilot Step61 VIPC_CLIENT_OK stream=0 frame=2 sharedFrame=2 bytes=1382400 size=1280x720 stride=1280 uvOffset=921600 timestampSof=112002765247063 timestampEof=112002765247063 y0=0 u0=128 v0=127
+
+Step61-VISIONIPC-ANDROID-1 TEST_STATUS=PASS
+
+>>> Commit result

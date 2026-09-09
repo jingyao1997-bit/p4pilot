@@ -1,11 +1,7 @@
 package com.p4pilot;
 
 /*
- * Native hand-off boundary toward openpilot.
- *
- * Step60 does not yet instantiate VisionIpcServer.
- * It establishes and validates the Java -> C++ frame path
- * that VisionIPC will attach to next.
+ * CameraFrame -> native openpilot/VisionIPC boundary.
  */
 public final class OpenpilotFrameConsumer
         implements CameraFrameConsumer {
@@ -14,6 +10,9 @@ public final class OpenpilotFrameConsumer
         System.loadLibrary("p4pilot_bridge");
     }
 
+    private static native boolean nativeInitialize(
+            String appCacheDirectory);
+
     private static native boolean nativePushFrame(
             byte[] nv12,
             int frameId,
@@ -21,8 +20,29 @@ public final class OpenpilotFrameConsumer
             int height,
             long sensorTimestampNs);
 
+    public OpenpilotFrameConsumer(
+            String appCacheDirectory) {
+
+        if (appCacheDirectory == null ||
+                appCacheDirectory.isEmpty()) {
+
+            throw new IllegalArgumentException(
+                    "App cache directory is empty"
+            );
+        }
+
+        if (!nativeInitialize(
+                appCacheDirectory)) {
+
+            throw new IllegalStateException(
+                    "Native VisionIPC initialization failed"
+            );
+        }
+    }
+
     @Override
-    public void onFrame(CameraFrame frame) {
+    public void onFrame(
+            CameraFrame frame) {
 
         boolean accepted =
                 nativePushFrame(
@@ -34,15 +54,18 @@ public final class OpenpilotFrameConsumer
                 );
 
         if (!accepted) {
+
             throw new IllegalStateException(
-                    "Native openpilot bridge rejected frame " +
+                    "Native VisionIPC rejected frame " +
                     frame.getFrameId()
             );
         }
 
         if (frame.getFrameId() == 1) {
+
             System.out.println(
-                    "P4Pilot Step60 FRAME_CONSUMER_NATIVE_OK frame=" +
+                    "P4Pilot Step61 " +
+                    "FRAME_TO_VISIONIPC_OK frame=" +
                     frame.getFrameId() +
                     " bytes=" +
                     frame.getNv12().length +

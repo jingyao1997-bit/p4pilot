@@ -59,13 +59,17 @@ public class MainActivity extends Activity {
      * Camera processing now hands frames through one explicit
      * consumer boundary. Future openpilot integration attaches here.
      */
-    private final CameraFrameConsumer cameraFrameConsumer =
-            new OpenpilotFrameConsumer();
+    private CameraFrameConsumer cameraFrameConsumer;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        cameraFrameConsumer =
+                new OpenpilotFrameConsumer(
+                        getCacheDir().getAbsolutePath()
+                );
 
         tv = new TextView(this);
         tv.setTextSize(16);

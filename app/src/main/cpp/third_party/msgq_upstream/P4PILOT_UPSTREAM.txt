@@ -1,0 +1,9 @@
+P4Pilot Step61 upstream pin
+
+openpilot_repository=https://github.com/commaai/openpilot.git
+openpilot_sha=ef769c173d9d5034114280f0b98a351c80ebcc3e
+
+msgq_repository=https://github.com/commaai/msgq.git
+msgq_sha=0e266c1dbcf7328beee3e57b4a8688555387c877
+
+vision_stream_narrow_road=0
