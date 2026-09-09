@@ -26289,3 +26289,82 @@ PROCESS_P95_MS=13
 PROCESS_MAX_MS=27
 
 >>> Preserve repair log
+[main 3ae99fe] chore: record Step57 sync repair
+ 1 file changed, 37 insertions(+)
+
+>>> Explicit force-with-lease push
+LOCAL_TO_PUSH=3ae99fe1efa06d9ca356e08bb8399519422e6c58
+LEASE_EXPECTED=a378e512888e198d9e36208da90c40f9ff48436a
+To https://github.com/jingyao1997-bit/p4pilot.git
+   a378e51..3ae99fe  HEAD -> main
+
+>>> Authoritative verification
+来自 https://github.com/jingyao1997-bit/p4pilot
+ * branch            main       -> FETCH_HEAD
+LOCAL       : 3ae99fe1efa06d9ca356e08bb8399519422e6c58
+origin/main : 3ae99fe1efa06d9ca356e08bb8399519422e6c58
+REAL REMOTE : 3ae99fe1efa06d9ca356e08bb8399519422e6c58
+
+Step57-SYNC-REPAIR-1 TEST_STATUS=PASS
+RESULT_SYNC=PASS
+Step57-SYNC-REPAIR-1 COMPLETE
+
+============================================================
+P4Pilot Step58-LATENCY-BASELINE-1
+Goal: measure direct-NV21 end-to-end frame latency
+DATE=2026-09-09 09:10:54
+============================================================
+来自 https://github.com/jingyao1997-bit/p4pilot
+ * branch            main       -> FETCH_HEAD
+LOCAL_BEFORE=3ae99fe1efa06d9ca356e08bb8399519422e6c58
+origin/main=3ae99fe1efa06d9ca356e08bb8399519422e6c58
+REAL_REMOTE=3ae99fe1efa06d9ca356e08bb8399519422e6c58
+
+>>> Device
+DEVICE_STATE=device
+  bash arg: -p
+  bash arg: com.p4pilot
+  bash arg: -c
+  bash arg: android.intent.category.LAUNCHER
+  bash arg: 1
+args: [-p, com.p4pilot, -c, android.intent.category.LAUNCHER, 1]
+ arg: "-p"
+ arg: "com.p4pilot"
+ arg: "-c"
+ arg: "android.intent.category.LAUNCHER"
+ arg: "1"
+data="com.p4pilot"
+data="android.intent.category.LAUNCHER"
+Events injected: 1
+## Network stats: elapsed time=46ms (0ms mobile, 0ms wifi, 46ms not connected)
+INITIAL_PID=19706
+
+>>> 60-second latency baseline
+CHECKPOINT_SEC=10 PID=19706
+CHECKPOINT_SEC=20 PID=19706
+CHECKPOINT_SEC=30 PID=19706
+CHECKPOINT_SEC=40 PID=19706
+CHECKPOINT_SEC=50 PID=19706
+CHECKPOINT_SEC=60 PID=19706
+PROCESS_SAMPLES=1873
+PROCESS_AVG_MS=9.11
+PROCESS_P95_MS=11
+PROCESS_P99_MS=14
+PROCESS_MAX_MS=758
+TOTAL_SAMPLES=1873
+TOTAL_AVG_MS=10.29
+TOTAL_P95_MS=12
+TOTAL_P99_MS=15
+TOTAL_MAX_MS=1389
+TOTAL_OVER_33MS=4
+TOTAL_OVER_50MS=4
+TOTAL_OVER_100MS=4
+
+FINAL_PID=19706
+DROPPED_BUSY_COUNT=6
+OOM_COUNT=0
+FATAL_COUNT=0
+
+Step58-LATENCY-BASELINE-1 TEST_STATUS=PASS
+
+>>> Sync log
