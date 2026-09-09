@@ -54,6 +54,27 @@ public class MainActivity extends Activity {
 
     private long firstFrameTime = 0;
 
+    /*
+     * Step58:
+     * Camera processing now hands frames through one explicit
+     * consumer boundary. Future openpilot integration attaches here.
+     */
+    private final CameraFrameConsumer cameraFrameConsumer =
+            frame -> {
+                if (frame.getFrameId() == 1) {
+                    System.out.println(
+                            "P4Pilot Step58 FRAME_CONSUMER_OK frame=" +
+                            frame.getFrameId() +
+                            " bytes=" +
+                            frame.getNv21().length +
+                            " sensorTsNs=" +
+                            frame.getSensorTimestampNs() +
+                            " receivedTsMs=" +
+                            frame.getReceivedTimestampMs()
+                    );
+                }
+            };
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -329,6 +350,9 @@ public class MainActivity extends Activity {
                              * finally{} below releases the Camera2 buffer.
                              */
 
+                            final long sensorTimestampNs =
+                                    image.getTimestamp();
+
                             final long frameTimestamp =
                                     now;
 
@@ -406,6 +430,20 @@ public class MainActivity extends Activity {
                                                 (nv21[0] & 0xff)
                                         );
                                     }
+
+                                    CameraFrame cameraFrame =
+                                            new CameraFrame(
+                                                    currentFrame,
+                                                    w,
+                                                    h,
+                                                    sensorTimestampNs,
+                                                    frameTimestamp,
+                                                    nv21
+                                            );
+
+                                    cameraFrameConsumer.onFrame(
+                                            cameraFrame
+                                    );
 
                                     processedCount++;
 

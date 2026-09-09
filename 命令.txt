@@ -26368,3 +26368,146 @@ FATAL_COUNT=0
 Step58-LATENCY-BASELINE-1 TEST_STATUS=PASS
 
 >>> Sync log
+[main 084ed54] test: measure direct NV21 latency baseline
+ 1 file changed, 79 insertions(+)
+To https://github.com/jingyao1997-bit/p4pilot.git
+   3ae99fe..084ed54  HEAD -> main
+来自 https://github.com/jingyao1997-bit/p4pilot
+ * branch            main       -> FETCH_HEAD
+LOCAL       : 084ed54b1b5a51585fb92f978d231a05f7f8bbb4
+origin/main : 084ed54b1b5a51585fb92f978d231a05f7f8bbb4
+REAL REMOTE : 084ed54b1b5a51585fb92f978d231a05f7f8bbb4
+RESULT_SYNC=PASS
+Step58-LATENCY-BASELINE-1 COMPLETE
+
+============================================================
+P4Pilot Step58-FRAME-INTERFACE-1
+Goal: introduce CameraFrame + CameraFrameConsumer
+DATE=2026-09-09 09:15:28
+============================================================
+
+>>> Git baseline
+来自 https://github.com/jingyao1997-bit/p4pilot
+ * branch            main       -> FETCH_HEAD
+LOCAL_BASE=084ed54b1b5a51585fb92f978d231a05f7f8bbb4
+origin/main=084ed54b1b5a51585fb92f978d231a05f7f8bbb4
+REAL_REMOTE=084ed54b1b5a51585fb92f978d231a05f7f8bbb4
+
+>>> Source precheck
+FRAME_INTERFACE_PATCH=APPLIED
+
+>>> Source sanity
+FRAME_CLASS_COUNT=1
+CONSUMER_INTERFACE_COUNT=1
+CONSUMER_CALL_COUNT=1
+SENSOR_TIMESTAMP_COUNT=1
+DIRECT_NV21_COUNT=2
+JPEG_COUNT=0
+BACKPRESSURE_COUNT=1
+SOURCE_STATUS=PASS
+
+>>> Build
+> Task :app:clean
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preDebugBuild UP-TO-DATE
+> Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
+> Task :app:javaPreCompileDebug
+> Task :app:checkDebugAarMetadata
+> Task :app:processDebugNavigationResources
+> Task :app:compileDebugNavigationResources
+> Task :app:generateDebugResValues
+> Task :app:mapDebugSourceSetPaths
+> Task :app:generateDebugResources
+> Task :app:packageDebugResources
+> Task :app:mergeDebugResources
+> Task :app:createDebugCompatibleScreenManifests
+> Task :app:extractDeepLinksDebug
+> Task :app:parseDebugLocalResources
+> Task :app:processDebugMainManifest
+> Task :app:processDebugManifest
+> Task :app:mergeDebugShaders
+> Task :app:compileDebugShaders NO-SOURCE
+> Task :app:generateDebugAssets UP-TO-DATE
+> Task :app:mergeDebugAssets
+> Task :app:compressDebugAssets
+> Task :app:processDebugJavaRes NO-SOURCE
+> Task :app:processDebugManifestForPackage
+> Task :app:mergeDebugJavaResource
+> Task :app:checkDebugDuplicateClasses
+> Task :app:desugarDebugFileDependencies
+> Task :app:mergeExtDexDebug
+> Task :app:mergeDebugJniLibFolders
+> Task :app:mergeDebugNativeLibs NO-SOURCE
+> Task :app:stripDebugDebugSymbols NO-SOURCE
+> Task :app:mergeLibDexDebug
+> Task :app:validateSigningDebug
+> Task :app:writeDebugAppMetadata
+> Task :app:writeDebugSigningConfigVersions
+> Task :app:processDebugResources
+
+> Task :app:compileDebugJavaWithJavac
+注: /Users/luojingyao/p4pilot/app/src/main/java/com/p4pilot/MainActivity.java使用或覆盖了已过时的 API。
+注: 有关详细信息, 请使用 -Xlint:deprecation 重新编译。
+
+> Task :app:dexBuilderDebug
+> Task :app:mergeProjectDexDebug
+> Task :app:packageDebug
+> Task :app:createDebugApkListingFileRedirect
+> Task :app:assembleDebug
+
+[Incubating] Problems report is available at: file:///Users/luojingyao/p4pilot/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.13/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 3s
+34 actionable tasks: 34 executed
+BUILD=PASS
+
+>>> Device test
+DEVICE_STATE=device
+Performing Streamed Install
+Success
+INSTALL=PASS
+  bash arg: -p
+  bash arg: com.p4pilot
+  bash arg: -c
+  bash arg: android.intent.category.LAUNCHER
+  bash arg: 1
+args: [-p, com.p4pilot, -c, android.intent.category.LAUNCHER, 1]
+ arg: "-p"
+ arg: "com.p4pilot"
+ arg: "-c"
+ arg: "android.intent.category.LAUNCHER"
+ arg: "1"
+data="com.p4pilot"
+data="android.intent.category.LAUNCHER"
+Events injected: 1
+## Network stats: elapsed time=152ms (0ms mobile, 0ms wifi, 152ms not connected)
+INITIAL_PID=20062
+CHECKPOINT_SEC=10 PID=20062
+CHECKPOINT_SEC=20 PID=20062
+
+============================================================
+Step58-FRAME-INTERFACE-1 RESULTS
+============================================================
+INITIAL_PID=20062
+FINAL_PID=20062
+CONSUMER_RUNTIME_COUNT=1
+NV21_RUNTIME_COUNT=1
+PROCESSED_COUNT=634
+SENSOR_ZERO_COUNT=0
+PROCESS_ERROR_COUNT=0
+YUV_COPY_ERROR_COUNT=0
+OOM_COUNT=0
+FATAL_COUNT=0
+
+>>> First consumer frame
+09-09 02:15:42.605 20062 20089 I System.out: P4Pilot Step58 FRAME_CONSUMER_OK frame=1 bytes=1382400 sensorTsNs=107347274412843 receivedTsMs=1788916541712
+
+Step58-FRAME-INTERFACE-1 TEST_STATUS=PASS
+
+>>> Commit result immediately
