@@ -25455,3 +25455,275 @@ Step55-MEM-2 INSPECTION=COMPLETE
 ============================================================
 Step55-MEM-2 result sync
 ============================================================
+[main 389f203] test: inspect processing queue structure
+ 1 file changed, 260 insertions(+)
+To https://github.com/jingyao1997-bit/p4pilot.git
+   3be9fc1..389f203  main -> main
+来自 https://github.com/jingyao1997-bit/p4pilot
+ * branch            main       -> FETCH_HEAD
+LOCAL       : 389f203cd787f8225aa734a76dbae97df2cb0f32
+origin/main : 389f203cd787f8225aa734a76dbae97df2cb0f32
+REAL REMOTE : 389f203cd787f8225aa734a76dbae97df2cb0f32
+RESULT_SYNC=PASS
+Step55-MEM-2 COMPLETE
+
+============================================================
+P4Pilot Step55-MEM-FIX-1
+Goal: bound ProcessingThread frame backlog before YUV copy
+DATE=2026-09-09 08:20:32
+============================================================
+
+>>> HEAD
+389f203cd787f8225aa734a76dbae97df2cb0f32
+
+>>> Working tree before patch
+ M "\345\221\275\344\273\244.txt"
+
+>>> Apply bounded-backpressure patch
+YDATA_ANCHOR_COUNT=1
+BACKPRESSURE_INSERTED=YES
+
+>>> Verify patch position
+BACKPRESSURE_COUNT=1
+IDLE_CHECK_COUNT=1
+BACKPRESSURE_LINE=245
+Y_ALLOC_LINE=268
+POST_LINE=384
+SOURCE_SANITY=PASS
+
+>>> Patched source context
+   225	                            }
+   226	
+   227	                            /*
+   228	                             * Step55: bounded processing backpressure.
+   229	                             *
+   230	                             * Do this BEFORE allocating copied Y/U/V arrays.
+   231	                             * If ProcessingThread already has a pending frame,
+   232	                             * discard this camera frame instead of growing the
+   233	                             * Handler queue without bound.
+   234	                             */
+   235	                            if (processingHandler == null ||
+   236	                                    !processingHandler.getLooper()
+   237	                                            .getQueue()
+   238	                                            .isIdle()) {
+   239	                                droppedCount++;
+   240	                            
+   241	                                if (droppedCount <= 5 ||
+   242	                                        droppedCount % 30 == 0) {
+   243	                            
+   244	                                    System.out.println(
+   245	                                            "P4Pilot Step55 DROPPED_BUSY count=" +
+   246	                                            droppedCount
+   247	                                    );
+   248	                                }
+   249	                            
+   250	                                return;
+   251	                            }
+   252	                            
+   253	                            final byte[] yData;
+   254	                            final byte[] uData;
+   255	                            final byte[] vData;
+   256	
+   257	                            try {
+   258	
+   259	                                ByteBuffer yBuffer =
+   260	                                        planes[0].getBuffer().duplicate();
+   261	
+   262	                                ByteBuffer uBuffer =
+   263	                                        planes[1].getBuffer().duplicate();
+   264	
+   265	                                ByteBuffer vBuffer =
+   266	                                        planes[2].getBuffer().duplicate();
+   267	
+   268	                                yData = new byte[yBuffer.remaining()];
+   269	                                uData = new byte[uBuffer.remaining()];
+   270	                                vData = new byte[vBuffer.remaining()];
+   271	
+   272	                                yBuffer.get(yData);
+   273	                                uBuffer.get(uData);
+   274	                                vBuffer.get(vData);
+   275	
+   276	                            } catch (Exception copyException) {
+   277	
+   278	                                System.err.println(
+   279	                                        "P4Pilot Step54 YUV_COPY_ERROR"
+   280	                                );
+   281	
+   282	                                copyException.printStackTrace();
+   283	
+   284	                                return;
+   285	                            }
+   286	
+   287	                            frameCount++;
+   288	
+   289	                            /*
+   290	                             * Step54:
+   291	                             * acquireLatestImage() intentionally keeps
+   292	                             * the newest available frame. Older frames
+   293	                             * may therefore be dropped by Camera2.
+
+>>> Build
+Starting a Gradle Daemon (subsequent builds will be faster)
+Warning: SDK processing. This version only understands SDK XML versions up to 3 but an SDK XML file of version 4 was encountered. This can happen if you use versions of Android Studio and the command-line tools that were released at different times.
+> Task :app:clean
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preDebugBuild UP-TO-DATE
+> Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
+> Task :app:processDebugNavigationResources
+> Task :app:javaPreCompileDebug
+> Task :app:checkDebugAarMetadata
+> Task :app:generateDebugResValues
+> Task :app:compileDebugNavigationResources
+> Task :app:mapDebugSourceSetPaths
+> Task :app:generateDebugResources
+> Task :app:packageDebugResources
+> Task :app:createDebugCompatibleScreenManifests
+> Task :app:extractDeepLinksDebug
+> Task :app:parseDebugLocalResources
+> Task :app:processDebugMainManifest
+> Task :app:mergeDebugResources
+> Task :app:processDebugManifest
+> Task :app:mergeDebugShaders
+> Task :app:compileDebugShaders NO-SOURCE
+> Task :app:generateDebugAssets UP-TO-DATE
+> Task :app:mergeDebugAssets
+> Task :app:compressDebugAssets
+> Task :app:processDebugJavaRes NO-SOURCE
+> Task :app:checkDebugDuplicateClasses
+> Task :app:processDebugManifestForPackage
+> Task :app:desugarDebugFileDependencies
+> Task :app:mergeDebugJniLibFolders
+> Task :app:mergeDebugNativeLibs NO-SOURCE
+> Task :app:stripDebugDebugSymbols NO-SOURCE
+> Task :app:mergeExtDexDebug
+> Task :app:mergeLibDexDebug
+> Task :app:mergeDebugJavaResource
+> Task :app:validateSigningDebug
+> Task :app:writeDebugAppMetadata
+> Task :app:writeDebugSigningConfigVersions
+> Task :app:processDebugResources
+
+> Task :app:compileDebugJavaWithJavac
+注: /Users/luojingyao/p4pilot/app/src/main/java/com/p4pilot/MainActivity.java使用或覆盖了已过时的 API。
+注: 有关详细信息, 请使用 -Xlint:deprecation 重新编译。
+
+> Task :app:dexBuilderDebug
+> Task :app:mergeProjectDexDebug
+> Task :app:packageDebug
+> Task :app:createDebugApkListingFileRedirect
+> Task :app:assembleDebug
+
+[Incubating] Problems report is available at: file:///Users/luojingyao/p4pilot/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.13/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 16s
+34 actionable tasks: 34 executed
+BUILD=PASS
+
+>>> Device
+DEVICE_STATE=device
+
+>>> Install
+Performing Streamed Install
+Success
+INSTALL=PASS
+
+>>> Launch
+  bash arg: -p
+  bash arg: com.p4pilot
+  bash arg: -c
+  bash arg: android.intent.category.LAUNCHER
+  bash arg: 1
+args: [-p, com.p4pilot, -c, android.intent.category.LAUNCHER, 1]
+ arg: "-p"
+ arg: "com.p4pilot"
+ arg: "-c"
+ arg: "android.intent.category.LAUNCHER"
+ arg: "1"
+data="com.p4pilot"
+data="android.intent.category.LAUNCHER"
+Events injected: 1
+## Network stats: elapsed time=71ms (0ms mobile, 0ms wifi, 71ms not connected)
+INITIAL_PID=17449
+
+>>> 90-second bounded-backlog stability run
+
+CHECKPOINT_SEC=10 PID=17449
+MEMINFO_SEC=10
+           Java Heap:    29724                          42304
+           TOTAL PSS:   136974            TOTAL RSS:   221824       TOTAL SWAP PSS:      177
+
+CHECKPOINT_SEC=20 PID=17449
+MEMINFO_SEC=20
+           Java Heap:    34464                          51636
+           TOTAL PSS:   143606            TOTAL RSS:   229068       TOTAL SWAP PSS:       86
+
+CHECKPOINT_SEC=30 PID=17449
+MEMINFO_SEC=30
+           Java Heap:    30724                          47892
+           TOTAL PSS:   139840            TOTAL RSS:   226256       TOTAL SWAP PSS:       85
+
+CHECKPOINT_SEC=40 PID=17449
+MEMINFO_SEC=40
+           Java Heap:    40788                          57956
+           TOTAL PSS:   149731            TOTAL RSS:   236564       TOTAL SWAP PSS:       82
+
+CHECKPOINT_SEC=50 PID=17449
+MEMINFO_SEC=50
+           Java Heap:    29856                          47024
+           TOTAL PSS:   138894            TOTAL RSS:   225716       TOTAL SWAP PSS:       82
+
+CHECKPOINT_SEC=60 PID=17449
+MEMINFO_SEC=60
+           Java Heap:    33232                          50400
+           TOTAL PSS:   142115            TOTAL RSS:   228836       TOTAL SWAP PSS:       82
+
+CHECKPOINT_SEC=70 PID=17449
+MEMINFO_SEC=70
+           Java Heap:    23084                          40252
+           TOTAL PSS:   132442            TOTAL RSS:   219184       TOTAL SWAP PSS:       82
+
+CHECKPOINT_SEC=80 PID=17449
+MEMINFO_SEC=80
+           Java Heap:    26560                          43728
+           TOTAL PSS:   132964            TOTAL RSS:   218860       TOTAL SWAP PSS:       78
+
+CHECKPOINT_SEC=90 PID=17449
+MEMINFO_SEC=90
+           Java Heap:    33676                          50844
+           TOTAL PSS:   141909            TOTAL RSS:   227712       TOTAL SWAP PSS:       78
+
+============================================================
+Step55-MEM-FIX-1 RESULTS
+============================================================
+INITIAL_PID=17449
+FINAL_PID=17449
+FIRST_FRAME_COUNT=1
+PROCESSED_COUNT=2133
+DROPPED_BUSY_LOG_COUNT=1
+PROCESS_ERROR_COUNT=0
+YUV_COPY_ERROR_COUNT=0
+OOM_COUNT=0
+FATAL_COUNT=0
+APP_MAX_IMAGES_COUNT=0
+GLOBAL_MAX_IMAGES_COUNT=2
+
+>>> Last drop marker
+09-09 01:21:39.550 17449 17752 I System.out: P4Pilot Step55 DROPPED_BUSY count=1
+
+>>> Final memory
+           Java Heap:    23304                          40472
+           TOTAL PSS:   128125            TOTAL RSS:   213928       TOTAL SWAP PSS:       78
+
+Step55-MEM-FIX-1 TEST_STATUS=PASS
+Step55-MEM-FIX-1 PASS
+
+============================================================
+Step55-MEM-FIX-1 result sync
+TEST_STATUS=PASS
+============================================================

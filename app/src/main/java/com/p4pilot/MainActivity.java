@@ -224,6 +224,32 @@ public class MainActivity extends Activity {
                                 return;
                             }
 
+                            /*
+                             * Step55: bounded processing backpressure.
+                             *
+                             * Do this BEFORE allocating copied Y/U/V arrays.
+                             * If ProcessingThread already has a pending frame,
+                             * discard this camera frame instead of growing the
+                             * Handler queue without bound.
+                             */
+                            if (processingHandler == null ||
+                                    !processingHandler.getLooper()
+                                            .getQueue()
+                                            .isIdle()) {
+                                droppedCount++;
+                            
+                                if (droppedCount <= 5 ||
+                                        droppedCount % 30 == 0) {
+                            
+                                    System.out.println(
+                                            "P4Pilot Step55 DROPPED_BUSY count=" +
+                                            droppedCount
+                                    );
+                                }
+                            
+                                return;
+                            }
+                            
                             final byte[] yData;
                             final byte[] uData;
                             final byte[] vData;
