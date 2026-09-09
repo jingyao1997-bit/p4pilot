@@ -27318,3 +27318,359 @@ rm 'app/.cxx/tools/debug/arm64-v8a/compile_commands.json'
 rm 'app/.cxx/tools/debug/armeabi-v7a/compile_commands.json'
 rm 'app/.cxx/tools/debug/x86/compile_commands.json'
 rm 'app/.cxx/tools/debug/x86_64/compile_commands.json'
+TRACKED_CXX_AFTER=0
+[main a3713be] chore: ignore Android native build artifacts
+ 159 files changed, 345 insertions(+), 21001 deletions(-)
+ delete mode 100644 app/.cxx/Debug/5k6b526g/arm64-v8a/.cmake/api/v1/query/client-agp/cache-v2
+ delete mode 100644 app/.cxx/Debug/5k6b526g/arm64-v8a/.cmake/api/v1/query/client-agp/cmakeFiles-v1
+ delete mode 100644 app/.cxx/Debug/5k6b526g/arm64-v8a/.cmake/api/v1/query/client-agp/codemodel-v2
+ delete mode 100644 app/.cxx/Debug/5k6b526g/arm64-v8a/.cmake/api/v1/reply/cache-v2-caf4a82a1fb03b55d107.json
+ delete mode 100644 app/.cxx/Debug/5k6b526g/arm64-v8a/.cmake/api/v1/reply/cmakeFiles-v1-b9e8e4241100afe2373c.json
+ delete mode 100644 app/.cxx/Debug/5k6b526g/arm64-v8a/.cmake/api/v1/reply/codemodel-v2-92c7d028274e98f45b0a.json
+ delete mode 100644 app/.cxx/Debug/5k6b526g/arm64-v8a/.cmake/api/v1/reply/directory-.-Debug-f5ebdc15457944623624.json
+ delete mode 100644 app/.cxx/Debug/5k6b526g/arm64-v8a/.cmake/api/v1/reply/index-2026-09-09T01-36-21-0489.json
+ delete mode 100644 app/.cxx/Debug/5k6b526g/arm64-v8a/.cmake/api/v1/reply/target-p4pilot_bridge-Debug-9dce22599ea060925322.json
+ delete mode 100644 app/.cxx/Debug/5k6b526g/arm64-v8a/.ninja_deps
+ delete mode 100644 app/.cxx/Debug/5k6b526g/arm64-v8a/.ninja_log
+ delete mode 100644 app/.cxx/Debug/5k6b526g/arm64-v8a/CMakeCache.txt
+ delete mode 100644 app/.cxx/Debug/5k6b526g/arm64-v8a/CMakeFiles/3.22.1-g37088a8/CMakeCCompiler.cmake
+ delete mode 100644 app/.cxx/Debug/5k6b526g/arm64-v8a/CMakeFiles/3.22.1-g37088a8/CMakeCXXCompiler.cmake
+ delete mode 100755 app/.cxx/Debug/5k6b526g/arm64-v8a/CMakeFiles/3.22.1-g37088a8/CMakeDetermineCompilerABI_C.bin
+ delete mode 100755 app/.cxx/Debug/5k6b526g/arm64-v8a/CMakeFiles/3.22.1-g37088a8/CMakeDetermineCompilerABI_CXX.bin
+ delete mode 100644 app/.cxx/Debug/5k6b526g/arm64-v8a/CMakeFiles/3.22.1-g37088a8/CMakeSystem.cmake
+ delete mode 100644 app/.cxx/Debug/5k6b526g/arm64-v8a/CMakeFiles/3.22.1-g37088a8/CompilerIdC/CMakeCCompilerId.c
+ delete mode 100644 app/.cxx/Debug/5k6b526g/arm64-v8a/CMakeFiles/3.22.1-g37088a8/CompilerIdC/CMakeCCompilerId.o
+ delete mode 100644 app/.cxx/Debug/5k6b526g/arm64-v8a/CMakeFiles/3.22.1-g37088a8/CompilerIdCXX/CMakeCXXCompilerId.cpp
+ delete mode 100644 app/.cxx/Debug/5k6b526g/arm64-v8a/CMakeFiles/3.22.1-g37088a8/CompilerIdCXX/CMakeCXXCompilerId.o
+ delete mode 100644 app/.cxx/Debug/5k6b526g/arm64-v8a/CMakeFiles/CMakeOutput.log
+ delete mode 100644 app/.cxx/Debug/5k6b526g/arm64-v8a/CMakeFiles/TargetDirectories.txt
+ delete mode 100644 app/.cxx/Debug/5k6b526g/arm64-v8a/CMakeFiles/cmake.check_cache
+ delete mode 100644 app/.cxx/Debug/5k6b526g/arm64-v8a/CMakeFiles/p4pilot_bridge.dir/openpilot_frame_bridge.cpp.o
+ delete mode 100644 app/.cxx/Debug/5k6b526g/arm64-v8a/CMakeFiles/rules.ninja
+ delete mode 100644 app/.cxx/Debug/5k6b526g/arm64-v8a/additional_project_files.txt
+ delete mode 100644 app/.cxx/Debug/5k6b526g/arm64-v8a/android_gradle_build.json
+ delete mode 100644 app/.cxx/Debug/5k6b526g/arm64-v8a/android_gradle_build_mini.json
+ delete mode 100644 app/.cxx/Debug/5k6b526g/arm64-v8a/build.ninja
+ delete mode 100644 app/.cxx/Debug/5k6b526g/arm64-v8a/build_file_index.txt
+ delete mode 100644 app/.cxx/Debug/5k6b526g/arm64-v8a/cmake_install.cmake
+ delete mode 100644 app/.cxx/Debug/5k6b526g/arm64-v8a/compile_commands.json
+ delete mode 100644 app/.cxx/Debug/5k6b526g/arm64-v8a/compile_commands.json.bin
+ delete mode 100644 app/.cxx/Debug/5k6b526g/arm64-v8a/configure_fingerprint.bin
+ delete mode 100644 app/.cxx/Debug/5k6b526g/arm64-v8a/metadata_generation_command.txt
+ delete mode 100644 app/.cxx/Debug/5k6b526g/arm64-v8a/prefab_config.json
+ delete mode 100644 app/.cxx/Debug/5k6b526g/arm64-v8a/symbol_folder_index.txt
+ delete mode 100644 app/.cxx/Debug/5k6b526g/armeabi-v7a/.cmake/api/v1/query/client-agp/cache-v2
+ delete mode 100644 app/.cxx/Debug/5k6b526g/armeabi-v7a/.cmake/api/v1/query/client-agp/cmakeFiles-v1
+ delete mode 100644 app/.cxx/Debug/5k6b526g/armeabi-v7a/.cmake/api/v1/query/client-agp/codemodel-v2
+ delete mode 100644 app/.cxx/Debug/5k6b526g/armeabi-v7a/.cmake/api/v1/reply/cache-v2-4c2e304ce041c5fbbf9e.json
+ delete mode 100644 app/.cxx/Debug/5k6b526g/armeabi-v7a/.cmake/api/v1/reply/cmakeFiles-v1-1332f6f4482c05c6d834.json
+ delete mode 100644 app/.cxx/Debug/5k6b526g/armeabi-v7a/.cmake/api/v1/reply/codemodel-v2-d460f2588d2d00aa6534.json
+ delete mode 100644 app/.cxx/Debug/5k6b526g/armeabi-v7a/.cmake/api/v1/reply/directory-.-Debug-f5ebdc15457944623624.json
+ delete mode 100644 app/.cxx/Debug/5k6b526g/armeabi-v7a/.cmake/api/v1/reply/index-2026-09-09T01-36-25-0633.json
+ delete mode 100644 app/.cxx/Debug/5k6b526g/armeabi-v7a/.cmake/api/v1/reply/target-p4pilot_bridge-Debug-9d5d8479946ffe085242.json
+ delete mode 100644 app/.cxx/Debug/5k6b526g/armeabi-v7a/.ninja_deps
+ delete mode 100644 app/.cxx/Debug/5k6b526g/armeabi-v7a/.ninja_log
+ delete mode 100644 app/.cxx/Debug/5k6b526g/armeabi-v7a/CMakeCache.txt
+ delete mode 100644 app/.cxx/Debug/5k6b526g/armeabi-v7a/CMakeFiles/3.22.1-g37088a8/CMakeCCompiler.cmake
+ delete mode 100644 app/.cxx/Debug/5k6b526g/armeabi-v7a/CMakeFiles/3.22.1-g37088a8/CMakeCXXCompiler.cmake
+ delete mode 100755 app/.cxx/Debug/5k6b526g/armeabi-v7a/CMakeFiles/3.22.1-g37088a8/CMakeDetermineCompilerABI_C.bin
+ delete mode 100755 app/.cxx/Debug/5k6b526g/armeabi-v7a/CMakeFiles/3.22.1-g37088a8/CMakeDetermineCompilerABI_CXX.bin
+ delete mode 100644 app/.cxx/Debug/5k6b526g/armeabi-v7a/CMakeFiles/3.22.1-g37088a8/CMakeSystem.cmake
+ delete mode 100644 app/.cxx/Debug/5k6b526g/armeabi-v7a/CMakeFiles/3.22.1-g37088a8/CompilerIdC/CMakeCCompilerId.c
+ delete mode 100644 app/.cxx/Debug/5k6b526g/armeabi-v7a/CMakeFiles/3.22.1-g37088a8/CompilerIdC/CMakeCCompilerId.o
+ delete mode 100644 app/.cxx/Debug/5k6b526g/armeabi-v7a/CMakeFiles/3.22.1-g37088a8/CompilerIdCXX/CMakeCXXCompilerId.cpp
+ delete mode 100644 app/.cxx/Debug/5k6b526g/armeabi-v7a/CMakeFiles/3.22.1-g37088a8/CompilerIdCXX/CMakeCXXCompilerId.o
+ delete mode 100644 app/.cxx/Debug/5k6b526g/armeabi-v7a/CMakeFiles/CMakeOutput.log
+ delete mode 100644 app/.cxx/Debug/5k6b526g/armeabi-v7a/CMakeFiles/TargetDirectories.txt
+ delete mode 100644 app/.cxx/Debug/5k6b526g/armeabi-v7a/CMakeFiles/cmake.check_cache
+ delete mode 100644 app/.cxx/Debug/5k6b526g/armeabi-v7a/CMakeFiles/p4pilot_bridge.dir/openpilot_frame_bridge.cpp.o
+ delete mode 100644 app/.cxx/Debug/5k6b526g/armeabi-v7a/CMakeFiles/rules.ninja
+ delete mode 100644 app/.cxx/Debug/5k6b526g/armeabi-v7a/additional_project_files.txt
+ delete mode 100644 app/.cxx/Debug/5k6b526g/armeabi-v7a/android_gradle_build.json
+ delete mode 100644 app/.cxx/Debug/5k6b526g/armeabi-v7a/android_gradle_build_mini.json
+ delete mode 100644 app/.cxx/Debug/5k6b526g/armeabi-v7a/build.ninja
+ delete mode 100644 app/.cxx/Debug/5k6b526g/armeabi-v7a/build_file_index.txt
+ delete mode 100644 app/.cxx/Debug/5k6b526g/armeabi-v7a/cmake_install.cmake
+ delete mode 100644 app/.cxx/Debug/5k6b526g/armeabi-v7a/compile_commands.json
+ delete mode 100644 app/.cxx/Debug/5k6b526g/armeabi-v7a/compile_commands.json.bin
+ delete mode 100644 app/.cxx/Debug/5k6b526g/armeabi-v7a/configure_fingerprint.bin
+ delete mode 100644 app/.cxx/Debug/5k6b526g/armeabi-v7a/metadata_generation_command.txt
+ delete mode 100644 app/.cxx/Debug/5k6b526g/armeabi-v7a/prefab_config.json
+ delete mode 100644 app/.cxx/Debug/5k6b526g/armeabi-v7a/symbol_folder_index.txt
+ delete mode 100644 app/.cxx/Debug/5k6b526g/hash_key.txt
+ delete mode 100644 app/.cxx/Debug/5k6b526g/x86/.cmake/api/v1/query/client-agp/cache-v2
+ delete mode 100644 app/.cxx/Debug/5k6b526g/x86/.cmake/api/v1/query/client-agp/cmakeFiles-v1
+ delete mode 100644 app/.cxx/Debug/5k6b526g/x86/.cmake/api/v1/query/client-agp/codemodel-v2
+ delete mode 100644 app/.cxx/Debug/5k6b526g/x86/.cmake/api/v1/reply/cache-v2-cd0de9b075ca589b7953.json
+ delete mode 100644 app/.cxx/Debug/5k6b526g/x86/.cmake/api/v1/reply/cmakeFiles-v1-bd137764972282f319c4.json
+ delete mode 100644 app/.cxx/Debug/5k6b526g/x86/.cmake/api/v1/reply/codemodel-v2-ddf7e9075de4fe88cada.json
+ delete mode 100644 app/.cxx/Debug/5k6b526g/x86/.cmake/api/v1/reply/directory-.-Debug-f5ebdc15457944623624.json
+ delete mode 100644 app/.cxx/Debug/5k6b526g/x86/.cmake/api/v1/reply/index-2026-09-09T01-36-29-0036.json
+ delete mode 100644 app/.cxx/Debug/5k6b526g/x86/.cmake/api/v1/reply/target-p4pilot_bridge-Debug-92775b981cbba8219e27.json
+ delete mode 100644 app/.cxx/Debug/5k6b526g/x86/.ninja_deps
+ delete mode 100644 app/.cxx/Debug/5k6b526g/x86/.ninja_log
+ delete mode 100644 app/.cxx/Debug/5k6b526g/x86/CMakeCache.txt
+ delete mode 100644 app/.cxx/Debug/5k6b526g/x86/CMakeFiles/3.22.1-g37088a8/CMakeCCompiler.cmake
+ delete mode 100644 app/.cxx/Debug/5k6b526g/x86/CMakeFiles/3.22.1-g37088a8/CMakeCXXCompiler.cmake
+ delete mode 100755 app/.cxx/Debug/5k6b526g/x86/CMakeFiles/3.22.1-g37088a8/CMakeDetermineCompilerABI_C.bin
+ delete mode 100755 app/.cxx/Debug/5k6b526g/x86/CMakeFiles/3.22.1-g37088a8/CMakeDetermineCompilerABI_CXX.bin
+ delete mode 100644 app/.cxx/Debug/5k6b526g/x86/CMakeFiles/3.22.1-g37088a8/CMakeSystem.cmake
+ delete mode 100644 app/.cxx/Debug/5k6b526g/x86/CMakeFiles/3.22.1-g37088a8/CompilerIdC/CMakeCCompilerId.c
+ delete mode 100644 app/.cxx/Debug/5k6b526g/x86/CMakeFiles/3.22.1-g37088a8/CompilerIdC/CMakeCCompilerId.o
+ delete mode 100644 app/.cxx/Debug/5k6b526g/x86/CMakeFiles/3.22.1-g37088a8/CompilerIdCXX/CMakeCXXCompilerId.cpp
+ delete mode 100644 app/.cxx/Debug/5k6b526g/x86/CMakeFiles/3.22.1-g37088a8/CompilerIdCXX/CMakeCXXCompilerId.o
+ delete mode 100644 app/.cxx/Debug/5k6b526g/x86/CMakeFiles/CMakeOutput.log
+ delete mode 100644 app/.cxx/Debug/5k6b526g/x86/CMakeFiles/TargetDirectories.txt
+ delete mode 100644 app/.cxx/Debug/5k6b526g/x86/CMakeFiles/cmake.check_cache
+ delete mode 100644 app/.cxx/Debug/5k6b526g/x86/CMakeFiles/p4pilot_bridge.dir/openpilot_frame_bridge.cpp.o
+ delete mode 100644 app/.cxx/Debug/5k6b526g/x86/CMakeFiles/rules.ninja
+ delete mode 100644 app/.cxx/Debug/5k6b526g/x86/additional_project_files.txt
+ delete mode 100644 app/.cxx/Debug/5k6b526g/x86/android_gradle_build.json
+ delete mode 100644 app/.cxx/Debug/5k6b526g/x86/android_gradle_build_mini.json
+ delete mode 100644 app/.cxx/Debug/5k6b526g/x86/build.ninja
+ delete mode 100644 app/.cxx/Debug/5k6b526g/x86/build_file_index.txt
+ delete mode 100644 app/.cxx/Debug/5k6b526g/x86/cmake_install.cmake
+ delete mode 100644 app/.cxx/Debug/5k6b526g/x86/compile_commands.json
+ delete mode 100644 app/.cxx/Debug/5k6b526g/x86/compile_commands.json.bin
+ delete mode 100644 app/.cxx/Debug/5k6b526g/x86/configure_fingerprint.bin
+ delete mode 100644 app/.cxx/Debug/5k6b526g/x86/metadata_generation_command.txt
+ delete mode 100644 app/.cxx/Debug/5k6b526g/x86/prefab_config.json
+ delete mode 100644 app/.cxx/Debug/5k6b526g/x86/symbol_folder_index.txt
+ delete mode 100644 app/.cxx/Debug/5k6b526g/x86_64/.cmake/api/v1/query/client-agp/cache-v2
+ delete mode 100644 app/.cxx/Debug/5k6b526g/x86_64/.cmake/api/v1/query/client-agp/cmakeFiles-v1
+ delete mode 100644 app/.cxx/Debug/5k6b526g/x86_64/.cmake/api/v1/query/client-agp/codemodel-v2
+ delete mode 100644 app/.cxx/Debug/5k6b526g/x86_64/.cmake/api/v1/reply/cache-v2-da5d5deae2528f02e277.json
+ delete mode 100644 app/.cxx/Debug/5k6b526g/x86_64/.cmake/api/v1/reply/cmakeFiles-v1-0cab720893f18a160f7e.json
+ delete mode 100644 app/.cxx/Debug/5k6b526g/x86_64/.cmake/api/v1/reply/codemodel-v2-6df52188916c7beb3dc8.json
+ delete mode 100644 app/.cxx/Debug/5k6b526g/x86_64/.cmake/api/v1/reply/directory-.-Debug-f5ebdc15457944623624.json
+ delete mode 100644 app/.cxx/Debug/5k6b526g/x86_64/.cmake/api/v1/reply/index-2026-09-09T01-36-32-0369.json
+ delete mode 100644 app/.cxx/Debug/5k6b526g/x86_64/.cmake/api/v1/reply/target-p4pilot_bridge-Debug-7edbb88d51098d94e84a.json
+ delete mode 100644 app/.cxx/Debug/5k6b526g/x86_64/.ninja_deps
+ delete mode 100644 app/.cxx/Debug/5k6b526g/x86_64/.ninja_log
+ delete mode 100644 app/.cxx/Debug/5k6b526g/x86_64/CMakeCache.txt
+ delete mode 100644 app/.cxx/Debug/5k6b526g/x86_64/CMakeFiles/3.22.1-g37088a8/CMakeCCompiler.cmake
+ delete mode 100644 app/.cxx/Debug/5k6b526g/x86_64/CMakeFiles/3.22.1-g37088a8/CMakeCXXCompiler.cmake
+ delete mode 100755 app/.cxx/Debug/5k6b526g/x86_64/CMakeFiles/3.22.1-g37088a8/CMakeDetermineCompilerABI_C.bin
+ delete mode 100755 app/.cxx/Debug/5k6b526g/x86_64/CMakeFiles/3.22.1-g37088a8/CMakeDetermineCompilerABI_CXX.bin
+ delete mode 100644 app/.cxx/Debug/5k6b526g/x86_64/CMakeFiles/3.22.1-g37088a8/CMakeSystem.cmake
+ delete mode 100644 app/.cxx/Debug/5k6b526g/x86_64/CMakeFiles/3.22.1-g37088a8/CompilerIdC/CMakeCCompilerId.c
+ delete mode 100644 app/.cxx/Debug/5k6b526g/x86_64/CMakeFiles/3.22.1-g37088a8/CompilerIdC/CMakeCCompilerId.o
+ delete mode 100644 app/.cxx/Debug/5k6b526g/x86_64/CMakeFiles/3.22.1-g37088a8/CompilerIdCXX/CMakeCXXCompilerId.cpp
+ delete mode 100644 app/.cxx/Debug/5k6b526g/x86_64/CMakeFiles/3.22.1-g37088a8/CompilerIdCXX/CMakeCXXCompilerId.o
+ delete mode 100644 app/.cxx/Debug/5k6b526g/x86_64/CMakeFiles/CMakeOutput.log
+ delete mode 100644 app/.cxx/Debug/5k6b526g/x86_64/CMakeFiles/TargetDirectories.txt
+ delete mode 100644 app/.cxx/Debug/5k6b526g/x86_64/CMakeFiles/cmake.check_cache
+ delete mode 100644 app/.cxx/Debug/5k6b526g/x86_64/CMakeFiles/p4pilot_bridge.dir/openpilot_frame_bridge.cpp.o
+ delete mode 100644 app/.cxx/Debug/5k6b526g/x86_64/CMakeFiles/rules.ninja
+ delete mode 100644 app/.cxx/Debug/5k6b526g/x86_64/additional_project_files.txt
+ delete mode 100644 app/.cxx/Debug/5k6b526g/x86_64/android_gradle_build.json
+ delete mode 100644 app/.cxx/Debug/5k6b526g/x86_64/android_gradle_build_mini.json
+ delete mode 100644 app/.cxx/Debug/5k6b526g/x86_64/build.ninja
+ delete mode 100644 app/.cxx/Debug/5k6b526g/x86_64/build_file_index.txt
+ delete mode 100644 app/.cxx/Debug/5k6b526g/x86_64/cmake_install.cmake
+ delete mode 100644 app/.cxx/Debug/5k6b526g/x86_64/compile_commands.json
+ delete mode 100644 app/.cxx/Debug/5k6b526g/x86_64/compile_commands.json.bin
+ delete mode 100644 app/.cxx/Debug/5k6b526g/x86_64/configure_fingerprint.bin
+ delete mode 100644 app/.cxx/Debug/5k6b526g/x86_64/metadata_generation_command.txt
+ delete mode 100644 app/.cxx/Debug/5k6b526g/x86_64/prefab_config.json
+ delete mode 100644 app/.cxx/Debug/5k6b526g/x86_64/symbol_folder_index.txt
+ delete mode 100644 app/.cxx/tools/debug/arm64-v8a/compile_commands.json
+ delete mode 100644 app/.cxx/tools/debug/armeabi-v7a/compile_commands.json
+ delete mode 100644 app/.cxx/tools/debug/x86/compile_commands.json
+ delete mode 100644 app/.cxx/tools/debug/x86_64/compile_commands.json
+To https://github.com/jingyao1997-bit/p4pilot.git
+   c4805f1..a3713be  HEAD -> main
+来自 https://github.com/jingyao1997-bit/p4pilot
+ * branch            main       -> FETCH_HEAD
+
+LOCAL       : a3713be6735b7b51ae6583d4f74d6a8e96f157b5
+origin/main : a3713be6735b7b51ae6583d4f74d6a8e96f157b5
+REAL REMOTE : a3713be6735b7b51ae6583d4f74d6a8e96f157b5
+RESULT_SYNC=PASS
+Step61-REPO-CLEANUP COMPLETE
+OLD_OPENPILOT_VISIONIPC_PATH_COUNT=1
+STEP61_OPENPILOT_PATH_REPAIR=PASS
+
+============================================================
+P4Pilot Step61-VISIONIPC-ANDROID-1
+Goal: real openpilot VisionIPC server + Android adaptation
+DATE=2026-09-09 10:08:42
+============================================================
+
+>>> Git baseline
+来自 https://github.com/jingyao1997-bit/p4pilot
+ * branch            main       -> FETCH_HEAD
+LOCAL_BASE=a3713be6735b7b51ae6583d4f74d6a8e96f157b5
+origin/main=a3713be6735b7b51ae6583d4f74d6a8e96f157b5
+REAL_REMOTE=a3713be6735b7b51ae6583d4f74d6a8e96f157b5
+
+>>> Step60 precheck
+STEP60_PRECHECK=PASS
+
+>>> Resolve current openpilot/msgq versions
+正克隆到 '/tmp/p4pilot_step61.jlVIgv/openpilot'...
+OPENPILOT_SHA=a4a24d5d87a90f01f69665da623d4e027b923edb
+OPENPILOT_MSGQ_SHA=0e266c1dbcf7328beee3e57b4a8688555387c877
+NARROW_STREAM_VALUE=0
+
+>>> Fetch pinned commaai/msgq
+正克隆到 '/tmp/p4pilot_step61.jlVIgv/msgq'...
+HEAD 目前位于 0e266c1 Remove camera knowledge from visionipc (#701)
+ACTUAL_MSGQ_SHA=0e266c1dbcf7328beee3e57b4a8688555387c877
+
+>>> Vendor pinned msgq source
+VENDOR_STATUS=CREATED
+
+>>> Verify pinned VisionIPC API
+UPSTREAM_API_STATUS=PASS
+
+>>> Apply Android msgq/VisionIPC path adaptation
+MSGQ_PATH_PATCH_COUNT=1
+VIPC_SOCKET_PATCH_COUNT=1
+ANDROID_PATH_PATCH=PASS
+STEP60_CONSUMER_FIELD_COUNT=1
+ONCREATE_SUPER_COUNT=1
+JAVA_IPC_DIR_PATCH=PASS
+
+>>> Source sanity
+PIN_FILE_COUNT=1
+NARROW_PIN_COUNT=1
+ASHARED_COUNT=1
+IPC_ENV_MSGQ_COUNT=1
+IPC_ENV_SERVER_COUNT=1
+SERVER_CLASS_COUNT=2
+CLIENT_CLASS_COUNT=2
+SERVER_MARKER_COUNT=1
+SEND_MARKER_COUNT=1
+CLIENT_MARKER_COUNT=1
+CACHE_CONSTRUCTOR_COUNT=1
+NV12_METHOD_COUNT=2
+BACKPRESSURE_COUNT=1
+SOURCE_STATUS=PASS
+
+>>> Build real VisionIPC Android library
+
+> Task :app:externalNativeBuildCleanDebug
+Clean p4pilot_bridge-armeabi-v7a
+Clean p4pilot_bridge-arm64-v8a
+Clean p4pilot_bridge-x86
+Clean p4pilot_bridge-x86_64
+
+> Task :app:externalNativeBuildCleanRelease
+> Task :app:clean
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preDebugBuild UP-TO-DATE
+> Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
+> Task :app:javaPreCompileDebug
+> Task :app:checkDebugAarMetadata
+> Task :app:processDebugNavigationResources
+> Task :app:compileDebugNavigationResources
+> Task :app:generateDebugResValues
+> Task :app:mapDebugSourceSetPaths
+> Task :app:generateDebugResources
+> Task :app:mergeDebugResources
+> Task :app:packageDebugResources
+> Task :app:createDebugCompatibleScreenManifests
+> Task :app:extractDeepLinksDebug
+> Task :app:parseDebugLocalResources
+> Task :app:processDebugMainManifest
+> Task :app:processDebugManifest
+> Task :app:mergeDebugShaders
+> Task :app:compileDebugShaders NO-SOURCE
+> Task :app:generateDebugAssets UP-TO-DATE
+> Task :app:mergeDebugAssets
+> Task :app:compressDebugAssets
+> Task :app:processDebugJavaRes NO-SOURCE
+> Task :app:processDebugManifestForPackage
+> Task :app:mergeDebugJavaResource
+> Task :app:checkDebugDuplicateClasses
+> Task :app:desugarDebugFileDependencies
+> Task :app:mergeExtDexDebug
+> Task :app:mergeLibDexDebug
+> Task :app:configureCMakeDebug[arm64-v8a]
+> Task :app:processDebugResources
+
+> Task :app:buildCMakeDebug[arm64-v8a]
+C/C++: ninja: Entering directory `/Users/luojingyao/p4pilot/app/.cxx/Debug/5k6b526g/arm64-v8a'
+C/C++: /usr/local/share/android-commandlinetools/ndk/27.0.12077973/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang++ --target=aarch64-none-linux-android26 --sysroot=/usr/local/share/android-commandlinetools/ndk/27.0.12077973/toolchains/llvm/prebuilt/darwin-x86_64/sysroot -Dp4pilot_bridge_EXPORTS -I/Users/luojingyao/p4pilot/app/src/main/cpp/third_party/msgq_upstream -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -fno-limit-debug-info  -fPIC -Wno-vla-cxx-extension -MD -MT CMakeFiles/p4pilot_bridge.dir/third_party/msgq_upstream/msgq/event.cc.o -MF CMakeFiles/p4pilot_bridge.dir/third_party/msgq_upstream/msgq/event.cc.o.d -o CMakeFiles/p4pilot_bridge.dir/third_party/msgq_upstream/msgq/event.cc.o -c /Users/luojingyao/p4pilot/app/src/main/cpp/third_party/msgq_upstream/msgq/event.cc
+C/C++: /Users/luojingyao/p4pilot/app/src/main/cpp/third_party/msgq_upstream/msgq/event.cc:72:16: error: use of undeclared identifier 'shm_open'
+C/C++:    72 |   int shm_fd = shm_open(name.c_str(), O_RDWR | O_CREAT, 0664);
+C/C++:       |                ^
+C/C++: /Users/luojingyao/p4pilot/app/src/main/cpp/third_party/msgq_upstream/msgq/event.cc:130:5: error: use of undeclared identifier 'shm_unlink'
+C/C++:   130 |     shm_unlink(this->shm_name.c_str());
+C/C++:       |     ^
+C/C++: 2 errors generated.
+C/C++: /Users/luojingyao/p4pilot/app/src/main/cpp/third_party/msgq_upstream/msgq/msgq.cc:93:30: warning: null character(s) preserved in char literal [-Wnull-character]
+C/C++:    93 |       p4pilot_ipc_dir[0] == '<U+0000>') {
+C/C++:       |                              ^
+C/C++: 1 warning generated.
+C/C++: /Users/luojingyao/p4pilot/app/src/main/cpp/third_party/msgq_upstream/msgq/visionipc/visionipc_server.cc:28:30: warning: null character(s) preserved in char literal [-Wnull-character]
+C/C++:    28 |       p4pilot_ipc_dir[0] != '<U+0000>'
+C/C++:       |                              ^
+C/C++: 1 warning generated.
+
+> Task :app:buildCMakeDebug[arm64-v8a] FAILED
+
+[Incubating] Problems report is available at: file:///Users/luojingyao/p4pilot/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':app:buildCMakeDebug[arm64-v8a]'.
+> com.android.ide.common.process.ProcessException: ninja: Entering directory `/Users/luojingyao/p4pilot/app/.cxx/Debug/5k6b526g/arm64-v8a'
+  [1/11] Building CXX object CMakeFiles/p4pilot_bridge.dir/third_party/msgq_upstream/msgq/visionipc/visionipc.cc.o
+  [2/11] Building CXX object CMakeFiles/p4pilot_bridge.dir/third_party/msgq_upstream/msgq/event.cc.o
+  FAILED: CMakeFiles/p4pilot_bridge.dir/third_party/msgq_upstream/msgq/event.cc.o 
+  /usr/local/share/android-commandlinetools/ndk/27.0.12077973/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang++ --target=aarch64-none-linux-android26 --sysroot=/usr/local/share/android-commandlinetools/ndk/27.0.12077973/toolchains/llvm/prebuilt/darwin-x86_64/sysroot -Dp4pilot_bridge_EXPORTS -I/Users/luojingyao/p4pilot/app/src/main/cpp/third_party/msgq_upstream -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -fno-limit-debug-info  -fPIC -Wno-vla-cxx-extension -MD -MT CMakeFiles/p4pilot_bridge.dir/third_party/msgq_upstream/msgq/event.cc.o -MF CMakeFiles/p4pilot_bridge.dir/third_party/msgq_upstream/msgq/event.cc.o.d -o CMakeFiles/p4pilot_bridge.dir/third_party/msgq_upstream/msgq/event.cc.o -c /Users/luojingyao/p4pilot/app/src/main/cpp/third_party/msgq_upstream/msgq/event.cc
+  /Users/luojingyao/p4pilot/app/src/main/cpp/third_party/msgq_upstream/msgq/event.cc:72:16: error: use of undeclared identifier 'shm_open'
+     72 |   int shm_fd = shm_open(name.c_str(), O_RDWR | O_CREAT, 0664);
+        |                ^
+  /Users/luojingyao/p4pilot/app/src/main/cpp/third_party/msgq_upstream/msgq/event.cc:130:5: error: use of undeclared identifier 'shm_unlink'
+    130 |     shm_unlink(this->shm_name.c_str());
+        |     ^
+  2 errors generated.
+  [3/11] Building CXX object CMakeFiles/p4pilot_bridge.dir/third_party/msgq_upstream/msgq/impl_msgq.cc.o
+  [4/11] Building CXX object CMakeFiles/p4pilot_bridge.dir/third_party/msgq_upstream/msgq/ipc.cc.o
+  [5/11] Building CXX object CMakeFiles/p4pilot_bridge.dir/third_party/msgq_upstream/msgq/impl_fake.cc.o
+  [6/11] Building CXX object CMakeFiles/p4pilot_bridge.dir/third_party/msgq_upstream/msgq/msgq.cc.o
+  /Users/luojingyao/p4pilot/app/src/main/cpp/third_party/msgq_upstream/msgq/msgq.cc:93:30: warning: null character(s) preserved in char literal [-Wnull-character]
+     93 |       p4pilot_ipc_dir[0] == '<U+0000>') {
+        |                              ^
+  1 warning generated.
+  [7/11] Building CXX object CMakeFiles/p4pilot_bridge.dir/openpilot_frame_bridge.cpp.o
+  [8/11] Building CXX object CMakeFiles/p4pilot_bridge.dir/third_party/msgq_upstream/msgq/visionipc/visionipc_client.cc.o
+  [9/11] Building CXX object CMakeFiles/p4pilot_bridge.dir/third_party/msgq_upstream/msgq/visionipc/visionipc_server.cc.o
+  /Users/luojingyao/p4pilot/app/src/main/cpp/third_party/msgq_upstream/msgq/visionipc/visionipc_server.cc:28:30: warning: null character(s) preserved in char literal [-Wnull-character]
+     28 |       p4pilot_ipc_dir[0] != '<U+0000>'
+        |                              ^
+  1 warning generated.
+  ninja: build stopped: subcommand failed.
+  
+  C++ build system [build] failed while executing:
+      /usr/local/share/android-commandlinetools/cmake/3.22.1/bin/ninja \
+        -C \
+        /Users/luojingyao/p4pilot/app/.cxx/Debug/5k6b526g/arm64-v8a \
+        p4pilot_bridge
+    from /Users/luojingyao/p4pilot/app
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.13/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD FAILED in 10s
+29 actionable tasks: 29 executed
+FAIL: VisionIPC native build failed
+
+Step61-VISIONIPC-ANDROID-1 TEST_STATUS=FAIL
+
+>>> Restore Step60 source after failure
+
+>>> Commit result
