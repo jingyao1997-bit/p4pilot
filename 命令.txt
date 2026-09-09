@@ -27964,3 +27964,69 @@ Step62-CAMERA-TIMING-1 TEST_STATUS=FAIL
 >>> Restore Step61 source
 
 >>> Commit
+[main c844b9b] test: record Step62 camera timing failure
+ 1 file changed, 79 insertions(+)
+
+>>> Push
+To https://github.com/jingyao1997-bit/p4pilot.git
+   85d1b74..c844b9b  HEAD -> main
+来自 https://github.com/jingyao1997-bit/p4pilot
+ * branch            main       -> FETCH_HEAD
+LOCAL       : c844b9b8996812e977b81c87e0b7d7eb262b2efc
+origin/main : c844b9b8996812e977b81c87e0b7d7eb262b2efc
+REAL REMOTE : c844b9b8996812e977b81c87e0b7d7eb262b2efc
+RESULT_SYNC=PASS
+Step62-CAMERA-TIMING-1 COMPLETE
+
+============================================================
+P4Pilot Step62-DIAG-1
+Goal: inspect actual repeating-request source shape
+DATE=2026-09-09 13:39:53
+============================================================
+来自 https://github.com/jingyao1997-bit/p4pilot
+ * branch            main       -> FETCH_HEAD
+
+>>> setRepeatingRequest context
+584-                                        new CameraCaptureSession
+585-                                                .StateCallback() {
+586-
+587-                                            @Override
+588-                                            public void onConfigured(
+589-                                                    CameraCaptureSession s) {
+590-
+591-                                                session = s;
+592-
+593-                                                try {
+594-
+595-                                                    session
+596:                                                            .setRepeatingRequest(
+597-                                                                    request
+598-                                                                            .build(),
+599-                                                                    null,
+600-                                                                    cameraHandler
+601-                                                            );
+602-
+603-                                                } catch (Exception e) {
+604-                                                    e.printStackTrace();
+605-                                                }
+606-                                            }
+607-
+608-                                            @Override
+609-                                            public void onConfigureFailed(
+610-                                                    CameraCaptureSession s) {
+611-
+612-                                                runOnUiThread(() ->
+613-                                                        tv.setText(
+614-                                                                "ERROR: " +
+
+>>> All capture-session repeating references
+44:    private Handler cameraHandler;
+89:        cameraHandler = new Handler(
+555:                    cameraHandler
+596:                                                            .setRepeatingRequest(
+600:                                                                    cameraHandler
+620:                                        cameraHandler
+661:                    cameraHandler
+849:                cameraHandler = null;
+
+Step62-DIAG-1 COMPLETE
