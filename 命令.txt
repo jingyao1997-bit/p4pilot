@@ -26751,3 +26751,182 @@ FATAL_COUNT=0
 09-09 02:28:40.065 20541 20560 I System.out: P4Pilot Step59 NV12_OK bytes=1382400 y0=57 u0=113 v0=138
 
 Step59-NV12-ALIGN-1 TEST_STATUS=PASS
+[main f93c4e4] refactor: align camera frames to NV12
+ 3 files changed, 299 insertions(+), 67 deletions(-)
+
+>>> Push
+To https://github.com/jingyao1997-bit/p4pilot.git
+   d66a0da..f93c4e4  HEAD -> main
+来自 https://github.com/jingyao1997-bit/p4pilot
+ * branch            main       -> FETCH_HEAD
+LOCAL       : f93c4e4b0cc830d0c5d5809361e4c616710ed1a0
+origin/main : f93c4e4b0cc830d0c5d5809361e4c616710ed1a0
+REAL REMOTE : f93c4e4b0cc830d0c5d5809361e4c616710ed1a0
+RESULT_SYNC=PASS
+Step59-NV12-ALIGN-1 COMPLETE
+
+============================================================
+P4Pilot Step60-OPENPILOT-NATIVE-BRIDGE-1
+Goal: hand CameraFrame NV12 from Java into native C++
+DATE=2026-09-09 09:34:35
+============================================================
+
+>>> Git baseline
+来自 https://github.com/jingyao1997-bit/p4pilot
+ * branch            main       -> FETCH_HEAD
+LOCAL_BASE=f93c4e4b0cc830d0c5d5809361e4c616710ed1a0
+origin/main=f93c4e4b0cc830d0c5d5809361e4c616710ed1a0
+REAL_REMOTE=f93c4e4b0cc830d0c5d5809361e4c616710ed1a0
+
+>>> Step59 precheck
+STEP59_PRECHECK=PASS
+
+>>> Native toolchain
+Native toolchain not installed; installing once
+WARNING: The SDK Manager CLI tool (sdkmanager) is deprecated. Use Android CLI instead.
+The 'android' binary can also be found in the cmdline-tools directory, and 'android sdk' is the replacement for 'sdkmanager'.
+To learn more about the Android CLI and how to use it, see the documentation (https://d.android.com/tools/agents/android-cli)
+
+Loading package information...                                                  Loading local repository...                                                     [                                       ] 3% Loading local repository...        [                                       ] 3% Fetch remote repository...         [=                                      ] 3% Fetch remote repository...         [=                                      ] 4% Fetch remote repository...         [=                                      ] 5% Fetch remote repository...         [==                                     ] 5% Fetch remote repository...         [==                                     ] 6% Fetch remote repository...         [==                                     ] 7% Fetch remote repository...         [==                                     ] 7% Computing updates...               [===                                    ] 8% Computing updates...               [===                                    ] 10% Computing updates...              [===                                    ] 10% Installing CMake 3.22.1           [===                                    ] 10% Downloading cmake-3.22.1-darwin.zi[====                                   ] 10% Downloading cmake-3.22.1-darwin.zi[====                                   ] 11% Downloading cmake-3.22.1-darwin.zi[====                                   ] 12% Downloading cmake-3.22.1-darwin.zi[=====                                  ] 13% Downloading cmake-3.22.1-darwin.zi[=====                                  ] 14% Downloading cmake-3.22.1-darwin.zi[=====                                  ] 15% Downloading cmake-3.22.1-darwin.zi[======                                 ] 15% Downloading cmake-3.22.1-darwin.zi[======                                 ] 16% Downloading cmake-3.22.1-darwin.zi[======                                 ] 17% Downloading cmake-3.22.1-darwin.zi[=======                                ] 18% Downloading cmake-3.22.1-darwin.zi[=======                                ] 19% Downloading cmake-3.22.1-darwin.zi[=======                                ] 20% Downloading cmake-3.22.1-darwin.zi[========                               ] 20% Downloading cmake-3.22.1-darwin.zi[========                               ] 21% Downloading cmake-3.22.1-darwin.zi[========                               ] 21% Unzipping...                      [========                               ] 21% Unzipping... bin/                 [========                               ] 21% Unzipping... bin/ccmake           [========                               ] 22% Unzipping... bin/ccmake           [=========                              ] 23% Unzipping... bin/ccmake           [=========                              ] 24% Unzipping... bin/ccmake           [=========                              ] 24% Unzipping... bin/cmake            [=========                              ] 25% Unzipping... bin/cmake            [==========                             ] 25% Unzipping... bin/cmake            [==========                             ] 26% Unzipping... bin/cmake            [==========                             ] 26% Unzipping... bin/ninja            [==========                             ] 26% Unzipping... bin/ctest            [==========                             ] 27% Unzipping... bin/ctest            [===========                            ] 28% Unzipping... bin/ctest            [===========                            ] 29% Unzipping... bin/ctest            [===========                            ] 29% Unzipping... bin/cpack            [===========                            ] 30% Unzipping... bin/cpack            [============                           ] 30% Unzipping... bin/cpack            [============                           ] 31% Unzipping... bin/cpack            [============                           ] 32% Unzipping... bin/cpack            [============                           ] 32% Unzipping... source.properties    [============                           ] 32% Unzipping... doc/                 [============                           ] 32% Unzipping... doc/cmake-3.22/      [============                           ] 32% Unzipping... doc/cmake-3.22/Copyri[============                           ] 32% Unzipping... doc/cmake-3.22/cmzlib[============                           ] 32% Unzipping... doc/cmake-3.22/cmlibl[============                           ] 32% Unzipping... doc/cmake-3.22/cmnght[============                           ] 32% Unzipping... doc/cmake-3.22/cmlibu[============                           ] 32% Unzipping... doc/cmake-3.22/cmlibr[============                           ] 32% Unzipping... doc/cmake-3.22/cmsys/[============                           ] 32% Unzipping... doc/cmake-3.22/cmcurl[============                           ] 32% Unzipping... doc/cmake-3.22/cmliba[============                           ] 32% Unzipping... doc/cmake-3.22/cmzstd[============                           ] 32% Unzipping... doc/ninja/           [============                           ] 32% Unzipping... doc/ninja/LICENSE    [============                           ] 32% Unzipping... share/               [============                           ] 32% Unzipping... share/vim/           [============                           ] 32% Unzipping... share/vim/vimfiles/  [============                           ] 32% Unzipping... share/vim/vimfiles/in[============                           ] 32% Unzipping... share/vim/vimfiles/sy[============                           ] 32% Unzipping... share/aclocal/       [============                           ] 32% Unzipping... share/aclocal/cmake.m[============                           ] 32% Unzipping... share/cmake-3.22/    [============                           ] 32% Unzipping... share/cmake-3.22/incl[============                           ] 32% Unzipping... share/cmake-3.22/Temp[============                           ] 32% Unzipping... share/cmake-3.22/Modu[============                           ] 32% Unzipping... share/cmake-3.22/Help[============                           ] 32% Unzipping... share/emacs/         [============                           ] 32% Unzipping... share/emacs/site-lisp[============                           ] 32% Unzipping... share/bash-completion[=============                          ] 33% Unzipping... share/bash-completion[=====================                  ] 55% Unzipping... share/bash-completion[=====================                  ] 55% Installing NDK (Side by side) 26.3[=====================                  ] 55% Downloading android-ndk-r26d-darwi[======================                 ] 55% Downloading android-ndk-r26d-darwi[======================                 ] 56% Downloading android-ndk-r26d-darwi[======================                 ] 57% Downloading android-ndk-r26d-darwi[=======================                ] 58% Downloading android-ndk-r26d-darwi[=======================                ] 59% Downloading android-ndk-r26d-darwi[=======================                ] 60% Downloading android-ndk-r26d-darwi[========================               ] 60% Downloading android-ndk-r26d-darwi[========================               ] 61% Downloading android-ndk-r26d-darwi[========================               ] 62% Downloading android-ndk-r26d-darwi[=========================              ] 63% Downloading android-ndk-r26d-darwi[=========================              ] 64% Downloading android-ndk-r26d-darwi[=========================              ] 65% Downloading android-ndk-r26d-darwi[==========================             ] 65% Downloading android-ndk-r26d-darwi[==========================             ] 66% Downloading android-ndk-r26d-darwi[==========================             ] 66% Unzipping... share/bash-completion[==========================             ] 66% Unzipping... android-ndk-r26d/    [==========================             ] 66% Unzipping... android-ndk-r26d/simp[==========================             ] 66% Unzipping... android-ndk-r26d/ndk-[==========================             ] 66% Unzipping... android-ndk-r26d/wrap[==========================             ] 66% Unzipping... android-ndk-r26d/meta[==========================             ] 66% Unzipping... android-ndk-r26d/pyth[==========================             ] 66% Unzipping... android-ndk-r26d/sour[==========================             ] 66% Unzipping... android-ndk-r26d/preb[==========================             ] 67% Unzipping... android-ndk-r26d/preb[==========================             ] 67% Unzipping... android-ndk-r26d/READ[==========================             ] 67% Unzipping... android-ndk-r26d/sour[==========================             ] 67% Unzipping... android-ndk-r26d/buil[==========================             ] 67% Unzipping... android-ndk-r26d/ndk-[==========================             ] 67% Unzipping... android-ndk-r26d/NOTI[==========================             ] 67% Unzipping... android-ndk-r26d/CHAN[==========================             ] 67% Unzipping... android-ndk-r26d/ndk-[==========================             ] 67% Unzipping... android-ndk-r26d/tool[===========================            ] 68% Unzipping... android-ndk-r26d/tool[===========================            ] 69% Unzipping... android-ndk-r26d/tool[===========================            ] 70% Unzipping... android-ndk-r26d/tool[============================           ] 70% Unzipping... android-ndk-r26d/tool[============================           ] 71% Unzipping... android-ndk-r26d/tool[============================           ] 72% Unzipping... android-ndk-r26d/tool[=============================          ] 73% Unzipping... android-ndk-r26d/tool[=============================          ] 74% Unzipping... android-ndk-r26d/tool[=============================          ] 75% Unzipping... android-ndk-r26d/tool[==============================         ] 75% Unzipping... android-ndk-r26d/tool[==============================         ] 76% Unzipping... android-ndk-r26d/tool[==============================         ] 77% Unzipping... android-ndk-r26d/tool[==============================         ] 77% Unzipping... android-ndk-r26d/shad[==============================         ] 78% Unzipping... android-ndk-r26d/shad[=======================================] 100% Unzipping... android-ndk-r26d/sha
+
+NDK_FOUND=/usr/local/share/android-commandlinetools/ndk/26.3.11579264
+CMAKE_FOUND=/usr/local/share/android-commandlinetools/cmake/3.22.1
+
+>>> Create Openpilot native bridge
+OLD_CONSUMER_BLOCK_COUNT=1
+ANDROID_BLOCK_COUNT=1
+GRADLE_NATIVE_BLOCK=ADDED
+STEP60_NATIVE_PATCH=APPLIED
+
+>>> Source sanity
+NATIVE_CONSUMER_COUNT=1
+JAVA_NATIVE_COUNT=2
+CPP_JNI_COUNT=1
+CPP_MARKER_COUNT=1
+CMAKE_LIB_COUNT=4
+NV12_METHOD_COUNT=2
+BACKPRESSURE_COUNT=1
+SOURCE_STATUS=PASS
+
+>>> Build Java + native
+
+> Configure project :app
+Checking the license for package NDK (Side by side) 27.0.12077973 in /usr/local/share/android-commandlinetools/licenses
+License for package NDK (Side by side) 27.0.12077973 accepted.
+Preparing "Install NDK (Side by side) 27.0.12077973 v.27.0.12077973".
+"Install NDK (Side by side) 27.0.12077973 v.27.0.12077973" ready.
+Installing NDK (Side by side) 27.0.12077973 in /usr/local/share/android-commandlinetools/ndk/27.0.12077973
+"Install NDK (Side by side) 27.0.12077973 v.27.0.12077973" complete.
+"Install NDK (Side by side) 27.0.12077973 v.27.0.12077973" finished.
+
+> Task :app:externalNativeBuildCleanDebug
+> Task :app:externalNativeBuildCleanRelease
+> Task :app:clean
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preDebugBuild UP-TO-DATE
+> Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
+> Task :app:javaPreCompileDebug
+> Task :app:checkDebugAarMetadata
+> Task :app:processDebugNavigationResources
+> Task :app:generateDebugResValues
+> Task :app:compileDebugNavigationResources
+> Task :app:mapDebugSourceSetPaths
+> Task :app:generateDebugResources
+> Task :app:mergeDebugResources
+> Task :app:packageDebugResources
+> Task :app:createDebugCompatibleScreenManifests
+> Task :app:extractDeepLinksDebug
+> Task :app:parseDebugLocalResources
+> Task :app:processDebugMainManifest
+> Task :app:processDebugManifest
+> Task :app:mergeDebugShaders
+> Task :app:compileDebugShaders NO-SOURCE
+> Task :app:generateDebugAssets UP-TO-DATE
+> Task :app:mergeDebugAssets
+> Task :app:compressDebugAssets
+> Task :app:processDebugJavaRes NO-SOURCE
+> Task :app:processDebugManifestForPackage
+> Task :app:mergeDebugJavaResource
+> Task :app:checkDebugDuplicateClasses
+> Task :app:desugarDebugFileDependencies
+> Task :app:mergeExtDexDebug
+> Task :app:mergeLibDexDebug
+> Task :app:processDebugResources
+> Task :app:configureCMakeDebug[arm64-v8a]
+
+> Task :app:compileDebugJavaWithJavac
+注: /Users/luojingyao/p4pilot/app/src/main/java/com/p4pilot/MainActivity.java使用或覆盖了已过时的 API。
+注: 有关详细信息, 请使用 -Xlint:deprecation 重新编译。
+
+> Task :app:dexBuilderDebug
+> Task :app:mergeProjectDexDebug
+> Task :app:buildCMakeDebug[arm64-v8a]
+> Task :app:configureCMakeDebug[armeabi-v7a]
+> Task :app:buildCMakeDebug[armeabi-v7a]
+> Task :app:configureCMakeDebug[x86]
+> Task :app:buildCMakeDebug[x86]
+> Task :app:configureCMakeDebug[x86_64]
+> Task :app:buildCMakeDebug[x86_64]
+> Task :app:mergeDebugJniLibFolders
+> Task :app:validateSigningDebug
+> Task :app:writeDebugAppMetadata
+> Task :app:writeDebugSigningConfigVersions
+> Task :app:mergeDebugNativeLibs
+> Task :app:stripDebugDebugSymbols
+> Task :app:packageDebug
+> Task :app:createDebugApkListingFileRedirect
+> Task :app:assembleDebug
+
+[Incubating] Problems report is available at: file:///Users/luojingyao/p4pilot/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.13/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 1m 11s
+46 actionable tasks: 46 executed
+BUILD=PASS
+
+>>> Device
+DEVICE_STATE=device
+Performing Streamed Install
+Success
+  bash arg: -p
+  bash arg: com.p4pilot
+  bash arg: -c
+  bash arg: android.intent.category.LAUNCHER
+  bash arg: 1
+args: [-p, com.p4pilot, -c, android.intent.category.LAUNCHER, 1]
+ arg: "-p"
+ arg: "com.p4pilot"
+ arg: "-c"
+ arg: "android.intent.category.LAUNCHER"
+ arg: "1"
+data="com.p4pilot"
+data="android.intent.category.LAUNCHER"
+Events injected: 1
+## Network stats: elapsed time=35ms (0ms mobile, 0ms wifi, 35ms not connected)
+INITIAL_PID=20990
+CHECKPOINT_SEC=10 PID=20990
+CHECKPOINT_SEC=20 PID=20990
+
+============================================================
+Step60-OPENPILOT-NATIVE-BRIDGE-1 RESULTS
+============================================================
+INITIAL_PID=20990
+FINAL_PID=20990
+NATIVE_OK_COUNT=1
+JAVA_OK_COUNT=1
+NV12_OK_COUNT=1
+PROCESSED_COUNT=627
+NATIVE_REJECT_COUNT=0
+PROCESS_ERROR_COUNT=0
+OOM_COUNT=0
+FATAL_COUNT=0
+
+>>> Native first frame
+09-09 02:36:38.657 20990 21018 I P4PilotNative: P4Pilot Step60 NATIVE_BRIDGE_OK frame=1 bytes=1382400 size=1280x720 sensorTsNs=108603421156175 y0=2 u0=128 v0=127
+
+Step60-OPENPILOT-NATIVE-BRIDGE-1 TEST_STATUS=PASS

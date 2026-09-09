@@ -3,6 +3,14 @@ plugins {
 }
 
 android {
+
+    externalNativeBuild {
+        cmake {
+            path file("src/main/cpp/CMakeLists.txt")
+        }
+    }
+
+
     namespace 'com.p4pilot'
     compileSdk 33
 

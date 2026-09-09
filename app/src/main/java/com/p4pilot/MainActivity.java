@@ -60,20 +60,7 @@ public class MainActivity extends Activity {
      * consumer boundary. Future openpilot integration attaches here.
      */
     private final CameraFrameConsumer cameraFrameConsumer =
-            frame -> {
-                if (frame.getFrameId() == 1) {
-                    System.out.println(
-                            "P4Pilot Step58 FRAME_CONSUMER_OK frame=" +
-                            frame.getFrameId() +
-                            " bytes=" +
-                            frame.getNv12().length +
-                            " sensorTsNs=" +
-                            frame.getSensorTimestampNs() +
-                            " receivedTsMs=" +
-                            frame.getReceivedTimestampMs()
-                    );
-                }
-            };
+            new OpenpilotFrameConsumer();
 
 
     @Override
